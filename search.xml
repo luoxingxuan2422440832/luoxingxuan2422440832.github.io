@@ -16,24 +16,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/04/01/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>网站导航</title>
     <url>/2022/04/02/%E7%BD%91%E7%AB%99%E5%AF%BC%E8%88%AA/</url>
     <content><![CDATA[<p>#图书馆网站导航</p>
@@ -41,9 +23,12 @@
 <li><a href="http://www.sci-hub.ren/">http://www.sci-hub.ren/</a> 全球最大的科研下载网站。web of scient\百度学术 查doi号后查找</li>
 <li><a href="https://ebook2.lorefree.com/">https://ebook2.lorefree.com/</a> 书籍需要稻壳阅读器打开，方便阅读</li>
 <li><a href="https://zh.ng1lib.org/?signAll=1&amp;ts=2156">https://zh.ng1lib.org/?signAll=1&amp;ts=2156</a> 全球最大的数字图书馆</li>
-<li><a href="http://www.ucdrs.net/admin/union/index.do">http://www.ucdrs.net/admin/union/index.do</a>  可以查到有什么书，仅试看，不下载全部</li>
 <li><a href="https://www.pdfdrive.com/">https://www.pdfdrive.com/</a> 全球最大的pdf网站，偏向英文</li>
 <li><a href="https://digilibraries.com/">https://digilibraries.com/</a> 纯英文书籍搜索网站，书籍图较多</li>
+<li><a href="http://www.ucdrs.net/admin/union/index.do">http://www.ucdrs.net/admin/union/index.do</a>  可以查到有什么书，仅试看，不下载全部</li>
+</ul>
+<p>#书籍格式转换相关工具</p>
+<ul>
 <li><a href="https://www.toplinks.cc/s/">https://www.toplinks.cc/s/</a>  需要自己下载excel，查到后在百度网盘下载</li>
 <li><a href="https://convertio.co/zh/ebook-converter/">https://convertio.co/zh/ebook-converter/</a> 文献格式转换网站</li>
 <li><a href="https://www.alltoall.net/">https://www.alltoall.net/</a> 文献格式转换网站</li>
@@ -62,20 +47,34 @@
 <li><a href="https://www.kylen314.com/">https://www.kylen314.com/</a> 一个个人网站</li>
 <li><a href="https://xydh.fun/gangshu">https://xydh.fun/gangshu</a> 个人导航</li>
 <li><a href="https://www.52pojie.cn/">https://www.52pojie.cn/</a> 吾爱破解论坛</li>
-<li>#数据分析</li>
+</ul>
+<p>#数据分析</p>
+<ul>
+<li><a href="https://www.wrd.cn/splitWords.shtml">https://www.wrd.cn/splitWords.shtml</a> 网易云微热点 文本数据挖掘</li>
 <li><a href="https://tophub.today/">https://tophub.today/</a> 每日热榜</li>
 <li><a href="https://www.desmos.com/calculator?lang=zh-CN">https://www.desmos.com/calculator?lang=zh-CN</a>  可视化数学公式</li>
 </ul>
 <p>#素材网站</p>
 <ul>
 <li><a href="https://www.dbbqb.com/search/id/250108.html">https://www.dbbqb.com/search/id/250108.html</a> 搞笑图片</li>
-<li><a href="https://hao.uisdc.com/">https://hao.uisdc.com/</a> 最大的素材导航</li>
-<li><a href="https://www.pixiv.net/">https://www.pixiv.net/</a> 最强原创二次元图片</li>
+<li><a href="https://hao.uisdc.com/">https://hao.uisdc.com/</a> 一个国内最强素材导航</li>
+<li><a href="https://www.pixiv.net/">https://www.pixiv.net/</a> 最强原创二次元图片 二次元界称P站</li>
 <li><a href="https://www.888haoran.com/category/dzszy/mhxz">https://www.888haoran.com/category/dzszy/mhxz</a> 最强原创二次元图片收集</li>
 <li><a href="https://acg.zsyts.cn/">https://acg.zsyts.cn/</a> 最强原创二次元图片收集2 次元猫</li>
 <li><a href="https://www.huashi6.com/">https://www.huashi6.com/</a> 国内二次元图片 半付费</li>
 <li><a href="https://www.doyoudo.com/resources">https://www.doyoudo.com/resources</a> 免费商用图片 涉及各种自媒体创作知识</li>
 <li><a href="https://wall.alphacoders.com/popular.php?lang=Chinese">https://wall.alphacoders.com/popular.php?lang=Chinese</a> 壁纸网站</li>
+<li><a href="https://www.iconfont.cn/home/index?spm=a313x.7781069.1998910419.2">https://www.iconfont.cn/home/index?spm=a313x.7781069.1998910419.2</a> 阿里矢量图标</li>
+<li><a href="https://cc0.cn/">https://cc0.cn/</a> 收集可免费商用图片 现实图片</li>
+<li><a href="https://unsplash.com/">https://unsplash.com/</a>  收集可免费商用图片 现实图片</li>
+<li><a href="https://www.foodiesfeed.com/">https://www.foodiesfeed.com/</a> 食物图片</li>
+<li><a href="https://www.lofter.com/">https://www.lofter.com/</a> B站知乎之类的论坛</li>
+<li><a href="https://www.thiswaifudoesnotexist.net/">https://www.thiswaifudoesnotexist.net/</a> ai老婆生成器 对抗网络图片生成</li>
+<li><a href="https://if.caiyunai.com/#/">https://if.caiyunai.com/#/</a> ai自动续写 彩云小梦</li>
+<li><a href="https://www.remove.bg/zh/upload">https://www.remove.bg/zh/upload</a> ai抠图 分离人物和背景</li>
+</ul>
+<p>##音乐相关</p>
+<ul>
 <li><a href="https://freepd.com/">https://freepd.com/</a> 声库</li>
 <li><a href="https://www.ear0.com/">https://www.ear0.com/</a> 声库2 耳聆网</li>
 <li><a href="https://www.tosound.com/">https://www.tosound.com/</a> 声库3 淘声网</li>
@@ -83,23 +82,33 @@
 <li><a href="https://mixkit.co/">https://mixkit.co/</a> 免费的视频、音乐、声效等 资源库1</li>
 <li><a href="https://www.videvo.net/">https://www.videvo.net/</a> 免费的视频、音乐、声效等 资源库2</li>
 <li><a href="https://www.videezy.com/">https://www.videezy.com/</a> 免费的视频、音乐、声效等 资源库3 这个有科研视频素材</li>
-<li><a href="https://www.iconfont.cn/home/index?spm=a313x.7781069.1998910419.2">https://www.iconfont.cn/home/index?spm=a313x.7781069.1998910419.2</a> 阿里矢量图标</li>
-<li><a href="https://cc0.cn/">https://cc0.cn/</a> 收集可免费商用图片 现实图片</li>
-<li><a href="https://unsplash.com/">https://unsplash.com/</a>  收集可免费商用图片 现实图片</li>
-<li><a href="https://www.foodiesfeed.com/">https://www.foodiesfeed.com/</a> 食物图片</li>
-<li><a href="https://www.lofter.com/">https://www.lofter.com/</a> B站知乎之类的论坛<br>##音乐制作</li>
+</ul>
+<p>##音乐制作工具</p>
+<ul>
 <li><a href="http://vocakey.info/vocaloid5_library">http://vocakey.info/vocaloid5_library</a> vocaloid5声库</li>
 <li><a href="https://vocalremover.org/ch/">https://vocalremover.org/ch/</a> 人声伴奏分离</li>
-<li><a href="https://www.lalal.ai/">https://www.lalal.ai/</a> 人声伴奏分离<br>#电影网站</li>
-<li><a href="https://v.lxl8800.cn/index.php/vod/type/id/4/page/3.html">https://v.lxl8800.cn/index.php/vod/type/id/4/page/3.html</a><br>#游戏破解</li>
+<li><a href="https://www.lalal.ai/">https://www.lalal.ai/</a> 人声伴奏分离</li>
+</ul>
+<p>#电影网站</p>
+<ul>
+<li><a href="https://v.lxl8800.cn/index.php/vod/type/id/4/page/3.html">https://v.lxl8800.cn/index.php/vod/type/id/4/page/3.html</a></li>
+</ul>
+<p>#游戏破解</p>
+<ul>
 <li><a href="https://byrut.org/">https://byrut.org/</a> 海盗湾</li>
 <li><a href="https://pc.qq.com/search.html#!keyword=360%E6%B5%8F%E8%A7%88%E5%99%A8">https://pc.qq.com/search.html#!keyword=360%E6%B5%8F%E8%A7%88%E5%99%A8</a> 腾讯软件下载中心</li>
 </ul>
 <p>#网站运营</p>
 <ul>
 <li><a href="http://www.yunyingxuetang.com/">http://www.yunyingxuetang.com/</a> 运营学堂</li>
-<li><a href="http://www.woshipm.com/">http://www.woshipm.com/</a> 人人都是产品经理<br>#生理</li>
-<li><a href="https://www.brainfacts.org/">https://www.brainfacts.org/</a> 脑部事实<br>#古代文学</li>
+<li><a href="http://www.woshipm.com/">http://www.woshipm.com/</a> 人人都是产品经理</li>
+</ul>
+<p>#生理</p>
+<ul>
+<li><a href="https://www.brainfacts.org/">https://www.brainfacts.org/</a> 脑部事实</li>
+</ul>
+<p>#古代文学</p>
+<ul>
 <li><a href="https://sou-yun.cn/">https://sou-yun.cn/</a> 搜韵</li>
 <li><a href="https://ctext.org/book-of-changes/xi-ci-xia/zhs">https://ctext.org/book-of-changes/xi-ci-xia/zhs</a> 中国哲学书</li>
 <li><a href="https://www.cidianwang.com/kangxi/jiang/jiang1404.htm">https://www.cidianwang.com/kangxi/jiang/jiang1404.htm</a> 康熙字典、说文解字、古汉语字典等</li>
@@ -131,6 +140,27 @@
 <ul>
 <li><a href="http://www.wenshu.com/">http://www.wenshu.com/</a> 一个导航 方便查询个人、企业是否有法律纠纷</li>
 </ul>
+]]></content>
+      <tags>
+        <tag>yasashii</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/04/01/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
   </entry>
 </search>
