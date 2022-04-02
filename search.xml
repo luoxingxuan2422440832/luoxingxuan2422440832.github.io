@@ -3,13 +3,16 @@
   <entry>
     <title>My New Post</title>
     <url>/2022/04/01/My-New-Post/</url>
-    <content><![CDATA[<p>#12333<br>##5616  </p>
-<ul>
-<li>4446</li>
-<li>59849</li>
-</ul>
+    <content><![CDATA[<p>#测试命令</p>
 <h2 id=""><a href="#" class="headerlink" title=""></a></h2><p><img src="https://img95.699pic.com/photo/50046/5562.jpg_wh300.jpg"></p>
-<p>##超链接<br><a href="https://699pic.com/tupian/wennuan.html">下载地址</a></p>
+<p>##超链接<br><a href="https://699pic.com/tupian/wennuan.html">下载地址</a><br>##上传命令</p>
+<ul>
+<li>hexo d<br>##本地浏览器预览</li>
+<li>hexo s<br>##生成public文件</li>
+<li>hexo g<br>##删除publig文件、</li>
+<li>hexo clean<br>##创建个人博客</li>
+<li>hexo new “今天的blog”</li>
+</ul>
 ]]></content>
   </entry>
   <entry>
