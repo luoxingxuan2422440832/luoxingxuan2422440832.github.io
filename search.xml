@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello World</title>
+    <url>/2022/04/01/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>My New Post</title>
     <url>/2022/04/01/My-New-Post/</url>
     <content><![CDATA[<p>#测试命令</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2><p><img src="https://img95.699pic.com/photo/50046/5562.jpg_wh300.jpg"></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><p><img src="https://img95.699pic.com/photo/50046/5562.jpg_wh300.jpg"><br><img src="https://article.biliimg.com/bfs/article/914b31dfcceb014227d44d4b398a0e5713098aed.png@1320w_220h.webp"></p>
 <p>##超链接<br><a href="https://699pic.com/tupian/wennuan.html">下载地址</a><br>##上传命令</p>
 <ul>
 <li>hexo d<br>##本地浏览器预览</li>
@@ -14,6 +32,80 @@
 <li>hexo new “今天的blog”</li>
 </ul>
 ]]></content>
+  </entry>
+  <entry>
+    <title>建立自己的阿里云图床</title>
+    <url>/2022/04/03/%E5%BB%BA%E7%AB%8B%E8%87%AA%E5%B7%B1%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<h1 id="图床-阿里云"><a href="#图床-阿里云" class="headerlink" title="图床 阿里云"></a>图床 阿里云</h1><h2 id="1-效果展示"><a href="#1-效果展示" class="headerlink" title="1.效果展示"></a>1.效果展示</h2><p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403083438357.png"></p>
+<p>直接拖进typora就会自动上传图片并生成云链接。</p>
+<h2 id="2-安装过程"><a href="#2-安装过程" class="headerlink" title="2.安装过程"></a>2.安装过程</h2><p>1.下载<a href="https://mp.weixin.qq.com/s?src=11&timestamp=1648946397&ver=3715&signature=YgYGFM058c2O6bgYju1S2HL7pbT82uWAZfJEeKSukOkh8QQizZPPBFNS-Uep0pVYMsPLrBlGpv2yNgYQEHBz2oh2C9DIEuYfix3SssN9tqElU42PMOuOMcGBR6Wth*hZ&new=1">typora</a>并安装。版本在0.9.86以上。</p>
+<p>手动删除文字，防链接失效。</p>
+<p><a href="https://wwm.蓝奏云lanzouq.com/iehyb02ivfxa">https://wwm.蓝奏云lanzouq.com/iehyb02ivfxa</a><br>密码:9o0b</p>
+<p>链接：https:&#x2F;&#x2F;百度网盘pan.baidu.com百度网盘&#x2F;s&#x2F;1Hqhabc70lGI51O98G5x9sA<br>提取码：7758 </p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403084759984.png"></p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085032499.png"></p>
+<h2 id="3-阿里云存储设置"><a href="#3-阿里云存储设置" class="headerlink" title="3.阿里云存储设置"></a>3.阿里云存储设置</h2><p>1.复制下面链接，访问并注册账号，并绑定实名身份</p>
+<p><a href="https://www.aliyun.com/minisite/goods?source=5176.11533457&amp;userCode=vnk7s0ek&amp;type=copy">https://www.aliyun.com/minisite/goods?source=5176.11533457&amp;userCode=vnk7s0ek&amp;type=copy</a></p>
+<p>2.点击控制台</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085557825.png"></p>
+<ol start="3">
+<li><p>选择对象存贮Oss，并开通服务。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085758392.png"></p>
+</li>
+</ol>
+<p>4.点击概览，然后点击创建bucket.</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085844013.png"></p>
+<p>5.输入创建的信息。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/v2-4664c8ef7dc6bf1b1df8259e4a57bd23_720w.jpg"></p>
+<ol start="6">
+<li>最好先买个资源包。<strong>就4.98元</strong>。先买最低的半年，后面可以随时续费。</li>
+</ol>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403090249827.png"></p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403090316204.png"></p>
+<h2 id="4-配置预设文件"><a href="#4-配置预设文件" class="headerlink" title="4.配置预设文件"></a>4.配置预设文件</h2><p>1.新建txt文件，作为临时存储，放入以下代码。<strong>下面信息都是要通过阿里云账号获取的</strong>，首先我们来找<strong>accessKeyId</strong>和<strong>accessKeySecret</strong></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;picBed&quot;: &#123;</span><br><span class="line">    &quot;uploader&quot;: &quot;aliyun&quot;,</span><br><span class="line">    &quot;aliyun&quot;: &#123;</span><br><span class="line">    &quot;accessKeyId&quot;: &quot;&quot;,</span><br><span class="line">    &quot;accessKeySecret&quot;: &quot;&quot;,</span><br><span class="line">    &quot;bucket&quot;: &quot;&quot;, // 存储空间名</span><br><span class="line">    &quot;area&quot;: &quot;&quot;, // 存储区域代号</span><br><span class="line">    &quot;path&quot;: &quot;img/&quot;, // 自定义存储路径</span><br><span class="line">     &quot;customUrl&quot;: &quot;&quot;, // 自定义域名，注意要加 http://或者 https://</span><br><span class="line">     &quot;options&quot;: &quot;&quot; // 针对图片的一些后缀处理参数 PicGo 2.2.0+ PicGo-Core 1.4.0+</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;picgoPlugins&quot;: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>鼠标悬浮在右上角头像上，并选择AccssKey管理。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091012908.png"></p>
+<p>3.选择继续使用AccessKey，并点击创建accessKey，将新建的txt文本对应内容替换。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091138227.png"></p>
+</li>
+</ol>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091221238.png"></p>
+<p>把创建好的AccessKey保存下来，记住一定不要发给陌生人。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403093927352.png"></p>
+<ol start="4">
+<li><p>回到之前的oss对象存贮，点击之前创建的bucket，在点击bucket里的概览。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091348886.png"></p>
+</li>
+<li><p>根据下面的两张图，使用自己的创建的bucket信息填充之前新建的txt。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091451767.png"></p>
+</li>
+</ol>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091520777.png"></p>
+<p>6.回到typora，依次 文件 —-&gt; 偏好设置 —–&gt; 图像，到下面的页面，选择打开配置文件。<strong>将之前的txt文本的里面的信息，复制粘贴到配置里，并ctrl+s进行保存。</strong></p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091717697.png"></p>
+<h2 id="5-检验成果"><a href="#5-检验成果" class="headerlink" title="5.检验成果"></a>5.检验成果</h2><p>1.我们来验证下图片上传功能，全部勾选信息，并点击验证图片上传选项。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403092430251.png"></p>
+<p>2.如果，你看到下面这样的页面，那么恭喜你，你成功了。<strong>congratulation！！！</strong></p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403092530351.png"></p>
+<h2 id="6-其它技巧"><a href="#6-其它技巧" class="headerlink" title="6.其它技巧"></a>6.其它技巧</h2><ol>
+<li><p>批量上传图片</p>
+<p>在自己创建的Bucket点击【文件管理】【上传文件】，把自己的图片上传上去就可以了。</p>
+</li>
+</ol>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403093442547.png"></p>
+<p>点击图片文件名或右侧的详情即可弹出具有图片链接地址的页面</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403093530020.png"></p>
+<p><strong>参考信息</strong></p>
+<p>1.<a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648946397&amp;ver=3715&amp;signature=YgYGFM058c2O6bgYju1S2HL7pbT82uWAZfJEeKSukOkh8QQizZPPBFNS-Uep0pVYMsPLrBlGpv2yNgYQEHBz2oh2C9DIEuYfix3SssN9tqElU42PMOuOMcGBR6Wth*hZ&amp;new=1">https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648946397&amp;ver=3715&amp;signature=YgYGFM058c2O6bgYju1S2HL7pbT82uWAZfJEeKSukOkh8QQizZPPBFNS-Uep0pVYMsPLrBlGpv2yNgYQEHBz2oh2C9DIEuYfix3SssN9tqElU42PMOuOMcGBR6Wth*hZ&amp;new=1</a></p>
+<p>2.<a href="https://www.cnblogs.com/qian-chang/p/13669613.html">https://www.cnblogs.com/qian-chang/p/13669613.html</a></p>
+<p>3.<a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648939537&amp;ver=3715&amp;signature=cKOYsdY67Gfd-vYQlwWbABb8WzX7hBYAvEl5FaY55ETFRZdUXljB5Jqq8bEZ-DKS10vySd5LHwPA4kAJ-muUCVXlNF9aKQRyurL0OZ3xn8KgD04t27IWh01pptVp6b*m&amp;new=1">https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648939537&amp;ver=3715&amp;signature=cKOYsdY67Gfd-vYQlwWbABb8WzX7hBYAvEl5FaY55ETFRZdUXljB5Jqq8bEZ-DKS10vySd5LHwPA4kAJ-muUCVXlNF9aKQRyurL0OZ3xn8KgD04t27IWh01pptVp6b*m&amp;new=1</a></p>
+]]></content>
+      <tags>
+        <tag>yasashii</tag>
+      </tags>
   </entry>
   <entry>
     <title>网站导航</title>
@@ -144,23 +236,5 @@
       <tags>
         <tag>yasashii</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/04/01/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
 </search>
