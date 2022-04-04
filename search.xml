@@ -34,80 +34,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>建立自己的阿里云图床</title>
-    <url>/2022/04/03/%E5%BB%BA%E7%AB%8B%E8%87%AA%E5%B7%B1%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E5%9B%BE%E5%BA%8A/</url>
-    <content><![CDATA[<h1 id="图床-阿里云"><a href="#图床-阿里云" class="headerlink" title="图床 阿里云"></a>图床 阿里云</h1><h2 id="1-效果展示"><a href="#1-效果展示" class="headerlink" title="1.效果展示"></a>1.效果展示</h2><p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403083438357.png"></p>
-<p>直接拖进typora就会自动上传图片并生成云链接。</p>
-<h2 id="2-安装过程"><a href="#2-安装过程" class="headerlink" title="2.安装过程"></a>2.安装过程</h2><p>1.下载<a href="https://mp.weixin.qq.com/s?src=11&timestamp=1648946397&ver=3715&signature=YgYGFM058c2O6bgYju1S2HL7pbT82uWAZfJEeKSukOkh8QQizZPPBFNS-Uep0pVYMsPLrBlGpv2yNgYQEHBz2oh2C9DIEuYfix3SssN9tqElU42PMOuOMcGBR6Wth*hZ&new=1">typora</a>并安装。版本在0.9.86以上。</p>
-<p>手动删除文字，防链接失效。</p>
-<p><a href="https://wwm.蓝奏云lanzouq.com/iehyb02ivfxa">https://wwm.蓝奏云lanzouq.com/iehyb02ivfxa</a><br>密码:9o0b</p>
-<p>链接：https:&#x2F;&#x2F;百度网盘pan.baidu.com百度网盘&#x2F;s&#x2F;1Hqhabc70lGI51O98G5x9sA<br>提取码：7758 </p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403084759984.png"></p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085032499.png"></p>
-<h2 id="3-阿里云存储设置"><a href="#3-阿里云存储设置" class="headerlink" title="3.阿里云存储设置"></a>3.阿里云存储设置</h2><p>1.复制下面链接，访问并注册账号，并绑定实名身份</p>
-<p><a href="https://www.aliyun.com/minisite/goods?source=5176.11533457&amp;userCode=vnk7s0ek&amp;type=copy">https://www.aliyun.com/minisite/goods?source=5176.11533457&amp;userCode=vnk7s0ek&amp;type=copy</a></p>
-<p>2.点击控制台</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085557825.png"></p>
-<ol start="3">
-<li><p>选择对象存贮Oss，并开通服务。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085758392.png"></p>
-</li>
-</ol>
-<p>4.点击概览，然后点击创建bucket.</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085844013.png"></p>
-<p>5.输入创建的信息。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/v2-4664c8ef7dc6bf1b1df8259e4a57bd23_720w.jpg"></p>
-<ol start="6">
-<li>最好先买个资源包。<strong>就4.98元</strong>。先买最低的半年，后面可以随时续费。</li>
-</ol>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403090249827.png"></p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403090316204.png"></p>
-<h2 id="4-配置预设文件"><a href="#4-配置预设文件" class="headerlink" title="4.配置预设文件"></a>4.配置预设文件</h2><p>1.新建txt文件，作为临时存储，放入以下代码。<strong>下面信息都是要通过阿里云账号获取的</strong>，首先我们来找<strong>accessKeyId</strong>和<strong>accessKeySecret</strong></p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;picBed&quot;: &#123;</span><br><span class="line">    &quot;uploader&quot;: &quot;aliyun&quot;,</span><br><span class="line">    &quot;aliyun&quot;: &#123;</span><br><span class="line">    &quot;accessKeyId&quot;: &quot;&quot;,</span><br><span class="line">    &quot;accessKeySecret&quot;: &quot;&quot;,</span><br><span class="line">    &quot;bucket&quot;: &quot;&quot;, // 存储空间名</span><br><span class="line">    &quot;area&quot;: &quot;&quot;, // 存储区域代号</span><br><span class="line">    &quot;path&quot;: &quot;img/&quot;, // 自定义存储路径</span><br><span class="line">     &quot;customUrl&quot;: &quot;&quot;, // 自定义域名，注意要加 http://或者 https://</span><br><span class="line">     &quot;options&quot;: &quot;&quot; // 针对图片的一些后缀处理参数 PicGo 2.2.0+ PicGo-Core 1.4.0+</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;picgoPlugins&quot;: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li><p>鼠标悬浮在右上角头像上，并选择AccssKey管理。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091012908.png"></p>
-<p>3.选择继续使用AccessKey，并点击创建accessKey，将新建的txt文本对应内容替换。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091138227.png"></p>
-</li>
-</ol>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091221238.png"></p>
-<p>把创建好的AccessKey保存下来，记住一定不要发给陌生人。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403093927352.png"></p>
-<ol start="4">
-<li><p>回到之前的oss对象存贮，点击之前创建的bucket，在点击bucket里的概览。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091348886.png"></p>
-</li>
-<li><p>根据下面的两张图，使用自己的创建的bucket信息填充之前新建的txt。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091451767.png"></p>
-</li>
-</ol>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091520777.png"></p>
-<p>6.回到typora，依次 文件 —-&gt; 偏好设置 —–&gt; 图像，到下面的页面，选择打开配置文件。<strong>将之前的txt文本的里面的信息，复制粘贴到配置里，并ctrl+s进行保存。</strong></p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091717697.png"></p>
-<h2 id="5-检验成果"><a href="#5-检验成果" class="headerlink" title="5.检验成果"></a>5.检验成果</h2><p>1.我们来验证下图片上传功能，全部勾选信息，并点击验证图片上传选项。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403092430251.png"></p>
-<p>2.如果，你看到下面这样的页面，那么恭喜你，你成功了。<strong>congratulation！！！</strong></p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403092530351.png"></p>
-<h2 id="6-其它技巧"><a href="#6-其它技巧" class="headerlink" title="6.其它技巧"></a>6.其它技巧</h2><ol>
-<li><p>批量上传图片</p>
-<p>在自己创建的Bucket点击【文件管理】【上传文件】，把自己的图片上传上去就可以了。</p>
-</li>
-</ol>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403093442547.png"></p>
-<p>点击图片文件名或右侧的详情即可弹出具有图片链接地址的页面</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403093530020.png"></p>
-<p><strong>参考信息</strong></p>
-<p>1.<a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648946397&amp;ver=3715&amp;signature=YgYGFM058c2O6bgYju1S2HL7pbT82uWAZfJEeKSukOkh8QQizZPPBFNS-Uep0pVYMsPLrBlGpv2yNgYQEHBz2oh2C9DIEuYfix3SssN9tqElU42PMOuOMcGBR6Wth*hZ&amp;new=1">https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648946397&amp;ver=3715&amp;signature=YgYGFM058c2O6bgYju1S2HL7pbT82uWAZfJEeKSukOkh8QQizZPPBFNS-Uep0pVYMsPLrBlGpv2yNgYQEHBz2oh2C9DIEuYfix3SssN9tqElU42PMOuOMcGBR6Wth*hZ&amp;new=1</a></p>
-<p>2.<a href="https://www.cnblogs.com/qian-chang/p/13669613.html">https://www.cnblogs.com/qian-chang/p/13669613.html</a></p>
-<p>3.<a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648939537&amp;ver=3715&amp;signature=cKOYsdY67Gfd-vYQlwWbABb8WzX7hBYAvEl5FaY55ETFRZdUXljB5Jqq8bEZ-DKS10vySd5LHwPA4kAJ-muUCVXlNF9aKQRyurL0OZ3xn8KgD04t27IWh01pptVp6b*m&amp;new=1">https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648939537&amp;ver=3715&amp;signature=cKOYsdY67Gfd-vYQlwWbABb8WzX7hBYAvEl5FaY55ETFRZdUXljB5Jqq8bEZ-DKS10vySd5LHwPA4kAJ-muUCVXlNF9aKQRyurL0OZ3xn8KgD04t27IWh01pptVp6b*m&amp;new=1</a></p>
-]]></content>
-      <tags>
-        <tag>yasashii</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>只要你这么做，想爱上任何人都可以</title>
     <url>/2022/04/04/%E5%8F%AA%E8%A6%81%E4%BD%A0%E8%BF%99%E4%B9%88%E5%81%9A%EF%BC%8C%E6%83%B3%E7%88%B1%E4%B8%8A%E4%BB%BB%E4%BD%95%E4%BA%BA%E9%83%BD%E5%8F%AF%E4%BB%A5/</url>
     <content><![CDATA[<h1 id="只要你这么做，想爱上任何人都可以"><a href="#只要你这么做，想爱上任何人都可以" class="headerlink" title="只要你这么做，想爱上任何人都可以"></a>只要你这么做，想爱上任何人都可以</h1><p>亚瑟阿伦36个问题源自于《纽约时报》上的一个专栏文章《只要你这么做，想爱上任何人都可以》(To Fall in Love With Anyone, Do This) ，</p>
@@ -258,13 +184,87 @@
       </tags>
   </entry>
   <entry>
+    <title>建立自己的阿里云图床</title>
+    <url>/2022/04/03/%E5%BB%BA%E7%AB%8B%E8%87%AA%E5%B7%B1%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<h1 id="图床-阿里云"><a href="#图床-阿里云" class="headerlink" title="图床 阿里云"></a>图床 阿里云</h1><h2 id="1-效果展示"><a href="#1-效果展示" class="headerlink" title="1.效果展示"></a>1.效果展示</h2><p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403083438357.png"></p>
+<p>直接拖进typora就会自动上传图片并生成云链接。</p>
+<h2 id="2-安装过程"><a href="#2-安装过程" class="headerlink" title="2.安装过程"></a>2.安装过程</h2><p>1.下载<a href="https://mp.weixin.qq.com/s?src=11&timestamp=1648946397&ver=3715&signature=YgYGFM058c2O6bgYju1S2HL7pbT82uWAZfJEeKSukOkh8QQizZPPBFNS-Uep0pVYMsPLrBlGpv2yNgYQEHBz2oh2C9DIEuYfix3SssN9tqElU42PMOuOMcGBR6Wth*hZ&new=1">typora</a>并安装。版本在0.9.86以上。</p>
+<p>手动删除文字，防链接失效。</p>
+<p><a href="https://wwm.蓝奏云lanzouq.com/iehyb02ivfxa">https://wwm.蓝奏云lanzouq.com/iehyb02ivfxa</a><br>密码:9o0b</p>
+<p>链接：https:&#x2F;&#x2F;百度网盘pan.baidu.com百度网盘&#x2F;s&#x2F;1Hqhabc70lGI51O98G5x9sA<br>提取码：7758 </p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403084759984.png"></p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085032499.png"></p>
+<h2 id="3-阿里云存储设置"><a href="#3-阿里云存储设置" class="headerlink" title="3.阿里云存储设置"></a>3.阿里云存储设置</h2><p>1.复制下面链接，访问并注册账号，并绑定实名身份</p>
+<p><a href="https://www.aliyun.com/minisite/goods?source=5176.11533457&amp;userCode=vnk7s0ek&amp;type=copy">https://www.aliyun.com/minisite/goods?source=5176.11533457&amp;userCode=vnk7s0ek&amp;type=copy</a></p>
+<p>2.点击控制台</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085557825.png"></p>
+<ol start="3">
+<li><p>选择对象存贮Oss，并开通服务。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085758392.png"></p>
+</li>
+</ol>
+<p>4.点击概览，然后点击创建bucket.</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085844013.png"></p>
+<p>5.输入创建的信息。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/v2-4664c8ef7dc6bf1b1df8259e4a57bd23_720w.jpg"></p>
+<ol start="6">
+<li>最好先买个资源包。<strong>就4.98元</strong>。先买最低的半年，后面可以随时续费。</li>
+</ol>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403090249827.png"></p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403090316204.png"></p>
+<h2 id="4-配置预设文件"><a href="#4-配置预设文件" class="headerlink" title="4.配置预设文件"></a>4.配置预设文件</h2><p>1.新建txt文件，作为临时存储，放入以下代码。<strong>下面信息都是要通过阿里云账号获取的</strong>，首先我们来找<strong>accessKeyId</strong>和<strong>accessKeySecret</strong></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;picBed&quot;: &#123;</span><br><span class="line">    &quot;uploader&quot;: &quot;aliyun&quot;,</span><br><span class="line">    &quot;aliyun&quot;: &#123;</span><br><span class="line">    &quot;accessKeyId&quot;: &quot;&quot;,</span><br><span class="line">    &quot;accessKeySecret&quot;: &quot;&quot;,</span><br><span class="line">    &quot;bucket&quot;: &quot;&quot;, // 存储空间名</span><br><span class="line">    &quot;area&quot;: &quot;&quot;, // 存储区域代号</span><br><span class="line">    &quot;path&quot;: &quot;img/&quot;, // 自定义存储路径</span><br><span class="line">     &quot;customUrl&quot;: &quot;&quot;, // 自定义域名，注意要加 http://或者 https://</span><br><span class="line">     &quot;options&quot;: &quot;&quot; // 针对图片的一些后缀处理参数 PicGo 2.2.0+ PicGo-Core 1.4.0+</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;picgoPlugins&quot;: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>鼠标悬浮在右上角头像上，并选择AccssKey管理。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091012908.png"></p>
+<p>3.选择继续使用AccessKey，并点击创建accessKey，将新建的txt文本对应内容替换。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091138227.png"></p>
+</li>
+</ol>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091221238.png"></p>
+<p>把创建好的AccessKey保存下来，记住一定不要发给陌生人。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403093927352.png"></p>
+<ol start="4">
+<li><p>回到之前的oss对象存贮，点击之前创建的bucket，在点击bucket里的概览。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091348886.png"></p>
+</li>
+<li><p>根据下面的两张图，使用自己的创建的bucket信息填充之前新建的txt。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091451767.png"></p>
+</li>
+</ol>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091520777.png"></p>
+<p>6.回到typora，依次 文件 —-&gt; 偏好设置 —–&gt; 图像，到下面的页面，选择打开配置文件。<strong>将之前的txt文本的里面的信息，复制粘贴到配置里，并ctrl+s进行保存。</strong></p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091717697.png"></p>
+<h2 id="5-检验成果"><a href="#5-检验成果" class="headerlink" title="5.检验成果"></a>5.检验成果</h2><p>1.我们来验证下图片上传功能，全部勾选信息，并点击验证图片上传选项。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403092430251.png"></p>
+<p>2.如果，你看到下面这样的页面，那么恭喜你，你成功了。<strong>congratulation！！！</strong></p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403092530351.png"></p>
+<h2 id="6-其它技巧"><a href="#6-其它技巧" class="headerlink" title="6.其它技巧"></a>6.其它技巧</h2><ol>
+<li><p>批量上传图片</p>
+<p>在自己创建的Bucket点击【文件管理】【上传文件】，把自己的图片上传上去就可以了。</p>
+</li>
+</ol>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403093442547.png"></p>
+<p>点击图片文件名或右侧的详情即可弹出具有图片链接地址的页面</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403093530020.png"></p>
+<p><strong>参考信息</strong></p>
+<p>1.<a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648946397&amp;ver=3715&amp;signature=YgYGFM058c2O6bgYju1S2HL7pbT82uWAZfJEeKSukOkh8QQizZPPBFNS-Uep0pVYMsPLrBlGpv2yNgYQEHBz2oh2C9DIEuYfix3SssN9tqElU42PMOuOMcGBR6Wth*hZ&amp;new=1">https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648946397&amp;ver=3715&amp;signature=YgYGFM058c2O6bgYju1S2HL7pbT82uWAZfJEeKSukOkh8QQizZPPBFNS-Uep0pVYMsPLrBlGpv2yNgYQEHBz2oh2C9DIEuYfix3SssN9tqElU42PMOuOMcGBR6Wth*hZ&amp;new=1</a></p>
+<p>2.<a href="https://www.cnblogs.com/qian-chang/p/13669613.html">https://www.cnblogs.com/qian-chang/p/13669613.html</a></p>
+<p>3.<a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648939537&amp;ver=3715&amp;signature=cKOYsdY67Gfd-vYQlwWbABb8WzX7hBYAvEl5FaY55ETFRZdUXljB5Jqq8bEZ-DKS10vySd5LHwPA4kAJ-muUCVXlNF9aKQRyurL0OZ3xn8KgD04t27IWh01pptVp6b*m&amp;new=1">https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648939537&amp;ver=3715&amp;signature=cKOYsdY67Gfd-vYQlwWbABb8WzX7hBYAvEl5FaY55ETFRZdUXljB5Jqq8bEZ-DKS10vySd5LHwPA4kAJ-muUCVXlNF9aKQRyurL0OZ3xn8KgD04t27IWh01pptVp6b*m&amp;new=1</a></p>
+]]></content>
+      <tags>
+        <tag>yasashii</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>网站导航</title>
     <url>/2022/04/02/%E7%BD%91%E7%AB%99%E5%AF%BC%E8%88%AA/</url>
-    <content><![CDATA[<h1 id="常用网站"><a href="#常用网站" class="headerlink" title="常用网站"></a>常用网站</h1><ul>
+    <content><![CDATA[<h2 id="常用网站"><a href="#常用网站" class="headerlink" title="常用网站"></a>常用网站</h2><ul>
 <li><a href="https://www.kaolamedia.com/">https://www.kaolamedia.com/</a>  新媒体人每天打开的第一个网站</li>
 <li><a href="https://www.ijiandao.com/">https://www.ijiandao.com/</a> 一个大而全的自媒体导航网站，偏网络技术性，含广告</li>
 </ul>
-<h1 id="风口项目-最赚钱的方向，方向可叠加"><a href="#风口项目-最赚钱的方向，方向可叠加" class="headerlink" title="风口项目(最赚钱的方向，方向可叠加)"></a>风口项目(最赚钱的方向，方向可叠加)</h1><ul>
+<h2 id="风口项目-最赚钱的方向，方向可叠加"><a href="#风口项目-最赚钱的方向，方向可叠加" class="headerlink" title="风口项目(最赚钱的方向，方向可叠加)"></a>风口项目(最赚钱的方向，方向可叠加)</h2><ul>
 <li><p>人工智能方向，关键词有：混合现实、虚拟现实、游戏、社区、元宇宙、超域、区块链</p>
 </li>
 <li><p>在线教育方向，关键词有：知识付费、考研培训、java培训、英语培训、日语培训、泡妞培训、养生培训</p>
@@ -274,7 +274,7 @@
 <li><p>社区运营方向，关键词有：考公考研群、付费会员、混音群声音调教、入群会员费</p>
 </li>
 </ul>
-<h1 id="图书馆网站导航"><a href="#图书馆网站导航" class="headerlink" title="图书馆网站导航"></a>图书馆网站导航</h1><ul>
+<h2 id="图书馆网站导航"><a href="#图书馆网站导航" class="headerlink" title="图书馆网站导航"></a>图书馆网站导航</h2><ul>
 <li><a href="http://www.sci-hub.ren/">http://www.sci-hub.ren/</a> 全球最大的科研下载网站。web of scient\百度学术 查doi号后查找</li>
 <li><a href="https://ebook2.lorefree.com/">https://ebook2.lorefree.com/</a> 书籍需要稻壳阅读器打开，方便阅读</li>
 <li><a href="https://zh.ng1lib.org/?signAll=1&amp;ts=2156">https://zh.ng1lib.org/?signAll=1&amp;ts=2156</a> 全球最大的数字图书馆</li>
@@ -282,13 +282,13 @@
 <li><a href="https://digilibraries.com/">https://digilibraries.com/</a> 纯英文书籍搜索网站，书籍图较多</li>
 <li><a href="http://www.ucdrs.net/admin/union/index.do">http://www.ucdrs.net/admin/union/index.do</a>  可以查到有什么书，仅试看，不下载全部</li>
 </ul>
-<h1 id="书籍格式转换相关工具"><a href="#书籍格式转换相关工具" class="headerlink" title="书籍格式转换相关工具"></a>书籍格式转换相关工具</h1><ul>
+<h2 id="书籍格式转换相关工具"><a href="#书籍格式转换相关工具" class="headerlink" title="书籍格式转换相关工具"></a>书籍格式转换相关工具</h2><ul>
 <li><a href="https://www.toplinks.cc/s/">https://www.toplinks.cc/s/</a>  需要自己下载excel，查到后在百度网盘下载</li>
 <li><a href="https://convertio.co/zh/ebook-converter/">https://convertio.co/zh/ebook-converter/</a> 文献格式转换网站</li>
 <li><a href="https://www.alltoall.net/">https://www.alltoall.net/</a> 文献格式转换网站</li>
 <li><a href="https://pdf.yozocloud.cn/p/home#/Pdf2word">https://pdf.yozocloud.cn/p/home#/Pdf2word</a> 永中格式转换 pdf word ppt</li>
 </ul>
-<h1 id="论坛导航"><a href="#论坛导航" class="headerlink" title="论坛导航"></a>论坛导航</h1><ul>
+<h2 id="论坛导航"><a href="#论坛导航" class="headerlink" title="论坛导航"></a>论坛导航</h2><ul>
 <li><a href="https://www.runoob.com/">https://www.runoob.com/</a> 学习java、python等教材级网站，有代码跑</li>
 <li><a href="https://stackoverflow.com/">https://stackoverflow.com/</a> 比全球较大的社区交流论坛</li>
 <li><a href="https://dl.21ic.com/">https://dl.21ic.com/</a> 21icdi电子论坛：严格管理，看起来不错。有很多免费的it行业电子书。</li>
@@ -301,7 +301,7 @@
 <li><a href="https://xydh.fun/gangshu">https://xydh.fun/gangshu</a> 个人导航</li>
 <li><a href="https://www.52pojie.cn/">https://www.52pojie.cn/</a> 吾爱破解论坛</li>
 </ul>
-<h1 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h1><ul>
+<h2 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h2><ul>
 <li><a href="https://zhihu.zhaoyizhe.com/">https://zhihu.zhaoyizhe.com/</a> 知乎历史热榜</li>
 <li><a href="https://xxkol.cn/home">https://xxkol.cn/home</a> B站、快手历史榜单</li>
 <li><a href="https://www.wrd.cn/splitWords.shtml">https://www.wrd.cn/splitWords.shtml</a> 网易云微热点 文本数据挖掘</li>
@@ -310,7 +310,7 @@
 <li><a href="https://tw.noxinfluencer.com/youtube-channel-rank/top-100-all-all-youtuber-sorted-by-subs-weekly">https://tw.noxinfluencer.com/youtube-channel-rank/top-100-all-all-youtuber-sorted-by-subs-weekly</a> YouTube、国际抖音、推特的达人粉丝数分析</li>
 <li><a href="https://cn.noxinfluencer.com/trend/">https://cn.noxinfluencer.com/trend/</a> YouTube、国际抖音、推特的达人粉丝数分析（区别：需要手机号注册、分析全球信息更加详细）</li>
 </ul>
-<h1 id="素材网站"><a href="#素材网站" class="headerlink" title="素材网站"></a>素材网站</h1><ul>
+<h2 id="素材网站"><a href="#素材网站" class="headerlink" title="素材网站"></a>素材网站</h2><ul>
 <li><a href="https://www.dbbqb.com/search/id/250108.html">https://www.dbbqb.com/search/id/250108.html</a> 搞笑图片</li>
 <li><a href="https://hao.uisdc.com/">https://hao.uisdc.com/</a> 一个国内最强素材导航</li>
 <li><a href="https://www.pixiv.net/">https://www.pixiv.net/</a> 最强原创二次元图片 二次元界称P站</li>
@@ -328,7 +328,7 @@
 <li><a href="https://if.caiyunai.com/#/">https://if.caiyunai.com/#/</a> ai自动续写 彩云小梦</li>
 <li><a href="https://www.remove.bg/zh/upload">https://www.remove.bg/zh/upload</a> ai抠图 分离人物和背景</li>
 </ul>
-<h2 id="音乐相关"><a href="#音乐相关" class="headerlink" title="音乐相关"></a>音乐相关</h2><ul>
+<h3 id="音乐相关"><a href="#音乐相关" class="headerlink" title="音乐相关"></a>音乐相关</h3><ul>
 <li><a href="https://freepd.com/">https://freepd.com/</a> 声库</li>
 <li><a href="https://www.ear0.com/">https://www.ear0.com/</a> 声库2 耳聆网</li>
 <li><a href="https://www.tosound.com/">https://www.tosound.com/</a> 声库3 淘声网</li>
@@ -337,26 +337,26 @@
 <li><a href="https://www.videvo.net/">https://www.videvo.net/</a> 免费的视频、音乐、声效等 资源库2</li>
 <li><a href="https://www.videezy.com/">https://www.videezy.com/</a> 免费的视频、音乐、声效等 资源库3 这个有科研视频素材</li>
 </ul>
-<h2 id="音乐制作工具"><a href="#音乐制作工具" class="headerlink" title="音乐制作工具"></a>音乐制作工具</h2><ul>
+<h3 id="音乐制作工具"><a href="#音乐制作工具" class="headerlink" title="音乐制作工具"></a>音乐制作工具</h3><ul>
 <li><a href="http://vocakey.info/vocaloid5_library">http://vocakey.info/vocaloid5_library</a> vocaloid5声库</li>
 <li><a href="https://vocalremover.org/ch/">https://vocalremover.org/ch/</a> 人声伴奏分离</li>
 <li><a href="https://www.lalal.ai/">https://www.lalal.ai/</a> 人声伴奏分离</li>
 </ul>
-<h1 id="电影网站"><a href="#电影网站" class="headerlink" title="电影网站"></a>电影网站</h1><ul>
+<h2 id="电影网站"><a href="#电影网站" class="headerlink" title="电影网站"></a>电影网站</h2><ul>
 <li><a href="https://v.lxl8800.cn/index.php/vod/type/id/4/page/3.html">https://v.lxl8800.cn/index.php/vod/type/id/4/page/3.html</a></li>
 </ul>
-<h1 id="游戏破解"><a href="#游戏破解" class="headerlink" title="游戏破解"></a>游戏破解</h1><ul>
+<h2 id="游戏破解"><a href="#游戏破解" class="headerlink" title="游戏破解"></a>游戏破解</h2><ul>
 <li><a href="https://byrut.org/">https://byrut.org/</a> 海盗湾</li>
 <li><a href="https://pc.qq.com/search.html#!keyword=360%E6%B5%8F%E8%A7%88%E5%99%A8">https://pc.qq.com/search.html#!keyword=360%E6%B5%8F%E8%A7%88%E5%99%A8</a> 腾讯软件下载中心</li>
 </ul>
-<h1 id="网站运营"><a href="#网站运营" class="headerlink" title="网站运营"></a>网站运营</h1><ul>
+<h2 id="网站运营"><a href="#网站运营" class="headerlink" title="网站运营"></a>网站运营</h2><ul>
 <li><a href="http://www.yunyingxuetang.com/">http://www.yunyingxuetang.com/</a> 运营学堂</li>
 <li><a href="http://www.woshipm.com/">http://www.woshipm.com/</a> 人人都是产品经理</li>
 </ul>
-<h1 id="生理"><a href="#生理" class="headerlink" title="生理"></a>生理</h1><ul>
+<h2 id="生理"><a href="#生理" class="headerlink" title="生理"></a>生理</h2><ul>
 <li><a href="https://www.brainfacts.org/">https://www.brainfacts.org/</a> 脑部事实</li>
 </ul>
-<h1 id="古代文学"><a href="#古代文学" class="headerlink" title="古代文学"></a>古代文学</h1><ul>
+<h2 id="古代文学"><a href="#古代文学" class="headerlink" title="古代文学"></a>古代文学</h2><ul>
 <li><a href="https://sou-yun.cn/">https://sou-yun.cn/</a> 搜韵</li>
 <li><a href="https://ctext.org/book-of-changes/xi-ci-xia/zhs">https://ctext.org/book-of-changes/xi-ci-xia/zhs</a> 中国哲学书</li>
 <li><a href="https://www.cidianwang.com/kangxi/jiang/jiang1404.htm">https://www.cidianwang.com/kangxi/jiang/jiang1404.htm</a> 康熙字典、说文解字、古汉语字典等</li>
@@ -368,13 +368,13 @@
 <li><a href="https://www.moedict.tw/%E5%A3%B9">https://www.moedict.tw/%E5%A3%B9</a>      台湾多方言字典 萌典</li>
 <li><a href="http://laimn.cn/">http://laimn.cn/</a> 闽南语</li>
 </ul>
-<h1 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h1><ul>
+<h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><ul>
 <li><a href="http://old.mindmanager.cn/muban/">http://old.mindmanager.cn/muban/</a> 国外</li>
 <li><a href="https://mm.edrawsoft.cn/community/show/1">https://mm.edrawsoft.cn/community/show/1</a> 国内</li>
 <li><a href="https://zhimap.com/gallery">https://zhimap.com/gallery</a> 知识导图</li>
 <li><a href="http://www.3acloud.com/swmb.htm">http://www.3acloud.com/swmb.htm</a> 企业级思维导图 需要下载安装后才可以看到 不支持网页</li>
 </ul>
-<h1 id="大学生"><a href="#大学生" class="headerlink" title="大学生"></a>大学生</h1><ul>
+<h2 id="大学生"><a href="#大学生" class="headerlink" title="大学生"></a>大学生</h2><ul>
 <li><a href="https://chachong.xiaoyuanling.com/">https://chachong.xiaoyuanling.com/</a> 论文查重 校园令</li>
 <li><a href="http://www.dxzy163.com/">http://www.dxzy163.com/</a> 大学生资源网</li>
 <li><a href="http://www.sasac.gov.cn/n2588035/n2588325/n2588350/index.html">http://www.sasac.gov.cn/n2588035/n2588325/n2588350/index.html</a> 国家人事招聘</li>
@@ -382,7 +382,7 @@
 <li><a href="https://www.zggqzp.com/">https://www.zggqzp.com/</a> 国企招聘 中介</li>
 <li><a href="https://www.iguopin.com/">https://www.iguopin.com/</a> 国企招聘 中介</li>
 </ul>
-<h1 id="国家相关"><a href="#国家相关" class="headerlink" title="国家相关"></a>国家相关</h1><ul>
+<h2 id="国家相关"><a href="#国家相关" class="headerlink" title="国家相关"></a>国家相关</h2><ul>
 <li><a href="http://www.wenshu.com/">http://www.wenshu.com/</a> 一个导航 方便查询个人、企业是否有法律纠纷</li>
 </ul>
 ]]></content>
