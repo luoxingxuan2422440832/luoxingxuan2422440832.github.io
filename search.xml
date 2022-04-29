@@ -1,39 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>My New Post</title>
-    <url>/2022/04/01/My-New-Post/</url>
-    <content><![CDATA[<p>#测试命令</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2><p><img src="https://img95.699pic.com/photo/50046/5562.jpg_wh300.jpg"><br><img src="https://article.biliimg.com/bfs/article/914b31dfcceb014227d44d4b398a0e5713098aed.png@1320w_220h.webp"></p>
-<p>##超链接<br><a href="https://699pic.com/tupian/wennuan.html">下载地址</a><br>##上传命令</p>
-<ul>
-<li>hexo d<br>##本地浏览器预览</li>
-<li>hexo s<br>##生成public文件</li>
-<li>hexo g<br>##删除publig文件、</li>
-<li>hexo clean<br>##创建个人博客</li>
-<li>hexo new “今天的blog”</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/04/01/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>800句子记住7000单词</title>
     <url>/2022/04/05/800%E5%8F%A5%E5%AD%90%E8%AE%B0%E4%BD%8F7000%E5%8D%95%E8%AF%8D/</url>
     <content><![CDATA[<h1 id="800句子记住7000单词"><a href="#800句子记住7000单词" class="headerlink" title="800句子记住7000单词"></a>800句子记住7000单词</h1><h2 id="用法："><a href="#用法：" class="headerlink" title="用法："></a>用法：</h2><ul>
@@ -1736,132 +1703,37 @@
       </tags>
   </entry>
   <entry>
-    <title>打工人自己的网站</title>
-    <url>/2022/04/07/%E6%89%93%E5%B7%A5%E4%BA%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BD%91%E7%AB%99/</url>
-    <content><![CDATA[<p>打工人自己的网站</p>
-<h2 id="一、招聘网站"><a href="#一、招聘网站" class="headerlink" title="一、招聘网站"></a>一、招聘网站</h2><p>1.<a href="http://www.sasac.gov.cn/n2588035/n2588325/index.html"><strong>国务院国资委</strong></a>。进入网址，点击左侧菜单栏有个“人事”；招聘栏目里面很多国资委下属管辖单位的招聘信息，可以进去查看符合自己的岗位。国企央企的招聘岗位有限，并且提价材料有非常严格的时间限制，要频繁查看信息，从发布招聘信息到提交材料时间非常短，错过也就没有机会了。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220406211625036.png"></p>
-<p>2.<strong><a href="http://www.sasac.gov.cn/n4422011/n17627531/c17633273/content.html">地方国资委</a>。</strong></p>
-<p><strong>3、国资小新公众号</strong></p>
-<p><strong>国资小新</strong>公众号是国务院国资委运营的，绝对权威的国企招聘信息发布渠道，除了招聘信息还有很多国企央企的资讯分享。我今天看了一遍，比国资委网站的招聘信息汇总要全面一点，更新也比较及时。</p>
-<p><strong>4、央企国企招聘网</strong></p>
-<p><strong>央企国企招聘网</strong>是一家叫高霖海拓教育科技的公司运营的<strong>公众号</strong>，不属于国企官方发布渠道，他们会将部分国企、央企、军队、医院等事业单位招聘信息汇总发布，也是可以参考的渠道之一，当然信息不会特别全。多渠道结合来看比较好，多个渠道多个机会嘛。</p>
-<p><strong>5、高校人才招聘</strong></p>
-<p><strong>高校人才招聘</strong>也是第三方公司运营的<strong>公众号</strong>，里面主要是高校招聘老师、辅导员、西欧那个证人员事业编的信息，对高校事业编感兴趣的朋友可以看看，个人感觉里面信息还算全面。</p>
-<p>6.<a href="http://www.mohrss.gov.cn/SYrlzyhshbzb/fwyd/SYkaoshizhaopin/zyhgjjgsydwgkzp/">国家事业单位</a></p>
-<p>7.<a href="http://job.mohrss.gov.cn/">中共招聘网</a>。可以查到岗位需求，自己可以按地区、岗位内容、薪资快速检索，相当方便。</p>
-<p>8.各省人力资源和社会保障厅，一般发布各省事业单位招聘、公务员招考、公开选调等招聘信息。比如湖南省人力资源和社会保障厅 <a href="https://link.zhihu.com/?target=http://rst.hunan.gov.cn/">http://rst.hunan.gov.cn/</a></p>
-<p>9.公司招聘官网、公众号，如：中国建设银行招聘官网：<a href="https://link.zhihu.com/?target=http://job.ccb.com/ccbjob/cn/job/index.jsp">http://job.ccb.com/ccbjob/cn/j</a></p>
-<p>10.第三方求职网站</p>
-<p>应届生求职<a href="https://link.zhihu.com/?target=http://www.yingjiesheng.com/">http://www.yingjiesheng.com/</a></p>
-<p>智联招聘<a href="https://link.zhihu.com/?target=https://www.zhaopin.com/">https://www.zhaopin.com/</a></p>
-<p>前程无忧<a href="https://link.zhihu.com/?target=https://www.51job.com/">https://www.51job.com/</a></p>
-<p>中华英才网<a href="https://link.zhihu.com/?target=https://www.chinahr.com/home/cs/">https://www.chinahr.com/home/cs/</a></p>
-<p>各省人才网，如湖南人才网<a href="https://link.zhihu.com/?target=http://www.hnrcsc.com/">http://www.hnrcsc.com/</a></p>
-<p>实习僧、猎聘、领英、BOSS直聘、脉脉……</p>
-<p>11.中智招聘 - <a href="http://www.yinhangzhaopin.com/"><strong>国企</strong></a></p>
-<p>12.<a href="http://www.yinhangzhaopin.com/">银行招聘网</a></p>
-<p>13.<a href="http://www.cphr.com.cn/4880.html">国家电网人才招聘</a></p>
-<h2 id="二、打工人的权利。"><a href="#二、打工人的权利。" class="headerlink" title="二、打工人的权利。"></a>二、打工人的权利。</h2><p><a href="http://www.npc.gov.cn/npc/c30834/201901/ffad2d4ae4da4585a041abf66e74753c.shtml">《中华人民共和国劳动法》</a>。</p>
-<p>法律援助：<a href="https://hilawyers.club/questions/">法律案例分析知识库</a>。<a href="https://www.bilibili.com/video/BV1234y197hT?share_source=copy_web">网站用法B站教程。</a></p>
-<p><a href="http://www.gov.cn/zhengce/2020-12/27/content_5574550.htm">《劳动保障监察条例》</a>。</p>
-<p>1、投诉人身份证；</p>
-<p>2、劳动合同；</p>
-<p>3、用人单位向劳动者发放的“工作证”、“服务证”等能够证明身份的证件</p>
-<p>4、工资支付凭证或记录(职工工资发放花名册)、缴纳各项社会保险费的记录；</p>
-<p>5、劳动者填写的用人单位招工招聘“登记表”、“报名表”等招用记录；</p>
-<p>6、考勤记录；</p>
-<p>7、<a href="https://zhuanlan.zhihu.com/p/376896791">其他证明劳动关系的材料。</a></p>
-<p>劳动仲裁</p>
-<p>1.营业执照。天眼查。企业查。公司地址，法人名字。</p>
-<p>2.仲裁申请书。自己写或者网上下载再填。或者去仲裁所附近找人代写。写好后，去问仲裁所的法律咨询能不能用，需要改哪里，怎么改，</p>
-<p>3.证据清单。</p>
-<p>4.身份证复印件。</p>
-<p>流程</p>
-<p>1.支付宝或微信：欠薪线索反馈。</p>
-<p>2.劳动仲裁。按上面收集材料，然后咨询律师能不能用，</p>
-<p>3.起诉。聘用律师，将仲裁的材料一式两份提交到法院。然后一审二审。</p>
-<p>4.按律师建议做些要做的事。</p>
-<h2 id="三、一些故事"><a href="#三、一些故事" class="headerlink" title="三、一些故事"></a>三、一些故事</h2><p><a href="https://www.bilibili.com/video/BV1nZ4y1H7NV?p=1">故事案例1</a></p>
-<p><a href="https://www.bilibili.com/video/BV1o34y147Uo?share_source=copy_web">故事案例2</a></p>
+    <title>Hello World</title>
+    <url>/2022/04/01/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-      <tags>
-        <tag>yasashii</tag>
-      </tags>
   </entry>
   <entry>
-    <title>建立自己的阿里云图床</title>
-    <url>/2022/04/03/%E5%BB%BA%E7%AB%8B%E8%87%AA%E5%B7%B1%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E5%9B%BE%E5%BA%8A/</url>
-    <content><![CDATA[<h1 id="图床-阿里云"><a href="#图床-阿里云" class="headerlink" title="图床 阿里云"></a>图床 阿里云</h1><h2 id="1-效果展示"><a href="#1-效果展示" class="headerlink" title="1.效果展示"></a>1.效果展示</h2><p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403083438357.png"></p>
-<p>直接拖进typora就会自动上传图片并生成云链接。</p>
-<h2 id="2-安装过程"><a href="#2-安装过程" class="headerlink" title="2.安装过程"></a>2.安装过程</h2><p>1.下载<a href="https://mp.weixin.qq.com/s?src=11&timestamp=1648946397&ver=3715&signature=YgYGFM058c2O6bgYju1S2HL7pbT82uWAZfJEeKSukOkh8QQizZPPBFNS-Uep0pVYMsPLrBlGpv2yNgYQEHBz2oh2C9DIEuYfix3SssN9tqElU42PMOuOMcGBR6Wth*hZ&new=1">typora</a>并安装。版本在0.9.86以上。</p>
-<p>手动删除文字，防链接失效。</p>
-<p><a href="https://wwm.蓝奏云lanzouq.com/iehyb02ivfxa">https://wwm.蓝奏云lanzouq.com/iehyb02ivfxa</a><br>密码:9o0b</p>
-<p>链接：https:&#x2F;&#x2F;百度网盘pan.baidu.com百度网盘&#x2F;s&#x2F;1Hqhabc70lGI51O98G5x9sA<br>提取码：7758 </p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403084759984.png"></p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085032499.png"></p>
-<h2 id="3-阿里云存储设置"><a href="#3-阿里云存储设置" class="headerlink" title="3.阿里云存储设置"></a>3.阿里云存储设置</h2><p>1.复制下面链接，访问并注册账号，并绑定实名身份</p>
-<p><a href="https://www.aliyun.com/minisite/goods?source=5176.11533457&amp;userCode=vnk7s0ek&amp;type=copy">https://www.aliyun.com/minisite/goods?source=5176.11533457&amp;userCode=vnk7s0ek&amp;type=copy</a></p>
-<p>2.点击控制台</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085557825.png"></p>
-<ol start="3">
-<li><p>选择对象存贮Oss，并开通服务。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085758392.png"></p>
-</li>
-</ol>
-<p>4.点击概览，然后点击创建bucket.</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085844013.png"></p>
-<p>5.输入创建的信息。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/v2-4664c8ef7dc6bf1b1df8259e4a57bd23_720w.jpg"></p>
-<ol start="6">
-<li>最好先买个资源包。<strong>就4.98元</strong>。先买最低的半年，后面可以随时续费。</li>
-</ol>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403090249827.png"></p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403090316204.png"></p>
-<h2 id="4-配置预设文件"><a href="#4-配置预设文件" class="headerlink" title="4.配置预设文件"></a>4.配置预设文件</h2><p>1.新建txt文件，作为临时存储，放入以下代码。<strong>下面信息都是要通过阿里云账号获取的</strong>，首先我们来找<strong>accessKeyId</strong>和<strong>accessKeySecret</strong></p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;picBed&quot;: &#123;</span><br><span class="line">    &quot;uploader&quot;: &quot;aliyun&quot;,</span><br><span class="line">    &quot;aliyun&quot;: &#123;</span><br><span class="line">    &quot;accessKeyId&quot;: &quot;&quot;,</span><br><span class="line">    &quot;accessKeySecret&quot;: &quot;&quot;,</span><br><span class="line">    &quot;bucket&quot;: &quot;&quot;, // 存储空间名</span><br><span class="line">    &quot;area&quot;: &quot;&quot;, // 存储区域代号</span><br><span class="line">    &quot;path&quot;: &quot;img/&quot;, // 自定义存储路径</span><br><span class="line">     &quot;customUrl&quot;: &quot;&quot;, // 自定义域名，注意要加 http://或者 https://</span><br><span class="line">     &quot;options&quot;: &quot;&quot; // 针对图片的一些后缀处理参数 PicGo 2.2.0+ PicGo-Core 1.4.0+</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;picgoPlugins&quot;: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li><p>鼠标悬浮在右上角头像上，并选择AccssKey管理。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091012908.png"></p>
-<p>3.选择继续使用AccessKey，并点击创建accessKey，将新建的txt文本对应内容替换。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091138227.png"></p>
-</li>
-</ol>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091221238.png"></p>
-<p>把创建好的AccessKey保存下来，记住一定不要发给陌生人。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403093927352.png"></p>
-<ol start="4">
-<li><p>回到之前的oss对象存贮，点击之前创建的bucket，在点击bucket里的概览。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091348886.png"></p>
-</li>
-<li><p>根据下面的两张图，使用自己的创建的bucket信息填充之前新建的txt。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091451767.png"></p>
-</li>
-</ol>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091520777.png"></p>
-<p>6.回到typora，依次 文件 —-&gt; 偏好设置 —–&gt; 图像，到下面的页面，选择打开配置文件。<strong>将之前的txt文本的里面的信息，复制粘贴到配置里，并ctrl+s进行保存。</strong></p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091717697.png"></p>
-<h2 id="5-检验成果"><a href="#5-检验成果" class="headerlink" title="5.检验成果"></a>5.检验成果</h2><p>1.我们来验证下图片上传功能，全部勾选信息，并点击验证图片上传选项。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403092430251.png"></p>
-<p>2.如果，你看到下面这样的页面，那么恭喜你，你成功了。<strong>congratulation！！！</strong></p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403092530351.png"></p>
-<h2 id="6-其它技巧"><a href="#6-其它技巧" class="headerlink" title="6.其它技巧"></a>6.其它技巧</h2><ol>
-<li><p>批量上传图片</p>
-<p>在自己创建的Bucket点击【文件管理】【上传文件】，把自己的图片上传上去就可以了。</p>
-</li>
-</ol>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403093442547.png"></p>
-<p>点击图片文件名或右侧的详情即可弹出具有图片链接地址的页面</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403093530020.png"></p>
-<p><strong>参考信息</strong></p>
-<p>1.<a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648946397&amp;ver=3715&amp;signature=YgYGFM058c2O6bgYju1S2HL7pbT82uWAZfJEeKSukOkh8QQizZPPBFNS-Uep0pVYMsPLrBlGpv2yNgYQEHBz2oh2C9DIEuYfix3SssN9tqElU42PMOuOMcGBR6Wth*hZ&amp;new=1">https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648946397&amp;ver=3715&amp;signature=YgYGFM058c2O6bgYju1S2HL7pbT82uWAZfJEeKSukOkh8QQizZPPBFNS-Uep0pVYMsPLrBlGpv2yNgYQEHBz2oh2C9DIEuYfix3SssN9tqElU42PMOuOMcGBR6Wth*hZ&amp;new=1</a></p>
-<p>2.<a href="https://www.cnblogs.com/qian-chang/p/13669613.html">https://www.cnblogs.com/qian-chang/p/13669613.html</a></p>
-<p>3.<a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648939537&amp;ver=3715&amp;signature=cKOYsdY67Gfd-vYQlwWbABb8WzX7hBYAvEl5FaY55ETFRZdUXljB5Jqq8bEZ-DKS10vySd5LHwPA4kAJ-muUCVXlNF9aKQRyurL0OZ3xn8KgD04t27IWh01pptVp6b*m&amp;new=1">https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648939537&amp;ver=3715&amp;signature=cKOYsdY67Gfd-vYQlwWbABb8WzX7hBYAvEl5FaY55ETFRZdUXljB5Jqq8bEZ-DKS10vySd5LHwPA4kAJ-muUCVXlNF9aKQRyurL0OZ3xn8KgD04t27IWh01pptVp6b*m&amp;new=1</a></p>
+    <title>My New Post</title>
+    <url>/2022/04/01/My-New-Post/</url>
+    <content><![CDATA[<p>#测试命令</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><p><img src="https://img95.699pic.com/photo/50046/5562.jpg_wh300.jpg"><br><img src="https://article.biliimg.com/bfs/article/914b31dfcceb014227d44d4b398a0e5713098aed.png@1320w_220h.webp"></p>
+<p>##超链接<br><a href="https://699pic.com/tupian/wennuan.html">下载地址</a><br>##上传命令</p>
+<ul>
+<li>hexo d<br>##本地浏览器预览</li>
+<li>hexo s<br>##生成public文件</li>
+<li>hexo g<br>##删除publig文件、</li>
+<li>hexo clean<br>##创建个人博客</li>
+<li>hexo new “今天的blog”</li>
+</ul>
 ]]></content>
-      <tags>
-        <tag>yasashii</tag>
-      </tags>
   </entry>
   <entry>
     <title>只要你这么做，想爱上任何人都可以</title>
@@ -2107,6 +1979,215 @@
       </tags>
   </entry>
   <entry>
+    <title>建立自己的阿里云图床</title>
+    <url>/2022/04/03/%E5%BB%BA%E7%AB%8B%E8%87%AA%E5%B7%B1%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<h1 id="图床-阿里云"><a href="#图床-阿里云" class="headerlink" title="图床 阿里云"></a>图床 阿里云</h1><h2 id="1-效果展示"><a href="#1-效果展示" class="headerlink" title="1.效果展示"></a>1.效果展示</h2><p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403083438357.png"></p>
+<p>直接拖进typora就会自动上传图片并生成云链接。</p>
+<h2 id="2-安装过程"><a href="#2-安装过程" class="headerlink" title="2.安装过程"></a>2.安装过程</h2><p>1.下载<a href="https://mp.weixin.qq.com/s?src=11&timestamp=1648946397&ver=3715&signature=YgYGFM058c2O6bgYju1S2HL7pbT82uWAZfJEeKSukOkh8QQizZPPBFNS-Uep0pVYMsPLrBlGpv2yNgYQEHBz2oh2C9DIEuYfix3SssN9tqElU42PMOuOMcGBR6Wth*hZ&new=1">typora</a>并安装。版本在0.9.86以上。</p>
+<p>手动删除文字，防链接失效。</p>
+<p><a href="https://wwm.蓝奏云lanzouq.com/iehyb02ivfxa">https://wwm.蓝奏云lanzouq.com/iehyb02ivfxa</a><br>密码:9o0b</p>
+<p>链接：https:&#x2F;&#x2F;百度网盘pan.baidu.com百度网盘&#x2F;s&#x2F;1Hqhabc70lGI51O98G5x9sA<br>提取码：7758 </p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403084759984.png"></p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085032499.png"></p>
+<h2 id="3-阿里云存储设置"><a href="#3-阿里云存储设置" class="headerlink" title="3.阿里云存储设置"></a>3.阿里云存储设置</h2><p>1.复制下面链接，访问并注册账号，并绑定实名身份</p>
+<p><a href="https://www.aliyun.com/minisite/goods?source=5176.11533457&amp;userCode=vnk7s0ek&amp;type=copy">https://www.aliyun.com/minisite/goods?source=5176.11533457&amp;userCode=vnk7s0ek&amp;type=copy</a></p>
+<p>2.点击控制台</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085557825.png"></p>
+<ol start="3">
+<li><p>选择对象存贮Oss，并开通服务。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085758392.png"></p>
+</li>
+</ol>
+<p>4.点击概览，然后点击创建bucket.</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085844013.png"></p>
+<p>5.输入创建的信息。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/v2-4664c8ef7dc6bf1b1df8259e4a57bd23_720w.jpg"></p>
+<ol start="6">
+<li>最好先买个资源包。<strong>就4.98元</strong>。先买最低的半年，后面可以随时续费。</li>
+</ol>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403090249827.png"></p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403090316204.png"></p>
+<h2 id="4-配置预设文件"><a href="#4-配置预设文件" class="headerlink" title="4.配置预设文件"></a>4.配置预设文件</h2><p>1.新建txt文件，作为临时存储，放入以下代码。<strong>下面信息都是要通过阿里云账号获取的</strong>，首先我们来找<strong>accessKeyId</strong>和<strong>accessKeySecret</strong></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;picBed&quot;: &#123;</span><br><span class="line">    &quot;uploader&quot;: &quot;aliyun&quot;,</span><br><span class="line">    &quot;aliyun&quot;: &#123;</span><br><span class="line">    &quot;accessKeyId&quot;: &quot;&quot;,</span><br><span class="line">    &quot;accessKeySecret&quot;: &quot;&quot;,</span><br><span class="line">    &quot;bucket&quot;: &quot;&quot;, // 存储空间名</span><br><span class="line">    &quot;area&quot;: &quot;&quot;, // 存储区域代号</span><br><span class="line">    &quot;path&quot;: &quot;img/&quot;, // 自定义存储路径</span><br><span class="line">     &quot;customUrl&quot;: &quot;&quot;, // 自定义域名，注意要加 http://或者 https://</span><br><span class="line">     &quot;options&quot;: &quot;&quot; // 针对图片的一些后缀处理参数 PicGo 2.2.0+ PicGo-Core 1.4.0+</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;picgoPlugins&quot;: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>鼠标悬浮在右上角头像上，并选择AccssKey管理。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091012908.png"></p>
+<p>3.选择继续使用AccessKey，并点击创建accessKey，将新建的txt文本对应内容替换。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091138227.png"></p>
+</li>
+</ol>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091221238.png"></p>
+<p>把创建好的AccessKey保存下来，记住一定不要发给陌生人。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403093927352.png"></p>
+<ol start="4">
+<li><p>回到之前的oss对象存贮，点击之前创建的bucket，在点击bucket里的概览。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091348886.png"></p>
+</li>
+<li><p>根据下面的两张图，使用自己的创建的bucket信息填充之前新建的txt。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091451767.png"></p>
+</li>
+</ol>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091520777.png"></p>
+<p>6.回到typora，依次 文件 —-&gt; 偏好设置 —–&gt; 图像，到下面的页面，选择打开配置文件。<strong>将之前的txt文本的里面的信息，复制粘贴到配置里，并ctrl+s进行保存。</strong></p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091717697.png"></p>
+<h2 id="5-检验成果"><a href="#5-检验成果" class="headerlink" title="5.检验成果"></a>5.检验成果</h2><p>1.我们来验证下图片上传功能，全部勾选信息，并点击验证图片上传选项。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403092430251.png"></p>
+<p>2.如果，你看到下面这样的页面，那么恭喜你，你成功了。<strong>congratulation！！！</strong></p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403092530351.png"></p>
+<h2 id="6-其它技巧"><a href="#6-其它技巧" class="headerlink" title="6.其它技巧"></a>6.其它技巧</h2><ol>
+<li><p>批量上传图片</p>
+<p>在自己创建的Bucket点击【文件管理】【上传文件】，把自己的图片上传上去就可以了。</p>
+</li>
+</ol>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403093442547.png"></p>
+<p>点击图片文件名或右侧的详情即可弹出具有图片链接地址的页面</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403093530020.png"></p>
+<p><strong>参考信息</strong></p>
+<p>1.<a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648946397&amp;ver=3715&amp;signature=YgYGFM058c2O6bgYju1S2HL7pbT82uWAZfJEeKSukOkh8QQizZPPBFNS-Uep0pVYMsPLrBlGpv2yNgYQEHBz2oh2C9DIEuYfix3SssN9tqElU42PMOuOMcGBR6Wth*hZ&amp;new=1">https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648946397&amp;ver=3715&amp;signature=YgYGFM058c2O6bgYju1S2HL7pbT82uWAZfJEeKSukOkh8QQizZPPBFNS-Uep0pVYMsPLrBlGpv2yNgYQEHBz2oh2C9DIEuYfix3SssN9tqElU42PMOuOMcGBR6Wth*hZ&amp;new=1</a></p>
+<p>2.<a href="https://www.cnblogs.com/qian-chang/p/13669613.html">https://www.cnblogs.com/qian-chang/p/13669613.html</a></p>
+<p>3.<a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648939537&amp;ver=3715&amp;signature=cKOYsdY67Gfd-vYQlwWbABb8WzX7hBYAvEl5FaY55ETFRZdUXljB5Jqq8bEZ-DKS10vySd5LHwPA4kAJ-muUCVXlNF9aKQRyurL0OZ3xn8KgD04t27IWh01pptVp6b*m&amp;new=1">https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648939537&amp;ver=3715&amp;signature=cKOYsdY67Gfd-vYQlwWbABb8WzX7hBYAvEl5FaY55ETFRZdUXljB5Jqq8bEZ-DKS10vySd5LHwPA4kAJ-muUCVXlNF9aKQRyurL0OZ3xn8KgD04t27IWh01pptVp6b*m&amp;new=1</a></p>
+]]></content>
+      <tags>
+        <tag>yasashii</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>打工人自己的网站</title>
+    <url>/2022/04/07/%E6%89%93%E5%B7%A5%E4%BA%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BD%91%E7%AB%99/</url>
+    <content><![CDATA[<p>打工人自己的网站</p>
+<h2 id="一、招聘网站"><a href="#一、招聘网站" class="headerlink" title="一、招聘网站"></a>一、招聘网站</h2><p>1.<a href="http://www.sasac.gov.cn/n2588035/n2588325/index.html"><strong>国务院国资委</strong></a>。进入网址，点击左侧菜单栏有个“人事”；招聘栏目里面很多国资委下属管辖单位的招聘信息，可以进去查看符合自己的岗位。国企央企的招聘岗位有限，并且提价材料有非常严格的时间限制，要频繁查看信息，从发布招聘信息到提交材料时间非常短，错过也就没有机会了。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220406211625036.png"></p>
+<p>2.<strong><a href="http://www.sasac.gov.cn/n4422011/n17627531/c17633273/content.html">地方国资委</a>。</strong></p>
+<p><strong>3、国资小新公众号</strong></p>
+<p><strong>国资小新</strong>公众号是国务院国资委运营的，绝对权威的国企招聘信息发布渠道，除了招聘信息还有很多国企央企的资讯分享。我今天看了一遍，比国资委网站的招聘信息汇总要全面一点，更新也比较及时。</p>
+<p><strong>4、央企国企招聘网</strong></p>
+<p><strong>央企国企招聘网</strong>是一家叫高霖海拓教育科技的公司运营的<strong>公众号</strong>，不属于国企官方发布渠道，他们会将部分国企、央企、军队、医院等事业单位招聘信息汇总发布，也是可以参考的渠道之一，当然信息不会特别全。多渠道结合来看比较好，多个渠道多个机会嘛。</p>
+<p><strong>5、高校人才招聘</strong></p>
+<p><strong>高校人才招聘</strong>也是第三方公司运营的<strong>公众号</strong>，里面主要是高校招聘老师、辅导员、西欧那个证人员事业编的信息，对高校事业编感兴趣的朋友可以看看，个人感觉里面信息还算全面。</p>
+<p>6.<a href="http://www.mohrss.gov.cn/SYrlzyhshbzb/fwyd/SYkaoshizhaopin/zyhgjjgsydwgkzp/">国家事业单位</a></p>
+<p>7.<a href="http://job.mohrss.gov.cn/">中共招聘网</a>。可以查到岗位需求，自己可以按地区、岗位内容、薪资快速检索，相当方便。</p>
+<p>8.各省人力资源和社会保障厅，一般发布各省事业单位招聘、公务员招考、公开选调等招聘信息。比如湖南省人力资源和社会保障厅 <a href="https://link.zhihu.com/?target=http://rst.hunan.gov.cn/">http://rst.hunan.gov.cn/</a></p>
+<p>9.公司招聘官网、公众号，如：中国建设银行招聘官网：<a href="https://link.zhihu.com/?target=http://job.ccb.com/ccbjob/cn/job/index.jsp">http://job.ccb.com/ccbjob/cn/j</a></p>
+<p>10.第三方求职网站</p>
+<p>应届生求职<a href="https://link.zhihu.com/?target=http://www.yingjiesheng.com/">http://www.yingjiesheng.com/</a></p>
+<p>智联招聘<a href="https://link.zhihu.com/?target=https://www.zhaopin.com/">https://www.zhaopin.com/</a></p>
+<p>前程无忧<a href="https://link.zhihu.com/?target=https://www.51job.com/">https://www.51job.com/</a></p>
+<p>中华英才网<a href="https://link.zhihu.com/?target=https://www.chinahr.com/home/cs/">https://www.chinahr.com/home/cs/</a></p>
+<p>各省人才网，如湖南人才网<a href="https://link.zhihu.com/?target=http://www.hnrcsc.com/">http://www.hnrcsc.com/</a></p>
+<p>实习僧、猎聘、领英、BOSS直聘、脉脉……</p>
+<p>11.中智招聘 - <a href="http://www.yinhangzhaopin.com/"><strong>国企</strong></a></p>
+<p>12.<a href="http://www.yinhangzhaopin.com/">银行招聘网</a></p>
+<p>13.<a href="http://www.cphr.com.cn/4880.html">国家电网人才招聘</a></p>
+<h2 id="二、打工人的权利。"><a href="#二、打工人的权利。" class="headerlink" title="二、打工人的权利。"></a>二、打工人的权利。</h2><p><a href="http://www.npc.gov.cn/npc/c30834/201901/ffad2d4ae4da4585a041abf66e74753c.shtml">《中华人民共和国劳动法》</a>。</p>
+<p>法律援助：<a href="https://hilawyers.club/questions/">法律案例分析知识库</a>。<a href="https://www.bilibili.com/video/BV1234y197hT?share_source=copy_web">网站用法B站教程。</a></p>
+<p><a href="http://www.gov.cn/zhengce/2020-12/27/content_5574550.htm">《劳动保障监察条例》</a>。</p>
+<p>1、投诉人身份证；</p>
+<p>2、劳动合同；</p>
+<p>3、用人单位向劳动者发放的“工作证”、“服务证”等能够证明身份的证件</p>
+<p>4、工资支付凭证或记录(职工工资发放花名册)、缴纳各项社会保险费的记录；</p>
+<p>5、劳动者填写的用人单位招工招聘“登记表”、“报名表”等招用记录；</p>
+<p>6、考勤记录；</p>
+<p>7、<a href="https://zhuanlan.zhihu.com/p/376896791">其他证明劳动关系的材料。</a></p>
+<p>劳动仲裁</p>
+<p>1.营业执照。天眼查。企业查。公司地址，法人名字。</p>
+<p>2.仲裁申请书。自己写或者网上下载再填。或者去仲裁所附近找人代写。写好后，去问仲裁所的法律咨询能不能用，需要改哪里，怎么改，</p>
+<p>3.证据清单。</p>
+<p>4.身份证复印件。</p>
+<p>流程</p>
+<p>1.支付宝或微信：欠薪线索反馈。</p>
+<p>2.劳动仲裁。按上面收集材料，然后咨询律师能不能用，</p>
+<p>3.起诉。聘用律师，将仲裁的材料一式两份提交到法院。然后一审二审。</p>
+<p>4.按律师建议做些要做的事。</p>
+<h2 id="三、一些故事"><a href="#三、一些故事" class="headerlink" title="三、一些故事"></a>三、一些故事</h2><p><a href="https://www.bilibili.com/video/BV1nZ4y1H7NV?p=1">故事案例1</a></p>
+<p><a href="https://www.bilibili.com/video/BV1o34y147Uo?share_source=copy_web">故事案例2</a></p>
+<h2 id="四、快乐工作"><a href="#四、快乐工作" class="headerlink" title="四、快乐工作"></a>四、快乐工作</h2><p>工作很少使人能够感到快乐，所以我们要制造快乐，反正干也得干，不干也得干，何不让它充满乐趣地干呢，不喜欢但必须干的事儿，我必然要想出办法把它变得不那么讨厌。</p>
+<p>1.从枯燥的工作中挖掘出新意，比如在日复一日重复的工作中，找出更便捷、更高效的方法，提高工作效率，节约时间，经常有新意，你会不觉枯燥也有了成就感。</p>
+<p>2.工作中干点儿私事儿，占便宜的感觉棒棒哒。手底下忙活着，但不影响我每天做提肛，叩齿，转眼球（中医的养生措施）…，手空下了就练习钢琴高抬指……，总之这些回家该干的事上班都干完了，岂不美哉？</p>
+<p>3.利用工作中学习提高，只要从我手上过的东西，即便与我业务无关，我也会扫一眼，了解更多知识，涨了见识，其实这也是在一点一滴地学习，日积月累的效果很可观。</p>
+<p>4.工作中学习做人做事的道理。窗口工作经常跟人打交道，为什么有些人说话你就想去帮他，有些人就想怼他，我经常通过他们的言行举止总结和思索，同时提高自己的说话技巧和沟通能力，同时在无数次的解答政策中。摸索如何能更加简明扼要，通俗易懂地与人表达和沟通。</p>
+<p>5 没有过多的精力去做义工、做慈善，所以把自己每一天的工作当做举手之劳，为他人带去温暖，尽我能尽我力，为社会贡献一份美好，活出自己的价值。</p>
+<p>6 老话说：庄稼一枝花，全靠粪当家。你懂的，工作是立身之本，它要供养我的吃喝玩乐，它是有功之臣；再想想，地球上还有多少人在忍受失业的痛苦和压力，我相比还是不错的。感恩之心要时习之。</p>
+<p>每天的工作，除了付出劳动，自己还有收益和提高，就会觉得快乐和满足。</p>
+<p>原文链接：<a href="https://www.zhihu.com/question/346676791/answer/875166310">https://www.zhihu.com/question/346676791/answer/875166310</a></p>
+<h2 id="五、老师如何看出学生聪明程度"><a href="#五、老师如何看出学生聪明程度" class="headerlink" title="五、老师如何看出学生聪明程度"></a>五、老师如何看出学生聪明程度</h2><p>工具&#x2F;原料：细心观察</p>
+<p>1.看出学生聪明，可以通过上课时观察学生的微表情，往往这类学生知识接受程度会比较快。</p>
+<p>2.看出学生聪明，最简单的方法是看学生的学习成绩。</p>
+<p>3.看出学生聪明，还可以通过提问，尤其是一些有深度的话题，往往聪明学生的见解会高出一个层次。</p>
+<p>4.看出学生聪明，可以通过私下交谈，会发现聪明的学生逻辑非常清晰，语言表达非常流畅，见解会很独到。</p>
+<p>5.看出学生聪明，还可以通过一些竞赛，往往有时候聪明的学生在某些竞赛方面表现会比较突出。</p>
+<p>6.总结：细心观察学生，不断总结规律，会较容易看出学生是否聪明。</p>
+<p>原文链接：<a href="https://jingyan.baidu.com/article/4b07be3c0dc80209b380f39f.html">https://jingyan.baidu.com/article/4b07be3c0dc80209b380f39f.html</a></p>
+<h2 id="六、怎么看出一个人很聪明"><a href="#六、怎么看出一个人很聪明" class="headerlink" title="六、怎么看出一个人很聪明"></a>六、怎么看出一个人很聪明</h2><p>有的人喜欢自作聪明，那不是真正的聪明，也不会让人觉得厉害。阅人无数之后，我发现有一个人很聪明，他的确是与众不同，带给我截然不同的美好体验和难忘的经历。我是怎么看出一个人很聪明的呢？</p>
+<p>1.经历的实践多，能发现对方价值，赞美对方优点。<strong>【懂得欣赏别人】</strong>遇见过很多人，为什么我偏偏就喜欢他？因为在交往的过程中，<strong>我发现他待人一向彬彬有礼，懂得如何欣赏别人，让别人充满信心，看到自己的优秀之处</strong>，觉得自己是聪明可爱的。</p>
+<p>如果一个人处处挑剔苛责你，让你感到自卑，你还有可能爱对方吗？</p>
+<p>2.没有居高临下的做法和态度。<strong>【帮人恰到好处】</strong></p>
+<p>当一个人在困境中，会有很多貌似关心你的人出现。有的人送钱，有的人送吃的，有的人打探隐私还四处传播，有的人热心为你介绍对象……</p>
+<p><strong>而那个最聪明的人，他从来不做那些“居高临下”帮助别人的事，</strong>因为这样对于别人的自尊是一种打击。<strong>庶人赠人以财，而君子赠人以言，他的一句话就可以温暖别人的心灵，让冰雪消融。</strong></p>
+<p>3.<strong>【爱你不动声色】</strong></p>
+<p>曾经有很多人约我出去玩，请吃饭，他们热情地表白，说着满嘴动听的甜言蜜语，送来很多令人眼花缭乱的礼物……但若干年后，那些曾经的海誓山盟都消失了，很多面孔早已模糊不清。</p>
+<p><strong>我唯一记得的，只是那个不动声色、默默为我奋斗的人，他让我懂得了什么是“君子之交淡如水”。原来最厉害的并不是呼天抢地、死去活来，而是爱到深处无言，这个聪明的人就是“深水无声”！</strong></p>
+<p>4.本身就很优雅，做事行云流水。<strong>【冰雪无语】</strong></p>
+<p>有的人在身边说爱你，他们每天都在说些什么呢？他们会说漂亮的情话，会忽悠别人，会抱怨自己可怜的境遇，会倾诉自己的烦恼，会说别人的坏话，会向你乱发泄……这些都不会让你幸福快乐。</p>
+<p>可当一个人在你身边出现时，<strong>即使他一直不说话，什么都不说，一个眼神一个笑容，也能让你感受到一种美好。若开口说话，他会让你感到如沐春风，你就会发现这个人真是冰雪聪慧。</strong></p>
+<p>5.能坚守自己的底线原则<strong>【他很有主见】</strong></p>
+<p>遇见过无数的人，他们会千篇一律地只夸我长得好看，然而更多的是挑剔和辱骂。可遇见他的时候，他从来不像别人那样用歧视和鄙夷的眼光看待我，从不跟别人一样，在你身上乱贴标签。</p>
+<p>他很喜欢看我写的字，喜欢跟我交流思想，总是默默地鼓舞着我的心灵……<strong>他是个很有主见的人，内心洋溢着大爱，懂得如何尊重和爱护女性，这让我觉得他是最聪明的。</strong></p>
+<p>原文链接：<a href="https://jingyan.baidu.com/article/9113f81b223d806a3314c76b.html">https://jingyan.baidu.com/article/9113f81b223d806a3314c76b.html</a></p>
+<h2 id="七、内驱力"><a href="#七、内驱力" class="headerlink" title="七、内驱力"></a>七、内驱力</h2><p><a href="https://www.bilibili.com/video/BV1uS4y1S7Fi?share_source=copy_web">自律视频</a></p>
+<h3 id="1-假大空的自律视频误导。"><a href="#1-假大空的自律视频误导。" class="headerlink" title="1.假大空的自律视频误导。"></a>1.假大空的自律视频误导。</h3><p> 特点：逻辑谬误的骗局</p>
+<p>1.1名人背书。有可能名人说的就是错的，很多东西都在不断变化，需要根据实际情况不断修订理论</p>
+<p>1.2科学理论。以偏概全，比如戒断多巴胺、追逐内啡肽，</p>
+<p>1.3自律是个伪命题，自律的本质是高级的欲望战胜了低级的欲望。我想取刘亦菲，高级的欲望，我就想健身了，就娶得到吗？想成为美国总统奥巴马？有高级的欲望战胜低级欲望就能实现吗</p>
+<p>1.4真正有用的是通过做对你有价值的事，一天天折磨自己，通过达到一个个小成就，才可能达到自己的最终欲望，甚至说达不到。这个过程不取决于你难不难受，自不自律。</p>
+<p>1.5伪鸡汤扮演更大的屠龙少年，讲了没有用，小朋友始终做不到自律。</p>
+<h3 id="2-自律失败的根源"><a href="#2-自律失败的根源" class="headerlink" title="2.自律失败的根源"></a>2.自律失败的根源</h3><p>2.1人本身就是懒惰，逃避困难，好逸恶劳，人老是热衷于自己的舒适，去贪玩好吃懒做，你稍微一不留神，你这玩意儿就要把你拖下水就是人每个人都是这样的</p>
+<p>2.2人类社会需要大量的人来做基础的苦差事，如果每个人都是成功者，这个社会就很难进步了，人们主要是为了满足生存不得不朝九晚五，如果他有好多钱，他也天天躺在家里打游戏对不对。</p>
+<p>2.3迎接人性弱点的心灵鸡汤再短视频平台向浪潮一样，一波波向你袭来，而低认知人群没有脑子照单全收。后果就是，真正想自律的人工作就变得更困难了，他真的认为自律就是就是戒断多巴胺、追逐内啡肽，是高级的欲望战胜了低级的欲望。不是那么简单，涉及的要素非常多。</p>
+<p>2.4有两种人，做事的和作秀的，做事的人容易骂骂咧咧，因为他在那个事里面遇到的困难真的太多了，不是非黑即白的理论就可以搞得定的。当班主任的人之前想着没有教不好的学生，当班主任之后一个人老了十岁。</p>
+<h3 id="3-常见鸡汤和真实体验的反差"><a href="#3-常见鸡汤和真实体验的反差" class="headerlink" title="3.常见鸡汤和真实体验的反差"></a>3.常见鸡汤和真实体验的反差</h3><p>3.1自律是一个伪命题，自律让你痛苦，你无法持续痛苦最后你会变得不自律， 真正的自律是追求<br>快乐、幸福，是向往更大的利益驱动自己。</p>
+<p>你的体验:你会发现你即使相信了这一套，你还是不自律，因为它的核心逻辑是错的，写心灵鸡汤的书的人自己可能并没有真正去长期海量的自律过。我培训的人里面有500、600个小朋友就是这样，听完还是不自律，因为核心逻辑就是错的，写书人没有经过把不自律的人培养成自律的人的过程，我培养过，所以我敢说。 </p>
+<p>不知道你们见过成功学没有，成功学先否定你过去一切的努力是无效低效的，然后说它这里有神仙大法、致富秘诀、唯一正确，结果你被天堂地狱洗脑法洗脑了，最后你会发现你看了它、学了它也没什么用，你还是不成功。否定对方的过去，再许诺重利是常见的哗众取宠和欺诈手段。</p>
+<p>任何人成功不成功有很多要素引起的，你没有办法做到自律也一样，自律和具体的某个人有关，自律是不是伪命题，相信后仍旧做不到自律，不针对最重要的事情，在哪里打擦边球，偷换概念，文字游戏，没有直接说，你这个具体的人就是个不能自律的人，他不能这样讲，否则不能把你哄得高兴，然后只能去骗。否定对方的过去，再许诺重利是常见的哗众取宠和欺诈手段。张仪打秦淮王，等你撤兵之后，再说你听错了，撤兵60里。这就是效果。往往是一个单一要素否定所有不好的。</p>
+<p>有些人说:宁老师你为什么明明懂骗人还要说实话，知世故不世故是善良的成熟。</p>
+<p>3.2自律是因为多巴胺，内啡肽，把自律简单解释为多巴胺，内啡肽是一种非常错误的理论。跟感冒是鼻病毒引起一样，没有直接点明直接原因是着凉，听完以后自己还是跟以前一样，该生病还是生病。</p>
+<p>3.3自律,通过意志行为去攻克痛苦的事情，痛苦和快乐不是恒定的，而是波动的。比如学自行车摔了很多跤，很痛苦练了两个小时，明天骑着自行车悠哉游哉街上走，你就不一定是痛苦的，还有就是你做数学题做的焦头烂额很难受对吧，但是十几天后，你同样的题行你做得很熟，接下来你去做的时候，同学说你好厉害，一下子做完那么多道题对吧，那你可能有一种成就感对吧。 痛苦和快乐不是恒定的，而是波动的。并不是你有了内啡肽、多巴胺这辈子就不痛苦了，</p>
+<p>3.4完成即完美。很多人一开始就追求完美，没有什么事情一开始就是做到完美的，但是我知道有很多这样的人，因为我培训过。很多人无法自律的原因是期望太高，总是希望做到完美，老是担心做不到完美，然后就不做了，其实事件是在不断调整的过程中做到完美的，如果一开始就老是盯着完美，你的行为动机就一直被伤害，要做的是先放下这种思维方式。</p>
+<p><strong>要先做完了，再调整再调整。</strong>比如我做视频，总担心很干很硬核，怎么怎么样，我怕没有人看我，我怕没有办法吸引到粉丝关注，如果我总是这种视角的话，我就没有办法录这个视频了，我的想法很简单，不好就不好，或者没人看就没人看，但是我一定是做到问心无愧了，我做的东西是实在的，至于别人怎么说或者别人看不看，我认为好就是最重要的，有了这种心态的话，你就不会纠结这种事情，没有什么事情一开始就是做到完美的，但是我知道有很多这样的人，因为我培训过。</p>
+<p>3.5自律就意味着痛苦会永远发生，你别太轻易被忽悠，不管你认为它是不是伪命题，这是人的大脑的学习机制决定的，<strong>人的大脑不擅长思考</strong>，思维就意味着难受和痛苦必然会存在，<strong>人学习和锻炼的过程是因为你需要他们，而不是你单纯的喜欢它。</strong><a href="https://www.bilibili.com/video/BV1rE411q74G?spm_id_from=333.337.search-card.all.click">小学没读完的普通农民就自制毒品。</a> <a href="https://www.bilibili.com/video/BV1tv411K79D?share_source=copy_web">绝命毒师</a></p>
+<h3 id="4-自律的本质还是一场交易-，不想付出代价就获得的人就是痴人说梦"><a href="#4-自律的本质还是一场交易-，不想付出代价就获得的人就是痴人说梦" class="headerlink" title="4.自律的本质还是一场交易 ，不想付出代价就获得的人就是痴人说梦"></a>4.自律的本质还是一场交易 ，不想付出代价就获得的人就是痴人说梦</h3><p>我们需要的很多事情，人必须做完自己必须做的，才能做自己喜欢做的。这不是恒定的，有可能你今天必须做，明天就有点喜欢，这就是真实情况。并不是你听了几句心灵鸡汤，你就能把你必须做的变成喜欢做的。</p>
+<p>杜兰特和乔丹曾经打篮球最好的人，你说他打篮球就是为了快乐，喜欢一个东西和成为职业永远是两个事情，杜兰特和乔丹都曾想过放弃篮球，杜兰特他妈一巴掌把杜兰特打回了篮球场，直接甩一巴掌过去，该怎么做怎么做，你都选择走到这里了，你还想放弃，（想起了我曾经的考研，真的看到书就头疼，啥也看不下去），职业和爱好是两回事，职业真的太苦了，太累了。</p>
+<p>也有可能是学习材料不对，材料不具有自然类别性。看改变心理学的40个实验之类别天然形成。</p>
+<p>如何做到真正的自律?</p>
+<p>我的家庭非常痛苦，我做到过自律，有一个前提，一个是我的家庭非常的痛苦，我说我自律不是因为快乐，而是因为痛苦，我不想回到地狱里面了，地狱里面太痛苦了，就每天活在一种胆战心惊的家庭环境中，就像一个流浪狗被虐待一样，我不想回去，所以我拼了老命出来，有很多人说是为了快乐，我真的是<strong>逃避痛苦</strong>，就是逃避痛苦，我不想回去了，有很多像我这样的人，做出一番事业就是这样的。原生家庭到什么程度，就是说每天都有人侮辱你，吼(hou3)你,踩死你，没用的东西滚出去，就是每天都是心惊胆战，就是随时都会有人拿刀子扎你心窝子那种。除了吼，还有暴力。所以只有挣到你的钱，买了你的房子搬出去，你才能脱离这样的控制、粗暴。</p>
+<p>真正的自律一定是有一种发自内心的，他有一种巨大的驱动力，去拥有什么。我的人生非常的不精彩。我曾经是那种能躺着不坐着，能打一局游戏不看书那种。当时我生了一场病，我对面那床是一个白血病，我看着他一天天死去的肚子上扎了个窟窿，我想我身体还好吧，天天怨天尤人干什么你，那个人的死对我来说启发太大了，如果我所这辈子我怨天尤人，那么我活着不过是行尸走肉罢了。从那天起，开始自律，长达五年坚持同一件事，也可以连续近2个月每天做的就是重复枯燥的事情。每天写5个句子，背5个句子，我想成为一个作者，后来我也曾为一个畅销书作者，我的书买了70、80万本。那么写书，拿20、30万稿费的人是很少的。大多数人就是拿一两万。我能做到畅销书作者都是十几倍的，因为5万就是畅销书。那么我是怎么做到的，我是非常清楚，不是我想成为畅销书作者，我搬出了更高级的欲望，我就能做到，实际上搬出来也做不到的。一定是由一个长期漫长煎熬的过程，跟邓亚萍一模一样的过程，而且最近两个月，每天是三百个俯卧撑，500个跳绳，一天没有断，我一天没有断。我是怎么做到的，我可以自律，也可以不自律，只要我决定了，只要我决定了，我就能做到，这个是有方法的，<br>奥运冠军邓亚萍和我的思考基本是吻合的而不是心灵鸡汤的书。邓亚萍每天醒来就是觉得，我也不想训练好难好累好想回避，但是我到了那个乒乓球台，我就是500个正手，用他们的话讲，就是xy和场景法。x训练项目和y这个场景捆绑了，就是早上起来看到乒乓球台，永远是不管我喜不喜欢高不高兴，就是逼自己习惯成自然。那个不舒服的永远存在，根本不可能消失，不要相信鸡汤。</p>
+<p><a href="https://www.aliyundrive.com/s/h3c4w2dZgeU">邓亚萍亲口讲述自己的学习方法</a></p>
+<p>退役的时候不认识26个字母，就是坐到办公桌前，就必须背20个单词，不备20单词，除非我死了，她是硬逼着自己，慢慢变成一种习惯。因为真正聪明的人，要获得越好的东西，就要付出越大的代价，不是以你喜不喜欢高不高兴的，用这套心法基本干什么都成。先进入清华大学外语系得到英语学士文凭，并于一年后获得学位。然后考入剑桥大学得到博士学位。</p>
+<p>除非自己不休息的话效率太差，否则就要背完。休息的时候只是暂时转移注意力，不是完全懈怠，就是只休息半小时这样，不能休息太久。或者先做其它事。</p>
+<p>我觉得王石才说出了自律的真正重点，需要自律的人往往能力是有欠缺的，而自律是一种<strong>自我补偿</strong>。<br><strong>一些能力特别强的学霸学神平时不自律一些影响也不大</strong>，我曾经连续5年写作只中断了四天，但是我没有非黑即白像网上的心灵鸡汤去看待自律，比如自律是你自我负面评价，然后你需要抵抗诱惑最后还是被自己的欲望翻盘，永远自律不了，你要接纳自己，然后一大堆的鸡汤加成功学扑面而来。<br>这件事的本质不是你接纳不接纳你自己，接纳你自己对于自不自律影响不大，不是接纳就变好，不接纳就变坏，事实是什么就是什么，这是客观。</p>
+<p><strong>自律是一种交换，你需要获得什么能力、什么东西，你需要付出正确的相应的代价</strong>，同时努力的过程中获得正反馈，<br>喜欢和讨厌并不是一成不变的，当你努力得足够多，即使你讨厌的也有可能成为你的强项。你仰仗的也会有快乐的。</p>
+<p>负面评价自己确实对自己有副作用的，但是承认现实是人进步的前提，不是说明明已经很不好了，也玻璃心讳疾忌医也很恐怖。<br>那些能力拉胯的人需要自律来进行能力补偿以此达到交换到自己想要的目标目的.<br>能让我们变得更优秀的事情是你需要的，需要的事情往往是痛苦的，教育很多时候是反人性的，是爬坡逆流而上，如果你没有像我一样培训过3000多个人，你不要轻易的去表达什么学习上瘾什么的，即使是有，大多数人都是忍受痛苦去做的。你都急死了，想要自律的人还是懒懒散散，不是看一个视频就做到自律，自律是一个海量的过程，不是一个结果，不是一句话的认知。<br>自律是更大的欲望战胜了小的欲望吗?我希望成为美国总统我就能成为吗?我有更大的欲望啊?<br>这种讲法是最傻的，因为它就像成功学，看上去美丽可爱，实际上实现不了。<br>真正的自律是需要漫长科学的刻意练习成为一种习惯的，还来自于价值观和信念和意识形态等等<br>要素，并不是简单的内啡肽和多巴胺。一个混混在父亲死后债台高筑，一夜时间变得极其自律，从倒数到第一名考上名校。他一夜之间认识到他没有靠山了，什么都得靠他自己了，我不但没有靠山，还要承担很多责任，所以说它的信念，意识形态都发生了很大的变化，你说有什么方法，人家家里破产了，债台高筑，一夜之间就自律了。那用看什么视频，所以说人是复杂的，不是单一要素。</p>
+<h2 id="5-科学的自律思维和方法"><a href="#5-科学的自律思维和方法" class="headerlink" title="5.科学的自律思维和方法"></a>5.科学的自律思维和方法</h2><p>想成为一个自律的人，必须先想办法骨子里变成一个“冷血无情”的人，就是不要用你的情绪、感受主导了你的行为，这样你就很难变得自律。</p>
+<p>我今天喜欢我就做，我不喜欢我就不做，你的行为动机和习惯都很弱小，你总是靠感情用事，是做不大自律的。要自律，而是用残酷无情的行为习惯去推进自己做某件事、某个目的，熟能生巧，你做到这件事越来越轻松，用习惯去推进你能力的形成，你就不那么痛苦了,但是只要你想变得优秀，痛苦就是永恒存在的。只能说痛并着快乐。</p>
+<p>当你的能力补偿到一定程度，能力强大到一定程度，你就会自然因为能力而获得好处和奖励。这时候自律的难度系数就会变低。就是抛物线一样的。每天做200个俯卧撑，17天的时候感觉手都要断掉了。</p>
+<p>科学的自律方法:<br>5.1设定的目标除非有不可抗力，否则必须完成，至死方休，冷血无情。曾经我做写作这件事情，周围的人看到我就是说，”你这个人吧，就是缺爱，需要别人关注你。所以你行为特殊“。后来我连续一年雷打不动做那件事，他就是说，“你这个人就像蜜獾死咬这个东西不松口，你这个人身上有个狠劲对吧”。除非地球塌了，地球灭亡了，否则冷酷无情达成他。</p>
+<p>养成不达目的不罢手、设定目的一定完成的人格类型之后，就是不完成事情比完成还要痛苦。世界上所有失败者，对目标完成不了习惯之后就会麻木，反正昨天没跑今天没跑也行，今天状态又不好对吧。感情用事，凭借自己舒服，凭借多巴胺内啡肽的人办事真的太幼稚了，太天真了。</p>
+<p>其实没有，单单频繁打扰你，叫你干这干那，不停打断你，内心就崩溃了。言语挑衅什么的，我可以完全不停，远离那个说话的人就行，但是那种叫你干这干那的，你逃脱不了的就根本不行。</p>
+<p>5.2完成再完善，不求必须当下完美。先把事情做完，不管做到好与不好，做50个俯卧撑，不一定要100%标准，至少先做完它，明白自己至少是做到了最低标准，给自己好感。行为模式正反馈。<br>5.3张弛有度。任务不能大而硬，造成自己完不成，或者即使完成了，最多只能坚持2、3天就放弃，给自己养成完不成任务的人格类型。他这辈子就只能当loser了。<br>5.4X、Y场景捆绑法。坐到桌子上，就要200单词完成。除非天塌了，除非你死了。身上有股狠劲的人对吧，是非常恐怖的。刚开始养成是非常难的。<br>5.5激励过程而不是结果。打乒乓球的时候，不要想着我是最棒的，我是世界第一。越是激励这个过程，往往激励得越多，行为就越懒散。为什么，因为这些东西是虚的。应该要激励这一拍该怎么打好，这一拍该怎么发球让他接不住。往往是激励过程，不是这个结果。激励当下这个过程，比如说，做完这一百个跳绳。或者是先跳50个再跳。激励的过程中，总能做到这件事情，那么就会有一个真正实的东西，它不是虚的。所以成功学就是天天激励这些虚的东西，说我是最好的，我要成为百万富翁，我要成为销售冠军，不成为销售冠军我就去裸奔对吧。他们激励的是一个结果，是一个虚假的快感。</p>
+<p>说的极端一些，一个人要自信，就是要有钱有势，有一些实实在在的东西在积累。很多实实在在做出做成的事。他就是自信。你天天激励他成为千万富翁，亿万富翁，这些是没有用的。骨子里的气球一戳就破。你不信看那些学了成功学的人，上了那种舞台，被那些导师一嘲讽起来，他内心是虚弱的。然后又开始进行自我洗脑。骨子里还觉得自己是loser。</p>
+<p>5.6 你            积极暗示，左手温暖右手。</p>
+<p>我对夸赞的理解:人不能太依赖外界的夸赞去实现自己的理想，因为外界的侮辱、打压、贬低、妒忌的恶言恶语往往比真心的夸赞要多得多，它们是常态，甚至往往恶言恶语更多的是真心话，如果你没有成绩、成就、权势，身边坏人真的特别多，如果你过分在意和依赖外界的夸奖去做对某件事，那么你的行为动机是很脆弱的，一个批评你都能不愉快半天，甚至一句你真菜、你是埋坟的能让你半天活在无尽黑暗和不断轮回播放这个痛点，反复让它鞭打你的心灵。让别人的嘴巴去主宰你的前程和理想。其次往往难听的事实比动人的谎言要多得多，如果因为客观事实难听，你就接受不了，你的行为动机就很脆弱，而三分钟热度是无法拥有稀缺能力的,没有稀缺能力的人，注定难以逆袭，贫穷的本质是资源和能力的稀缺，你会贴膜，他五分钟也学会了，穷人在内卷中努力奋斗，收获却很少，你必须做别人做不到的事情，有难度的事情，才有竞争力和富裕。你的人生是靠无数次攀爬、努力、奋斗，咬牙迎难而上，做成了无数的小事堆砌起来的，不是靠批评和赞美来实现的，所以赞美的这件事主要还是自己做，赞美只是锦上添花。”冷酷无情“就是把精力放在做事情上面，不是放到情感上面。因为我长达7年是在侮辱和辱骂中去实现自己的理想的，我听到最多就是，我恨不得踩死那，没有一件像样的事情，你是个垃圾，你是个废人，我曾经每天听这种都是家常便饭，而且是来自最亲的人所的。我做得最多的是左右温暖右手，如果你不能理解这个逻辑，总是把自己的行为动机寄托在外界的赞誉上，你很难实现需要百折不回才能实现的梦。</p>
+<p>能看到这里的都是聪明的人。</p>
+<h2 id="八、纪录片"><a href="#八、纪录片" class="headerlink" title="八、纪录片"></a>八、纪录片</h2><p><a href="https://www.bilibili.com/video/BV1nN411f7q3?share_source=copy_web">人生七年解说</a>   <a href="https://www.bilibili.com/video/BV1vV411s73R?share_source=copy_web">阶级越迁–尼古拉斯篇</a></p>
+<p><a href="https://www.bilibili.com/video/BV1gP4y1s7dV?share_source=copy_web">出路</a></p>
+<p><a href="https://www.bilibili.com/video/BV1jF41147my?share_source=copy_web">变形记–高占喜</a>  第一就是富爸爸是公务员，有钱有资源，高占喜就是镇高中的前10名，本来就是聪明人。如果一个聪明肯学的孩子受到他的金钱和信息资源资助的话，是真的可以变得和中产的。</p>
+<h2 id="九、文章"><a href="#九、文章" class="headerlink" title="九、文章"></a>九、文章</h2><p><a href="https://www.mtyyw.com/7013/">寒门再难出贵子</a></p>
+]]></content>
+      <tags>
+        <tag>yasashii</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>英语四六级</title>
     <url>/2022/04/05/%E8%8B%B1%E8%AF%AD%E5%9B%9B%E5%85%AD%E7%BA%A7/</url>
     <content><![CDATA[<h1 id="英语四六级学习方法与资料"><a href="#英语四六级学习方法与资料" class="headerlink" title="英语四六级学习方法与资料"></a>英语四六级学习方法与资料</h1><h2 id="像熟悉家人一样熟悉单词"><a href="#像熟悉家人一样熟悉单词" class="headerlink" title="像熟悉家人一样熟悉单词"></a>像熟悉家人一样熟悉单词</h2><p>中学老师曾经说过：</p>
@@ -2123,6 +2204,10 @@
 <p>后面可以用谷歌翻译检验翻译水平</p>
 <h2 id="四六级资料"><a href="#四六级资料" class="headerlink" title="四六级资料"></a>四六级资料</h2><p>1989-2020<a href="https://www.aliyundrive.com/s/XgnySKU49jD">六级试卷与解析</a>  <a href="https://m.kekenet.com/cet6/ljtl/">听力</a>   2015-2021<a href="https://www.aliyundrive.com/s/iFBokMEsZ6a">四级试卷与解析</a> </p>
 <p>参考文献：<a href="https://www.zhihu.com/question/22085688/answer/22534419">https://www.zhihu.com/question/22085688/answer/22534419</a></p>
+<p>英语歌谣</p>
+<p><a href="https://www.bilibili.com/video/BV124411r7T2?share_source=copy_web">Coloursong</a></p>
+<p><a href="https://www.bilibili.com/video/BV1yU4y1a7cS?share_source=copy_web">Colors Song_颜色之歌</a></p>
+<p><a href="https://www.bilibili.com/video/BV1vE4118768?share_source=copy_web">五只小鸟3</a></p>
 ]]></content>
       <tags>
         <tag>yasashii</tag>
@@ -2212,6 +2297,7 @@
 <li><a href="http://vocakey.info/vocaloid5_library">http://vocakey.info/vocaloid5_library</a> vocaloid5声库</li>
 <li><a href="https://vocalremover.org/ch/">https://vocalremover.org/ch/</a> 人声伴奏分离</li>
 <li><a href="https://www.lalal.ai/">https://www.lalal.ai/</a> 人声伴奏分离</li>
+<li><a href="https://demo.unlock-music.dev/">https://demo.unlock-music.dev/</a> 酷狗酷我QQ音乐网易云格式转换mp3</li>
 </ul>
 <h2 id="电影网站"><a href="#电影网站" class="headerlink" title="电影网站"></a>电影网站</h2><ul>
 <li><a href="https://v.lxl8800.cn/index.php/vod/type/id/4/page/3.html">https://v.lxl8800.cn/index.php/vod/type/id/4/page/3.html</a></li>
@@ -2260,5 +2346,88 @@
       <tags>
         <tag>yasashiix</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>究极缝合怪式学习方法</title>
+    <url>/2022/04/29/%E7%A9%B6%E6%9E%81%E7%BC%9D%E5%90%88%E6%80%AA%E5%BC%8F%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="究极缝合怪式学习方法"><a href="#究极缝合怪式学习方法" class="headerlink" title="究极缝合怪式学习方法"></a>究极缝合怪式学习方法</h2><p>大家好，我是之路，今天给大家带来一个记忆方法，这个方法就是一个究极缝合怪，整合了思维导图，艾宾浩斯记忆法，费曼学习法，错题集，心态法等主流记忆方法。</p>
+<p>​        <img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220429195524132.png" alt="究极缝合怪式学习方法思路图">                       </p>
+<ul>
+<li><p>第一步是立人设，是定位理论，美国营销专家艾·里斯和杰克·特劳仑提出的，我看的实际应用是来自邓亚萍《心力》05小节“给自己设置一个角色定位，并不断向其靠拢”，比如说，我是能坚持每天背20单词的学生，我是情绪消化能力极强的职场人，这些符合你目前的状况，就会对自己人设充满信心，去背单词、职场做事时都得心应手。这里必不可少的人设就是：既要参考群体智慧，也要参考个人智慧，这样我们在学习中才能找到最适合自己的学习方法，而不是闭门造车，也不是人云亦云。</p>
+</li>
+<li><p>第二步是放宽心态，有两个放宽心态，第一个是来自邓亚萍《心力》28小节“答喜马拉雅听友提问”，这里主要是讲赛前自我沟通注意什么，我觉得这个自我沟通心态挺好用的，就是：1、接受不完美的自己，不需要每一件事都做到完美，不完美的事情很可能不是自己能控制的，比如公司项目失败了，不单单是自己的问题，领导和公司都有问题。2、不要盲目追求社会认可，认为自己打球时，不仅要赢，而且要赢得漂亮，但是当对手和你水平一样时，自己险胜其实就可以了，不需要赢得漂亮。3、摒弃“公平想象”，接受社会的不完美。不要有“只要我刻苦训练，自己一定能发挥出色”、“误判在比赛中是不能忍受的，是不公平的”、“应该……”、“按道理……”。就要打好自己这个球下个球，不要和裁判较劲。</p>
+<p>还有一个放宽心态就是放下过去的心理阴影，想着“学习虐我千百遍，我待学习如初恋”，有些人因为过去学习很长时间都没有收获丧失了信心，这是我们就要放下过去的阴影，重新像第一次学习那样对学习充满热枕。</p>
+</li>
+<li><p>第三步就是幸运物的心理暗示，来自邓亚萍《心力》03节“迷信习惯”，主要说邓亚萍在打乒乓球前按三下球板，这样回缓解自己焦虑，从而清空自己的比赛不利心态，重新振作。这个动作是平常就训练好的，就是平时打球心态紧张，放松心态的同时按三下球板，这样，打比赛时，按三下球拍也会缓解焦虑。这个应该是来自俄国，巴普洛夫的狗，摇铃铛就会流口水的狗。这里我的幸运物就是自己偶像的照片，看到就觉得自己心力很温暖，缓解了焦虑。</p>
+</li>
+<li><p>第三步就是列目标(要做)清单、列不要做的清单、列例外控制清单。来自邓亚萍的《心力》08执行意图、09例外控制、02失败清单、13注意力太集中才会效率低吗。列目标(要做)清单，来自纽约大学心理学教授Peter Gollwitzier。主要是说大脑在偷懒和坚持间决策时，总是偷懒战胜坚持，如果我们在纸上写明如果有决策，直接跳过决策，选择坚持，自发自动去完成预先设定的任务。列不要做的清单，把工作时不要分心，不要看手机，不要刷微博，不把这些小问题正儿八经写下来，自己好像永远不会遵守。列例外控制清单,有两个关键点，一个是来自心理学家Kelly McGonigal，用游戏的心态，列出可能回出现的状况，这让在出现意外时，自己不会心慌。比如，考题超出准备，犀利的考官，演讲汇报发生的意外准备。还有一点是，出现例外状况后，提前做好备案，来自纽约大学心理系教授Gaberele Oettingen，主要说，人生有惰性，遭遇阻力后，在临时思考解决方案时，很可能就会偷懒不干活了，做个备案就可以提升自己的效率。比如加班太累，自己不愿出门，那么备案就是在家仰卧起坐。背单词完全太困了背不下，就可以先休息半小时，等精神好了再背。注意，不要睡过头了，休息半小时后就要强制执行了。</p>
+</li>
+<li><p>第四步就是找自己最好状态，有两个理论，第一个理论来源是匈牙利心理学者mihaly Csikszwentmihalyi就是在重大任务开始前，先做一下对自己有难度需要挑战的目标，如果做好了自己就会变得很有自信，没做好也没什么损失就稳扎稳打、按部就班做事情。比如自己打扑克的时候，就会觉得自己手气特别好，还有就是自己投球的时候觉得自己都能够投一个中一个，这就是找自己最好状态。</p>
+<p>第二个理论就是心理治疗专家梅钦鲍姆Donald Meichenbaum的“认知行为矫正法”，用来改善负面情绪心理治疗的理论，不单单是我们的认知指导我们的行为，行为也可以反过来塑造我们的认知，刻意做一件和某个人设相符合的事情，自己就会相信自己是这样的人设，就会用人设的特点对待其它事情。比如考前把文具盒整理周全、铅笔削好、签字笔准备两只，就会提醒自己是一个谨慎细腻的人，考试就不担心、不害怕自己犯错。面试前梳妆打扮成自信成熟的女性形象，也会让自己昂首挺胸。答辩前摔书包，体现自己的霸道气息，认为自己是一个霸道的人，就会从容应对老师的提问。</p>
+</li>
+<li><p>第五步就是场景绑定，是《心力》08执行意图的实践，每到X场景，就要做Y事，还是巴普洛夫的狗，比如，坐到书桌前，就不能玩手机，就要先背20单词，到了训练场地，就要练习正手击球500个，一到公司就和三个客户交谈，起床就要听音频。这样训练下来，养成了习惯，每天在做这些事就不会觉得消耗意志力，就不会觉得难受。</p>
+</li>
+<li><p>第六步就是时间绑定，每到12点，自己就睡觉，每到6点，自己就起床。每到7点，自己球出门，这样，培养自己的生物钟，自己就会自动完成，不觉辛苦。这个设计生物钟理论和巴普洛夫的狗的理论。</p>
+</li>
+<li><p>第七步就是费曼学习法，就是以教代学，自我解释的方法，想象你是一个教师，站在讲台前教台下的学生学习，台下的坐着的学生是7、8岁的没有任何专业知识的学生，或者坐着对该专业一窍不通的另一个你，你就想着怎么解释才能让小学生和另一个你能完全听得懂。设想哪一个是可能他们难以理解的地方，就要找标准答案，然后做比喻，举例子让他们听得懂。</p>
+</li>
+<li><p>第九步就是脑区暗示。来自《心力》25意象训练法2。理论来源是，专业健身教练和业余健身爱好者区别，就是“让注意力集中在某肌肉群上，去感受它的发力”，比如专业健身教练在杠铃深蹲动作时，提醒自己“臀部收力”、而不是像业余健身爱好者提醒自己“通过发力，使自己离开地面”，一个是调用内部注意力，注意力集中在特定肌肉上，一个是调用外部注意力，注意力集中在整个身体上。人的脑区有视觉、听觉、触觉、嗅觉、味觉。每次我们用到什么知识就刻意去感受这个脑区，或许就可以像锻炼肌肉群一样提升自己的某个脑区能力。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220429195833822.png" alt="脑区示意图"></p>
+</li>
+<li><p>第十步就是建立亲密感避免仰视，就是在对待自己的目标时，不要觉得太难或者太简单，就像对待朋友一样，亲切交流，正常平常心对待。 </p>
+</li>
+<li><p>第11步就是，建立评价标准，就是完成这个目标要完成的可以量化、判优劣的标准。比如练字时，就要选古代流传的字帖，经过历史检验公认优秀的字帖，自己写得不像的话，就可以判断自己练字练的不好。还有就是实践法，就是如果自己想了解过山车、恋爱、水果、零食的味道，就可以亲自去体验一把，不用看别人的描述。还有就是一手资料法。就是看实验的初始数据，不要看他们精心挑选的数据，用精心挑选的数据来凑出自己的结论。不如BBC的报道，不是说没有这个情况，是这个情况少，得不出这个结论，或者情况被恶意剪辑，表达得意思完全相反。还有及时综述法。就像我这样，把所有资料按照学习流程列一遍，或者就是其它综述资料，像达尔文那样，讲动物分门别类的排列好。我们学习的时候就很方便找到我们想要的动物。化学也如此。</p>
+</li>
+<li><p>第12步是刻意练习和精准练习。这是有两个侧重点，一个是社会上常见问题，就是重点，我们学习知识就要先掌握重点，再学普通的。比如学好中文1000字，就可以应付日常生活，不用学习中文所有1万多字。单词也是，掌握4000单词就可以高考了。这就是挑重点好处。一个是自己常见问题，每次自己总是在这类问题上犯错，但是别人不一定容易犯错，这就是自己的重点。比如某个单词，自己老是记不住，自己就可以单独刻意去记忆。这个和费曼学习法的相似之处就是记住自己不懂得地方。</p>
+</li>
+<li><p>第13步，是分配和恢复意志力和重新聚焦意志力。分配和恢复意志力主要是根据之前挑好得重点，再次分类，按轻重缓急继续分类，已经懂得重要知识点先跳过，把有思路解决得问题跳出来先解决、把完全没有思路解决问题先放过，后面再花最好的精力解决。重新聚焦意志力，《心力》13注意力太集中才会效率低？主要是讲了由于注意力太集中反而做不好事情，需要重聚焦注意力，比如开车、下楼梯、移动满水杯，注意力太集中反而这也做不好那也做不到，开车时常常操作错误，下楼梯容易踩空，水杯的水洒出来。我们就要重新聚焦注意力，去做一件更加集中注意力的事来打散目前的注意力状态，比如跑步、练字、打游戏等。之后重新去做原来的事。</p>
+</li>
+<li><p>第14步就是微习惯和文字、图像逻辑排序。微习惯理论来自美国作家史蒂芬·盖斯《微习惯Mini habits》。微习惯是非常微小的积极行为，小到不会失败，这不会给你造成任何心理负担，并且具有超强欺骗性，让你养成自己极具优势的习惯。就是把一个复杂麻烦的任务目标，分解成一个个微小的、做起来自己一定不会失败的小步骤。日本马拉松选手山本田一，打破非洲运动员的垄断，获得马拉松冠军，把比赛沿路比较醒目的标记记下来，第一个是博物馆、第二个是银行、第三个是别具一格的房子，自己比赛时就去征服这一个个目标，（结合个人跑步经验：分段冲刺），每完成一个目标就获得巨大心理能量，不断征服一个个目标时，完成整个赛程。还有就是分解法，像物理公式一样，拆分成基本单位，推导综合单位，比如加速度，a&#x3D;s&#x2F;t^2。像化学式子一样，通过一些简单的化学式，得到综合合成的化学式。像跳舞一样，将复杂的动作分解成一个个定格的动作，自己一定能做到的动作，后面才连贯起来。像练字一样，将一笔一划练习好，后面才考虑字的空间排布，左小右大等。</p>
+</li>
+<li><p>文字逻辑排序、图像逻辑排序来源于思维导图、记忆宫殿，就是讲知识点按照固有逻辑的联系排序，两个有知识点的关系为上下位关系和并列关系、时间顺序、空间顺序关系等。有些作者在编书的时候，知识点的罗列符合它自己的记忆习惯，不符合我们的记忆习惯，我们刻意根据我们的习惯进行重新分类总结。具体参考B站。</p>
+</li>
+<li><p>第15步，缩减法、歌谣法、故事法、举例子。缩减法、歌谣法、故事法就是我们压缩记忆的方法了。缩减法比如二十四节气歌。歌谣法比如老师教书的各种口诀(歌谣)，奇变偶不变，符号看象限。故事法比如写小说，将一些时间集中起来，变成有趣的故事记忆。举例子属于扩展记忆的方法，定性举例：营养词语比较抽象，例子有:香蕉、米饭、苹果、鱼肉。定量举例：一个多大的盒子可以装下10732个网球。很少人给出低于100英尺的。答案是4立方英尺。我们只要记住一个具体例子，用具体例子代表抽象例子，这样抽象例子就很容易被记住。</p>
+</li>
+<li><p>第16步，手到(记录)心到(思考)口到(总结)。运动法。意象练习2。集中注意力思考逻辑关系，思考手、眼、脑的配合。和脑区暗示是一样的，调用内部注意力。</p>
+</li>
+<li><p>第17步，成果目标对比复盘法。比如练字的第一笔对齐不是让字尽可能对齐，看看自己练字的成果和目标还有多大差距。这个主要是自己阶段训练完成后才去检验自己和目标的差距的，训练中要全身心投入这个训练动作，不要老想着和最后目标差距，专注完成这个小目标就行。做法是回顾目标、评估结果、精准描述整个失败事件(如连续两次，科目三没过)、列出失败原因(路线不熟、车况不好、考官太严格导致紧张、起步技术不够好)、确定那些自己可以控制的因素(内控因素：路线不熟、起步技术不够好)、试图控制外控因素(我和考官沟通不够主动、没有及时管理自己的情绪、没有事先确认车况)、分析行为原因(将刚才的关键抉择重新演练一遍)、总结规律(提醒自己下次如何不再犯错)。</p>
+</li>
+<li><p>第18步，过电影复盘法*2。效率是提升两倍，就是自己有一定训练量后，把物理训练时间改为脑海里想象的训练。就是越好专注地模拟所有小细节，模拟越细致越有效果。视觉、听觉、触觉、嗅觉、味觉。比如切柠檬并吃下。感受比赛的场地摩擦力、观众欢呼声、风吹过的声音，汗水流过脸颊，对手的凝重表情。回想老师的讲课，说话声音、黑板写字声音、老师的神情、专属敲黑板动作、学霸自信且骄傲的回答声。也可以单纯回想习武的每个动作，恋人说的每一句话。一字不差地背下来。</p>
+</li>
+<li><p>第19步，建立自己地核心问题库，就是和费曼学习法的自我解释、刚才复盘时没有回想起的内容，训练时出现的失误及其解决方法，统统写下来便于复习，最终记到脑海里，让这些问题不成为自己的难题，而是成为自己成长的见证，成为自己专业知识的护城河。</p>
+</li>
+<li><p>第20步，就是间隔复习，也是艾宾浩斯记忆法，将整理好的知识、记住的知识进行定期复习，就能让自己的短期记忆变成长期记忆。</p>
+</li>
+<li><p>第21步，就是能力泛化、直觉化。《心理》18目的性颤抖：像赢家一样依赖直觉。赢家不思考，赢家靠直觉。这就是说自己把东西记得像熟悉家人那样后，自己很多东西都是自然而然形成的。比如数学家，黑客程序员，英语试卷的语感，救火的消防员。很多问题都是靠直觉来思考的，先把这个旧方案可以解决问题，直接使用旧方案，遇到实际问题不行再换方案，不会像初期那样进行分析，进行深思熟虑。具体做法是多做习题，确定自己在遇到问题时能调用出这个知识点。做试卷时，像赢家一样依赖直觉，避免思考过多，越改越错。</p>
+</li>
+<li><p>能力泛化、直觉化的学习模式还有就是找模式方法，下图所示。</p>
+</li>
+</ul>
+<p> <img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220429200039761.png" alt="直觉性阅读"></p>
+<h2 id="心态算法"><a href="#心态算法" class="headerlink" title="心态算法"></a>心态算法</h2><h5 id="1-自己犯错时。使用成长型思维安慰自己。"><a href="#1-自己犯错时。使用成长型思维安慰自己。" class="headerlink" title="1.自己犯错时。使用成长型思维安慰自己。"></a>1.自己犯错时。使用成长型思维安慰自己。</h5><p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220429200127623.png" alt="成长型思维"></p>
+<h5 id="2-自己不理智地过度紧张时。比如考试时，演讲时，答辩时。"><a href="#2-自己不理智地过度紧张时。比如考试时，演讲时，答辩时。" class="headerlink" title="2.自己不理智地过度紧张时。比如考试时，演讲时，答辩时。"></a>2.自己不理智地过度紧张时。比如考试时，演讲时，答辩时。</h5><h6 id="短期做法："><a href="#短期做法：" class="headerlink" title="短期做法："></a>短期做法：</h6><p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220429200310312.png" alt="3种短期缓解焦虑做法"></p>
+<p>(1)用幸运物、幸运仪式说服自己，相信自己是幸运的。让自己在关键时刻正常发挥，不掉链子</p>
+<p>比如：费尔巴哈的狗、斯金纳的缓解焦虑的迷信鸽。练田英章的字</p>
+<p>(2)自我激励：打好这一分球比胜利更重要，跟训练时一样打就好，正常发挥就行。但是说自己最棒、自己一定行，会让自己自我怀疑，反而更紧张。</p>
+<p>(3)找到让自己有自信的人设，刻意做这个和人设相符合的事，让你真实的相信自己，唤醒霸气的自己，摔书包。唤醒耐心细致的自己，考前削好铅笔，准备两只签字笔等。</p>
+<p>矛盾意象法</p>
+<p>喜欢慢系统</p>
+<h6 id="长期做法："><a href="#长期做法：" class="headerlink" title="长期做法："></a>长期做法：</h6><p> <img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220429200219950.png" alt="应对变化的办法是主动出击"></p>
+<h5 id="3-对抗没动力执行的拖延症。"><a href="#3-对抗没动力执行的拖延症。" class="headerlink" title="3.对抗没动力执行的拖延症。"></a>3.对抗没动力执行的拖延症。</h5><p>(1)由于思考引起的没动力拖延。仅仅因为简单的选择思考想偷懒时，列出执行意图，提前预案，跳过休息和执行判断，直接执行预先设定的任务。如果是对复杂、麻烦的任务或目标完全不知从何开始时，把大目标化解成一个个做起来自己不会失败的小目标来执行。</p>
+<p>(2)由于假疲劳引起的没动力拖延。承认自己心理感受的存在，告诉自己这个只是假警报，我还有体力执行。</p>
+<p>(3)由于真疲劳引起的没动力拖延。先休息10分钟、半小时，10分钟、半小时后的警报当作假疲劳强制执行任务。</p>
+<p>(4)由于没有正反馈引起的没动力拖延。</p>
+<p>1)如果是那些细致末节不太重要的练习占据太多时间。就进行刻意练习、精准练习，让自己快速做出可视化成果。</p>
+<p>2)如果因为自己没有专注，就设定特定一个场景时间段，这个时空下，自己不理会任何打扰，让自己做出成果。</p>
+<p>3)如果是自己太专注引起大炮打蚊子、开车战战兢兢，明明感觉很简单，就是不能完成，就暂时离开这个任务，做更难得任务或者跑步打散原来得思维定势，一段时间后重新聚焦合适的专注力让自己完成任务。</p>
+]]></content>
+      <tags>
+        <tag>yasashii</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>高数复习</title>
+    <url>/2022/04/07/%E9%AB%98%E6%95%B0%E5%A4%8D%E4%B9%A0/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
