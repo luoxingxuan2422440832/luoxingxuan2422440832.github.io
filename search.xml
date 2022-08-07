@@ -2,55 +2,6 @@
 <search>
   <entry>
     <title></title>
-    <url>/2022/07/05/7.3/</url>
-    <content><![CDATA[<p><a href="https://www.nowcoder.com/practice/ec1ca44c62c14ceb990c3c40def1ec6c?tpId=82&tqId=29754&rp=1&ru=/exam/oj&qru=/exam/oj&sourceUrl=/exam/oj?tab=SQL%25E7%25AF%2587&topicId=82&difficulty=undefined&judgeStatus=undefined&tags=&title="><strong>SQL196</strong></a> <strong>查找入职员工时间排名倒数第三的员工所有信息</strong></p>
-<p>查找employees里入职员工时间排名倒数第三的员工所有信息</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">drop table if exists  `employees` ; </span><br><span class="line">CREATE TABLE `employees` (</span><br><span class="line">`emp_no` int(11) NOT NULL,</span><br><span class="line">`birth_date` date NOT NULL,</span><br><span class="line">`first_name` varchar(14) NOT NULL,</span><br><span class="line">`last_name` varchar(16) NOT NULL,</span><br><span class="line">`gender` char(1) NOT NULL,</span><br><span class="line">`hire_date` date NOT NULL,</span><br><span class="line">PRIMARY KEY (`emp_no`));</span><br><span class="line">INSERT INTO employees VALUES(10001,&#x27;1953-09-02&#x27;,&#x27;Georgi&#x27;,&#x27;Facello&#x27;,&#x27;M&#x27;,&#x27;1986-06-26&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10002,&#x27;1964-06-02&#x27;,&#x27;Bezalel&#x27;,&#x27;Simmel&#x27;,&#x27;F&#x27;,&#x27;1985-11-21&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10003,&#x27;1959-12-03&#x27;,&#x27;Parto&#x27;,&#x27;Bamford&#x27;,&#x27;M&#x27;,&#x27;1986-08-28&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10004,&#x27;1954-05-01&#x27;,&#x27;Chirstian&#x27;,&#x27;Koblick&#x27;,&#x27;M&#x27;,&#x27;1986-12-01&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10005,&#x27;1955-01-21&#x27;,&#x27;Kyoichi&#x27;,&#x27;Maliniak&#x27;,&#x27;M&#x27;,&#x27;1989-09-12&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10006,&#x27;1953-04-20&#x27;,&#x27;Anneke&#x27;,&#x27;Preusig&#x27;,&#x27;F&#x27;,&#x27;1989-06-02&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10007,&#x27;1957-05-23&#x27;,&#x27;Tzvetan&#x27;,&#x27;Zielinski&#x27;,&#x27;F&#x27;,&#x27;1989-02-10&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10008,&#x27;1958-02-19&#x27;,&#x27;Saniya&#x27;,&#x27;Kalloufi&#x27;,&#x27;M&#x27;,&#x27;1994-09-15&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10009,&#x27;1952-04-19&#x27;,&#x27;Sumant&#x27;,&#x27;Peac&#x27;,&#x27;F&#x27;,&#x27;1985-02-18&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10010,&#x27;1963-06-01&#x27;,&#x27;Duangkaew&#x27;,&#x27;Piveteau&#x27;,&#x27;F&#x27;,&#x27;1989-08-24&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10011,&#x27;1953-11-07&#x27;,&#x27;Mary&#x27;,&#x27;Sluis&#x27;,&#x27;F&#x27;,&#x27;1990-01-22&#x27;);</span><br></pre></td></tr></table></figure>
-
-<p>答案</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT * </span><br><span class="line">FROM employees</span><br><span class="line">WHERE hire_date = (</span><br><span class="line">    SELECT DISTINCT hire_date </span><br><span class="line">    FROM employees</span><br><span class="line">    ORDER BY hire_date DESC       -- 倒序</span><br><span class="line">    LIMIT 1 OFFSET 2              -- 去掉排名倒数第一第二的时间，取倒数第三</span><br><span class="line">);    </span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.nowcoder.com/practice/c63c5b54d86e4c6d880e4834bfd70c3b?tpId=82&tqId=29755&rp=1&ru=/exam/oj&qru=/exam/oj&sourceUrl=/exam/oj?tab=SQL%25E7%25AF%2587&topicId=82&difficulty=undefined&judgeStatus=undefined&tags=&title="><strong>SQL197</strong></a> <strong>查找当前薪水详情以及部门编号dept_no</strong></p>
-<p>查找各个部门当前领导的薪水详情以及其对应部门编号dept_no，输出结果以salaries.emp_no升序排序</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">drop table if exists  `salaries` ; </span><br><span class="line">drop table if exists  `dept_manager` ; </span><br><span class="line">CREATE TABLE `salaries` (</span><br><span class="line">`emp_no` int(11) NOT NULL,</span><br><span class="line">`salary` int(11) NOT NULL,</span><br><span class="line">`from_date` date NOT NULL,</span><br><span class="line">`to_date` date NOT NULL,</span><br><span class="line">PRIMARY KEY (`emp_no`,`from_date`));</span><br><span class="line">CREATE TABLE `dept_manager` (</span><br><span class="line">`dept_no` char(4) NOT NULL,</span><br><span class="line">`emp_no` int(11) NOT NULL,</span><br><span class="line">`to_date` date NOT NULL,</span><br><span class="line">PRIMARY KEY (`emp_no`,`dept_no`));</span><br><span class="line">INSERT INTO dept_manager VALUES(&#x27;d001&#x27;,10002,&#x27;9999-01-01&#x27;);</span><br><span class="line">INSERT INTO dept_manager VALUES(&#x27;d002&#x27;,10006,&#x27;9999-01-01&#x27;);</span><br><span class="line">INSERT INTO dept_manager VALUES(&#x27;d003&#x27;,10005,&#x27;9999-01-01&#x27;);</span><br><span class="line">INSERT INTO dept_manager VALUES(&#x27;d004&#x27;,10004,&#x27;9999-01-01&#x27;);</span><br><span class="line">INSERT INTO salaries VALUES(10001,88958,&#x27;2002-06-22&#x27;,&#x27;9999-01-01&#x27;);</span><br><span class="line">INSERT INTO salaries VALUES(10002,72527,&#x27;2001-08-02&#x27;,&#x27;9999-01-01&#x27;);</span><br><span class="line">INSERT INTO salaries VALUES(10003,43311,&#x27;2001-12-01&#x27;,&#x27;9999-01-01&#x27;);</span><br><span class="line">INSERT INTO salaries VALUES(10004,74057,&#x27;2001-11-27&#x27;,&#x27;9999-01-01&#x27;);</span><br><span class="line">INSERT INTO salaries VALUES(10005,94692,&#x27;2001-09-09&#x27;,&#x27;9999-01-01&#x27;);</span><br><span class="line">INSERT INTO salaries VALUES(10006,43311,&#x27;2001-08-02&#x27;,&#x27;9999-01-01&#x27;);</span><br><span class="line">INSERT INTO salaries VALUES(10007,88070,&#x27;2002-02-07&#x27;,&#x27;9999-01-01&#x27;);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//普通连接</span><br><span class="line">SELECT s.*, d.dept_no FROM salaries s, dept_manager d </span><br><span class="line">where s.emp_no = d.emp_no</span><br><span class="line">and s.to_date = &#x27;9999-01-01&#x27;</span><br><span class="line">and d.to_date = &#x27;9999-01-01&#x27;</span><br><span class="line">GROUP BY emp_no</span><br><span class="line">ORDER BY emp_no asc</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//内连接</span><br><span class="line">select s.*, d.dept_no</span><br><span class="line">from salaries as s inner join dept_manager as d</span><br><span class="line">on d.emp_no=s.emp_no</span><br><span class="line">where d.to_date=&#x27;9999-01-01&#x27;</span><br><span class="line">and s.to_date=&#x27;9999-01-01’;</span><br></pre></td></tr></table></figure>
-
-<p><strong><a href="https://www.nowcoder.com/practice/dbfafafb2ee2482aa390645abd4463bf?tpId=82&tqId=29757&rp=1&ru=/exam/oj&qru=/exam/oj&sourceUrl=/exam/oj?tab=SQL%25E7%25AF%2587&topicId=82&difficulty=undefined&judgeStatus=undefined&tags=&title=">SQL199</a></strong> <strong>查找所有员工的last_name和first_name以及对应</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">drop table if exists  `dept_emp` ; </span><br><span class="line">drop table if exists  `employees` ; </span><br><span class="line">CREATE TABLE `dept_emp` (</span><br><span class="line">`emp_no` int(11) NOT NULL,</span><br><span class="line">`dept_no` char(4) NOT NULL,</span><br><span class="line">`from_date` date NOT NULL,</span><br><span class="line">`to_date` date NOT NULL,</span><br><span class="line">PRIMARY KEY (`emp_no`,`dept_no`));</span><br><span class="line">CREATE TABLE `employees` (</span><br><span class="line">`emp_no` int(11) NOT NULL,</span><br><span class="line">`birth_date` date NOT NULL,</span><br><span class="line">`first_name` varchar(14) NOT NULL,</span><br><span class="line">`last_name` varchar(16) NOT NULL,</span><br><span class="line">`gender` char(1) NOT NULL,</span><br><span class="line">`hire_date` date NOT NULL,</span><br><span class="line">PRIMARY KEY (`emp_no`));</span><br><span class="line">INSERT INTO dept_emp VALUES(10001,&#x27;d001&#x27;,&#x27;1986-06-26&#x27;,&#x27;9999-01-01&#x27;);</span><br><span class="line">INSERT INTO dept_emp VALUES(10002,&#x27;d002&#x27;,&#x27;1996-08-03&#x27;,&#x27;9999-01-01&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10001,&#x27;1953-09-02&#x27;,&#x27;Georgi&#x27;,&#x27;Facello&#x27;,&#x27;M&#x27;,&#x27;1986-06-26&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10002,&#x27;1964-06-02&#x27;,&#x27;Bezalel&#x27;,&#x27;Simmel&#x27;,&#x27;F&#x27;,&#x27;1985-11-21&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10003,&#x27;1959-12-03&#x27;,&#x27;Parto&#x27;,&#x27;Bamford&#x27;,&#x27;M&#x27;,&#x27;1986-08-28&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10004,&#x27;1954-05-01&#x27;,&#x27;Chirstian&#x27;,&#x27;Koblick&#x27;,&#x27;M&#x27;,&#x27;1986-12-01&#x27;);</span><br></pre></td></tr></table></figure>
-
-<p>答案：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//使用外部联结的左联结。内联结，两边表同时有对应的数据，即任何一边缺失数据就不显示。左联结，读取左边数据表的全部数据，即便右边表无对应数。即右表d中dept_no即使为NULL，也会读取左表e中的全部mp。</span><br><span class="line">SELECT e.last_name, e.first_name, d.dept_no</span><br><span class="line">FROM employees AS e</span><br><span class="line">LEFT OUTER JOIN dept_emp AS d</span><br><span class="line">ON e.emp_no=d.emp_no;</span><br></pre></td></tr></table></figure>
-
-<p>1.命令创建学生表。</p>
-<p>2.int(20)插入多少数据。</p>
-<p>点是esc下方</p>
-<p>3.命令删除表、字段。</p>
-<p>4.自增主键及其作用，自主增加id。主键具有唯一标识性。主键的序号不变，删除最后一条记录，不会创建那一条主键，会往下创建。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE `student5` (</span><br><span class="line">`id` int(10) NOT NULL AUTO_INCREMENT,</span><br><span class="line">`date` date NOT NULL,</span><br><span class="line">`name` varchar(14) NOT NULL,</span><br><span class="line">`gender` char(1) NOT NULL,</span><br><span class="line">PRIMARY KEY (`id`));</span><br><span class="line">INSERT INTO student5 (date, name, gender) VALUES(&#x27;1953-09-02&#x27;,&#x27;张三&#x27;,&#x27;男&#x27;);</span><br><span class="line">INSERT INTO student5 (date, name, gender) VALUES(&#x27;1953-01-03&#x27;,&#x27;张三&#x27;,&#x27;男&#x27;);</span><br><span class="line">INSERT INTO student5 (date, name, gender) VALUES(&#x27;1953-01-05&#x27;,&#x27;张三&#x27;,&#x27;男&#x27;);</span><br><span class="line">INSERT INTO student5 (date, name, gender) VALUES(&#x27;1953-01-05&#x27;,&#x27;张三&#x27;,&#x27;男&#x27;);</span><br><span class="line">DELETE FROM student5  WHERE id=3;</span><br><span class="line">SELECT * FROM student5</span><br><span class="line">drop table student</span><br></pre></td></tr></table></figure>
-
-<p>订单号可以查调课转班记录，查到两个学生 主键903和1037</p>
-<p>根据订单号     在报名表里也可以   查到两个学生 <strong>主键903和1037</strong>   查到<strong>班级主键2160和2158</strong></p>
-<p>根据班级主键2160和2158从–班级信息表查到<strong>班级所在名称测试57班，测试59班</strong></p>
-<p>根据学生主键903和1037 从–学生信息表 查到 <strong>学生编号和学生姓名</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select STUDENT_NO,CLASS_NO from tedu_stu_class  WHERE ORD_ID =&#x27;ORD202206281005263588&#x27;</span><br><span class="line"></span><br><span class="line">select CLASS_NO,CLASS_NAME from tedu_class_info WHERE CLASS_NO =2158 OR CLASS_NO =2160</span><br><span class="line"></span><br><span class="line">select STUDENT_NO, STUDENT_ID,STUDENT_NAME from tedu_student_info WHERE STUDENT_NO = 1037 OR STUDENT_NO = 903</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">SELECT CLASS_NO,CLASS_NAME </span><br><span class="line">FROM tedu_class_info</span><br><span class="line">WHERE CLASS_NO = (</span><br><span class="line">select CLASS_NO from tedu_stu_class  </span><br><span class="line">WHERE ORD_ID =&#x27;ORD202206281005263588&#x27; LIMIT 1</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">select STUDENT_NO, STUDENT_ID,STUDENT_NAME </span><br><span class="line">from tedu_student_info WHERE STUDENT_NO =(</span><br><span class="line">select STUDENT_NO from tedu_stu_class  </span><br><span class="line">WHERE ORD_ID =&#x27;ORD202206281005263588&#x27; LIMIT 1</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">-调课转班表</span><br><span class="line">select * from tedu_clstsf WHERE ORD_ID =&#x27;ORD202206281005263588&#x27;</span><br><span class="line">--报名表</span><br><span class="line">select * from tedu_stu_class  WHERE ORD_ID =&#x27;ORD202206281005263588&#x27;</span><br><span class="line">--班级信息表</span><br><span class="line">select * from tedu_class_info WHERE CLASS_NO =2158 OR CLASS_NO =2160</span><br><span class="line">--学生信息表</span><br><span class="line">select * from tedu_student_info WHERE STUDENT_NO = 1037 OR STUDENT_NO = 903</span><br></pre></td></tr></table></figure>
-
-<p>答案全</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT a.STUDENT_NO, a.STUDENT_ID,a.STUDENT_NAME,b.CLASS_NO,b.CLASS_NAME FROM </span><br><span class="line"></span><br><span class="line">(select STUDENT_NO, STUDENT_ID,STUDENT_NAME </span><br><span class="line">from tedu_student_info WHERE STUDENT_NO IN (</span><br><span class="line">select STUDENT_NO from tedu_stu_class  </span><br><span class="line">WHERE ORD_ID =&#x27;ORD202206281005263588&#x27; </span><br><span class="line">)) a,</span><br><span class="line"></span><br><span class="line">(SELECT CLASS_NO,CLASS_NAME </span><br><span class="line">FROM tedu_class_info</span><br><span class="line">WHERE CLASS_NO IN (</span><br><span class="line">select CLASS_NO from tedu_stu_class  </span><br><span class="line">WHERE ORD_ID =&#x27;ORD202206281005263588&#x27; </span><br><span class="line">)) b;</span><br><span class="line"></span><br><span class="line">GROUP BY a.STUDENT_NO</span><br><span class="line">ORDER BY a.STUDENT_NO asc</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select STUDENT_NO,FIRST_DTM from tedu_clstsf WHERE ORD_ID =&#x27;ORD202206281005263588&#x27; ORDER BY FIRST_DTM desc LIMIT 1</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT a.STUDENT_NO, a.STUDENT_ID,a.STUDENT_NAME,b.CLASS_NO,b.CLASS_NAME FROM </span><br><span class="line"></span><br><span class="line">(select STUDENT_NO, STUDENT_ID,STUDENT_NAME </span><br><span class="line">from tedu_student_info WHERE STUDENT_NO IN (</span><br><span class="line">select STUDENT_NO from tedu_stu_class  </span><br><span class="line">WHERE ORD_ID =&#x27;ORD202206281005263588&#x27; </span><br><span class="line">)) a,</span><br><span class="line"></span><br><span class="line">(SELECT CLASS_NO,CLASS_NAME </span><br><span class="line">FROM tedu_class_info</span><br><span class="line">WHERE CLASS_NO IN (</span><br><span class="line">select CLASS_NO from tedu_stu_class  </span><br><span class="line">WHERE ORD_ID =&#x27;ORD202206281005263588&#x27; </span><br><span class="line">)) b </span><br><span class="line">WHERE a.STUDENT_NO = (</span><br><span class="line">select STUDENT_NO from tedu_clstsf </span><br><span class="line">WHERE ORD_ID =&#x27;ORD202206281005263588&#x27; </span><br><span class="line">ORDER BY FIRST_DTM desc LIMIT 1</span><br><span class="line">)</span><br><span class="line">and b.CLASS_NO = (</span><br><span class="line">select TO_CLASSNO from tedu_clstsf </span><br><span class="line">WHERE ORD_ID =&#x27;ORD202206281005263588&#x27; </span><br><span class="line">ORDER BY FIRST_DTM desc LIMIT 1</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<p>最终答案：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select c.student_no,c.student_id,c.student_name,</span><br><span class="line">d.class_no,d.class_id,d.class_name</span><br><span class="line">from tedu_clstsf a left join tedu_stu_class b on a.ORD_ID = b.ORD_ID</span><br><span class="line">left join tedu_student_info c on b.student_no = c.student_no</span><br><span class="line">left join tedu_class_info d on d.class_no = a.to_classno </span><br><span class="line">where a.CTF_TYPE = &#x27;class&#x27; and a.ORD_ID =&#x27;ORD202206281005263588&#x27;</span><br><span class="line">and a.SEQ = (select max(SEQ) from tedu_clstsf where CTF_TYPE = &#x27;class&#x27; and ORD_ID =&#x27;ORD202206281005263588&#x27;)</span><br><span class="line">and b.SEQ = (select max(SEQ) from tedu_stu_class where ORD_ID =&#x27;ORD202206281005263588&#x27;);</span><br></pre></td></tr></table></figure>
-
-]]></content>
-  </entry>
-  <entry>
-    <title></title>
     <url>/2022/07/10/7.10%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<p>7.10学习日记</p>
 <p>飞机的英文单词plane</p>
@@ -98,6 +49,55 @@
 <p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220711000258708.png" alt="image-20220711000258708"></p>
 <p>快速抛出异常alt+enter</p>
 <p>快速抛出try catch选中要包裹的代码 + Ctrl +Alt + wins +t</p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2022/07/05/7.3/</url>
+    <content><![CDATA[<p><a href="https://www.nowcoder.com/practice/ec1ca44c62c14ceb990c3c40def1ec6c?tpId=82&tqId=29754&rp=1&ru=/exam/oj&qru=/exam/oj&sourceUrl=/exam/oj?tab=SQL%25E7%25AF%2587&topicId=82&difficulty=undefined&judgeStatus=undefined&tags=&title="><strong>SQL196</strong></a> <strong>查找入职员工时间排名倒数第三的员工所有信息</strong></p>
+<p>查找employees里入职员工时间排名倒数第三的员工所有信息</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">drop table if exists  `employees` ; </span><br><span class="line">CREATE TABLE `employees` (</span><br><span class="line">`emp_no` int(11) NOT NULL,</span><br><span class="line">`birth_date` date NOT NULL,</span><br><span class="line">`first_name` varchar(14) NOT NULL,</span><br><span class="line">`last_name` varchar(16) NOT NULL,</span><br><span class="line">`gender` char(1) NOT NULL,</span><br><span class="line">`hire_date` date NOT NULL,</span><br><span class="line">PRIMARY KEY (`emp_no`));</span><br><span class="line">INSERT INTO employees VALUES(10001,&#x27;1953-09-02&#x27;,&#x27;Georgi&#x27;,&#x27;Facello&#x27;,&#x27;M&#x27;,&#x27;1986-06-26&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10002,&#x27;1964-06-02&#x27;,&#x27;Bezalel&#x27;,&#x27;Simmel&#x27;,&#x27;F&#x27;,&#x27;1985-11-21&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10003,&#x27;1959-12-03&#x27;,&#x27;Parto&#x27;,&#x27;Bamford&#x27;,&#x27;M&#x27;,&#x27;1986-08-28&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10004,&#x27;1954-05-01&#x27;,&#x27;Chirstian&#x27;,&#x27;Koblick&#x27;,&#x27;M&#x27;,&#x27;1986-12-01&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10005,&#x27;1955-01-21&#x27;,&#x27;Kyoichi&#x27;,&#x27;Maliniak&#x27;,&#x27;M&#x27;,&#x27;1989-09-12&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10006,&#x27;1953-04-20&#x27;,&#x27;Anneke&#x27;,&#x27;Preusig&#x27;,&#x27;F&#x27;,&#x27;1989-06-02&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10007,&#x27;1957-05-23&#x27;,&#x27;Tzvetan&#x27;,&#x27;Zielinski&#x27;,&#x27;F&#x27;,&#x27;1989-02-10&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10008,&#x27;1958-02-19&#x27;,&#x27;Saniya&#x27;,&#x27;Kalloufi&#x27;,&#x27;M&#x27;,&#x27;1994-09-15&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10009,&#x27;1952-04-19&#x27;,&#x27;Sumant&#x27;,&#x27;Peac&#x27;,&#x27;F&#x27;,&#x27;1985-02-18&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10010,&#x27;1963-06-01&#x27;,&#x27;Duangkaew&#x27;,&#x27;Piveteau&#x27;,&#x27;F&#x27;,&#x27;1989-08-24&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10011,&#x27;1953-11-07&#x27;,&#x27;Mary&#x27;,&#x27;Sluis&#x27;,&#x27;F&#x27;,&#x27;1990-01-22&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>答案</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT * </span><br><span class="line">FROM employees</span><br><span class="line">WHERE hire_date = (</span><br><span class="line">    SELECT DISTINCT hire_date </span><br><span class="line">    FROM employees</span><br><span class="line">    ORDER BY hire_date DESC       -- 倒序</span><br><span class="line">    LIMIT 1 OFFSET 2              -- 去掉排名倒数第一第二的时间，取倒数第三</span><br><span class="line">);    </span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.nowcoder.com/practice/c63c5b54d86e4c6d880e4834bfd70c3b?tpId=82&tqId=29755&rp=1&ru=/exam/oj&qru=/exam/oj&sourceUrl=/exam/oj?tab=SQL%25E7%25AF%2587&topicId=82&difficulty=undefined&judgeStatus=undefined&tags=&title="><strong>SQL197</strong></a> <strong>查找当前薪水详情以及部门编号dept_no</strong></p>
+<p>查找各个部门当前领导的薪水详情以及其对应部门编号dept_no，输出结果以salaries.emp_no升序排序</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">drop table if exists  `salaries` ; </span><br><span class="line">drop table if exists  `dept_manager` ; </span><br><span class="line">CREATE TABLE `salaries` (</span><br><span class="line">`emp_no` int(11) NOT NULL,</span><br><span class="line">`salary` int(11) NOT NULL,</span><br><span class="line">`from_date` date NOT NULL,</span><br><span class="line">`to_date` date NOT NULL,</span><br><span class="line">PRIMARY KEY (`emp_no`,`from_date`));</span><br><span class="line">CREATE TABLE `dept_manager` (</span><br><span class="line">`dept_no` char(4) NOT NULL,</span><br><span class="line">`emp_no` int(11) NOT NULL,</span><br><span class="line">`to_date` date NOT NULL,</span><br><span class="line">PRIMARY KEY (`emp_no`,`dept_no`));</span><br><span class="line">INSERT INTO dept_manager VALUES(&#x27;d001&#x27;,10002,&#x27;9999-01-01&#x27;);</span><br><span class="line">INSERT INTO dept_manager VALUES(&#x27;d002&#x27;,10006,&#x27;9999-01-01&#x27;);</span><br><span class="line">INSERT INTO dept_manager VALUES(&#x27;d003&#x27;,10005,&#x27;9999-01-01&#x27;);</span><br><span class="line">INSERT INTO dept_manager VALUES(&#x27;d004&#x27;,10004,&#x27;9999-01-01&#x27;);</span><br><span class="line">INSERT INTO salaries VALUES(10001,88958,&#x27;2002-06-22&#x27;,&#x27;9999-01-01&#x27;);</span><br><span class="line">INSERT INTO salaries VALUES(10002,72527,&#x27;2001-08-02&#x27;,&#x27;9999-01-01&#x27;);</span><br><span class="line">INSERT INTO salaries VALUES(10003,43311,&#x27;2001-12-01&#x27;,&#x27;9999-01-01&#x27;);</span><br><span class="line">INSERT INTO salaries VALUES(10004,74057,&#x27;2001-11-27&#x27;,&#x27;9999-01-01&#x27;);</span><br><span class="line">INSERT INTO salaries VALUES(10005,94692,&#x27;2001-09-09&#x27;,&#x27;9999-01-01&#x27;);</span><br><span class="line">INSERT INTO salaries VALUES(10006,43311,&#x27;2001-08-02&#x27;,&#x27;9999-01-01&#x27;);</span><br><span class="line">INSERT INTO salaries VALUES(10007,88070,&#x27;2002-02-07&#x27;,&#x27;9999-01-01&#x27;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//普通连接</span><br><span class="line">SELECT s.*, d.dept_no FROM salaries s, dept_manager d </span><br><span class="line">where s.emp_no = d.emp_no</span><br><span class="line">and s.to_date = &#x27;9999-01-01&#x27;</span><br><span class="line">and d.to_date = &#x27;9999-01-01&#x27;</span><br><span class="line">GROUP BY emp_no</span><br><span class="line">ORDER BY emp_no asc</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//内连接</span><br><span class="line">select s.*, d.dept_no</span><br><span class="line">from salaries as s inner join dept_manager as d</span><br><span class="line">on d.emp_no=s.emp_no</span><br><span class="line">where d.to_date=&#x27;9999-01-01&#x27;</span><br><span class="line">and s.to_date=&#x27;9999-01-01’;</span><br></pre></td></tr></table></figure>
+
+<p><strong><a href="https://www.nowcoder.com/practice/dbfafafb2ee2482aa390645abd4463bf?tpId=82&tqId=29757&rp=1&ru=/exam/oj&qru=/exam/oj&sourceUrl=/exam/oj?tab=SQL%25E7%25AF%2587&topicId=82&difficulty=undefined&judgeStatus=undefined&tags=&title=">SQL199</a></strong> <strong>查找所有员工的last_name和first_name以及对应</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">drop table if exists  `dept_emp` ; </span><br><span class="line">drop table if exists  `employees` ; </span><br><span class="line">CREATE TABLE `dept_emp` (</span><br><span class="line">`emp_no` int(11) NOT NULL,</span><br><span class="line">`dept_no` char(4) NOT NULL,</span><br><span class="line">`from_date` date NOT NULL,</span><br><span class="line">`to_date` date NOT NULL,</span><br><span class="line">PRIMARY KEY (`emp_no`,`dept_no`));</span><br><span class="line">CREATE TABLE `employees` (</span><br><span class="line">`emp_no` int(11) NOT NULL,</span><br><span class="line">`birth_date` date NOT NULL,</span><br><span class="line">`first_name` varchar(14) NOT NULL,</span><br><span class="line">`last_name` varchar(16) NOT NULL,</span><br><span class="line">`gender` char(1) NOT NULL,</span><br><span class="line">`hire_date` date NOT NULL,</span><br><span class="line">PRIMARY KEY (`emp_no`));</span><br><span class="line">INSERT INTO dept_emp VALUES(10001,&#x27;d001&#x27;,&#x27;1986-06-26&#x27;,&#x27;9999-01-01&#x27;);</span><br><span class="line">INSERT INTO dept_emp VALUES(10002,&#x27;d002&#x27;,&#x27;1996-08-03&#x27;,&#x27;9999-01-01&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10001,&#x27;1953-09-02&#x27;,&#x27;Georgi&#x27;,&#x27;Facello&#x27;,&#x27;M&#x27;,&#x27;1986-06-26&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10002,&#x27;1964-06-02&#x27;,&#x27;Bezalel&#x27;,&#x27;Simmel&#x27;,&#x27;F&#x27;,&#x27;1985-11-21&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10003,&#x27;1959-12-03&#x27;,&#x27;Parto&#x27;,&#x27;Bamford&#x27;,&#x27;M&#x27;,&#x27;1986-08-28&#x27;);</span><br><span class="line">INSERT INTO employees VALUES(10004,&#x27;1954-05-01&#x27;,&#x27;Chirstian&#x27;,&#x27;Koblick&#x27;,&#x27;M&#x27;,&#x27;1986-12-01&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>答案：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//使用外部联结的左联结。内联结，两边表同时有对应的数据，即任何一边缺失数据就不显示。左联结，读取左边数据表的全部数据，即便右边表无对应数。即右表d中dept_no即使为NULL，也会读取左表e中的全部mp。</span><br><span class="line">SELECT e.last_name, e.first_name, d.dept_no</span><br><span class="line">FROM employees AS e</span><br><span class="line">LEFT OUTER JOIN dept_emp AS d</span><br><span class="line">ON e.emp_no=d.emp_no;</span><br></pre></td></tr></table></figure>
+
+<p>1.命令创建学生表。</p>
+<p>2.int(20)插入多少数据。</p>
+<p>点是esc下方</p>
+<p>3.命令删除表、字段。</p>
+<p>4.自增主键及其作用，自主增加id。主键具有唯一标识性。主键的序号不变，删除最后一条记录，不会创建那一条主键，会往下创建。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE `student5` (</span><br><span class="line">`id` int(10) NOT NULL AUTO_INCREMENT,</span><br><span class="line">`date` date NOT NULL,</span><br><span class="line">`name` varchar(14) NOT NULL,</span><br><span class="line">`gender` char(1) NOT NULL,</span><br><span class="line">PRIMARY KEY (`id`));</span><br><span class="line">INSERT INTO student5 (date, name, gender) VALUES(&#x27;1953-09-02&#x27;,&#x27;张三&#x27;,&#x27;男&#x27;);</span><br><span class="line">INSERT INTO student5 (date, name, gender) VALUES(&#x27;1953-01-03&#x27;,&#x27;张三&#x27;,&#x27;男&#x27;);</span><br><span class="line">INSERT INTO student5 (date, name, gender) VALUES(&#x27;1953-01-05&#x27;,&#x27;张三&#x27;,&#x27;男&#x27;);</span><br><span class="line">INSERT INTO student5 (date, name, gender) VALUES(&#x27;1953-01-05&#x27;,&#x27;张三&#x27;,&#x27;男&#x27;);</span><br><span class="line">DELETE FROM student5  WHERE id=3;</span><br><span class="line">SELECT * FROM student5</span><br><span class="line">drop table student</span><br></pre></td></tr></table></figure>
+
+<p>订单号可以查调课转班记录，查到两个学生 主键903和1037</p>
+<p>根据订单号     在报名表里也可以   查到两个学生 <strong>主键903和1037</strong>   查到<strong>班级主键2160和2158</strong></p>
+<p>根据班级主键2160和2158从–班级信息表查到<strong>班级所在名称测试57班，测试59班</strong></p>
+<p>根据学生主键903和1037 从–学生信息表 查到 <strong>学生编号和学生姓名</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select STUDENT_NO,CLASS_NO from tedu_stu_class  WHERE ORD_ID =&#x27;ORD202206281005263588&#x27;</span><br><span class="line"></span><br><span class="line">select CLASS_NO,CLASS_NAME from tedu_class_info WHERE CLASS_NO =2158 OR CLASS_NO =2160</span><br><span class="line"></span><br><span class="line">select STUDENT_NO, STUDENT_ID,STUDENT_NAME from tedu_student_info WHERE STUDENT_NO = 1037 OR STUDENT_NO = 903</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">SELECT CLASS_NO,CLASS_NAME </span><br><span class="line">FROM tedu_class_info</span><br><span class="line">WHERE CLASS_NO = (</span><br><span class="line">select CLASS_NO from tedu_stu_class  </span><br><span class="line">WHERE ORD_ID =&#x27;ORD202206281005263588&#x27; LIMIT 1</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">select STUDENT_NO, STUDENT_ID,STUDENT_NAME </span><br><span class="line">from tedu_student_info WHERE STUDENT_NO =(</span><br><span class="line">select STUDENT_NO from tedu_stu_class  </span><br><span class="line">WHERE ORD_ID =&#x27;ORD202206281005263588&#x27; LIMIT 1</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">-调课转班表</span><br><span class="line">select * from tedu_clstsf WHERE ORD_ID =&#x27;ORD202206281005263588&#x27;</span><br><span class="line">--报名表</span><br><span class="line">select * from tedu_stu_class  WHERE ORD_ID =&#x27;ORD202206281005263588&#x27;</span><br><span class="line">--班级信息表</span><br><span class="line">select * from tedu_class_info WHERE CLASS_NO =2158 OR CLASS_NO =2160</span><br><span class="line">--学生信息表</span><br><span class="line">select * from tedu_student_info WHERE STUDENT_NO = 1037 OR STUDENT_NO = 903</span><br></pre></td></tr></table></figure>
+
+<p>答案全</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT a.STUDENT_NO, a.STUDENT_ID,a.STUDENT_NAME,b.CLASS_NO,b.CLASS_NAME FROM </span><br><span class="line"></span><br><span class="line">(select STUDENT_NO, STUDENT_ID,STUDENT_NAME </span><br><span class="line">from tedu_student_info WHERE STUDENT_NO IN (</span><br><span class="line">select STUDENT_NO from tedu_stu_class  </span><br><span class="line">WHERE ORD_ID =&#x27;ORD202206281005263588&#x27; </span><br><span class="line">)) a,</span><br><span class="line"></span><br><span class="line">(SELECT CLASS_NO,CLASS_NAME </span><br><span class="line">FROM tedu_class_info</span><br><span class="line">WHERE CLASS_NO IN (</span><br><span class="line">select CLASS_NO from tedu_stu_class  </span><br><span class="line">WHERE ORD_ID =&#x27;ORD202206281005263588&#x27; </span><br><span class="line">)) b;</span><br><span class="line"></span><br><span class="line">GROUP BY a.STUDENT_NO</span><br><span class="line">ORDER BY a.STUDENT_NO asc</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select STUDENT_NO,FIRST_DTM from tedu_clstsf WHERE ORD_ID =&#x27;ORD202206281005263588&#x27; ORDER BY FIRST_DTM desc LIMIT 1</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT a.STUDENT_NO, a.STUDENT_ID,a.STUDENT_NAME,b.CLASS_NO,b.CLASS_NAME FROM </span><br><span class="line"></span><br><span class="line">(select STUDENT_NO, STUDENT_ID,STUDENT_NAME </span><br><span class="line">from tedu_student_info WHERE STUDENT_NO IN (</span><br><span class="line">select STUDENT_NO from tedu_stu_class  </span><br><span class="line">WHERE ORD_ID =&#x27;ORD202206281005263588&#x27; </span><br><span class="line">)) a,</span><br><span class="line"></span><br><span class="line">(SELECT CLASS_NO,CLASS_NAME </span><br><span class="line">FROM tedu_class_info</span><br><span class="line">WHERE CLASS_NO IN (</span><br><span class="line">select CLASS_NO from tedu_stu_class  </span><br><span class="line">WHERE ORD_ID =&#x27;ORD202206281005263588&#x27; </span><br><span class="line">)) b </span><br><span class="line">WHERE a.STUDENT_NO = (</span><br><span class="line">select STUDENT_NO from tedu_clstsf </span><br><span class="line">WHERE ORD_ID =&#x27;ORD202206281005263588&#x27; </span><br><span class="line">ORDER BY FIRST_DTM desc LIMIT 1</span><br><span class="line">)</span><br><span class="line">and b.CLASS_NO = (</span><br><span class="line">select TO_CLASSNO from tedu_clstsf </span><br><span class="line">WHERE ORD_ID =&#x27;ORD202206281005263588&#x27; </span><br><span class="line">ORDER BY FIRST_DTM desc LIMIT 1</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>最终答案：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select c.student_no,c.student_id,c.student_name,</span><br><span class="line">d.class_no,d.class_id,d.class_name</span><br><span class="line">from tedu_clstsf a left join tedu_stu_class b on a.ORD_ID = b.ORD_ID</span><br><span class="line">left join tedu_student_info c on b.student_no = c.student_no</span><br><span class="line">left join tedu_class_info d on d.class_no = a.to_classno </span><br><span class="line">where a.CTF_TYPE = &#x27;class&#x27; and a.ORD_ID =&#x27;ORD202206281005263588&#x27;</span><br><span class="line">and a.SEQ = (select max(SEQ) from tedu_clstsf where CTF_TYPE = &#x27;class&#x27; and ORD_ID =&#x27;ORD202206281005263588&#x27;)</span><br><span class="line">and b.SEQ = (select max(SEQ) from tedu_stu_class where ORD_ID =&#x27;ORD202206281005263588&#x27;);</span><br></pre></td></tr></table></figure>
+
 ]]></content>
   </entry>
   <entry>
@@ -175,249 +175,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>只要你这么做，想爱上任何人都可以</title>
-    <url>/2022/04/04/%E5%8F%AA%E8%A6%81%E4%BD%A0%E8%BF%99%E4%B9%88%E5%81%9A%EF%BC%8C%E6%83%B3%E7%88%B1%E4%B8%8A%E4%BB%BB%E4%BD%95%E4%BA%BA%E9%83%BD%E5%8F%AF%E4%BB%A5/</url>
-    <content><![CDATA[<h1 id="只要你这么做，想爱上任何人都可以"><a href="#只要你这么做，想爱上任何人都可以" class="headerlink" title="只要你这么做，想爱上任何人都可以"></a>只要你这么做，想爱上任何人都可以</h1><p>标题起的太夸张，本质只是增加熟悉感，拉近距离，给了你机会，至于问完后能不能相爱，就不能保证了，还得看两人本身合不合适。</p>
-<p>看了许多结果，女追男是可以，男追女都是失败的案例。还有就是熟悉朋友间可以拉近距离并且某些问题还可能平添尴尬，普通朋友间的私密问题回答一般敷衍。</p>
-<p>纽约时报作者本人的<a href="https://www.sohu.com/a/246002184_755920">演讲</a></p>
-<p>亚瑟阿伦36个问题源自于《纽约时报》上的一个专栏文章《只要你这么做，想爱上任何人都可以》(<a href="https://www.aliyundrive.com/s/RrxBuYM1SUt">To Fall in Love With Anyone, Do This</a>) ，</p>
-<blockquote>
-<p><strong>参与实验的陌生人两两分组坐在一起，只花了45分钟，彼此问了36个神奇的问题，就快速对对方产生了好感和亲密感。实验的结果很有意思。有30%的人在聊完这些问题后，立即表示自己和同组实验者之间的关系已经变得比他们人生中其他任何一段关系还要深</strong></p>
-</blockquote>
-<p><a href="https://www.stonybrook.edu/commcms/psychology/faculty/faculty_profiles/aaron">Arthur Aron</a>和<a href="https://hsperson.com/about-dr-elaine-aron/">Elaine Aron</a>描述了一系列实验，在这些实验中，他们要求成对的陌生人（或者，在实验的一个版本中，成对的大学同学）轮流询问彼此36 个问题。在实验结束时，要求这对搭档花四分钟不间断地盯着对方的眼睛。</p>
-<p>阿伦斯和他们的研究人员同事在论文中写道。“我们开发的方法的核心是在陌生人之间构建这种自我披露。”</p>
-<p>正如 Elaine Aron 在<a href="https://www.psychologytoday.com/intl/blog/attending-the-undervalued-self/201501/36-questions-intimacy-back-story"><em>今日心理学</em></a><a href="https://www.psychologytoday.com/intl/blog/attending-the-undervalued-self/201501/36-questions-intimacy-back-story">博客文章</a>中指出的那样，这些问题并不是专门为帮助人们<a href="https://www.mindbodygreen.com/0-17845/why-falling-in-love-makes-people-crazy.html">坠入爱河</a>而设计的——它们只是为了建立<em>亲密关系</em>。这些问题已被用于许多其他心理学研究，从帮助已婚夫妇拉近彼此到帮助人们减少种族偏见。</p>
-<p>这些问题分为三组，按问题的深入程度依次递进，完成每组问题各需15分钟。</p>
-<p>让我承认我们的实验已经无法与研究保持一致。 首先，我们在酒吧，而不是实验室。 其次，我们并不陌生。 不仅如此，我明白这一点，如果其中一个人对这种情况不持开放态度，既不建议也不同意尝试一项旨在创造浪漫爱情的实验。</p>
-<p>我用谷歌搜索了 Aron 博士的问题； 有 36 个。接下来的两个小时，我们把我的 iPhone 递过桌子，轮流提出每个问题。</p>
-<p>我觉得最不舒服的时刻不是我不得不承认自己，而是不得不冒险对我的伴侣发表意见。 例如：“交替分享您认为伴侣的积极特征，共五项”（问题 22）和“告诉您的伴侣您喜欢他们的哪些方面； 这次要诚实地说一些你可能不会对刚认识的人说的话”（问题 28）。</p>
-<p>Aron 博士的大部分研究都集中在创造人际关系上。 特别是，一些研究调查了我们将他人融入自我意识的方式。 很容易看出这些问题如何鼓励他们所谓的“自我扩张”。 说“我喜欢你的声音，你对啤酒的品味，你所有的朋友似乎都很钦佩你的方式”之类的话，会使属于一个人的某些积极品质对另一个人具有明确的价值。</p>
-<p>真的，听到有人钦佩你的东西，真是令人震惊。 我不知道为什么我们不总是周到地互相恭维。</p>
-<p>我们在午夜完成，花费的时间比最初的 90 分钟要长得多。 环顾一下吧台，我感觉自己好像刚醒来。“还不错，”我说。 </p>
-<p>“肯定比凝视对方的眼睛更不舒服。”他犹豫了一下，问道。 “你认为我们也应该这样做吗？” 我环顾了一下酒吧。 这似乎太奇怪了，太公开了。“我们可以站在桥上，”他说，转向窗户。</p>
-<p>夜晚很温暖，我完全清醒。 我们走到最高点，然后转身面对面。 我在设置定时器时摸索着手机。</p>
-<p>“好吧，”我说，用力吸了口气。<br>“好吧，”他微笑着说。<br>我曾在陡峭的斜坡上滑雪，并被一根短绳挂在岩壁上，但是盯着某人的眼睛沉默四分钟是我一生中最激动人心和最可怕的经历之一。 我花了前几分钟只是试图正常呼吸。 在我们有很多紧张的微笑，但最终安顿下来。</p>
-<p>我知道眼睛是心灵的窗户或其他什么，但那一刻真正的症结不只是我真的看到了某人，而是我看到了某人真的看到了我。 一旦我接受了这种认识的恐惧并给它时间平息，我到达了一个意想不到的地方。</p>
-<p>眼睛也是如此，它不是任何东西的窗口，而是一团非常有用的细胞。 与眼睛相关的情感消失了，我被它惊人的生物学现实所震撼：眼球的球形特性、虹膜的可见肌肉组织和角膜光滑的湿玻璃。 它奇怪而精致。</p>
-<p>当计时器响起时，我很惊讶——也有点松了一口气。 但我也有一种失落的感觉。 我已经开始通过回顾的超现实和不可靠的镜头来看待我们的夜晚。</p>
-<p>但我喜欢这项研究的地方在于它假设爱是一种行动。 它假设说我的伴侣重要的事情对我来说也很重要，第一我们至少有三个共同点，第二我们与我们各自母亲的关系密切，第三他让我看着他。</p>
-<p>我想知道我们的互动会发生什么。 如果不出意外，我认为它会成为一个好故事。 但我现在明白这个故事不是关于我们的。 它是关于费心去认识某人意味着什么，这实际上是一个关于被认识意味着什么的故事。</p>
-<p>的确，你无法选择爱你的人，尽管我多年来一直希望不是这样，而且你不能仅仅基于方便来创造浪漫的感觉。 科学告诉我们生物学很重要； 我们的信息素(费尔蒙)和荷尔蒙在幕后做了很多工作。</p>
-<p>但尽管如此，我开始认为爱情比我们想象的更柔韧。 亚瑟·阿伦的研究告诉我，这可能很简单，甚至——为了产生信任和亲密，爱需要茁壮成长(发育好，身体？情感？)的感觉。</p>
-<p>你可能想知道他和我是否坠入爱河。 好吧，我们做到了。虽然很难完全相信这项研究（它可能无论如何都发生了），但这项研究确实为我们提供了一种进入一段深思熟虑的关系的途径。 我们在那天晚上创造的私密空间里呆了几个星期，等着看它会变成什么。</p>
-<p>爱情没有发生在我们身上。 我们相爱是因为我们每个人都做出了选择。</p>
-<h2 id="第一组"><a href="#第一组" class="headerlink" title="第一组"></a>第一组</h2><p>1、如果可以跟世上任何人共进晚餐，你会选择谁？</p>
-<p>I want a American guy (not a ABC) who is goodlooking and young.</p>
-<p>2、你会想出名吗？以什么样方式出名呢？</p>
-<p>Of I am. Being a famous actress is my dream.</p>
-<p>3、在打一通电话之前，你会先排演要在电话中说什么吗？为什么？</p>
-<p>Somtimes. If I need to say something important or talk to someone I fall in love with , I will make sure my vioce perfect.</p>
-<p>4、你心中最完美的一天是做哪些事呢？</p>
-<p>After Shanghai Disneyland extension, I want to spend a day and watch the firework show with my boyfriend or husband,then we have a sex, when I am still young.</p>
-<p>5、你上一次唱歌给自己听是什么时候？上一次唱给别人听又是何时？</p>
-<p>Two weeks ago. Last year? I forget, two years ago?</p>
-<p>6、如果你可以活到90岁，并能在30岁过后让体态或大脑一直保持30岁的状态到死，你会选保持体态还是大脑呢？</p>
-<p>The body. When I want to do something crazy but it will kill myself, that is too pathetic!</p>
-<p>7、你有曾经预感过自己会怎么死亡吗？</p>
-<p>No. I just want to let it be.</p>
-<p>8、举出3个你与你对面这位的共同点。</p>
-<p>9、你人生中你最感激什么？</p>
-<p>I am normal. I can’t face others’ judgement if I am a homosextual or a nerd like Sheldon.</p>
-<p>10、如果你能改变你是怎么被抚育成人的，你会想改变什么？</p>
-<p>I want to have a brother, because as a only daughter I feel alone in childhood and make me laking of interpersonal skills</p>
-<p>11、用四分钟跟你对面这位分享你的一生，越详细越好。</p>
-<p>Just like thosands of Chinese girls, I have parents, no brothers or sisters. I went to school to get a university offer. I like singing, dancing, acting and makeing day dreams. When I was a teenager, I fell into someone and someone was into me, but had no relationship with anyone. Watching Tennis became my favorite hobby when I was in junior high school. I love Nadal. I wasted too much time in campas, so I had to get a master degree. This was a wrong decision.</p>
-<h2 id="第二组"><a href="#第二组" class="headerlink" title="第二组"></a>第二组</h2><p>12、如果你明早一觉醒来发现自己获得了某种能力，你希望是什么能力？</p>
-<p>Travel in time.</p>
-<p>13、如果一颗魔法水晶球能告诉你有关你自己，你的人生，你的未来，或任何事情，你会想知道什么？</p>
-<p>Where is my next boyfriend?</p>
-<p>14、你有已经梦想了很久，想做的事情吗？你为什么还没去做？</p>
-<p>See the final game in Australia Open. No money!</p>
-<p>15、你人生中最大的成就是什么？</p>
-<p>Nothing at all, but I will have.</p>
-<p>16、一段友情中你最珍视的是什么？</p>
-<p>Comprehension</p>
-<p>17、你最珍贵的一段回忆是什么？</p>
-<p>When I saw the fabulous firework in Disneyland, I realized that I may keep alone forever.</p>
-<p>18、你最糟糕的一段回忆是什么？</p>
-<p>My life of being a graduated student.</p>
-<p>19、如果你知道你会在一年后突然死去，你会想改变任何你现在的生活方式吗？为什么？</p>
-<p>Absolutely Yes. I can do evertyhing I want without any excuse.</p>
-<p>20、友情对你来说代表什么？</p>
-<p>I keep finding a “soul-friend”</p>
-<p>21、爱与喜欢在你的人生中有着什么样的地位？</p>
-<p>Love is my essential gene. Deletion of love I will die.</p>
-<p>22、轮流分享你觉得你的恋人应该具有的五项好品质？</p>
-<p>trust,encourage and respect him&#x2F;her, be good at communication, if you want to end this relationship，please tell him&#x2F;her .</p>
-<p>23、你的家庭亲密温暖吗？你觉得你的童年有比别人幸福点吗？</p>
-<p>Not so warming. My chillhood is not bad, just sometimes I felt alone.</p>
-<p>24、你觉得你跟你的母亲的关系怎么样呢？</p>
-<p>I love my mom, but I don’t like her temper.</p>
-<h2 id="第三组"><a href="#第三组" class="headerlink" title="第三组"></a>第三组</h2><p>25、用“我们“做主语造三个肯定句，比如“我们都在这个房间里”。</p>
-<p>26、完成以下句子“我希望我有一个人能与ta分享…”</p>
-<p>I hope I can share my option with someone after having seen a film.</p>
-<p>27、如果你会跟你对面的人变成亲密好友，分享一下你觉得对方必需得知道的事情。</p>
-<p>I am too straight when I am talking, so if I hurt you, please let me know.</p>
-<p>28、告诉你对面的人你喜欢ta什么：老实回答，说一些你通常不会告诉刚认识的人的答案。</p>
-<p>29、与你对面的人分享人生中很尴尬的一刻。</p>
-<p>30、你上一次在别人面前哭是什么时候？上一次自己哭是什么时候？</p>
-<p>Three years ago, I cried in front of my friend because I was broken up with ex. I forget, maybe three months ago.</p>
-<p>31、告诉你对面的人你已经喜欢上ta的什么？</p>
-<p>32、有什么人事物是太严重，不能随便开玩笑的？</p>
-<p>I don’t know.Maybe someday I feel angry and I will know.</p>
-<p>33、如果你将在今晚死去，没有任何再与他人交流的机会，你最后悔没有把什么事情跟别人说？</p>
-<p>nothing</p>
-<p>34、你的家着火了，里面有你所拥有的一切事物、在救出你爱的人，你的宠物后，你还有时间最后再冲回去一趟拯救最后一样任何东西，你会救出什么？为什么？</p>
-<p>My ID card. Nothing I can do without it .</p>
-<p>35、你家庭中的所有人里，谁的死会让你最难受？为什么？</p>
-<p>My mom. I can’t image the time without her, I have no chance to enjoy the food she cooks.</p>
-<p>36、分享一个你私人的问题，并想你对面的人询问ta会怎么处理、之后再请ta回答，对于你选这个问题，ta有什么看法？</p>
-<p>最后互相凝视4分钟。</p>
-<p>感觉回答这套问题很难在现实的相亲或者情侣之间进行，面对面talk，最后还要四目相对四分钟，至少对于中国人会有些尴尬或者不太好意思吧。不过，这套题答下来确实对自己有了更多思考。</p>
-<h2 id="第一组问题"><a href="#第一组问题" class="headerlink" title="第一组问题"></a><strong>第一组问题</strong></h2><h6 id="1-如果可以跟世上任何人共进晚餐，你会选择谁？"><a href="#1-如果可以跟世上任何人共进晚餐，你会选择谁？" class="headerlink" title="1.如果可以跟世上任何人共进晚餐，你会选择谁？"></a>1.如果可以跟世上任何人共进晚餐，你会选择谁？</h6><p>选择跟手机单独吃饭，觉得自己一个人吃饭更自由，可以用自己舒服的速度不用说话的方式进餐就很舒服，因为我清闲的时候就吃得很慢，一遍看手机一遍吃，花30分钟，和别人吃的话，我就要吃快些，压缩到15分钟这样。我忙的时候，3-7分钟就吃完，简单吃饱，我就不想等别人，觉得别人耽误了我，虽然可以提出自己先走，但是失去了一起吃饭的意义，把别人留在饭桌总感觉会觉得不妥，即使别人已经明面说出，你有事你先走。如果非要选择一个人的话，最好那个人是不在饭桌上老是拉我说话，它可以一直说，我就当作是看手机，一旦拉我说话，没人提醒的话，可能我就光聊天不吃饭，然后别人吃完我才开始吃，别人又要等我，就有些让我难堪。举例的人有*** ***，确实，我喜欢的人都有这样的特点。</p>
-<p>自己喜欢的人</p>
-<h6 id="2-你会想出名吗？以什么样方式出名呢？"><a href="#2-你会想出名吗？以什么样方式出名呢？" class="headerlink" title="2.你会想出名吗？以什么样方式出名呢？"></a>2.你会想出名吗？以什么样方式出名呢？</h6><p>想过会出名，方式是在自己的行业内出名，在圈子外不出名那种，就是希望在那种和对世界有着同样的看法的人出名，对不理解我所做的东西，就不要出名，主要是为了避免误解以及由于误解造成的各种麻烦，比如说，我就不喜欢袁隆平、邓稼先、雷锋、牛顿、爱迪生、杨振宁这样的出名，容易被各种不了解我做工作的媒体人宣传误导，还有各种绯闻，我真的难处理这些问题，人红是非多。虽然我很敬佩这种圈内外都出名的人，但是我只想在圈内有名，不想在圈外有名。举例有麦克斯韦、交流电的特斯拉、深度学习吴恩达、遗传研究孟德尔、写史记的司马迁。</p>
-<p>会，为社会做出了巨大贡献</p>
-<h6 id="3-在打一通电话之前，你会先排演要在电话中说什么吗？为什么？"><a href="#3-在打一通电话之前，你会先排演要在电话中说什么吗？为什么？" class="headerlink" title="3.在打一通电话之前，你会先排演要在电话中说什么吗？为什么？"></a>3.在打一通电话之前，你会先排演要在电话中说什么吗？为什么？</h6><p>会的，就是先有序号地记下自己要交流的几个问题，列出123点，再对要点修饰到别人能听清楚地不歧义地具体等下要说地话，就是担心别人等下问道某个问题时，回答着就跑偏主题，也避免自己真的问的时候想不起来，或者担心自己说话太突兀，前面修饰了要点就不会担心这个问题。并且遇到重要地话，我会一遍记录在QQ上发布到群里，即使自己手机掉了也能通过漫游找到记录。场景不允许记录地话，我会习惯的用手机录音，然后觉得很重要的话，会对录音重命名，不重要的话，就会直接留着不重新命名，以后觉得有用再花根据录音日期慢慢找。主要是为了避免自己忘记重要内容，以及自己记错，注意这不是为了留什么证据用。对于重要的内容。我会让他把我说的什么重复一遍的话，或者我说一遍让他听听看我说的对不对，因为我常常会跟别人交流有问题，就是他说的话我会理解成常常另一种意思，例子有导师见面（地点弄混了，反正就是那句话要有语境，没有语境的话，可以是两个地点），剪头发（不知道当时是怎么说的，反正意思弄反了，我要剃短，却给我保留头发），买书（交易地点错误），做封面（要求错误）、火锅的加不加辣。</p>
-<p>会，这让我不会慌乱</p>
-<h6 id="4-你心中最完美的一天是做哪些事呢？"><a href="#4-你心中最完美的一天是做哪些事呢？" class="headerlink" title="4.你心中最完美的一天是做哪些事呢？"></a>4.你心中最完美的一天是做哪些事呢？</h6><p>6点半起床，吃牛奶水果等简单不加工的早餐，做一下衣冠整理，检查物品是否齐全就出门，7：40-7：50到岗位，避免踩点打卡上班失败，8点正式工作，中午一个人安静吃饭，或者和同事吃饭，因为午餐时间很短，也不会太闲聊，都是一样的吃饭进度， 6点到点下班，下班前提前提前整理下桌面，给领导看和给自己看的，给自己和别人留个好印象，下班去菜市场买些简单的食材菜回去做大杂烩，就喝个大杂烩的粥，一个锅里有菜有粥，容易洗锅碗筷。洗完澡到九点。玩会游戏、刷B站、看些觉得有趣书到11点，睡觉。一个人是真的舒服。</p>
-<p>如果考虑没有小孩的家庭的话，就是下午下班后，不是做什么大杂烩，问下媳妇吃些什么，然后卖，认真做些正常的菜，炒青菜、炒肉等、煮鱼等，但是要做少，不饱再吃泡面、芝麻糊等速食品，不想浪费。到九点洗澡，和媳妇一起打游戏，或者给自己独处时间，学习自己领域的知识，到11点，睡觉。</p>
-<p>如果考虑家庭的话，就是下午下班后，不是做什么大杂烩，而是认真做些正常的菜，炒青菜、炒肉等、煮鱼等，但是要做少，不饱再吃泡面、芝麻糊等速食品，不想浪费。到九点洗澡，和小孩聊聊学校日常，看情况辅导作业，因为辅导作业可能会影响亲子关系，我一般对那些不想学的小孩我也不想去教，他主动想学，我才会去交，不想学的给就他一个方向，让他自己查网络，看教材。当然，我会检查它的教辅材料合不合理，毕竟有些教材写得太烂。还有就是我会每天督察进度和质量（抽背、随便抽一道题给他写看，进度完成随便玩，进度完成不了不给玩，或者实在完成不了到了一定时间就仍会给他玩，就跟到时间完成不了任务也会给他下班，他若自愿加班我就给他自愿加班，但是第二天会亲自叫他去学习避免睡过头。培养小孩要授之以渔与鱼。10点钟就给自己独处时间，玩会游戏、刷B站、看些觉得有趣书到11点，睡觉。</p>
-<p>工作后回家和家人吃饭，一起看电视聊天 </p>
-<h6 id="5-你上一次唱歌给自己听是什么时候？上一次唱给别人听又是何时？"><a href="#5-你上一次唱歌给自己听是什么时候？上一次唱给别人听又是何时？" class="headerlink" title="5.你上一次唱歌给自己听是什么时候？上一次唱给别人听又是何时？"></a>5.你上一次唱歌给自己听是什么时候？上一次唱给别人听又是何时？</h6><p>昨天，因为我很喜欢这首歌，就不知不觉地哼唱了。大二的时候，因为某要我唱歌看看，当时我说我上了舞台，但是至此之后，我不唱歌地原因是，我真的在舞台事物了，唱素颜忘词，哈哈哈，本来以为简单，练习一下就能记下歌词混过去，发现连歌词都记不住。并且和部门聚会的时候发现我就像是原始人进入信息社会，他们的唱歌是真的觉得可以去当歌手，甚至比原唱还好听，真的见鬼，相形见绌下，我就不再唱歌。</p>
-<p>刚刚 ，上个月</p>
-<h6 id="6-如果你可以活到90岁，并能在30岁过后让体态或大脑一直保持30岁的状态到死，你会选保持体态还是大脑-呢？"><a href="#6-如果你可以活到90岁，并能在30岁过后让体态或大脑一直保持30岁的状态到死，你会选保持体态还是大脑-呢？" class="headerlink" title="6.如果你可以活到90岁，并能在30岁过后让体态或大脑一直保持30岁的状态到死，你会选保持体态还是大脑 呢？"></a>6.如果你可以活到90岁，并能在30岁过后让体态或大脑一直保持30岁的状态到死，你会选保持体态还是大脑 呢？</h6><p>体态，因为体态是大脑的基础，就是说，如果体态能一直保持，那么我的大脑基本不会有什么问题，就像是葫芦和叶子之间的关系，叶子不好，往往头脑也不行，不要举例什么身残志坚的例子，因为我的意志不坚定，保持我的大脑也没什么用，即使我大脑性能下降，我用30岁的身体也能养活自己，头脑的话，我可能像霍金一样很赚钱，但更可能是干不动了，即使聪明也用不出去，虽然我也可能通过养生的方法来留住自己的身体状态，但是乔布斯等人都做不到，我有什么自信做到呢。</p>
-<p>体态</p>
-<h6 id="7-你有曾经预感过自己会怎么死亡吗？"><a href="#7-你有曾经预感过自己会怎么死亡吗？" class="headerlink" title="7.你有曾经预感过自己会怎么死亡吗？"></a>7.你有曾经预感过自己会怎么死亡吗？</h6><p>天来横祸。例如：车祸、空难、传染病毒而死、恐怖袭击、战争。</p>
-<p>生病而死。例如：心脏、肺等癌症晚期，手术风险高。直接选择安乐死，放弃治疗，多备止疼药，留下时间去玩游戏、旅游、写书等。</p>
-<p>被害而死。例如：同行下药、贪官的灭口等</p>
-<p>抑郁而死。例如：某天想不开去跳海跳楼、服药、煤气自杀、套朔料袋等</p>
-<p>病死</p>
-<h6 id="8-举出3个你与你对面这位的共同点。"><a href="#8-举出3个你与你对面这位的共同点。" class="headerlink" title="8.举出3个你与你对面这位的共同点。"></a>8.举出3个你与你对面这位的共同点。</h6><p>聪敏、能站在对方角度为对方着想、喜欢游戏</p>
-<p>善良 上进 优秀</p>
-<h6 id="9-你人生中你最感激什么？"><a href="#9-你人生中你最感激什么？" class="headerlink" title="9.你人生中你最感激什么？"></a>9.你人生中你最感激什么？</h6><p>感激的人有很多，每个帮助我的家人，朋友，同学，老师，陌生人。感激的事也很多，9年义务教育，国家扶贫，等。最感激的还是奋斗的自己。因为唯有自己努力做事，才能让自己变得有用，才能回馈那些帮助过自己的人，这样才能对自己负责，对每个帮助过我的人、事负责。当然对颓废的自己是很厌恶的，对那些不怀好意的事人也是有些厌恶的。</p>
-<p>朋友</p>
-<h6 id="10-如果你能改变你是怎么被抚育成人的，你会想改变什么？"><a href="#10-如果你能改变你是怎么被抚育成人的，你会想改变什么？" class="headerlink" title="10.如果你能改变你是怎么被抚育成人的，你会想改变什么？"></a>10.如果你能改变你是怎么被抚育成人的，你会想改变什么？</h6><p>不再有老老实实地死脑筋做事的，而是有投机追求可见效果做事的被教育。主要是看得到各种可自己用信息技巧，激发想象力，让自己能够去实践，给自己带来实实在在的好处。</p>
-<p>首先小时候家里条件确实缺钱又缺信息资源，不缺时间，特别无聊，这段时间就可以多看能激发想象力的动画片，七龙珠、葫芦娃、孙悟空、校园三剑客、海贼王还有很多优秀的动画片。小时候重要的是收集信息资源，拓展眼界，看得到世界的发展现状。只要自己看到过这么好的世界，自己记住别人达到的方式，觉得自己也能办到，自己就会有动力，然后肯定会想办法跟着别人的步骤自己一步一步到达。小时候信息闭塞，最好获取信息资源的办法，确实除了图书馆、网络、找人问就没有其它方式，但是后两种基本就是没有金钱支付，小时候极度缺钱，每得1、2毛零花钱都能开心好久，去买辣条吃。5块钱零花钱就是巨款。但是如果买网络就肯定没钱，去找人问也肯定没钱，路费，请人吃喝都不够。所以最好的方法就是找书。书中的资源良莠不齐，这里还要需要建立正确的选书观，文字一大堆，一个故事讲一个道理的书就不要看，也不要看经典书籍，应该看世界发展趋势上的东西，就是那种生活小技巧的，我自己能够很快出结果，应用到自己身上的，自己能直接感受到变化，并且还要肉眼可见的改变，至少是能够在一个星期内看得到明显的改善，否则直接丢弃这种方法。还要学会长远规划，就是在那些肉眼可见的改善中，优先选择那些不仅短期见效，长期也见效的。不要说什么时间那么短怎么会见效，不能看到效果的，放到最后尝试。</p>
-<p>想体会童年更多的快乐</p>
-<h6 id="11-用四分钟跟你对面这位分享你的一生，越详细越好。"><a href="#11-用四分钟跟你对面这位分享你的一生，越详细越好。" class="headerlink" title="11.用四分钟跟你对面这位分享你的一生，越详细越好。"></a>11.用四分钟跟你对面这位分享你的一生，越详细越好。</h6><p> 据我父母及乡里人说，我的诞生之初是为了卖钱，卖的1万块，因为当时挺缺钱的，说是卖个一个湖南的较为小康家庭当儿子养，2000年的时候，那种买卖小孩基本鞭长莫及，法律看不住的，然后我妈妈养了我能走路吃面条就不同意了，当时交易现场大概是对面用面条引诱我，看看我愿不愿意跟他们过去。我确实过去吃面条了。但是妈妈却不同意了(爸爸说的)。还是不愿意卖。后面还有乡里人对我说，是他们劝不要卖才不卖的。总之细节总是模糊，我最终安全地留下来。毕竟那个混乱地年代与地点，也有很可能就被摘器官卖器官了。</p>
-<p>缺钱就是生了两个哥哥，毕竟都要读书。</p>
-<p>留下我，我也是极度能折腾，关爱没给到满意就哭，就是小时候我对比哥哥来说来说，还是被照顾地很好的，早上就是喝豆奶2-3毛一包，就是那种现榨巴氏消毒那种，有牛奶有豆浆的味道，还特别喜欢吃烤包，2元这样，但是特别好吃，这些吃吃喝喝，我哥哥是没有的，因为我那是被妈妈带着去摆摊，每卖一把菜就有2毛收入，妈妈去进新鲜蔬菜时，我就去卖昨天的菜。买得差价多少自己就可以买零食吃。本金还是要给妈妈的，大概就是半个小时卖出5-6把菜，得到2-4元，差价就5毛-6毛自己的零花钱。可以买包子。小时候我喜欢我对肉包和菜包感觉都一样，因为肉也是菜，所以妈妈就叫我买肉包，我就转义，说买菜包，为了教育我，还叫我反反复复买了几次，前几次我都是把肉包买成菜包，后面被严厉说教菜不会转义，说买肉包，就一字不差的转说买肉包。买肉包后，我才清楚分辨肉包和菜包馅是不一样的。之前虽然吃过肉包和菜包，也能分别区别，但是表达的时候，是没有肉包的表达，只认为有两种风格不同的菜包，没有肉包的表达。</p>
-<p>小时候特别喜欢生病，不是爱的那种喜欢，是频繁的意思，一个月内就有一次感冒发烧，然后被妈妈抱到小诊所打针吃药。在妈妈怀里的时候确实能感受到那种，因为我生病对我又生气对我又关心的矛盾心情。打针吃药的时候，妈妈总会给我买苹果，这种苹果挺贵的，很脆很香甜的那种，长大后我没买到相似的苹果，今年回家过年的时候，妈妈又买了这种苹果，打消了我以为是我记忆错误的念头，毕竟我都买不到和妈妈一样品种的苹果，并不是由于年代久远就把普通苹果吃出又香又脆的感觉，而是真的存在这个香脆的品种，有别于市面常见的苹果。确实喜欢妈妈的悉心照顾感觉，也想一直生病，但是总有好的一天。</p>
-<p>直到有一次，我生了一场莫名奇妙的大病，就是发烧一直高烧不退，住进医院也不行，花了一万元，最后无力承担医药费，04、05年的1万元可以说是很高了，据妈妈说，进医院当护工，12小时轮班那种，一个月2000，一年攒下2000.相当于半年工资了。就相当于现在进那种很累的厂子，不是普通电子厂，相当于6000-8000的厂子，对比现在，就是7000*6&#x3D;四万二这样。大概就这样，看着不多，但也不少。花钱多是一方面，我还一直没有好转的迹象。最后就放弃在医院治疗，回家先养着。然后我大伯就来南宁，看到家里空气不好，就把我带回老家。大概过了一个星期，我的病就莫名消失了。这里可能是单纯的由于换了个环境、能够产生抗体后才恢复的原因，也可能是由于时间到了，毕竟一直缓慢发烧一个月这样，题内病原体已经从刚开始生病到回到老家这段时间才攒够足够多抗体治愈自己。</p>
-<p>这种发烧不是淋雨，不是着凉，就是正常生活，就突然发烧难受，温度不高，就是突然难受。现在想想，确实可能是流感，也可能是基因。这种发烧学校内不会发生，回家无聊的时候就会发生，每次这类发烧的预兆就是由于自己感到特别无聊，干什么都没有动力，再喜欢的游戏都没有玩得下去，感觉干什么都没劲。今年2022年在家又发生这样的预兆，我能对发烧的类型有不同感觉，和普通的着凉发烧是不同的，普通的着凉发烧能察觉自己熬一熬就会好，但是这种缓慢低烧是能感受到不管怎么熬都不会好，没有底的感觉，需要吃药或者做出除（盖被子睡觉、喝姜糖水）的改变才能好。特点就是心里没底，没有缘由，发烧前会感到极度无聊。</p>
-<p>回老家之后，就一直在老家生活。刚开始的话，就是帮忙捡果子，然后就是提水，煮饭，就是放米放水，下地除草，种菜，下田插秧，放牛，各种农活都有干。总之就是为生活奔波。做饭做菜都要用水，然后就是到山下提水，并且没有抽水机，打水挺累人的，摇水泵被我们暴力使用，常常用起来都不顺手。两个和尚抬水喝就是这样的。</p>
-<p>小时候最大的娱乐就是看电视，主要看动画片，那时候只收到广西台、横县台、灵山台。其它电视节目都收不到。天线的问题。</p>
-<p>后来最大的娱乐是玩，买了影碟机，就常常攒钱买碟片，看种种电视、电影，还买游戏机，每次在家打游戏。</p>
-<p>由于住的离村远，又忙，我没有和太多村里人玩，玩的话就是弹弹珠，瞄弹珠，然后把弹珠卖出去，就是一种像斗鸡一样赌博吧，有技巧，并且技巧熟练才能赢。反正我就是常常输。</p>
-<p>小学的成绩挺好的名列一二名，后来就是前十名。我的优秀老师看在眼里。对我照顾有加。确实老师是偏心的，偏向了我这边。后来我也贪玩，但总是能恶补回来。</p>
-<p>小时候考试考的就是背诵能力。背诵能力包含着理解能力。但是语文我始终无法理解，就死记硬背，结果分不高，数学就很好理解，背诵下来的东西多，数学分数高。</p>
-<p>小学老师就是用过种种方法教育，比如纠正写字，写字歪歪扭扭的可不行。但是一旦我写快了，我的字根本就回到最初的样子。不握着我的手感觉不能用的。考试时完成比完美重要，所以平时完美，考试完成。</p>
-<p>小学的时候确实喜欢过好几个女生，要么好看，要么成绩好。这些小心思别人都看得出来的。</p>
-<p>小时候也常常被别人欺负，就是穿着不好看，成异类就会被欺负，成绩好的话，能换取一定尊重。校园霸凌是存在的，只要你不是有什么靠山，我的靠山就是老师，但是老师常常也是鞭长莫及，毕竟报告老师确实有被变本加厉的风险，有同学确实被变本加厉过，然后又报告老师，有被变本加厉处理，最后就是退学，要么是学霸，要么是欺负的同学自己退学。只能说一切看情况，一般都是先忍受，最后受不了才报告老师，毕竟霸凌者习惯到处欺负人宣誓主权，只要不是盯着我一个人搞，还是把主权丢给他。我自己就抗议一些原则性的东西。成绩好确实受到尊重。</p>
-<p>但是我也是去欺负过人的，就是叫花名之类的嘲笑，但是我嘲笑的人，现在也是我的好朋友，怎么说，但是欺负的时候不觉得会给他带来太多伤害，仅仅时让他感觉不舒服，就会显得我比他好，就觉得有趣，故意去惹事打架的是没有的。</p>
-<p>初中和小学一样，学习，只有少数几个社交，都是合作关系。就是被孤立的人相互取暖。</p>
-<p>好了伤疤忘了疼，我在初中也是被群殴过的，看着霸凌者欺负到处欺负人，我就想着，我不一样，我不能被欺负。主权问题是很有意思，插队之类都可以彰显到。</p>
-<p>小学喜欢的人初中还在联系，高中才我才明确抛弃，还是一样的原因，有更好的不爱了，当然，只是写写情书啥的，手都没牵过。</p>
-<p>我也会一脚踏了两船，主要是真的好看。就是很懂人心思，在我还没有清楚了解我想要的东西时，能根据我的表情等，给出我想要的东西，让人眼前一亮的感觉。</p>
-<p>这种通过表情、你的经历等准确德推测出我想要的东西的能力，我妈妈也是有的，共情能力，应该是了解的东西多，听到的别人经历多，就能根据相似性匹配出我对应的经历。</p>
-<p>并且，还带着培养，能够拒绝我的不合理请求，给我带来能力提升，让我明确直到如何能够和她舒服相处，不会频繁触碰它的禁忌。造成它的不愉快最后把不愉快扩散回我身上。</p>
-<p>中考不是发挥很好，进了县重点高中的普通班。后来就努力学习，没日没夜地背语文，去理解数学等，看懂课本表达地意思，最后成绩很好，但是依旧比不上班第一名。看得到他学习没有比我努力，成绩却比我好，我是真的暗暗嫉妒，也暗暗佩服。因为是真的厉害。</p>
-<p>我进了重点班，就是由于听到要善于交往什么地，结果真的去巴结别人，失去了自己的决策权，我没有换取自己的想要的成绩，就很难受了。把自己的决策权交给老师是对的，毕竟老师有经验。但是问老师问题也是必须自己有了解，就是老师起到的是四两拨千斤作用，那四两和千斤都要自己准备好，就是很多前置知识自己要理解，否则问老师也会叫你回去看书，但是，这么多书，我们根本抓不住重点，看了好久没有期望的收获，就没有兴趣，得不到正反馈，就没有心情看下去。问同学的话，能给你指出具体那一页那一句话，以及某某句话和某某句话的联系，让自己的兴趣消失之前得到新的兴趣，有心情学习下去。</p>
-<p>高考算是超常发挥，给了自己一个还算满意的成绩，去了省外读书，进的是一个打擦边球的成绩。高录取线1分。见到了很多有趣的人，成绩好唱歌好成绩又好看的学姐们，温柔细心的学长，还有有趣的舍友，还参加了很多社团。正常考进大学和打擦边球进大学的人还是有很大差距的，宏观的说是班级平均分差距，微观地说就是同一个老师教学，课堂的表现还是不一样的，回答问题的深度广度，上课的眼神都有差别。我更加勤勉拘谨等跟上进度，他们就是比较轻松放得开。并且不同省份、同一省份不同地区的人的对知识接收方式、能力都是不一样的。</p>
-<p>上课我听不懂，老是昏昏欲睡，别人都是预习，上课听得仅仅有味，能接得住老师的知识。我没有预习，我感觉总是很忙，没有时间预习，不想预习还有就是看不懂，老师的官方教材不友好，看着总是犯困，其他人找了其它友好的教材，或者是找了其它辅助资料，比如印刷更清晰地图片，排版更舒适。他们自己有本来更毅力，就更能看地下去。还有就是他们能找对人问到他们想要地学习资料。他们自己也能做出自己想要的笔记等。我们用他们的学习资料的话，与不用他们的学习资料期末考试成绩是有很大区别的，就是60几分和80-90分的差别。当然他们自己做的学习资料只给他们亲近的人，不和他亲近的人，直接问他们，他们都不会给的。只是说你自己去总结。当然也有学霸，就是啥也不总结，就单纯看课本，单纯上课听讲也能懂得的，考试也有80多分。反正成绩说得过去。</p>
-<p>大二转专业。由于不了解专业是什么，以为信息学院得所有专业都是计算机，没想到还有硬件。电子信息类。哈哈。网上是看过的，但是没有认真看。重点看了计算机类。我根本就分辨不出其中的区别，即使我之前已经去查了相关资料，但是自己的相关资料完全就没找对，自己也分辨不出究竟找的资料对不对。进了学院去学习才发现自己找错了资料。</p>
-<p>大二当了班长，由于他们不认识我，我就当了班长，当了班长，才发现自己的理想，公平对待每个人根本做不到，有的同学就是很遵守纪律，有的人就是到处为了自己方便破坏规则，当然，我也不能把他们怎么样，没有惩罚，全靠自觉。我做的只是提醒，其它根本做不了什么，强制要求啥的，是不行的。刺头还是小事，主要是我自己管理也混乱，就是很多通知看得我头晕，总是误解别人的意思，一遇到表达不一致的，就一脸晕，就像计算机代码一样，这个代码用语言这样写，换到我这个平台直接执行错误，说找不到数据库。因为很多东西我不知道，但凡不一样，流程有省略，我就执行失败。很多东西，都要和上面沟通确认才行，否则就是回出错。就是他们没有说错，但是容易让我误解。相当于人工智能识别中的过拟合或者拟合度不够一样，总有各种各样的问题。</p>
-<p>并且我的任务交代不清楚，给任务别人时，别人不执行，我也只好自己动手。因为别人没被带过，不懂执行。</p>
-<p>当班长主要时能力不够，任务理解与分配，人际关系管理，别人跟你，你没给没好处是不行的，别人不能给你办事的。好处就是听段子、信息及时沟通，讲故事等。不管是信息还是物质资源，总要有一样好处才可以。</p>
-<p>我的学习能力堪忧，对待很多东西总是一知半解。考试也总是迷迷糊糊。自己没有系统连贯的逻辑体系，就是自己就不能理解，只是背下知识罢了。</p>
-<p>我参加了大创项目，我真的找信息的能力堪忧，任务也不知道分配什么，只能说一切重头找起，由于问老师自己也不知道什么。根本没有办法理解。就是自己的进度完全没有感觉。自己完全没有评价体系，说我自己学习了python语言，但是却完全看不下去，也没有记住几个算法几个库，就会基础的hello world。难一些的numpy矩阵根本不懂，还有其它库，根本看不懂。老师也不给基础代码。也不给任何资料，我真的一头雾水。网上的东西良莠不齐，听了很多课，依旧听不懂，甚至感觉讲课的老师自己就不懂，也是张嘴就来的那种，每一步都没给出我满意能理解的解释。越积越多，最后就听不懂了。</p>
-<p>这里面有关键的因素就是我只能一知半解的往下看，根据后面的知识理解前面的知识，直接查，信息纷繁杂乱，根本就查不到自己想要的解释，自己想要的东西。或者是一次次地来回查找前置知识，并且最后还是无法理解。看csdn,B站怎么查都是来来回回的解释，真的生气，我无法理解。代码也跑不起来。</p>
-<p>付出大量时间却没有理解真的只能干生气。还给我看了超级多地广告，真的气。就放弃了。</p>
-<p>现在，我就是看效果说话。不去无底线迎合别人。比如我自己特别不喜欢被打扰，舍友老是不带钥匙，频繁叫我开门，我正在专注做我的事。只好放下手中的事去开门。一次两次还可以开门，出去两分钟就叫我开门呢，又进来，又出去没几分钟叫我开门，真的叫他们自己带钥匙，他们却不以为意，说，不就是开门吗，开一下怎么了，又占不了多少时间。我居然无言以对，我只是感觉我承受不了这种频率的打断。我也试着去图书馆，但是路途遥远，并且我极度依赖电脑，常常找不到插座，只能看书，但是我根本看书看不下去。宿舍虽然吵，但是不用走这么远，也不用担心占不到有插座的书桌。我只能跟宿舍每个人吵一遍，好说话的人，很快带钥匙，不好说话的人，直接带有决裂说，“以后我不给你来门，你也别给我开门”，中等的就说，开一下门怎么了，看看谁谁谁宿舍不是都开门。品尝人生百态，我就气死了，我这么小心翼翼维护我们宿舍关系，好心给开门，结果就是这么不顾及情谊，更何况我开门只是因为你们不带钥匙的错，我来给你开门是替你擦擦屁股，替你们承担你的过错，结果却是升米、斗米都养仇人。</p>
-<p>我思考了好久，为什么会这样，好了，是他的问题，他根本就觉得我不配和他们生活，早就想决裂了。尊重我的人就会很快带钥匙，不尊重我的人，直接决裂。平等的人就跟说讲道理，即使是歪理，但是至少有理由。</p>
-<p>从那一刻起，我就完全改变了，不再去讨好他人，努力自己提升实力。也不去承担太多他人的烂摊子，对人有了区别对待。我之所以讨好别人，是为了换取信息等，现在，我就自己收集信息，把讨好别人的时间用在提升自己上面。就像不再依赖苏联的新中国，虽然举步维艰，也要摆脱苏联的恐怖掌控，走独立自主的道路，花大的力气来重新研究别人不肯给的技术。</p>
-<p>当然别人有事求我，我依旧会帮忙，重点在于自己可接受，就是频率不要太多。</p>
-<p>只羡鸳鸯不羡仙，我希望能遇到自己生命中的另一半，生两个孩子养条狗，下雨的时候和家人在家里看电视聊天，阳光明媚的时候约朋友出去游玩，有份自己喜欢的工作，钱只要够花就行了，多余的就用来做公益，尽自己的一份力让这个社会更加美好。</p>
-<h6 id="12-如果你明早一觉醒来发现自己获得了某种能力，你希望是什么能力？"><a href="#12-如果你明早一觉醒来发现自己获得了某种能力，你希望是什么能力？" class="headerlink" title="12.如果你明早一觉醒来发现自己获得了某种能力，你希望是什么能力？"></a>12.如果你明早一觉醒来发现自己获得了某种能力，你希望是什么能力？</h6><p>无敌的推断能力，就是利用现有的条件，可以预测过去和将来，并且只要肯花时间，能挖掘出有限条件的所有信息。看别人的表情，就可以推断它的真实喜怒哀乐会不会说谎，看气色就可以判断它身体哪里不舒服，并推断是着凉、吵架等原因，通过看穿着打扮，了解这个人大概的性格和家庭背景，等等，就是别人能我挖掘的底层信息，我也能挖掘并推断。通过气味等判断家里习惯吃什么。等等。</p>
-<p>能让人快乐的能力</p>
-<h2 id="第二组问题"><a href="#第二组问题" class="headerlink" title="第二组问题"></a><strong>第二组问题</strong></h2><h6 id="13-如果一颗魔法水晶球能告诉你有关你自己，你的人生，你的未来，或任何事情，你会想知道什么？"><a href="#13-如果一颗魔法水晶球能告诉你有关你自己，你的人生，你的未来，或任何事情，你会想知道什么？" class="headerlink" title="13.如果一颗魔法水晶球能告诉你有关你自己，你的人生，你的未来，或任何事情，你会想知道什么？"></a>13.如果一颗魔法水晶球能告诉你有关你自己，你的人生，你的未来，或任何事情，你会想知道什么？</h6><p>我和她能不能走到最后。如果不停为挣钱出发，以我的能力挣到的钱能不能绝对地留住她。还是说分享更多有趣的事就能留着她，还是以不同比例分配我的精力，这个比例又是什么。</p>
-<p>我什么都不想知道，我觉得人生就是应该拥有不确定性才更有意思</p>
-<h6 id="14-你有已经梦想了很久，想做的事情吗？你为什么还没去做？"><a href="#14-你有已经梦想了很久，想做的事情吗？你为什么还没去做？" class="headerlink" title="14.你有已经梦想了很久，想做的事情吗？你为什么还没去做？"></a>14.你有已经梦想了很久，想做的事情吗？你为什么还没去做？</h6><p>想确认她是否还爱我，想问问我为了多挣2-3000元而选择异地恋能否可行，想问问我打游戏不理他是因为我真的受不了一直输的产生失落感然后不再一起打游戏可行不，想说我的食言是因为我真的办不到，有时是因为没有心情想玩游戏而不去实现承诺是否可行。我是真的没有心情的时候，就真的只想安安静静的打游戏或者啥也不干就躺着，可能在思考也可能不在思考。爱情的沉重有时候我是想暂时卸下的。</p>
-<p>没有问的原因，感觉没到时候，氛围感不对，太突兀了，应该在蜜月期快结束的时候问。这种深入的问题，要互相熟悉才好问。</p>
-<p>我想找个女朋友，一方面因为自己还不够优秀，另一方面因为没有遇到对的人。</p>
-<h6 id="15-你人生中最大的成就是什么？"><a href="#15-你人生中最大的成就是什么？" class="headerlink" title="15.你人生中最大的成就是什么？"></a>15.你人生中最大的成就是什么？</h6><p>考上大学，并且转专业进入计算机相关专业。让我看到了星辰大海，让我觉得我跟上了世界的潮流，并且见到了很多我想见到的东西。</p>
-<p>我妈车祸的时候我扛起了家庭的责任，处理好了问题</p>
-<h6 id="16-一段友情中你最珍视的是什么？"><a href="#16-一段友情中你最珍视的是什么？" class="headerlink" title="16.一段友情中你最珍视的是什么？"></a>16.一段友情中你最珍视的是什么？</h6><p>尊重。平等交流，互相扶持。</p>
-<p>彼此能毫无顾忌的进行平等交流</p>
-<h6 id="17-你最珍贵的一段回忆是什么？"><a href="#17-你最珍贵的一段回忆是什么？" class="headerlink" title="17.你最珍贵的一段回忆是什么？"></a>17.你最珍贵的一段回忆是什么？</h6><p>妈妈小时候抱我去打针吃药。当时5-6岁，比较重。发着高烧，妈妈不怎么抱得动，却还抱我走到了诊所。之后养病的时候买了很多好好吃的。</p>
-<p>和小伙伴们去山上野炊</p>
-<h6 id="18-你最糟糕的一段回忆是什么？"><a href="#18-你最糟糕的一段回忆是什么？" class="headerlink" title="18.你最糟糕的一段回忆是什么？"></a>18.你最糟糕的一段回忆是什么？</h6><p>校园欺凌，见到霸凌者只能躲，有时候因为躲开了还故意专门折磨我。感觉自己没有能力解决还孤立无援，没有同学撑腰，自己和同学比较孤立，告诉老师又害怕报复，毕竟老师总不能一天24小时保护我。校里校外总有老师鞭长莫及的地方，家长的话，感觉家长太忙，不想麻烦她们。更重要的是不想把事情闹大。</p>
-<p>小时候出去玩回来晚了，爸爸拿着锄头在后面追我，我感觉他真的想打死我</p>
-<h6 id="19-如果你知道你会在一年后突然死去，你会想改变任何你现在的生活方式吗？为什么？"><a href="#19-如果你知道你会在一年后突然死去，你会想改变任何你现在的生活方式吗？为什么？" class="headerlink" title="19.如果你知道你会在一年后突然死去，你会想改变任何你现在的生活方式吗？为什么？"></a>19.如果你知道你会在一年后突然死去，你会想改变任何你现在的生活方式吗？为什么？</h6><p>不会，因为现在就是我想要的生活状态。简简单单，努力也有自己对努力的预期的收获。就是现在的努力与收获都符合自己预期。还在自己的掌控能力内。</p>
-<p>会，我现在的生活还不够努力，我希望我能全力以赴并且留下一些东西</p>
-<h6 id="20-友情对你来说代表什么？"><a href="#20-友情对你来说代表什么？" class="headerlink" title="20.友情对你来说代表什么？"></a>20.友情对你来说代表什么？</h6><p>互相帮忙，忙一些力所能及的忙，双方不会有太大压力。双方都轻松愉悦。</p>
-<p>代表着有趣</p>
-<h6 id="21-爱与喜欢在你的人生中有着什么样的地位？"><a href="#21-爱与喜欢在你的人生中有着什么样的地位？" class="headerlink" title="21.爱与喜欢在你的人生中有着什么样的地位？"></a>21.爱与喜欢在你的人生中有着什么样的地位？</h6><p>爱意味着承担自己不太满意的责任。喜欢就是自己不会去承担任何自己觉得不划算的责任。事业、爱、家庭、友情这样的排序。</p>
-<p>是我人生的四分之一，另外四分之三是亲情、友情、事业</p>
-<h6 id="22-轮流分享你觉得你的恋人应该具有的五项好品质？"><a href="#22-轮流分享你觉得你的恋人应该具有的五项好品质？" class="headerlink" title="22.轮流分享你觉得你的恋人应该具有的五项好品质？"></a>22.轮流分享你觉得你的恋人应该具有的五项好品质？</h6><p>性格好能沟通谈判、能挣钱，有独自生活的能力、照顾家庭愿意为家庭临时承担不属于自己的责任、有自己的独立见解和兴趣爱好，并且她的兴趣爱好受人认可、给人生活惊喜</p>
-<p>善良、热爱生活、有独特的思想、乐观、善解人意。</p>
-<h6 id="23-你的家庭亲密温暖吗？你觉得你的童年有比别人幸福点吗？"><a href="#23-你的家庭亲密温暖吗？你觉得你的童年有比别人幸福点吗？" class="headerlink" title="23.你的家庭亲密温暖吗？你觉得你的童年有比别人幸福点吗？"></a>23.你的家庭亲密温暖吗？你觉得你的童年有比别人幸福点吗？</h6><p>亲密温暖主要看合理的需求得不得到满足。在妈妈身边确实有亲密温暖，但有时觉得太多照顾没有个人空间，其它地方有温暖，有时没有，伯伯的话，感觉他还故意忽视我的感受，主要是保证基本的生存没有亲密温暖。哥哥的话，一个有一个没有。</p>
-<p>否</p>
-<h2 id="第三组问题"><a href="#第三组问题" class="headerlink" title="第三组问题"></a><strong>第三组问题</strong></h2><h6 id="24-你觉得你跟你的母亲的关系怎么样呢？"><a href="#24-你觉得你跟你的母亲的关系怎么样呢？" class="headerlink" title="24.你觉得你跟你的母亲的关系怎么样呢？"></a>24.你觉得你跟你的母亲的关系怎么样呢？</h6><p>确实对我挺好的，喜欢养生，顺便买了很多水果零食杂粮，照顾得好，但是有时觉得过多照顾没有个人空间。我喜欢玩游戏，她不喜欢我整天盯着电脑。</p>
-<p>很好</p>
-<h6 id="25-用“我们“做主语造三个肯定句，比如“我们都在这个房间里”。"><a href="#25-用“我们“做主语造三个肯定句，比如“我们都在这个房间里”。" class="headerlink" title="25.用“我们“做主语造三个肯定句，比如“我们都在这个房间里”。"></a>25.用“我们“做主语造三个肯定句，比如“我们都在这个房间里”。</h6><p>我们认识了**年了，我们互相写过书信，我们一起吃过饭逛过街。</p>
-<p>我们是一家人，我们一定能赢，我们这个项目得了第一名。</p>
-<h6 id="26-完成以下句子“我希望我有一个人能与ta分享…”"><a href="#26-完成以下句子“我希望我有一个人能与ta分享…”" class="headerlink" title="26.完成以下句子“我希望我有一个人能与ta分享…”"></a>26.完成以下句子“我希望我有一个人能与ta分享…”</h6><p>互联网+人工智能+区块链带来的好处，让世界信息差更少，将人类从繁重的劳动中解放出来，人们能快速获取到自己需要的信息。我找到了想要的许许多多资料，但是需要自己辨别，可以找很多的论坛，找到各个组织，增强个人自己的能力。让我看到了世界的无线可能。可以节省很多很多的钱。</p>
-<p>我的内心最深处的东西</p>
-<h6 id="27-如果你会跟你对面的人变成亲密好友，分享一下你觉得对方必需得知道的事情。"><a href="#27-如果你会跟你对面的人变成亲密好友，分享一下你觉得对方必需得知道的事情。" class="headerlink" title="27.如果你会跟你对面的人变成亲密好友，分享一下你觉得对方必需得知道的事情。"></a>27.如果你会跟你对面的人变成亲密好友，分享一下你觉得对方必需得知道的事情。</h6><p>我不喜欢混沌的东西，有些事情可以含蓄，但是意思要表达清楚，确保我能准确理解你的话。还有就是不要没有意义的频繁打扰我，也不要一点都不和我联系，就是有一个界限，不能无端的热情，也不能完全地冷漠，就是正常交流，没有压力地交流，应对压力时要一起应对压力共同承担风险，不要单独承担。在相处时提出的不愉快行为要互相改正，不要说了很多遍还是不改正，觉得对方要求太小气无理、神经质，就不去遵守。比如我说出门带钥匙不要我老是帮忙开门。</p>
-<p>我的禁忌</p>
-<h6 id="28-告诉你对面的人你喜欢ta什么：老实回答，说一些你通常不会告诉刚认识的人的答案。"><a href="#28-告诉你对面的人你喜欢ta什么：老实回答，说一些你通常不会告诉刚认识的人的答案。" class="headerlink" title="28.告诉你对面的人你喜欢ta什么：老实回答，说一些你通常不会告诉刚认识的人的答案。"></a>28.告诉你对面的人你喜欢ta什么：老实回答，说一些你通常不会告诉刚认识的人的答案。</h6><p>有着一股与众不同的气质，就是感觉她比一般人更有能力，导致她也很自信，并且她也不炫耀能力来做作。还有就是谈吐、穿着都有一定考究，比一般人花心思更多，并且已经美丽地很自然，让人觉得很舒服。</p>
-<p>喜欢他和我兴趣相投</p>
-<h6 id="29-与你对面的人分享人生中很尴尬的一刻。"><a href="#29-与你对面的人分享人生中很尴尬的一刻。" class="headerlink" title="29.与你对面的人分享人生中很尴尬的一刻。"></a>29.与你对面的人分享人生中很尴尬的一刻。</h6><p>我对女生一本正经地说，我想吃你豆腐，其实我想说是吃豆腐脑，不是豆腐。</p>
-<p>高中被老师叫家长，在同学面前被爸爸训哭了</p>
-<h6 id="30-你上一次在别人面前哭是什么时候？上一次自己哭是什么时候？"><a href="#30-你上一次在别人面前哭是什么时候？上一次自己哭是什么时候？" class="headerlink" title="30.你上一次在别人面前哭是什么时候？上一次自己哭是什么时候？"></a>30.你上一次在别人面前哭是什么时候？上一次自己哭是什么时候？</h6><p>记不清了，一般就是气不过，争论不赢，对面刻意曲解我的意思的时候。记不清，一般只是难过想不通的想睡觉，想哭也哭不出来，就是觉得可能哭出来好，但是又感觉本来就没有那么悲伤没有动力哭。</p>
-<p>在别人面前哭是在妈妈车祸的时候，自己哭也是</p>
-<h6 id="31-告诉你对面的人你已经喜欢上ta的什么？"><a href="#31-告诉你对面的人你已经喜欢上ta的什么？" class="headerlink" title="31.告诉你对面的人你已经喜欢上ta的什么？"></a>31.告诉你对面的人你已经喜欢上ta的什么？</h6><p>带来的惊喜，好看，接受新东西能力强，懂得倾听不打断别人倾诉，并能针对倾诉的问题给出一定不敷衍的反馈，建议或解释等。</p>
-<p>喜欢你的单纯善良</p>
-<h6 id="32-有什么人事物是太严重，不能随便开玩笑的？"><a href="#32-有什么人事物是太严重，不能随便开玩笑的？" class="headerlink" title="32.有什么人事物是太严重，不能随便开玩笑的？"></a>32.有什么人事物是太严重，不能随便开玩笑的？</h6><p>针对一个小缺点不放地侮辱他人，在严肃问题场合上刻意曲解他人意思、或者说谎。</p>
-<p>我的家人</p>
-<h6 id="33-如果你将在今晚死去，没有任何再与他人交流的机会，你最后悔没有把什么事情跟别人说？"><a href="#33-如果你将在今晚死去，没有任何再与他人交流的机会，你最后悔没有把什么事情跟别人说？" class="headerlink" title="33.如果你将在今晚死去，没有任何再与他人交流的机会，你最后悔没有把什么事情跟别人说？"></a>33.如果你将在今晚死去，没有任何再与他人交流的机会，你最后悔没有把什么事情跟别人说？</h6><p>再次问清楚我自己在她心里的成分与比重</p>
-<p>表白</p>
-<h6 id="34-你的家着火了，里面有你所拥有的一切事物、在救出你爱的人，你的宠物后，你还有时间最后再冲回去一-趟拯救最后一样任何东西，你会救出什么？为什么？"><a href="#34-你的家着火了，里面有你所拥有的一切事物、在救出你爱的人，你的宠物后，你还有时间最后再冲回去一-趟拯救最后一样任何东西，你会救出什么？为什么？" class="headerlink" title="34.你的家着火了，里面有你所拥有的一切事物、在救出你爱的人，你的宠物后，你还有时间最后再冲回去一 趟拯救最后一样任何东西，你会救出什么？为什么？"></a>34.你的家着火了，里面有你所拥有的一切事物、在救出你爱的人，你的宠物后，你还有时间最后再冲回去一 趟拯救最后一样任何东西，你会救出什么？为什么？</h6><p>书信。因为钱可以再挣，图片也可以再打印，证件也可以再办，但是书信却不再写了，那种记录着当时的思想与情绪的笔迹纸张，烧掉就不复存在，虽然还有网上备份图片。图片却不能还原书信的原滋原味。</p>
-<p>代表回忆的物品</p>
-<h6 id="35-你家庭中的所有人里，谁的死会让你最难受？为什么？"><a href="#35-你家庭中的所有人里，谁的死会让你最难受？为什么？" class="headerlink" title="35.你家庭中的所有人里，谁的死会让你最难受？为什么？"></a>35.你家庭中的所有人里，谁的死会让你最难受？为什么？</h6><p>妈妈，是最照顾我感受的人。</p>
-<p>我妈，她对我很好</p>
-<h6 id="36-分享一个你私人的问题，并想你对面的人询问ta会怎么处理、之后再请ta回答，对于你选这个问题，ta有什么看法？-最后互相凝视4分钟。"><a href="#36-分享一个你私人的问题，并想你对面的人询问ta会怎么处理、之后再请ta回答，对于你选这个问题，ta有什么看法？-最后互相凝视4分钟。" class="headerlink" title="36.分享一个你私人的问题，并想你对面的人询问ta会怎么处理、之后再请ta回答，对于你选这个问题，ta有什么看法？ 最后互相凝视4分钟。"></a>36.分享一个你私人的问题，并想你对面的人询问ta会怎么处理、之后再请ta回答，对于你选这个问题，ta有什么看法？ 最后互相凝视4分钟。</h6><p>宿舍本来是一人一周打扫卫生，但是有的人打扫很随便，就是感觉没有认真，虽然确实有些干净了，但是却不够干净，也不刷厕所，不擦洗漱台，我的话就是完完整整的把宿舍卫生都搞干净了，长期几次我觉得亏了，真的心里特别不平衡不舒服。问我是要求他们跟上我的洁净要求，还是把自己的标准降低到他们的水平，毕竟他们那么随便，感觉都是认真的人在打扫卫生，不认真的人在做做样子，真的心里特别不平衡不舒服。还是自己承担这份内心的不平衡。</p>
-<p>喜欢一个人但觉得自己不够优秀要不要趁早表白</p>
-<p>37.最后互相凝视4分钟。</p>
-<h2 id="36个问题背后的心理学原理也很经典——自我暴露理论。"><a href="#36个问题背后的心理学原理也很经典——自我暴露理论。" class="headerlink" title="36个问题背后的心理学原理也很经典——自我暴露理论。"></a><strong>36个问题背后的心理学原理也很经典——自我暴露理论。</strong></h2><p><strong>自我暴露的意思是一个人自发地、有意识地向另一个人暴露自己真实且重要的信息。</strong></p>
-<p><strong>安全感越高，自我暴露越多，反之也成立：自我暴露越自然，我们对对方产生更多安全感。</strong></p>
-<p>我们对推销员不信任，所以特别害怕自我暴露，朋友让我们信任，我们聊天的时候也会容易到”酒不醉人人自醉“的状态。</p>
-<p>自我暴露一般分为三个层级：</p>
-<h6 id="1-信息互通"><a href="#1-信息互通" class="headerlink" title="1.信息互通"></a><strong>1.信息互通</strong></h6><p>最浅一层的暴露，比如暴露自己的信息或者意图</p>
-<p>”我是一个心理咨询师“</p>
-<p>”我毕业于<a href="https://www.zhihu.com/search?q=%E5%93%88%E5%B0%94%E6%BB%A8%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:947284093%7D">哈尔滨工业大学</a>“</p>
-<h6 id="2-表达观点"><a href="#2-表达观点" class="headerlink" title="2.表达观点"></a><strong>2.表达观点</strong></h6><p>第二个层面时双方分享对一件事的倾向和观点，当两个人可以聊这个的时候，亲密度就上升了一个层级。</p>
-<p>”我觉得庆余年很好看“</p>
-<p>《奇葩说》越来越像一个脱口秀节目了“</p>
-<h6 id="3-表达感受"><a href="#3-表达感受" class="headerlink" title="3.表达感受"></a><strong>3.表达感受</strong></h6><p>感受比观点更接近一个人的内心。</p>
-<p>”我现在很难过，觉得很无助“</p>
-<p>在感受中，分享家人和情感的部分，最为难得。</p>
-<p>“我曾经想过要出家，不想结婚”</p>
-<p>“我跟爸爸的关系不好，他是一个过于严苛的人”。</p>
-<p>仔细观察这36个问题，有大量的引导表达观点和表达感受的问题，从而引导两个人更高效的自我暴露，达成亲密关系。</p>
-<p>参考文章</p>
-<p>链接：<a href="https://www.jianshu.com/p/a0338e445307">https://www.jianshu.com/p/a0338e445307</a></p>
-<p><a href="https://www.zhihu.com/question/362137344">https://www.zhihu.com/question/362137344</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/87531341">https://zhuanlan.zhihu.com/p/87531341</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/111466852">https://zhuanlan.zhihu.com/p/111466852</a></p>
-]]></content>
-      <tags>
-        <tag>yasashii</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>人类的本质之心理学</title>
     <url>/2022/04/06/%E4%BA%BA%E7%B1%BB%E7%9A%84%E6%9C%AC%E8%B4%A8%E4%B9%8B%E5%BF%83%E7%90%86%E5%AD%A6/</url>
     <content><![CDATA[<h1 id="改变心理学的40个实验"><a href="#改变心理学的40个实验" class="headerlink" title="改变心理学的40个实验"></a>改变心理学的40个实验</h1><h2 id="一、左右脑的独有功能。基于裂脑人研究（癫痫病患者通过分开左右脑来杜绝左右脑信息紊乱引发的癫痫）"><a href="#一、左右脑的独有功能。基于裂脑人研究（癫痫病患者通过分开左右脑来杜绝左右脑信息紊乱引发的癫痫）" class="headerlink" title="一、左右脑的独有功能。基于裂脑人研究（癫痫病患者通过分开左右脑来杜绝左右脑信息紊乱引发的癫痫）"></a>一、左右脑的独有功能。基于裂脑人研究（癫痫病患者通过分开左右脑来杜绝左右脑信息紊乱引发的癫痫）</h2><p>1.患者的智力水平、个性特点、特有的情绪反应等相对来说并没有改变。他们显得非常愉快，感到一种摆脱病魔的自由。</p>
@@ -489,215 +246,6 @@
 <p>4.概念化测试。还有一种方法，让被试听一句描述，例如“火鸡是鸟”，然后尽快地按键，作出是或否的反应。使用这种研究方法得出的结果表明，样例与类别的原型越近，那么判断得越快。对“火鸡是鸟”的判断反应要明显地慢于“知更鸟是鸟”的判断。</p>
 <p>5.概念化测试。第三种方法是，让被试列出或画出某个类别的样例。在给定的时间内，被试通常将那些对于某个类别更具代表性的样例列出。例如，让你画出家具这个类别，在你画出碗架、书柜之前，你通常可能先会画出椅子、沙发或桌子；或者让你列出人类的情绪，你可能会首先列出高兴、生气，之后才会想到困惑、愤怒。</p>
 <p>6.概念的欺骗和准确。如果有人问你：“你想要一个水果吗？”你不会想到你脑中关于水果的原型，例如苹果、桔子或香蕉。如果当你回答了“是的”而给了你一个松果的时候（虽然松果是松树的果实），你可能会表现得很惊讶。然而，在特定的情境下，水果准确的语言定义也是有用的。例如，当你在大自然中漫步的时候，遇到了不常见的植物，并且结了奇怪的果实。即使这些果实与你脑海中水果原型一点都不相似，而你关于水果正式的语言学定义可能会让你说出：“这株植物结了水果。”</p>
-]]></content>
-      <tags>
-        <tag>yasashii</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>建立自己的阿里云图床</title>
-    <url>/2022/04/03/%E5%BB%BA%E7%AB%8B%E8%87%AA%E5%B7%B1%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E5%9B%BE%E5%BA%8A/</url>
-    <content><![CDATA[<h1 id="图床-阿里云"><a href="#图床-阿里云" class="headerlink" title="图床 阿里云"></a>图床 阿里云</h1><h2 id="1-效果展示"><a href="#1-效果展示" class="headerlink" title="1.效果展示"></a>1.效果展示</h2><p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403083438357.png"></p>
-<p>直接拖进typora就会自动上传图片并生成云链接。</p>
-<h2 id="2-安装过程"><a href="#2-安装过程" class="headerlink" title="2.安装过程"></a>2.安装过程</h2><p>1.下载<a href="https://mp.weixin.qq.com/s?src=11&timestamp=1648946397&ver=3715&signature=YgYGFM058c2O6bgYju1S2HL7pbT82uWAZfJEeKSukOkh8QQizZPPBFNS-Uep0pVYMsPLrBlGpv2yNgYQEHBz2oh2C9DIEuYfix3SssN9tqElU42PMOuOMcGBR6Wth*hZ&new=1">typora</a>并安装。版本在0.9.86以上。</p>
-<p>手动删除文字，防链接失效。</p>
-<p><a href="https://wwm.蓝奏云lanzouq.com/iehyb02ivfxa">https://wwm.蓝奏云lanzouq.com/iehyb02ivfxa</a><br>密码:9o0b</p>
-<p>链接：https:&#x2F;&#x2F;百度网盘pan.baidu.com百度网盘&#x2F;s&#x2F;1Hqhabc70lGI51O98G5x9sA<br>提取码：7758 </p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403084759984.png"></p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085032499.png"></p>
-<h2 id="3-阿里云存储设置"><a href="#3-阿里云存储设置" class="headerlink" title="3.阿里云存储设置"></a>3.阿里云存储设置</h2><p>1.复制下面链接，访问并注册账号，并绑定实名身份</p>
-<p><a href="https://www.aliyun.com/minisite/goods?source=5176.11533457&amp;userCode=vnk7s0ek&amp;type=copy">https://www.aliyun.com/minisite/goods?source=5176.11533457&amp;userCode=vnk7s0ek&amp;type=copy</a></p>
-<p>2.点击控制台</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085557825.png"></p>
-<ol start="3">
-<li><p>选择对象存贮Oss，并开通服务。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085758392.png"></p>
-</li>
-</ol>
-<p>4.点击概览，然后点击创建bucket.</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085844013.png"></p>
-<p>5.输入创建的信息。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/v2-4664c8ef7dc6bf1b1df8259e4a57bd23_720w.jpg"></p>
-<ol start="6">
-<li>最好先买个资源包。<strong>就4.98元</strong>。先买最低的半年，后面可以随时续费。</li>
-</ol>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403090249827.png"></p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403090316204.png"></p>
-<h2 id="4-配置预设文件"><a href="#4-配置预设文件" class="headerlink" title="4.配置预设文件"></a>4.配置预设文件</h2><p>1.新建txt文件，作为临时存储，放入以下代码。<strong>下面信息都是要通过阿里云账号获取的</strong>，首先我们来找<strong>accessKeyId</strong>和<strong>accessKeySecret</strong></p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;picBed&quot;: &#123;</span><br><span class="line">    &quot;uploader&quot;: &quot;aliyun&quot;,</span><br><span class="line">    &quot;aliyun&quot;: &#123;</span><br><span class="line">    &quot;accessKeyId&quot;: &quot;&quot;,</span><br><span class="line">    &quot;accessKeySecret&quot;: &quot;&quot;,</span><br><span class="line">    &quot;bucket&quot;: &quot;&quot;, // 存储空间名</span><br><span class="line">    &quot;area&quot;: &quot;&quot;, // 存储区域代号</span><br><span class="line">    &quot;path&quot;: &quot;img/&quot;, // 自定义存储路径</span><br><span class="line">     &quot;customUrl&quot;: &quot;&quot;, // 自定义域名，注意要加 http://或者 https://</span><br><span class="line">     &quot;options&quot;: &quot;&quot; // 针对图片的一些后缀处理参数 PicGo 2.2.0+ PicGo-Core 1.4.0+</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;picgoPlugins&quot;: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li><p>鼠标悬浮在右上角头像上，并选择AccssKey管理。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091012908.png"></p>
-<p>3.选择继续使用AccessKey，并点击创建accessKey，将新建的txt文本对应内容替换。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091138227.png"></p>
-</li>
-</ol>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091221238.png"></p>
-<p>把创建好的AccessKey保存下来，记住一定不要发给陌生人。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403093927352.png"></p>
-<ol start="4">
-<li><p>回到之前的oss对象存贮，点击之前创建的bucket，在点击bucket里的概览。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091348886.png"></p>
-</li>
-<li><p>根据下面的两张图，使用自己的创建的bucket信息填充之前新建的txt。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091451767.png"></p>
-</li>
-</ol>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091520777.png"></p>
-<p>6.回到typora，依次 文件 —-&gt; 偏好设置 —–&gt; 图像，到下面的页面，选择打开配置文件。<strong>将之前的txt文本的里面的信息，复制粘贴到配置里，并ctrl+s进行保存。</strong></p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091717697.png"></p>
-<h2 id="5-检验成果"><a href="#5-检验成果" class="headerlink" title="5.检验成果"></a>5.检验成果</h2><p>1.我们来验证下图片上传功能，全部勾选信息，并点击验证图片上传选项。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403092430251.png"></p>
-<p>2.如果，你看到下面这样的页面，那么恭喜你，你成功了。<strong>congratulation！！！</strong></p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403092530351.png"></p>
-<h2 id="6-其它技巧"><a href="#6-其它技巧" class="headerlink" title="6.其它技巧"></a>6.其它技巧</h2><ol>
-<li><p>批量上传图片</p>
-<p>在自己创建的Bucket点击【文件管理】【上传文件】，把自己的图片上传上去就可以了。</p>
-</li>
-</ol>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403093442547.png"></p>
-<p>点击图片文件名或右侧的详情即可弹出具有图片链接地址的页面</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403093530020.png"></p>
-<p><strong>参考信息</strong></p>
-<p>1.<a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648946397&amp;ver=3715&amp;signature=YgYGFM058c2O6bgYju1S2HL7pbT82uWAZfJEeKSukOkh8QQizZPPBFNS-Uep0pVYMsPLrBlGpv2yNgYQEHBz2oh2C9DIEuYfix3SssN9tqElU42PMOuOMcGBR6Wth*hZ&amp;new=1">https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648946397&amp;ver=3715&amp;signature=YgYGFM058c2O6bgYju1S2HL7pbT82uWAZfJEeKSukOkh8QQizZPPBFNS-Uep0pVYMsPLrBlGpv2yNgYQEHBz2oh2C9DIEuYfix3SssN9tqElU42PMOuOMcGBR6Wth*hZ&amp;new=1</a></p>
-<p>2.<a href="https://www.cnblogs.com/qian-chang/p/13669613.html">https://www.cnblogs.com/qian-chang/p/13669613.html</a></p>
-<p>3.<a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648939537&amp;ver=3715&amp;signature=cKOYsdY67Gfd-vYQlwWbABb8WzX7hBYAvEl5FaY55ETFRZdUXljB5Jqq8bEZ-DKS10vySd5LHwPA4kAJ-muUCVXlNF9aKQRyurL0OZ3xn8KgD04t27IWh01pptVp6b*m&amp;new=1">https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648939537&amp;ver=3715&amp;signature=cKOYsdY67Gfd-vYQlwWbABb8WzX7hBYAvEl5FaY55ETFRZdUXljB5Jqq8bEZ-DKS10vySd5LHwPA4kAJ-muUCVXlNF9aKQRyurL0OZ3xn8KgD04t27IWh01pptVp6b*m&amp;new=1</a></p>
-]]></content>
-      <tags>
-        <tag>yasashii</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>打工人自己的网站</title>
-    <url>/2022/04/07/%E6%89%93%E5%B7%A5%E4%BA%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BD%91%E7%AB%99/</url>
-    <content><![CDATA[<p>打工人自己的网站</p>
-<h2 id="一、招聘网站"><a href="#一、招聘网站" class="headerlink" title="一、招聘网站"></a>一、招聘网站</h2><p>1.<a href="http://www.sasac.gov.cn/n2588035/n2588325/index.html"><strong>国务院国资委</strong></a>。进入网址，点击左侧菜单栏有个“人事”；招聘栏目里面很多国资委下属管辖单位的招聘信息，可以进去查看符合自己的岗位。国企央企的招聘岗位有限，并且提价材料有非常严格的时间限制，要频繁查看信息，从发布招聘信息到提交材料时间非常短，错过也就没有机会了。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220406211625036.png"></p>
-<p>2.<strong><a href="http://www.sasac.gov.cn/n4422011/n17627531/c17633273/content.html">地方国资委</a>。</strong></p>
-<p><strong>3、国资小新公众号</strong></p>
-<p><strong>国资小新</strong>公众号是国务院国资委运营的，绝对权威的国企招聘信息发布渠道，除了招聘信息还有很多国企央企的资讯分享。我今天看了一遍，比国资委网站的招聘信息汇总要全面一点，更新也比较及时。</p>
-<p><strong>4、央企国企招聘网</strong></p>
-<p><strong>央企国企招聘网</strong>是一家叫高霖海拓教育科技的公司运营的<strong>公众号</strong>，不属于国企官方发布渠道，他们会将部分国企、央企、军队、医院等事业单位招聘信息汇总发布，也是可以参考的渠道之一，当然信息不会特别全。多渠道结合来看比较好，多个渠道多个机会嘛。</p>
-<p><strong>5、高校人才招聘</strong></p>
-<p><strong>高校人才招聘</strong>也是第三方公司运营的<strong>公众号</strong>，里面主要是高校招聘老师、辅导员、西欧那个证人员事业编的信息，对高校事业编感兴趣的朋友可以看看，个人感觉里面信息还算全面。</p>
-<p>6.<a href="http://www.mohrss.gov.cn/SYrlzyhshbzb/fwyd/SYkaoshizhaopin/zyhgjjgsydwgkzp/">国家事业单位</a></p>
-<p>7.<a href="http://job.mohrss.gov.cn/">中共招聘网</a>。可以查到岗位需求，自己可以按地区、岗位内容、薪资快速检索，相当方便。</p>
-<p>8.各省人力资源和社会保障厅，一般发布各省事业单位招聘、公务员招考、公开选调等招聘信息。比如湖南省人力资源和社会保障厅 <a href="https://link.zhihu.com/?target=http://rst.hunan.gov.cn/">http://rst.hunan.gov.cn/</a></p>
-<p>9.公司招聘官网、公众号，如：中国建设银行招聘官网：<a href="https://link.zhihu.com/?target=http://job.ccb.com/ccbjob/cn/job/index.jsp">http://job.ccb.com/ccbjob/cn/j</a></p>
-<p>10.第三方求职网站</p>
-<p>应届生求职<a href="https://link.zhihu.com/?target=http://www.yingjiesheng.com/">http://www.yingjiesheng.com/</a></p>
-<p>智联招聘<a href="https://link.zhihu.com/?target=https://www.zhaopin.com/">https://www.zhaopin.com/</a></p>
-<p>前程无忧<a href="https://link.zhihu.com/?target=https://www.51job.com/">https://www.51job.com/</a></p>
-<p>中华英才网<a href="https://link.zhihu.com/?target=https://www.chinahr.com/home/cs/">https://www.chinahr.com/home/cs/</a></p>
-<p>各省人才网，如湖南人才网<a href="https://link.zhihu.com/?target=http://www.hnrcsc.com/">http://www.hnrcsc.com/</a></p>
-<p>实习僧、猎聘、领英、BOSS直聘、脉脉……</p>
-<p>11.中智招聘 - <a href="http://www.yinhangzhaopin.com/"><strong>国企</strong></a></p>
-<p>12.<a href="http://www.yinhangzhaopin.com/">银行招聘网</a></p>
-<p>13.<a href="http://www.cphr.com.cn/4880.html">国家电网人才招聘</a></p>
-<h2 id="二、打工人的权利。"><a href="#二、打工人的权利。" class="headerlink" title="二、打工人的权利。"></a>二、打工人的权利。</h2><p><a href="http://www.npc.gov.cn/npc/c30834/201901/ffad2d4ae4da4585a041abf66e74753c.shtml">《中华人民共和国劳动法》</a>。</p>
-<p>法律援助：<a href="https://hilawyers.club/questions/">法律案例分析知识库</a>。<a href="https://www.bilibili.com/video/BV1234y197hT?share_source=copy_web">网站用法B站教程。</a></p>
-<p><a href="http://www.gov.cn/zhengce/2020-12/27/content_5574550.htm">《劳动保障监察条例》</a>。</p>
-<p>1、投诉人身份证；</p>
-<p>2、劳动合同；</p>
-<p>3、用人单位向劳动者发放的“工作证”、“服务证”等能够证明身份的证件</p>
-<p>4、工资支付凭证或记录(职工工资发放花名册)、缴纳各项社会保险费的记录；</p>
-<p>5、劳动者填写的用人单位招工招聘“登记表”、“报名表”等招用记录；</p>
-<p>6、考勤记录；</p>
-<p>7、<a href="https://zhuanlan.zhihu.com/p/376896791">其他证明劳动关系的材料。</a></p>
-<p>劳动仲裁</p>
-<p>1.营业执照。天眼查。企业查。公司地址，法人名字。</p>
-<p>2.仲裁申请书。自己写或者网上下载再填。或者去仲裁所附近找人代写。写好后，去问仲裁所的法律咨询能不能用，需要改哪里，怎么改，</p>
-<p>3.证据清单。</p>
-<p>4.身份证复印件。</p>
-<p>流程</p>
-<p>1.支付宝或微信：欠薪线索反馈。</p>
-<p>2.劳动仲裁。按上面收集材料，然后咨询律师能不能用，</p>
-<p>3.起诉。聘用律师，将仲裁的材料一式两份提交到法院。然后一审二审。</p>
-<p>4.按律师建议做些要做的事。</p>
-<h2 id="三、一些故事"><a href="#三、一些故事" class="headerlink" title="三、一些故事"></a>三、一些故事</h2><p><a href="https://www.bilibili.com/video/BV1nZ4y1H7NV?p=1">故事案例1</a></p>
-<p><a href="https://www.bilibili.com/video/BV1o34y147Uo?share_source=copy_web">故事案例2</a></p>
-<h2 id="四、快乐工作"><a href="#四、快乐工作" class="headerlink" title="四、快乐工作"></a>四、快乐工作</h2><p>工作很少使人能够感到快乐，所以我们要制造快乐，反正干也得干，不干也得干，何不让它充满乐趣地干呢，不喜欢但必须干的事儿，我必然要想出办法把它变得不那么讨厌。</p>
-<p>1.从枯燥的工作中挖掘出新意，比如在日复一日重复的工作中，找出更便捷、更高效的方法，提高工作效率，节约时间，经常有新意，你会不觉枯燥也有了成就感。</p>
-<p>2.工作中干点儿私事儿，占便宜的感觉棒棒哒。手底下忙活着，但不影响我每天做提肛，叩齿，转眼球（中医的养生措施）…，手空下了就练习钢琴高抬指……，总之这些回家该干的事上班都干完了，岂不美哉？</p>
-<p>3.利用工作中学习提高，只要从我手上过的东西，即便与我业务无关，我也会扫一眼，了解更多知识，涨了见识，其实这也是在一点一滴地学习，日积月累的效果很可观。</p>
-<p>4.工作中学习做人做事的道理。窗口工作经常跟人打交道，为什么有些人说话你就想去帮他，有些人就想怼他，我经常通过他们的言行举止总结和思索，同时提高自己的说话技巧和沟通能力，同时在无数次的解答政策中。摸索如何能更加简明扼要，通俗易懂地与人表达和沟通。</p>
-<p>5 没有过多的精力去做义工、做慈善，所以把自己每一天的工作当做举手之劳，为他人带去温暖，尽我能尽我力，为社会贡献一份美好，活出自己的价值。</p>
-<p>6 老话说：庄稼一枝花，全靠粪当家。你懂的，工作是立身之本，它要供养我的吃喝玩乐，它是有功之臣；再想想，地球上还有多少人在忍受失业的痛苦和压力，我相比还是不错的。感恩之心要时习之。</p>
-<p>每天的工作，除了付出劳动，自己还有收益和提高，就会觉得快乐和满足。</p>
-<p>原文链接：<a href="https://www.zhihu.com/question/346676791/answer/875166310">https://www.zhihu.com/question/346676791/answer/875166310</a></p>
-<h2 id="五、老师如何看出学生聪明程度"><a href="#五、老师如何看出学生聪明程度" class="headerlink" title="五、老师如何看出学生聪明程度"></a>五、老师如何看出学生聪明程度</h2><p>工具&#x2F;原料：细心观察</p>
-<p>1.看出学生聪明，可以通过上课时观察学生的微表情，往往这类学生知识接受程度会比较快。</p>
-<p>2.看出学生聪明，最简单的方法是看学生的学习成绩。</p>
-<p>3.看出学生聪明，还可以通过提问，尤其是一些有深度的话题，往往聪明学生的见解会高出一个层次。</p>
-<p>4.看出学生聪明，可以通过私下交谈，会发现聪明的学生逻辑非常清晰，语言表达非常流畅，见解会很独到。</p>
-<p>5.看出学生聪明，还可以通过一些竞赛，往往有时候聪明的学生在某些竞赛方面表现会比较突出。</p>
-<p>6.总结：细心观察学生，不断总结规律，会较容易看出学生是否聪明。</p>
-<p>原文链接：<a href="https://jingyan.baidu.com/article/4b07be3c0dc80209b380f39f.html">https://jingyan.baidu.com/article/4b07be3c0dc80209b380f39f.html</a></p>
-<h2 id="六、怎么看出一个人很聪明"><a href="#六、怎么看出一个人很聪明" class="headerlink" title="六、怎么看出一个人很聪明"></a>六、怎么看出一个人很聪明</h2><p>有的人喜欢自作聪明，那不是真正的聪明，也不会让人觉得厉害。阅人无数之后，我发现有一个人很聪明，他的确是与众不同，带给我截然不同的美好体验和难忘的经历。我是怎么看出一个人很聪明的呢？</p>
-<p>1.经历的实践多，能发现对方价值，赞美对方优点。<strong>【懂得欣赏别人】</strong>遇见过很多人，为什么我偏偏就喜欢他？因为在交往的过程中，<strong>我发现他待人一向彬彬有礼，懂得如何欣赏别人，让别人充满信心，看到自己的优秀之处</strong>，觉得自己是聪明可爱的。</p>
-<p>如果一个人处处挑剔苛责你，让你感到自卑，你还有可能爱对方吗？</p>
-<p>2.没有居高临下的做法和态度。<strong>【帮人恰到好处】</strong></p>
-<p>当一个人在困境中，会有很多貌似关心你的人出现。有的人送钱，有的人送吃的，有的人打探隐私还四处传播，有的人热心为你介绍对象……</p>
-<p><strong>而那个最聪明的人，他从来不做那些“居高临下”帮助别人的事，</strong>因为这样对于别人的自尊是一种打击。<strong>庶人赠人以财，而君子赠人以言，他的一句话就可以温暖别人的心灵，让冰雪消融。</strong></p>
-<p>3.<strong>【爱你不动声色】</strong></p>
-<p>曾经有很多人约我出去玩，请吃饭，他们热情地表白，说着满嘴动听的甜言蜜语，送来很多令人眼花缭乱的礼物……但若干年后，那些曾经的海誓山盟都消失了，很多面孔早已模糊不清。</p>
-<p><strong>我唯一记得的，只是那个不动声色、默默为我奋斗的人，他让我懂得了什么是“君子之交淡如水”。原来最厉害的并不是呼天抢地、死去活来，而是爱到深处无言，这个聪明的人就是“深水无声”！</strong></p>
-<p>4.本身就很优雅，做事行云流水。<strong>【冰雪无语】</strong></p>
-<p>有的人在身边说爱你，他们每天都在说些什么呢？他们会说漂亮的情话，会忽悠别人，会抱怨自己可怜的境遇，会倾诉自己的烦恼，会说别人的坏话，会向你乱发泄……这些都不会让你幸福快乐。</p>
-<p>可当一个人在你身边出现时，<strong>即使他一直不说话，什么都不说，一个眼神一个笑容，也能让你感受到一种美好。若开口说话，他会让你感到如沐春风，你就会发现这个人真是冰雪聪慧。</strong></p>
-<p>5.能坚守自己的底线原则<strong>【他很有主见】</strong></p>
-<p>遇见过无数的人，他们会千篇一律地只夸我长得好看，然而更多的是挑剔和辱骂。可遇见他的时候，他从来不像别人那样用歧视和鄙夷的眼光看待我，从不跟别人一样，在你身上乱贴标签。</p>
-<p>他很喜欢看我写的字，喜欢跟我交流思想，总是默默地鼓舞着我的心灵……<strong>他是个很有主见的人，内心洋溢着大爱，懂得如何尊重和爱护女性，这让我觉得他是最聪明的。</strong></p>
-<p>原文链接：<a href="https://jingyan.baidu.com/article/9113f81b223d806a3314c76b.html">https://jingyan.baidu.com/article/9113f81b223d806a3314c76b.html</a></p>
-<h2 id="七、内驱力"><a href="#七、内驱力" class="headerlink" title="七、内驱力"></a>七、内驱力</h2><p><a href="https://www.bilibili.com/video/BV1uS4y1S7Fi?share_source=copy_web">自律视频</a></p>
-<h3 id="1-假大空的自律视频误导。"><a href="#1-假大空的自律视频误导。" class="headerlink" title="1.假大空的自律视频误导。"></a>1.假大空的自律视频误导。</h3><p> 特点：逻辑谬误的骗局</p>
-<p>1.1名人背书。有可能名人说的就是错的，很多东西都在不断变化，需要根据实际情况不断修订理论</p>
-<p>1.2科学理论。以偏概全，比如戒断多巴胺、追逐内啡肽，</p>
-<p>1.3自律是个伪命题，自律的本质是高级的欲望战胜了低级的欲望。我想取刘亦菲，高级的欲望，我就想健身了，就娶得到吗？想成为美国总统奥巴马？有高级的欲望战胜低级欲望就能实现吗</p>
-<p>1.4真正有用的是通过做对你有价值的事，一天天折磨自己，通过达到一个个小成就，才可能达到自己的最终欲望，甚至说达不到。这个过程不取决于你难不难受，自不自律。</p>
-<p>1.5伪鸡汤扮演更大的屠龙少年，讲了没有用，小朋友始终做不到自律。</p>
-<h3 id="2-自律失败的根源"><a href="#2-自律失败的根源" class="headerlink" title="2.自律失败的根源"></a>2.自律失败的根源</h3><p>2.1人本身就是懒惰，逃避困难，好逸恶劳，人老是热衷于自己的舒适，去贪玩好吃懒做，你稍微一不留神，你这玩意儿就要把你拖下水就是人每个人都是这样的</p>
-<p>2.2人类社会需要大量的人来做基础的苦差事，如果每个人都是成功者，这个社会就很难进步了，人们主要是为了满足生存不得不朝九晚五，如果他有好多钱，他也天天躺在家里打游戏对不对。</p>
-<p>2.3迎接人性弱点的心灵鸡汤再短视频平台向浪潮一样，一波波向你袭来，而低认知人群没有脑子照单全收。后果就是，真正想自律的人工作就变得更困难了，他真的认为自律就是就是戒断多巴胺、追逐内啡肽，是高级的欲望战胜了低级的欲望。不是那么简单，涉及的要素非常多。</p>
-<p>2.4有两种人，做事的和作秀的，做事的人容易骂骂咧咧，因为他在那个事里面遇到的困难真的太多了，不是非黑即白的理论就可以搞得定的。当班主任的人之前想着没有教不好的学生，当班主任之后一个人老了十岁。</p>
-<h3 id="3-常见鸡汤和真实体验的反差"><a href="#3-常见鸡汤和真实体验的反差" class="headerlink" title="3.常见鸡汤和真实体验的反差"></a>3.常见鸡汤和真实体验的反差</h3><p>3.1自律是一个伪命题，自律让你痛苦，你无法持续痛苦最后你会变得不自律， 真正的自律是追求<br>快乐、幸福，是向往更大的利益驱动自己。</p>
-<p>你的体验:你会发现你即使相信了这一套，你还是不自律，因为它的核心逻辑是错的，写心灵鸡汤的书的人自己可能并没有真正去长期海量的自律过。我培训的人里面有500、600个小朋友就是这样，听完还是不自律，因为核心逻辑就是错的，写书人没有经过把不自律的人培养成自律的人的过程，我培养过，所以我敢说。 </p>
-<p>不知道你们见过成功学没有，成功学先否定你过去一切的努力是无效低效的，然后说它这里有神仙大法、致富秘诀、唯一正确，结果你被天堂地狱洗脑法洗脑了，最后你会发现你看了它、学了它也没什么用，你还是不成功。否定对方的过去，再许诺重利是常见的哗众取宠和欺诈手段。</p>
-<p>任何人成功不成功有很多要素引起的，你没有办法做到自律也一样，自律和具体的某个人有关，自律是不是伪命题，相信后仍旧做不到自律，不针对最重要的事情，在哪里打擦边球，偷换概念，文字游戏，没有直接说，你这个具体的人就是个不能自律的人，他不能这样讲，否则不能把你哄得高兴，然后只能去骗。否定对方的过去，再许诺重利是常见的哗众取宠和欺诈手段。张仪打秦淮王，等你撤兵之后，再说你听错了，撤兵60里。这就是效果。往往是一个单一要素否定所有不好的。</p>
-<p>有些人说:宁老师你为什么明明懂骗人还要说实话，知世故不世故是善良的成熟。</p>
-<p>3.2自律是因为多巴胺，内啡肽，把自律简单解释为多巴胺，内啡肽是一种非常错误的理论。跟感冒是鼻病毒引起一样，没有直接点明直接原因是着凉，听完以后自己还是跟以前一样，该生病还是生病。</p>
-<p>3.3自律,通过意志行为去攻克痛苦的事情，痛苦和快乐不是恒定的，而是波动的。比如学自行车摔了很多跤，很痛苦练了两个小时，明天骑着自行车悠哉游哉街上走，你就不一定是痛苦的，还有就是你做数学题做的焦头烂额很难受对吧，但是十几天后，你同样的题行你做得很熟，接下来你去做的时候，同学说你好厉害，一下子做完那么多道题对吧，那你可能有一种成就感对吧。 痛苦和快乐不是恒定的，而是波动的。并不是你有了内啡肽、多巴胺这辈子就不痛苦了，</p>
-<p>3.4完成即完美。很多人一开始就追求完美，没有什么事情一开始就是做到完美的，但是我知道有很多这样的人，因为我培训过。很多人无法自律的原因是期望太高，总是希望做到完美，老是担心做不到完美，然后就不做了，其实事件是在不断调整的过程中做到完美的，如果一开始就老是盯着完美，你的行为动机就一直被伤害，要做的是先放下这种思维方式。</p>
-<p><strong>要先做完了，再调整再调整。</strong>比如我做视频，总担心很干很硬核，怎么怎么样，我怕没有人看我，我怕没有办法吸引到粉丝关注，如果我总是这种视角的话，我就没有办法录这个视频了，我的想法很简单，不好就不好，或者没人看就没人看，但是我一定是做到问心无愧了，我做的东西是实在的，至于别人怎么说或者别人看不看，我认为好就是最重要的，有了这种心态的话，你就不会纠结这种事情，没有什么事情一开始就是做到完美的，但是我知道有很多这样的人，因为我培训过。</p>
-<p>3.5自律就意味着痛苦会永远发生，你别太轻易被忽悠，不管你认为它是不是伪命题，这是人的大脑的学习机制决定的，<strong>人的大脑不擅长思考</strong>，思维就意味着难受和痛苦必然会存在，<strong>人学习和锻炼的过程是因为你需要他们，而不是你单纯的喜欢它。</strong><a href="https://www.bilibili.com/video/BV1rE411q74G?spm_id_from=333.337.search-card.all.click">小学没读完的普通农民就自制毒品。</a> <a href="https://www.bilibili.com/video/BV1tv411K79D?share_source=copy_web">绝命毒师</a></p>
-<h3 id="4-自律的本质还是一场交易-，不想付出代价就获得的人就是痴人说梦"><a href="#4-自律的本质还是一场交易-，不想付出代价就获得的人就是痴人说梦" class="headerlink" title="4.自律的本质还是一场交易 ，不想付出代价就获得的人就是痴人说梦"></a>4.自律的本质还是一场交易 ，不想付出代价就获得的人就是痴人说梦</h3><p>我们需要的很多事情，人必须做完自己必须做的，才能做自己喜欢做的。这不是恒定的，有可能你今天必须做，明天就有点喜欢，这就是真实情况。并不是你听了几句心灵鸡汤，你就能把你必须做的变成喜欢做的。</p>
-<p>杜兰特和乔丹曾经打篮球最好的人，你说他打篮球就是为了快乐，喜欢一个东西和成为职业永远是两个事情，杜兰特和乔丹都曾想过放弃篮球，杜兰特他妈一巴掌把杜兰特打回了篮球场，直接甩一巴掌过去，该怎么做怎么做，你都选择走到这里了，你还想放弃，（想起了我曾经的考研，真的看到书就头疼，啥也看不下去），职业和爱好是两回事，职业真的太苦了，太累了。</p>
-<p>也有可能是学习材料不对，材料不具有自然类别性。看改变心理学的40个实验之类别天然形成。</p>
-<p>如何做到真正的自律?</p>
-<p>我的家庭非常痛苦，我做到过自律，有一个前提，一个是我的家庭非常的痛苦，我说我自律不是因为快乐，而是因为痛苦，我不想回到地狱里面了，地狱里面太痛苦了，就每天活在一种胆战心惊的家庭环境中，就像一个流浪狗被虐待一样，我不想回去，所以我拼了老命出来，有很多人说是为了快乐，我真的是<strong>逃避痛苦</strong>，就是逃避痛苦，我不想回去了，有很多像我这样的人，做出一番事业就是这样的。原生家庭到什么程度，就是说每天都有人侮辱你，吼(hou3)你,踩死你，没用的东西滚出去，就是每天都是心惊胆战，就是随时都会有人拿刀子扎你心窝子那种。除了吼，还有暴力。所以只有挣到你的钱，买了你的房子搬出去，你才能脱离这样的控制、粗暴。</p>
-<p>真正的自律一定是有一种发自内心的，他有一种巨大的驱动力，去拥有什么。我的人生非常的不精彩。我曾经是那种能躺着不坐着，能打一局游戏不看书那种。当时我生了一场病，我对面那床是一个白血病，我看着他一天天死去的肚子上扎了个窟窿，我想我身体还好吧，天天怨天尤人干什么你，那个人的死对我来说启发太大了，如果我所这辈子我怨天尤人，那么我活着不过是行尸走肉罢了。从那天起，开始自律，长达五年坚持同一件事，也可以连续近2个月每天做的就是重复枯燥的事情。每天写5个句子，背5个句子，我想成为一个作者，后来我也曾为一个畅销书作者，我的书买了70、80万本。那么写书，拿20、30万稿费的人是很少的。大多数人就是拿一两万。我能做到畅销书作者都是十几倍的，因为5万就是畅销书。那么我是怎么做到的，我是非常清楚，不是我想成为畅销书作者，我搬出了更高级的欲望，我就能做到，实际上搬出来也做不到的。一定是由一个长期漫长煎熬的过程，跟邓亚萍一模一样的过程，而且最近两个月，每天是三百个俯卧撑，500个跳绳，一天没有断，我一天没有断。我是怎么做到的，我可以自律，也可以不自律，只要我决定了，只要我决定了，我就能做到，这个是有方法的，<br>奥运冠军邓亚萍和我的思考基本是吻合的而不是心灵鸡汤的书。邓亚萍每天醒来就是觉得，我也不想训练好难好累好想回避，但是我到了那个乒乓球台，我就是500个正手，用他们的话讲，就是xy和场景法。x训练项目和y这个场景捆绑了，就是早上起来看到乒乓球台，永远是不管我喜不喜欢高不高兴，就是逼自己习惯成自然。那个不舒服的永远存在，根本不可能消失，不要相信鸡汤。</p>
-<p><a href="https://www.aliyundrive.com/s/h3c4w2dZgeU">邓亚萍亲口讲述自己的学习方法</a></p>
-<p>退役的时候不认识26个字母，就是坐到办公桌前，就必须背20个单词，不备20单词，除非我死了，她是硬逼着自己，慢慢变成一种习惯。因为真正聪明的人，要获得越好的东西，就要付出越大的代价，不是以你喜不喜欢高不高兴的，用这套心法基本干什么都成。先进入清华大学外语系得到英语学士文凭，并于一年后获得学位。然后考入剑桥大学得到博士学位。</p>
-<p>除非自己不休息的话效率太差，否则就要背完。休息的时候只是暂时转移注意力，不是完全懈怠，就是只休息半小时这样，不能休息太久。或者先做其它事。</p>
-<p>我觉得王石才说出了自律的真正重点，需要自律的人往往能力是有欠缺的，而自律是一种<strong>自我补偿</strong>。<br><strong>一些能力特别强的学霸学神平时不自律一些影响也不大</strong>，我曾经连续5年写作只中断了四天，但是我没有非黑即白像网上的心灵鸡汤去看待自律，比如自律是你自我负面评价，然后你需要抵抗诱惑最后还是被自己的欲望翻盘，永远自律不了，你要接纳自己，然后一大堆的鸡汤加成功学扑面而来。<br>这件事的本质不是你接纳不接纳你自己，接纳你自己对于自不自律影响不大，不是接纳就变好，不接纳就变坏，事实是什么就是什么，这是客观。</p>
-<p><strong>自律是一种交换，你需要获得什么能力、什么东西，你需要付出正确的相应的代价</strong>，同时努力的过程中获得正反馈，<br>喜欢和讨厌并不是一成不变的，当你努力得足够多，即使你讨厌的也有可能成为你的强项。你仰仗的也会有快乐的。</p>
-<p>负面评价自己确实对自己有副作用的，但是承认现实是人进步的前提，不是说明明已经很不好了，也玻璃心讳疾忌医也很恐怖。<br>那些能力拉胯的人需要自律来进行能力补偿以此达到交换到自己想要的目标目的.<br>能让我们变得更优秀的事情是你需要的，需要的事情往往是痛苦的，教育很多时候是反人性的，是爬坡逆流而上，如果你没有像我一样培训过3000多个人，你不要轻易的去表达什么学习上瘾什么的，即使是有，大多数人都是忍受痛苦去做的。你都急死了，想要自律的人还是懒懒散散，不是看一个视频就做到自律，自律是一个海量的过程，不是一个结果，不是一句话的认知。<br>自律是更大的欲望战胜了小的欲望吗?我希望成为美国总统我就能成为吗?我有更大的欲望啊?<br>这种讲法是最傻的，因为它就像成功学，看上去美丽可爱，实际上实现不了。<br>真正的自律是需要漫长科学的刻意练习成为一种习惯的，还来自于价值观和信念和意识形态等等<br>要素，并不是简单的内啡肽和多巴胺。一个混混在父亲死后债台高筑，一夜时间变得极其自律，从倒数到第一名考上名校。他一夜之间认识到他没有靠山了，什么都得靠他自己了，我不但没有靠山，还要承担很多责任，所以说它的信念，意识形态都发生了很大的变化，你说有什么方法，人家家里破产了，债台高筑，一夜之间就自律了。那用看什么视频，所以说人是复杂的，不是单一要素。</p>
-<h2 id="5-科学的自律思维和方法"><a href="#5-科学的自律思维和方法" class="headerlink" title="5.科学的自律思维和方法"></a>5.科学的自律思维和方法</h2><p>想成为一个自律的人，必须先想办法骨子里变成一个“冷血无情”的人，就是不要用你的情绪、感受主导了你的行为，这样你就很难变得自律。</p>
-<p>我今天喜欢我就做，我不喜欢我就不做，你的行为动机和习惯都很弱小，你总是靠感情用事，是做不大自律的。要自律，而是用残酷无情的行为习惯去推进自己做某件事、某个目的，熟能生巧，你做到这件事越来越轻松，用习惯去推进你能力的形成，你就不那么痛苦了,但是只要你想变得优秀，痛苦就是永恒存在的。只能说痛并着快乐。</p>
-<p>当你的能力补偿到一定程度，能力强大到一定程度，你就会自然因为能力而获得好处和奖励。这时候自律的难度系数就会变低。就是抛物线一样的。每天做200个俯卧撑，17天的时候感觉手都要断掉了。</p>
-<p>科学的自律方法:<br>5.1设定的目标除非有不可抗力，否则必须完成，至死方休，冷血无情。曾经我做写作这件事情，周围的人看到我就是说，”你这个人吧，就是缺爱，需要别人关注你。所以你行为特殊“。后来我连续一年雷打不动做那件事，他就是说，“你这个人就像蜜獾死咬这个东西不松口，你这个人身上有个狠劲对吧”。除非地球塌了，地球灭亡了，否则冷酷无情达成他。</p>
-<p>养成不达目的不罢手、设定目的一定完成的人格类型之后，就是不完成事情比完成还要痛苦。世界上所有失败者，对目标完成不了习惯之后就会麻木，反正昨天没跑今天没跑也行，今天状态又不好对吧。感情用事，凭借自己舒服，凭借多巴胺内啡肽的人办事真的太幼稚了，太天真了。</p>
-<p>其实没有，单单频繁打扰你，叫你干这干那，不停打断你，内心就崩溃了。言语挑衅什么的，我可以完全不停，远离那个说话的人就行，但是那种叫你干这干那的，你逃脱不了的就根本不行。</p>
-<p>5.2完成再完善，不求必须当下完美。先把事情做完，不管做到好与不好，做50个俯卧撑，不一定要100%标准，至少先做完它，明白自己至少是做到了最低标准，给自己好感。行为模式正反馈。<br>5.3张弛有度。任务不能大而硬，造成自己完不成，或者即使完成了，最多只能坚持2、3天就放弃，给自己养成完不成任务的人格类型。他这辈子就只能当loser了。<br>5.4X、Y场景捆绑法。坐到桌子上，就要200单词完成。除非天塌了，除非你死了。身上有股狠劲的人对吧，是非常恐怖的。刚开始养成是非常难的。<br>5.5激励过程而不是结果。打乒乓球的时候，不要想着我是最棒的，我是世界第一。越是激励这个过程，往往激励得越多，行为就越懒散。为什么，因为这些东西是虚的。应该要激励这一拍该怎么打好，这一拍该怎么发球让他接不住。往往是激励过程，不是这个结果。激励当下这个过程，比如说，做完这一百个跳绳。或者是先跳50个再跳。激励的过程中，总能做到这件事情，那么就会有一个真正实的东西，它不是虚的。所以成功学就是天天激励这些虚的东西，说我是最好的，我要成为百万富翁，我要成为销售冠军，不成为销售冠军我就去裸奔对吧。他们激励的是一个结果，是一个虚假的快感。</p>
-<p>说的极端一些，一个人要自信，就是要有钱有势，有一些实实在在的东西在积累。很多实实在在做出做成的事。他就是自信。你天天激励他成为千万富翁，亿万富翁，这些是没有用的。骨子里的气球一戳就破。你不信看那些学了成功学的人，上了那种舞台，被那些导师一嘲讽起来，他内心是虚弱的。然后又开始进行自我洗脑。骨子里还觉得自己是loser。</p>
-<p>5.6 你            积极暗示，左手温暖右手。</p>
-<p>我对夸赞的理解:人不能太依赖外界的夸赞去实现自己的理想，因为外界的侮辱、打压、贬低、妒忌的恶言恶语往往比真心的夸赞要多得多，它们是常态，甚至往往恶言恶语更多的是真心话，如果你没有成绩、成就、权势，身边坏人真的特别多，如果你过分在意和依赖外界的夸奖去做对某件事，那么你的行为动机是很脆弱的，一个批评你都能不愉快半天，甚至一句你真菜、你是埋坟的能让你半天活在无尽黑暗和不断轮回播放这个痛点，反复让它鞭打你的心灵。让别人的嘴巴去主宰你的前程和理想。其次往往难听的事实比动人的谎言要多得多，如果因为客观事实难听，你就接受不了，你的行为动机就很脆弱，而三分钟热度是无法拥有稀缺能力的,没有稀缺能力的人，注定难以逆袭，贫穷的本质是资源和能力的稀缺，你会贴膜，他五分钟也学会了，穷人在内卷中努力奋斗，收获却很少，你必须做别人做不到的事情，有难度的事情，才有竞争力和富裕。你的人生是靠无数次攀爬、努力、奋斗，咬牙迎难而上，做成了无数的小事堆砌起来的，不是靠批评和赞美来实现的，所以赞美的这件事主要还是自己做，赞美只是锦上添花。”冷酷无情“就是把精力放在做事情上面，不是放到情感上面。因为我长达7年是在侮辱和辱骂中去实现自己的理想的，我听到最多就是，我恨不得踩死那，没有一件像样的事情，你是个垃圾，你是个废人，我曾经每天听这种都是家常便饭，而且是来自最亲的人所的。我做得最多的是左右温暖右手，如果你不能理解这个逻辑，总是把自己的行为动机寄托在外界的赞誉上，你很难实现需要百折不回才能实现的梦。</p>
-<p>能看到这里的都是聪明的人。</p>
-<h2 id="八、纪录片"><a href="#八、纪录片" class="headerlink" title="八、纪录片"></a>八、纪录片</h2><p><a href="https://www.bilibili.com/video/BV1nN411f7q3?share_source=copy_web">人生七年解说</a>   <a href="https://www.bilibili.com/video/BV1vV411s73R?share_source=copy_web">阶级越迁–尼古拉斯篇</a></p>
-<p><a href="https://www.bilibili.com/video/BV1gP4y1s7dV?share_source=copy_web">出路</a></p>
-<p><a href="https://www.bilibili.com/video/BV1jF41147my?share_source=copy_web">变形记–高占喜</a>  第一就是富爸爸是公务员，有钱有资源，高占喜就是镇高中的前10名，本来就是聪明人。如果一个聪明肯学的孩子受到他的金钱和信息资源资助的话，是真的可以变得和中产的。</p>
-<h2 id="九、文章"><a href="#九、文章" class="headerlink" title="九、文章"></a>九、文章</h2><p><a href="https://www.mtyyw.com/7013/">寒门再难出贵子</a></p>
 ]]></content>
       <tags>
         <tag>yasashii</tag>
@@ -2329,6 +1877,323 @@
       </tags>
   </entry>
   <entry>
+    <title>只要你这么做，想爱上任何人都可以</title>
+    <url>/2022/04/04/%E5%8F%AA%E8%A6%81%E4%BD%A0%E8%BF%99%E4%B9%88%E5%81%9A%EF%BC%8C%E6%83%B3%E7%88%B1%E4%B8%8A%E4%BB%BB%E4%BD%95%E4%BA%BA%E9%83%BD%E5%8F%AF%E4%BB%A5/</url>
+    <content><![CDATA[<h1 id="只要你这么做，想爱上任何人都可以"><a href="#只要你这么做，想爱上任何人都可以" class="headerlink" title="只要你这么做，想爱上任何人都可以"></a>只要你这么做，想爱上任何人都可以</h1><p>标题起的太夸张，本质只是增加熟悉感，拉近距离，给了你机会，至于问完后能不能相爱，就不能保证了，还得看两人本身合不合适。</p>
+<p>看了许多结果，女追男是可以，男追女都是失败的案例。还有就是熟悉朋友间可以拉近距离并且某些问题还可能平添尴尬，普通朋友间的私密问题回答一般敷衍。</p>
+<p>纽约时报作者本人的<a href="https://www.sohu.com/a/246002184_755920">演讲</a></p>
+<p>亚瑟阿伦36个问题源自于《纽约时报》上的一个专栏文章《只要你这么做，想爱上任何人都可以》(<a href="https://www.aliyundrive.com/s/RrxBuYM1SUt">To Fall in Love With Anyone, Do This</a>) ，</p>
+<blockquote>
+<p><strong>参与实验的陌生人两两分组坐在一起，只花了45分钟，彼此问了36个神奇的问题，就快速对对方产生了好感和亲密感。实验的结果很有意思。有30%的人在聊完这些问题后，立即表示自己和同组实验者之间的关系已经变得比他们人生中其他任何一段关系还要深</strong></p>
+</blockquote>
+<p><a href="https://www.stonybrook.edu/commcms/psychology/faculty/faculty_profiles/aaron">Arthur Aron</a>和<a href="https://hsperson.com/about-dr-elaine-aron/">Elaine Aron</a>描述了一系列实验，在这些实验中，他们要求成对的陌生人（或者，在实验的一个版本中，成对的大学同学）轮流询问彼此36 个问题。在实验结束时，要求这对搭档花四分钟不间断地盯着对方的眼睛。</p>
+<p>阿伦斯和他们的研究人员同事在论文中写道。“我们开发的方法的核心是在陌生人之间构建这种自我披露。”</p>
+<p>正如 Elaine Aron 在<a href="https://www.psychologytoday.com/intl/blog/attending-the-undervalued-self/201501/36-questions-intimacy-back-story"><em>今日心理学</em></a><a href="https://www.psychologytoday.com/intl/blog/attending-the-undervalued-self/201501/36-questions-intimacy-back-story">博客文章</a>中指出的那样，这些问题并不是专门为帮助人们<a href="https://www.mindbodygreen.com/0-17845/why-falling-in-love-makes-people-crazy.html">坠入爱河</a>而设计的——它们只是为了建立<em>亲密关系</em>。这些问题已被用于许多其他心理学研究，从帮助已婚夫妇拉近彼此到帮助人们减少种族偏见。</p>
+<p>这些问题分为三组，按问题的深入程度依次递进，完成每组问题各需15分钟。</p>
+<p>让我承认我们的实验已经无法与研究保持一致。 首先，我们在酒吧，而不是实验室。 其次，我们并不陌生。 不仅如此，我明白这一点，如果其中一个人对这种情况不持开放态度，既不建议也不同意尝试一项旨在创造浪漫爱情的实验。</p>
+<p>我用谷歌搜索了 Aron 博士的问题； 有 36 个。接下来的两个小时，我们把我的 iPhone 递过桌子，轮流提出每个问题。</p>
+<p>我觉得最不舒服的时刻不是我不得不承认自己，而是不得不冒险对我的伴侣发表意见。 例如：“交替分享您认为伴侣的积极特征，共五项”（问题 22）和“告诉您的伴侣您喜欢他们的哪些方面； 这次要诚实地说一些你可能不会对刚认识的人说的话”（问题 28）。</p>
+<p>Aron 博士的大部分研究都集中在创造人际关系上。 特别是，一些研究调查了我们将他人融入自我意识的方式。 很容易看出这些问题如何鼓励他们所谓的“自我扩张”。 说“我喜欢你的声音，你对啤酒的品味，你所有的朋友似乎都很钦佩你的方式”之类的话，会使属于一个人的某些积极品质对另一个人具有明确的价值。</p>
+<p>真的，听到有人钦佩你的东西，真是令人震惊。 我不知道为什么我们不总是周到地互相恭维。</p>
+<p>我们在午夜完成，花费的时间比最初的 90 分钟要长得多。 环顾一下吧台，我感觉自己好像刚醒来。“还不错，”我说。 </p>
+<p>“肯定比凝视对方的眼睛更不舒服。”他犹豫了一下，问道。 “你认为我们也应该这样做吗？” 我环顾了一下酒吧。 这似乎太奇怪了，太公开了。“我们可以站在桥上，”他说，转向窗户。</p>
+<p>夜晚很温暖，我完全清醒。 我们走到最高点，然后转身面对面。 我在设置定时器时摸索着手机。</p>
+<p>“好吧，”我说，用力吸了口气。<br>“好吧，”他微笑着说。<br>我曾在陡峭的斜坡上滑雪，并被一根短绳挂在岩壁上，但是盯着某人的眼睛沉默四分钟是我一生中最激动人心和最可怕的经历之一。 我花了前几分钟只是试图正常呼吸。 在我们有很多紧张的微笑，但最终安顿下来。</p>
+<p>我知道眼睛是心灵的窗户或其他什么，但那一刻真正的症结不只是我真的看到了某人，而是我看到了某人真的看到了我。 一旦我接受了这种认识的恐惧并给它时间平息，我到达了一个意想不到的地方。</p>
+<p>眼睛也是如此，它不是任何东西的窗口，而是一团非常有用的细胞。 与眼睛相关的情感消失了，我被它惊人的生物学现实所震撼：眼球的球形特性、虹膜的可见肌肉组织和角膜光滑的湿玻璃。 它奇怪而精致。</p>
+<p>当计时器响起时，我很惊讶——也有点松了一口气。 但我也有一种失落的感觉。 我已经开始通过回顾的超现实和不可靠的镜头来看待我们的夜晚。</p>
+<p>但我喜欢这项研究的地方在于它假设爱是一种行动。 它假设说我的伴侣重要的事情对我来说也很重要，第一我们至少有三个共同点，第二我们与我们各自母亲的关系密切，第三他让我看着他。</p>
+<p>我想知道我们的互动会发生什么。 如果不出意外，我认为它会成为一个好故事。 但我现在明白这个故事不是关于我们的。 它是关于费心去认识某人意味着什么，这实际上是一个关于被认识意味着什么的故事。</p>
+<p>的确，你无法选择爱你的人，尽管我多年来一直希望不是这样，而且你不能仅仅基于方便来创造浪漫的感觉。 科学告诉我们生物学很重要； 我们的信息素(费尔蒙)和荷尔蒙在幕后做了很多工作。</p>
+<p>但尽管如此，我开始认为爱情比我们想象的更柔韧。 亚瑟·阿伦的研究告诉我，这可能很简单，甚至——为了产生信任和亲密，爱需要茁壮成长(发育好，身体？情感？)的感觉。</p>
+<p>你可能想知道他和我是否坠入爱河。 好吧，我们做到了。虽然很难完全相信这项研究（它可能无论如何都发生了），但这项研究确实为我们提供了一种进入一段深思熟虑的关系的途径。 我们在那天晚上创造的私密空间里呆了几个星期，等着看它会变成什么。</p>
+<p>爱情没有发生在我们身上。 我们相爱是因为我们每个人都做出了选择。</p>
+<h2 id="第一组"><a href="#第一组" class="headerlink" title="第一组"></a>第一组</h2><p>1、如果可以跟世上任何人共进晚餐，你会选择谁？</p>
+<p>I want a American guy (not a ABC) who is goodlooking and young.</p>
+<p>2、你会想出名吗？以什么样方式出名呢？</p>
+<p>Of I am. Being a famous actress is my dream.</p>
+<p>3、在打一通电话之前，你会先排演要在电话中说什么吗？为什么？</p>
+<p>Somtimes. If I need to say something important or talk to someone I fall in love with , I will make sure my vioce perfect.</p>
+<p>4、你心中最完美的一天是做哪些事呢？</p>
+<p>After Shanghai Disneyland extension, I want to spend a day and watch the firework show with my boyfriend or husband,then we have a sex, when I am still young.</p>
+<p>5、你上一次唱歌给自己听是什么时候？上一次唱给别人听又是何时？</p>
+<p>Two weeks ago. Last year? I forget, two years ago?</p>
+<p>6、如果你可以活到90岁，并能在30岁过后让体态或大脑一直保持30岁的状态到死，你会选保持体态还是大脑呢？</p>
+<p>The body. When I want to do something crazy but it will kill myself, that is too pathetic!</p>
+<p>7、你有曾经预感过自己会怎么死亡吗？</p>
+<p>No. I just want to let it be.</p>
+<p>8、举出3个你与你对面这位的共同点。</p>
+<p>9、你人生中你最感激什么？</p>
+<p>I am normal. I can’t face others’ judgement if I am a homosextual or a nerd like Sheldon.</p>
+<p>10、如果你能改变你是怎么被抚育成人的，你会想改变什么？</p>
+<p>I want to have a brother, because as a only daughter I feel alone in childhood and make me laking of interpersonal skills</p>
+<p>11、用四分钟跟你对面这位分享你的一生，越详细越好。</p>
+<p>Just like thosands of Chinese girls, I have parents, no brothers or sisters. I went to school to get a university offer. I like singing, dancing, acting and makeing day dreams. When I was a teenager, I fell into someone and someone was into me, but had no relationship with anyone. Watching Tennis became my favorite hobby when I was in junior high school. I love Nadal. I wasted too much time in campas, so I had to get a master degree. This was a wrong decision.</p>
+<h2 id="第二组"><a href="#第二组" class="headerlink" title="第二组"></a>第二组</h2><p>12、如果你明早一觉醒来发现自己获得了某种能力，你希望是什么能力？</p>
+<p>Travel in time.</p>
+<p>13、如果一颗魔法水晶球能告诉你有关你自己，你的人生，你的未来，或任何事情，你会想知道什么？</p>
+<p>Where is my next boyfriend?</p>
+<p>14、你有已经梦想了很久，想做的事情吗？你为什么还没去做？</p>
+<p>See the final game in Australia Open. No money!</p>
+<p>15、你人生中最大的成就是什么？</p>
+<p>Nothing at all, but I will have.</p>
+<p>16、一段友情中你最珍视的是什么？</p>
+<p>Comprehension</p>
+<p>17、你最珍贵的一段回忆是什么？</p>
+<p>When I saw the fabulous firework in Disneyland, I realized that I may keep alone forever.</p>
+<p>18、你最糟糕的一段回忆是什么？</p>
+<p>My life of being a graduated student.</p>
+<p>19、如果你知道你会在一年后突然死去，你会想改变任何你现在的生活方式吗？为什么？</p>
+<p>Absolutely Yes. I can do evertyhing I want without any excuse.</p>
+<p>20、友情对你来说代表什么？</p>
+<p>I keep finding a “soul-friend”</p>
+<p>21、爱与喜欢在你的人生中有着什么样的地位？</p>
+<p>Love is my essential gene. Deletion of love I will die.</p>
+<p>22、轮流分享你觉得你的恋人应该具有的五项好品质？</p>
+<p>trust,encourage and respect him&#x2F;her, be good at communication, if you want to end this relationship，please tell him&#x2F;her .</p>
+<p>23、你的家庭亲密温暖吗？你觉得你的童年有比别人幸福点吗？</p>
+<p>Not so warming. My chillhood is not bad, just sometimes I felt alone.</p>
+<p>24、你觉得你跟你的母亲的关系怎么样呢？</p>
+<p>I love my mom, but I don’t like her temper.</p>
+<h2 id="第三组"><a href="#第三组" class="headerlink" title="第三组"></a>第三组</h2><p>25、用“我们“做主语造三个肯定句，比如“我们都在这个房间里”。</p>
+<p>26、完成以下句子“我希望我有一个人能与ta分享…”</p>
+<p>I hope I can share my option with someone after having seen a film.</p>
+<p>27、如果你会跟你对面的人变成亲密好友，分享一下你觉得对方必需得知道的事情。</p>
+<p>I am too straight when I am talking, so if I hurt you, please let me know.</p>
+<p>28、告诉你对面的人你喜欢ta什么：老实回答，说一些你通常不会告诉刚认识的人的答案。</p>
+<p>29、与你对面的人分享人生中很尴尬的一刻。</p>
+<p>30、你上一次在别人面前哭是什么时候？上一次自己哭是什么时候？</p>
+<p>Three years ago, I cried in front of my friend because I was broken up with ex. I forget, maybe three months ago.</p>
+<p>31、告诉你对面的人你已经喜欢上ta的什么？</p>
+<p>32、有什么人事物是太严重，不能随便开玩笑的？</p>
+<p>I don’t know.Maybe someday I feel angry and I will know.</p>
+<p>33、如果你将在今晚死去，没有任何再与他人交流的机会，你最后悔没有把什么事情跟别人说？</p>
+<p>nothing</p>
+<p>34、你的家着火了，里面有你所拥有的一切事物、在救出你爱的人，你的宠物后，你还有时间最后再冲回去一趟拯救最后一样任何东西，你会救出什么？为什么？</p>
+<p>My ID card. Nothing I can do without it .</p>
+<p>35、你家庭中的所有人里，谁的死会让你最难受？为什么？</p>
+<p>My mom. I can’t image the time without her, I have no chance to enjoy the food she cooks.</p>
+<p>36、分享一个你私人的问题，并想你对面的人询问ta会怎么处理、之后再请ta回答，对于你选这个问题，ta有什么看法？</p>
+<p>最后互相凝视4分钟。</p>
+<p>感觉回答这套问题很难在现实的相亲或者情侣之间进行，面对面talk，最后还要四目相对四分钟，至少对于中国人会有些尴尬或者不太好意思吧。不过，这套题答下来确实对自己有了更多思考。</p>
+<h2 id="第一组问题"><a href="#第一组问题" class="headerlink" title="第一组问题"></a><strong>第一组问题</strong></h2><h6 id="1-如果可以跟世上任何人共进晚餐，你会选择谁？"><a href="#1-如果可以跟世上任何人共进晚餐，你会选择谁？" class="headerlink" title="1.如果可以跟世上任何人共进晚餐，你会选择谁？"></a>1.如果可以跟世上任何人共进晚餐，你会选择谁？</h6><p>选择跟手机单独吃饭，觉得自己一个人吃饭更自由，可以用自己舒服的速度不用说话的方式进餐就很舒服，因为我清闲的时候就吃得很慢，一遍看手机一遍吃，花30分钟，和别人吃的话，我就要吃快些，压缩到15分钟这样。我忙的时候，3-7分钟就吃完，简单吃饱，我就不想等别人，觉得别人耽误了我，虽然可以提出自己先走，但是失去了一起吃饭的意义，把别人留在饭桌总感觉会觉得不妥，即使别人已经明面说出，你有事你先走。如果非要选择一个人的话，最好那个人是不在饭桌上老是拉我说话，它可以一直说，我就当作是看手机，一旦拉我说话，没人提醒的话，可能我就光聊天不吃饭，然后别人吃完我才开始吃，别人又要等我，就有些让我难堪。举例的人有*** ***，确实，我喜欢的人都有这样的特点。</p>
+<p>自己喜欢的人</p>
+<h6 id="2-你会想出名吗？以什么样方式出名呢？"><a href="#2-你会想出名吗？以什么样方式出名呢？" class="headerlink" title="2.你会想出名吗？以什么样方式出名呢？"></a>2.你会想出名吗？以什么样方式出名呢？</h6><p>想过会出名，方式是在自己的行业内出名，在圈子外不出名那种，就是希望在那种和对世界有着同样的看法的人出名，对不理解我所做的东西，就不要出名，主要是为了避免误解以及由于误解造成的各种麻烦，比如说，我就不喜欢袁隆平、邓稼先、雷锋、牛顿、爱迪生、杨振宁这样的出名，容易被各种不了解我做工作的媒体人宣传误导，还有各种绯闻，我真的难处理这些问题，人红是非多。虽然我很敬佩这种圈内外都出名的人，但是我只想在圈内有名，不想在圈外有名。举例有麦克斯韦、交流电的特斯拉、深度学习吴恩达、遗传研究孟德尔、写史记的司马迁。</p>
+<p>会，为社会做出了巨大贡献</p>
+<h6 id="3-在打一通电话之前，你会先排演要在电话中说什么吗？为什么？"><a href="#3-在打一通电话之前，你会先排演要在电话中说什么吗？为什么？" class="headerlink" title="3.在打一通电话之前，你会先排演要在电话中说什么吗？为什么？"></a>3.在打一通电话之前，你会先排演要在电话中说什么吗？为什么？</h6><p>会的，就是先有序号地记下自己要交流的几个问题，列出123点，再对要点修饰到别人能听清楚地不歧义地具体等下要说地话，就是担心别人等下问道某个问题时，回答着就跑偏主题，也避免自己真的问的时候想不起来，或者担心自己说话太突兀，前面修饰了要点就不会担心这个问题。并且遇到重要地话，我会一遍记录在QQ上发布到群里，即使自己手机掉了也能通过漫游找到记录。场景不允许记录地话，我会习惯的用手机录音，然后觉得很重要的话，会对录音重命名，不重要的话，就会直接留着不重新命名，以后觉得有用再花根据录音日期慢慢找。主要是为了避免自己忘记重要内容，以及自己记错，注意这不是为了留什么证据用。对于重要的内容。我会让他把我说的什么重复一遍的话，或者我说一遍让他听听看我说的对不对，因为我常常会跟别人交流有问题，就是他说的话我会理解成常常另一种意思，例子有导师见面（地点弄混了，反正就是那句话要有语境，没有语境的话，可以是两个地点），剪头发（不知道当时是怎么说的，反正意思弄反了，我要剃短，却给我保留头发），买书（交易地点错误），做封面（要求错误）、火锅的加不加辣。</p>
+<p>会，这让我不会慌乱</p>
+<h6 id="4-你心中最完美的一天是做哪些事呢？"><a href="#4-你心中最完美的一天是做哪些事呢？" class="headerlink" title="4.你心中最完美的一天是做哪些事呢？"></a>4.你心中最完美的一天是做哪些事呢？</h6><p>6点半起床，吃牛奶水果等简单不加工的早餐，做一下衣冠整理，检查物品是否齐全就出门，7：40-7：50到岗位，避免踩点打卡上班失败，8点正式工作，中午一个人安静吃饭，或者和同事吃饭，因为午餐时间很短，也不会太闲聊，都是一样的吃饭进度， 6点到点下班，下班前提前提前整理下桌面，给领导看和给自己看的，给自己和别人留个好印象，下班去菜市场买些简单的食材菜回去做大杂烩，就喝个大杂烩的粥，一个锅里有菜有粥，容易洗锅碗筷。洗完澡到九点。玩会游戏、刷B站、看些觉得有趣书到11点，睡觉。一个人是真的舒服。</p>
+<p>如果考虑没有小孩的家庭的话，就是下午下班后，不是做什么大杂烩，问下媳妇吃些什么，然后卖，认真做些正常的菜，炒青菜、炒肉等、煮鱼等，但是要做少，不饱再吃泡面、芝麻糊等速食品，不想浪费。到九点洗澡，和媳妇一起打游戏，或者给自己独处时间，学习自己领域的知识，到11点，睡觉。</p>
+<p>如果考虑家庭的话，就是下午下班后，不是做什么大杂烩，而是认真做些正常的菜，炒青菜、炒肉等、煮鱼等，但是要做少，不饱再吃泡面、芝麻糊等速食品，不想浪费。到九点洗澡，和小孩聊聊学校日常，看情况辅导作业，因为辅导作业可能会影响亲子关系，我一般对那些不想学的小孩我也不想去教，他主动想学，我才会去交，不想学的给就他一个方向，让他自己查网络，看教材。当然，我会检查它的教辅材料合不合理，毕竟有些教材写得太烂。还有就是我会每天督察进度和质量（抽背、随便抽一道题给他写看，进度完成随便玩，进度完成不了不给玩，或者实在完成不了到了一定时间就仍会给他玩，就跟到时间完成不了任务也会给他下班，他若自愿加班我就给他自愿加班，但是第二天会亲自叫他去学习避免睡过头。培养小孩要授之以渔与鱼。10点钟就给自己独处时间，玩会游戏、刷B站、看些觉得有趣书到11点，睡觉。</p>
+<p>工作后回家和家人吃饭，一起看电视聊天 </p>
+<h6 id="5-你上一次唱歌给自己听是什么时候？上一次唱给别人听又是何时？"><a href="#5-你上一次唱歌给自己听是什么时候？上一次唱给别人听又是何时？" class="headerlink" title="5.你上一次唱歌给自己听是什么时候？上一次唱给别人听又是何时？"></a>5.你上一次唱歌给自己听是什么时候？上一次唱给别人听又是何时？</h6><p>昨天，因为我很喜欢这首歌，就不知不觉地哼唱了。大二的时候，因为某要我唱歌看看，当时我说我上了舞台，但是至此之后，我不唱歌地原因是，我真的在舞台事物了，唱素颜忘词，哈哈哈，本来以为简单，练习一下就能记下歌词混过去，发现连歌词都记不住。并且和部门聚会的时候发现我就像是原始人进入信息社会，他们的唱歌是真的觉得可以去当歌手，甚至比原唱还好听，真的见鬼，相形见绌下，我就不再唱歌。</p>
+<p>刚刚 ，上个月</p>
+<h6 id="6-如果你可以活到90岁，并能在30岁过后让体态或大脑一直保持30岁的状态到死，你会选保持体态还是大脑-呢？"><a href="#6-如果你可以活到90岁，并能在30岁过后让体态或大脑一直保持30岁的状态到死，你会选保持体态还是大脑-呢？" class="headerlink" title="6.如果你可以活到90岁，并能在30岁过后让体态或大脑一直保持30岁的状态到死，你会选保持体态还是大脑 呢？"></a>6.如果你可以活到90岁，并能在30岁过后让体态或大脑一直保持30岁的状态到死，你会选保持体态还是大脑 呢？</h6><p>体态，因为体态是大脑的基础，就是说，如果体态能一直保持，那么我的大脑基本不会有什么问题，就像是葫芦和叶子之间的关系，叶子不好，往往头脑也不行，不要举例什么身残志坚的例子，因为我的意志不坚定，保持我的大脑也没什么用，即使我大脑性能下降，我用30岁的身体也能养活自己，头脑的话，我可能像霍金一样很赚钱，但更可能是干不动了，即使聪明也用不出去，虽然我也可能通过养生的方法来留住自己的身体状态，但是乔布斯等人都做不到，我有什么自信做到呢。</p>
+<p>体态</p>
+<h6 id="7-你有曾经预感过自己会怎么死亡吗？"><a href="#7-你有曾经预感过自己会怎么死亡吗？" class="headerlink" title="7.你有曾经预感过自己会怎么死亡吗？"></a>7.你有曾经预感过自己会怎么死亡吗？</h6><p>天来横祸。例如：车祸、空难、传染病毒而死、恐怖袭击、战争。</p>
+<p>生病而死。例如：心脏、肺等癌症晚期，手术风险高。直接选择安乐死，放弃治疗，多备止疼药，留下时间去玩游戏、旅游、写书等。</p>
+<p>被害而死。例如：同行下药、贪官的灭口等</p>
+<p>抑郁而死。例如：某天想不开去跳海跳楼、服药、煤气自杀、套朔料袋等</p>
+<p>病死</p>
+<h6 id="8-举出3个你与你对面这位的共同点。"><a href="#8-举出3个你与你对面这位的共同点。" class="headerlink" title="8.举出3个你与你对面这位的共同点。"></a>8.举出3个你与你对面这位的共同点。</h6><p>聪敏、能站在对方角度为对方着想、喜欢游戏</p>
+<p>善良 上进 优秀</p>
+<h6 id="9-你人生中你最感激什么？"><a href="#9-你人生中你最感激什么？" class="headerlink" title="9.你人生中你最感激什么？"></a>9.你人生中你最感激什么？</h6><p>感激的人有很多，每个帮助我的家人，朋友，同学，老师，陌生人。感激的事也很多，9年义务教育，国家扶贫，等。最感激的还是奋斗的自己。因为唯有自己努力做事，才能让自己变得有用，才能回馈那些帮助过自己的人，这样才能对自己负责，对每个帮助过我的人、事负责。当然对颓废的自己是很厌恶的，对那些不怀好意的事人也是有些厌恶的。</p>
+<p>朋友</p>
+<h6 id="10-如果你能改变你是怎么被抚育成人的，你会想改变什么？"><a href="#10-如果你能改变你是怎么被抚育成人的，你会想改变什么？" class="headerlink" title="10.如果你能改变你是怎么被抚育成人的，你会想改变什么？"></a>10.如果你能改变你是怎么被抚育成人的，你会想改变什么？</h6><p>不再有老老实实地死脑筋做事的，而是有投机追求可见效果做事的被教育。主要是看得到各种可自己用信息技巧，激发想象力，让自己能够去实践，给自己带来实实在在的好处。</p>
+<p>首先小时候家里条件确实缺钱又缺信息资源，不缺时间，特别无聊，这段时间就可以多看能激发想象力的动画片，七龙珠、葫芦娃、孙悟空、校园三剑客、海贼王还有很多优秀的动画片。小时候重要的是收集信息资源，拓展眼界，看得到世界的发展现状。只要自己看到过这么好的世界，自己记住别人达到的方式，觉得自己也能办到，自己就会有动力，然后肯定会想办法跟着别人的步骤自己一步一步到达。小时候信息闭塞，最好获取信息资源的办法，确实除了图书馆、网络、找人问就没有其它方式，但是后两种基本就是没有金钱支付，小时候极度缺钱，每得1、2毛零花钱都能开心好久，去买辣条吃。5块钱零花钱就是巨款。但是如果买网络就肯定没钱，去找人问也肯定没钱，路费，请人吃喝都不够。所以最好的方法就是找书。书中的资源良莠不齐，这里还要需要建立正确的选书观，文字一大堆，一个故事讲一个道理的书就不要看，也不要看经典书籍，应该看世界发展趋势上的东西，就是那种生活小技巧的，我自己能够很快出结果，应用到自己身上的，自己能直接感受到变化，并且还要肉眼可见的改变，至少是能够在一个星期内看得到明显的改善，否则直接丢弃这种方法。还要学会长远规划，就是在那些肉眼可见的改善中，优先选择那些不仅短期见效，长期也见效的。不要说什么时间那么短怎么会见效，不能看到效果的，放到最后尝试。</p>
+<p>想体会童年更多的快乐</p>
+<h6 id="11-用四分钟跟你对面这位分享你的一生，越详细越好。"><a href="#11-用四分钟跟你对面这位分享你的一生，越详细越好。" class="headerlink" title="11.用四分钟跟你对面这位分享你的一生，越详细越好。"></a>11.用四分钟跟你对面这位分享你的一生，越详细越好。</h6><p> 据我父母及乡里人说，我的诞生之初是为了卖钱，卖的1万块，因为当时挺缺钱的，说是卖个一个湖南的较为小康家庭当儿子养，2000年的时候，那种买卖小孩基本鞭长莫及，法律看不住的，然后我妈妈养了我能走路吃面条就不同意了，当时交易现场大概是对面用面条引诱我，看看我愿不愿意跟他们过去。我确实过去吃面条了。但是妈妈却不同意了(爸爸说的)。还是不愿意卖。后面还有乡里人对我说，是他们劝不要卖才不卖的。总之细节总是模糊，我最终安全地留下来。毕竟那个混乱地年代与地点，也有很可能就被摘器官卖器官了。</p>
+<p>缺钱就是生了两个哥哥，毕竟都要读书。</p>
+<p>留下我，我也是极度能折腾，关爱没给到满意就哭，就是小时候我对比哥哥来说来说，还是被照顾地很好的，早上就是喝豆奶2-3毛一包，就是那种现榨巴氏消毒那种，有牛奶有豆浆的味道，还特别喜欢吃烤包，2元这样，但是特别好吃，这些吃吃喝喝，我哥哥是没有的，因为我那是被妈妈带着去摆摊，每卖一把菜就有2毛收入，妈妈去进新鲜蔬菜时，我就去卖昨天的菜。买得差价多少自己就可以买零食吃。本金还是要给妈妈的，大概就是半个小时卖出5-6把菜，得到2-4元，差价就5毛-6毛自己的零花钱。可以买包子。小时候我喜欢我对肉包和菜包感觉都一样，因为肉也是菜，所以妈妈就叫我买肉包，我就转义，说买菜包，为了教育我，还叫我反反复复买了几次，前几次我都是把肉包买成菜包，后面被严厉说教菜不会转义，说买肉包，就一字不差的转说买肉包。买肉包后，我才清楚分辨肉包和菜包馅是不一样的。之前虽然吃过肉包和菜包，也能分别区别，但是表达的时候，是没有肉包的表达，只认为有两种风格不同的菜包，没有肉包的表达。</p>
+<p>小时候特别喜欢生病，不是爱的那种喜欢，是频繁的意思，一个月内就有一次感冒发烧，然后被妈妈抱到小诊所打针吃药。在妈妈怀里的时候确实能感受到那种，因为我生病对我又生气对我又关心的矛盾心情。打针吃药的时候，妈妈总会给我买苹果，这种苹果挺贵的，很脆很香甜的那种，长大后我没买到相似的苹果，今年回家过年的时候，妈妈又买了这种苹果，打消了我以为是我记忆错误的念头，毕竟我都买不到和妈妈一样品种的苹果，并不是由于年代久远就把普通苹果吃出又香又脆的感觉，而是真的存在这个香脆的品种，有别于市面常见的苹果。确实喜欢妈妈的悉心照顾感觉，也想一直生病，但是总有好的一天。</p>
+<p>直到有一次，我生了一场莫名奇妙的大病，就是发烧一直高烧不退，住进医院也不行，花了一万元，最后无力承担医药费，04、05年的1万元可以说是很高了，据妈妈说，进医院当护工，12小时轮班那种，一个月2000，一年攒下2000.相当于半年工资了。就相当于现在进那种很累的厂子，不是普通电子厂，相当于6000-8000的厂子，对比现在，就是7000*6&#x3D;四万二这样。大概就这样，看着不多，但也不少。花钱多是一方面，我还一直没有好转的迹象。最后就放弃在医院治疗，回家先养着。然后我大伯就来南宁，看到家里空气不好，就把我带回老家。大概过了一个星期，我的病就莫名消失了。这里可能是单纯的由于换了个环境、能够产生抗体后才恢复的原因，也可能是由于时间到了，毕竟一直缓慢发烧一个月这样，题内病原体已经从刚开始生病到回到老家这段时间才攒够足够多抗体治愈自己。</p>
+<p>这种发烧不是淋雨，不是着凉，就是正常生活，就突然发烧难受，温度不高，就是突然难受。现在想想，确实可能是流感，也可能是基因。这种发烧学校内不会发生，回家无聊的时候就会发生，每次这类发烧的预兆就是由于自己感到特别无聊，干什么都没有动力，再喜欢的游戏都没有玩得下去，感觉干什么都没劲。今年2022年在家又发生这样的预兆，我能对发烧的类型有不同感觉，和普通的着凉发烧是不同的，普通的着凉发烧能察觉自己熬一熬就会好，但是这种缓慢低烧是能感受到不管怎么熬都不会好，没有底的感觉，需要吃药或者做出除（盖被子睡觉、喝姜糖水）的改变才能好。特点就是心里没底，没有缘由，发烧前会感到极度无聊。</p>
+<p>回老家之后，就一直在老家生活。刚开始的话，就是帮忙捡果子，然后就是提水，煮饭，就是放米放水，下地除草，种菜，下田插秧，放牛，各种农活都有干。总之就是为生活奔波。做饭做菜都要用水，然后就是到山下提水，并且没有抽水机，打水挺累人的，摇水泵被我们暴力使用，常常用起来都不顺手。两个和尚抬水喝就是这样的。</p>
+<p>小时候最大的娱乐就是看电视，主要看动画片，那时候只收到广西台、横县台、灵山台。其它电视节目都收不到。天线的问题。</p>
+<p>后来最大的娱乐是玩，买了影碟机，就常常攒钱买碟片，看种种电视、电影，还买游戏机，每次在家打游戏。</p>
+<p>由于住的离村远，又忙，我没有和太多村里人玩，玩的话就是弹弹珠，瞄弹珠，然后把弹珠卖出去，就是一种像斗鸡一样赌博吧，有技巧，并且技巧熟练才能赢。反正我就是常常输。</p>
+<p>小学的成绩挺好的名列一二名，后来就是前十名。我的优秀老师看在眼里。对我照顾有加。确实老师是偏心的，偏向了我这边。后来我也贪玩，但总是能恶补回来。</p>
+<p>小时候考试考的就是背诵能力。背诵能力包含着理解能力。但是语文我始终无法理解，就死记硬背，结果分不高，数学就很好理解，背诵下来的东西多，数学分数高。</p>
+<p>小学老师就是用过种种方法教育，比如纠正写字，写字歪歪扭扭的可不行。但是一旦我写快了，我的字根本就回到最初的样子。不握着我的手感觉不能用的。考试时完成比完美重要，所以平时完美，考试完成。</p>
+<p>小学的时候确实喜欢过好几个女生，要么好看，要么成绩好。这些小心思别人都看得出来的。</p>
+<p>小时候也常常被别人欺负，就是穿着不好看，成异类就会被欺负，成绩好的话，能换取一定尊重。校园霸凌是存在的，只要你不是有什么靠山，我的靠山就是老师，但是老师常常也是鞭长莫及，毕竟报告老师确实有被变本加厉的风险，有同学确实被变本加厉过，然后又报告老师，有被变本加厉处理，最后就是退学，要么是学霸，要么是欺负的同学自己退学。只能说一切看情况，一般都是先忍受，最后受不了才报告老师，毕竟霸凌者习惯到处欺负人宣誓主权，只要不是盯着我一个人搞，还是把主权丢给他。我自己就抗议一些原则性的东西。成绩好确实受到尊重。</p>
+<p>但是我也是去欺负过人的，就是叫花名之类的嘲笑，但是我嘲笑的人，现在也是我的好朋友，怎么说，但是欺负的时候不觉得会给他带来太多伤害，仅仅时让他感觉不舒服，就会显得我比他好，就觉得有趣，故意去惹事打架的是没有的。</p>
+<p>初中和小学一样，学习，只有少数几个社交，都是合作关系。就是被孤立的人相互取暖。</p>
+<p>好了伤疤忘了疼，我在初中也是被群殴过的，看着霸凌者欺负到处欺负人，我就想着，我不一样，我不能被欺负。主权问题是很有意思，插队之类都可以彰显到。</p>
+<p>小学喜欢的人初中还在联系，高中才我才明确抛弃，还是一样的原因，有更好的不爱了，当然，只是写写情书啥的，手都没牵过。</p>
+<p>我也会一脚踏了两船，主要是真的好看。就是很懂人心思，在我还没有清楚了解我想要的东西时，能根据我的表情等，给出我想要的东西，让人眼前一亮的感觉。</p>
+<p>这种通过表情、你的经历等准确德推测出我想要的东西的能力，我妈妈也是有的，共情能力，应该是了解的东西多，听到的别人经历多，就能根据相似性匹配出我对应的经历。</p>
+<p>并且，还带着培养，能够拒绝我的不合理请求，给我带来能力提升，让我明确直到如何能够和她舒服相处，不会频繁触碰它的禁忌。造成它的不愉快最后把不愉快扩散回我身上。</p>
+<p>中考不是发挥很好，进了县重点高中的普通班。后来就努力学习，没日没夜地背语文，去理解数学等，看懂课本表达地意思，最后成绩很好，但是依旧比不上班第一名。看得到他学习没有比我努力，成绩却比我好，我是真的暗暗嫉妒，也暗暗佩服。因为是真的厉害。</p>
+<p>我进了重点班，就是由于听到要善于交往什么地，结果真的去巴结别人，失去了自己的决策权，我没有换取自己的想要的成绩，就很难受了。把自己的决策权交给老师是对的，毕竟老师有经验。但是问老师问题也是必须自己有了解，就是老师起到的是四两拨千斤作用，那四两和千斤都要自己准备好，就是很多前置知识自己要理解，否则问老师也会叫你回去看书，但是，这么多书，我们根本抓不住重点，看了好久没有期望的收获，就没有兴趣，得不到正反馈，就没有心情看下去。问同学的话，能给你指出具体那一页那一句话，以及某某句话和某某句话的联系，让自己的兴趣消失之前得到新的兴趣，有心情学习下去。</p>
+<p>高考算是超常发挥，给了自己一个还算满意的成绩，去了省外读书，进的是一个打擦边球的成绩。高录取线1分。见到了很多有趣的人，成绩好唱歌好成绩又好看的学姐们，温柔细心的学长，还有有趣的舍友，还参加了很多社团。正常考进大学和打擦边球进大学的人还是有很大差距的，宏观的说是班级平均分差距，微观地说就是同一个老师教学，课堂的表现还是不一样的，回答问题的深度广度，上课的眼神都有差别。我更加勤勉拘谨等跟上进度，他们就是比较轻松放得开。并且不同省份、同一省份不同地区的人的对知识接收方式、能力都是不一样的。</p>
+<p>上课我听不懂，老是昏昏欲睡，别人都是预习，上课听得仅仅有味，能接得住老师的知识。我没有预习，我感觉总是很忙，没有时间预习，不想预习还有就是看不懂，老师的官方教材不友好，看着总是犯困，其他人找了其它友好的教材，或者是找了其它辅助资料，比如印刷更清晰地图片，排版更舒适。他们自己有本来更毅力，就更能看地下去。还有就是他们能找对人问到他们想要地学习资料。他们自己也能做出自己想要的笔记等。我们用他们的学习资料的话，与不用他们的学习资料期末考试成绩是有很大区别的，就是60几分和80-90分的差别。当然他们自己做的学习资料只给他们亲近的人，不和他亲近的人，直接问他们，他们都不会给的。只是说你自己去总结。当然也有学霸，就是啥也不总结，就单纯看课本，单纯上课听讲也能懂得的，考试也有80多分。反正成绩说得过去。</p>
+<p>大二转专业。由于不了解专业是什么，以为信息学院得所有专业都是计算机，没想到还有硬件。电子信息类。哈哈。网上是看过的，但是没有认真看。重点看了计算机类。我根本就分辨不出其中的区别，即使我之前已经去查了相关资料，但是自己的相关资料完全就没找对，自己也分辨不出究竟找的资料对不对。进了学院去学习才发现自己找错了资料。</p>
+<p>大二当了班长，由于他们不认识我，我就当了班长，当了班长，才发现自己的理想，公平对待每个人根本做不到，有的同学就是很遵守纪律，有的人就是到处为了自己方便破坏规则，当然，我也不能把他们怎么样，没有惩罚，全靠自觉。我做的只是提醒，其它根本做不了什么，强制要求啥的，是不行的。刺头还是小事，主要是我自己管理也混乱，就是很多通知看得我头晕，总是误解别人的意思，一遇到表达不一致的，就一脸晕，就像计算机代码一样，这个代码用语言这样写，换到我这个平台直接执行错误，说找不到数据库。因为很多东西我不知道，但凡不一样，流程有省略，我就执行失败。很多东西，都要和上面沟通确认才行，否则就是回出错。就是他们没有说错，但是容易让我误解。相当于人工智能识别中的过拟合或者拟合度不够一样，总有各种各样的问题。</p>
+<p>并且我的任务交代不清楚，给任务别人时，别人不执行，我也只好自己动手。因为别人没被带过，不懂执行。</p>
+<p>当班长主要时能力不够，任务理解与分配，人际关系管理，别人跟你，你没给没好处是不行的，别人不能给你办事的。好处就是听段子、信息及时沟通，讲故事等。不管是信息还是物质资源，总要有一样好处才可以。</p>
+<p>我的学习能力堪忧，对待很多东西总是一知半解。考试也总是迷迷糊糊。自己没有系统连贯的逻辑体系，就是自己就不能理解，只是背下知识罢了。</p>
+<p>我参加了大创项目，我真的找信息的能力堪忧，任务也不知道分配什么，只能说一切重头找起，由于问老师自己也不知道什么。根本没有办法理解。就是自己的进度完全没有感觉。自己完全没有评价体系，说我自己学习了python语言，但是却完全看不下去，也没有记住几个算法几个库，就会基础的hello world。难一些的numpy矩阵根本不懂，还有其它库，根本看不懂。老师也不给基础代码。也不给任何资料，我真的一头雾水。网上的东西良莠不齐，听了很多课，依旧听不懂，甚至感觉讲课的老师自己就不懂，也是张嘴就来的那种，每一步都没给出我满意能理解的解释。越积越多，最后就听不懂了。</p>
+<p>这里面有关键的因素就是我只能一知半解的往下看，根据后面的知识理解前面的知识，直接查，信息纷繁杂乱，根本就查不到自己想要的解释，自己想要的东西。或者是一次次地来回查找前置知识，并且最后还是无法理解。看csdn,B站怎么查都是来来回回的解释，真的生气，我无法理解。代码也跑不起来。</p>
+<p>付出大量时间却没有理解真的只能干生气。还给我看了超级多地广告，真的气。就放弃了。</p>
+<p>现在，我就是看效果说话。不去无底线迎合别人。比如我自己特别不喜欢被打扰，舍友老是不带钥匙，频繁叫我开门，我正在专注做我的事。只好放下手中的事去开门。一次两次还可以开门，出去两分钟就叫我开门呢，又进来，又出去没几分钟叫我开门，真的叫他们自己带钥匙，他们却不以为意，说，不就是开门吗，开一下怎么了，又占不了多少时间。我居然无言以对，我只是感觉我承受不了这种频率的打断。我也试着去图书馆，但是路途遥远，并且我极度依赖电脑，常常找不到插座，只能看书，但是我根本看书看不下去。宿舍虽然吵，但是不用走这么远，也不用担心占不到有插座的书桌。我只能跟宿舍每个人吵一遍，好说话的人，很快带钥匙，不好说话的人，直接带有决裂说，“以后我不给你来门，你也别给我开门”，中等的就说，开一下门怎么了，看看谁谁谁宿舍不是都开门。品尝人生百态，我就气死了，我这么小心翼翼维护我们宿舍关系，好心给开门，结果就是这么不顾及情谊，更何况我开门只是因为你们不带钥匙的错，我来给你开门是替你擦擦屁股，替你们承担你的过错，结果却是升米、斗米都养仇人。</p>
+<p>我思考了好久，为什么会这样，好了，是他的问题，他根本就觉得我不配和他们生活，早就想决裂了。尊重我的人就会很快带钥匙，不尊重我的人，直接决裂。平等的人就跟说讲道理，即使是歪理，但是至少有理由。</p>
+<p>从那一刻起，我就完全改变了，不再去讨好他人，努力自己提升实力。也不去承担太多他人的烂摊子，对人有了区别对待。我之所以讨好别人，是为了换取信息等，现在，我就自己收集信息，把讨好别人的时间用在提升自己上面。就像不再依赖苏联的新中国，虽然举步维艰，也要摆脱苏联的恐怖掌控，走独立自主的道路，花大的力气来重新研究别人不肯给的技术。</p>
+<p>当然别人有事求我，我依旧会帮忙，重点在于自己可接受，就是频率不要太多。</p>
+<p>只羡鸳鸯不羡仙，我希望能遇到自己生命中的另一半，生两个孩子养条狗，下雨的时候和家人在家里看电视聊天，阳光明媚的时候约朋友出去游玩，有份自己喜欢的工作，钱只要够花就行了，多余的就用来做公益，尽自己的一份力让这个社会更加美好。</p>
+<h6 id="12-如果你明早一觉醒来发现自己获得了某种能力，你希望是什么能力？"><a href="#12-如果你明早一觉醒来发现自己获得了某种能力，你希望是什么能力？" class="headerlink" title="12.如果你明早一觉醒来发现自己获得了某种能力，你希望是什么能力？"></a>12.如果你明早一觉醒来发现自己获得了某种能力，你希望是什么能力？</h6><p>无敌的推断能力，就是利用现有的条件，可以预测过去和将来，并且只要肯花时间，能挖掘出有限条件的所有信息。看别人的表情，就可以推断它的真实喜怒哀乐会不会说谎，看气色就可以判断它身体哪里不舒服，并推断是着凉、吵架等原因，通过看穿着打扮，了解这个人大概的性格和家庭背景，等等，就是别人能我挖掘的底层信息，我也能挖掘并推断。通过气味等判断家里习惯吃什么。等等。</p>
+<p>能让人快乐的能力</p>
+<h2 id="第二组问题"><a href="#第二组问题" class="headerlink" title="第二组问题"></a><strong>第二组问题</strong></h2><h6 id="13-如果一颗魔法水晶球能告诉你有关你自己，你的人生，你的未来，或任何事情，你会想知道什么？"><a href="#13-如果一颗魔法水晶球能告诉你有关你自己，你的人生，你的未来，或任何事情，你会想知道什么？" class="headerlink" title="13.如果一颗魔法水晶球能告诉你有关你自己，你的人生，你的未来，或任何事情，你会想知道什么？"></a>13.如果一颗魔法水晶球能告诉你有关你自己，你的人生，你的未来，或任何事情，你会想知道什么？</h6><p>我和她能不能走到最后。如果不停为挣钱出发，以我的能力挣到的钱能不能绝对地留住她。还是说分享更多有趣的事就能留着她，还是以不同比例分配我的精力，这个比例又是什么。</p>
+<p>我什么都不想知道，我觉得人生就是应该拥有不确定性才更有意思</p>
+<h6 id="14-你有已经梦想了很久，想做的事情吗？你为什么还没去做？"><a href="#14-你有已经梦想了很久，想做的事情吗？你为什么还没去做？" class="headerlink" title="14.你有已经梦想了很久，想做的事情吗？你为什么还没去做？"></a>14.你有已经梦想了很久，想做的事情吗？你为什么还没去做？</h6><p>想确认她是否还爱我，想问问我为了多挣2-3000元而选择异地恋能否可行，想问问我打游戏不理他是因为我真的受不了一直输的产生失落感然后不再一起打游戏可行不，想说我的食言是因为我真的办不到，有时是因为没有心情想玩游戏而不去实现承诺是否可行。我是真的没有心情的时候，就真的只想安安静静的打游戏或者啥也不干就躺着，可能在思考也可能不在思考。爱情的沉重有时候我是想暂时卸下的。</p>
+<p>没有问的原因，感觉没到时候，氛围感不对，太突兀了，应该在蜜月期快结束的时候问。这种深入的问题，要互相熟悉才好问。</p>
+<p>我想找个女朋友，一方面因为自己还不够优秀，另一方面因为没有遇到对的人。</p>
+<h6 id="15-你人生中最大的成就是什么？"><a href="#15-你人生中最大的成就是什么？" class="headerlink" title="15.你人生中最大的成就是什么？"></a>15.你人生中最大的成就是什么？</h6><p>考上大学，并且转专业进入计算机相关专业。让我看到了星辰大海，让我觉得我跟上了世界的潮流，并且见到了很多我想见到的东西。</p>
+<p>我妈车祸的时候我扛起了家庭的责任，处理好了问题</p>
+<h6 id="16-一段友情中你最珍视的是什么？"><a href="#16-一段友情中你最珍视的是什么？" class="headerlink" title="16.一段友情中你最珍视的是什么？"></a>16.一段友情中你最珍视的是什么？</h6><p>尊重。平等交流，互相扶持。</p>
+<p>彼此能毫无顾忌的进行平等交流</p>
+<h6 id="17-你最珍贵的一段回忆是什么？"><a href="#17-你最珍贵的一段回忆是什么？" class="headerlink" title="17.你最珍贵的一段回忆是什么？"></a>17.你最珍贵的一段回忆是什么？</h6><p>妈妈小时候抱我去打针吃药。当时5-6岁，比较重。发着高烧，妈妈不怎么抱得动，却还抱我走到了诊所。之后养病的时候买了很多好好吃的。</p>
+<p>和小伙伴们去山上野炊</p>
+<h6 id="18-你最糟糕的一段回忆是什么？"><a href="#18-你最糟糕的一段回忆是什么？" class="headerlink" title="18.你最糟糕的一段回忆是什么？"></a>18.你最糟糕的一段回忆是什么？</h6><p>校园欺凌，见到霸凌者只能躲，有时候因为躲开了还故意专门折磨我。感觉自己没有能力解决还孤立无援，没有同学撑腰，自己和同学比较孤立，告诉老师又害怕报复，毕竟老师总不能一天24小时保护我。校里校外总有老师鞭长莫及的地方，家长的话，感觉家长太忙，不想麻烦她们。更重要的是不想把事情闹大。</p>
+<p>小时候出去玩回来晚了，爸爸拿着锄头在后面追我，我感觉他真的想打死我</p>
+<h6 id="19-如果你知道你会在一年后突然死去，你会想改变任何你现在的生活方式吗？为什么？"><a href="#19-如果你知道你会在一年后突然死去，你会想改变任何你现在的生活方式吗？为什么？" class="headerlink" title="19.如果你知道你会在一年后突然死去，你会想改变任何你现在的生活方式吗？为什么？"></a>19.如果你知道你会在一年后突然死去，你会想改变任何你现在的生活方式吗？为什么？</h6><p>不会，因为现在就是我想要的生活状态。简简单单，努力也有自己对努力的预期的收获。就是现在的努力与收获都符合自己预期。还在自己的掌控能力内。</p>
+<p>会，我现在的生活还不够努力，我希望我能全力以赴并且留下一些东西</p>
+<h6 id="20-友情对你来说代表什么？"><a href="#20-友情对你来说代表什么？" class="headerlink" title="20.友情对你来说代表什么？"></a>20.友情对你来说代表什么？</h6><p>互相帮忙，忙一些力所能及的忙，双方不会有太大压力。双方都轻松愉悦。</p>
+<p>代表着有趣</p>
+<h6 id="21-爱与喜欢在你的人生中有着什么样的地位？"><a href="#21-爱与喜欢在你的人生中有着什么样的地位？" class="headerlink" title="21.爱与喜欢在你的人生中有着什么样的地位？"></a>21.爱与喜欢在你的人生中有着什么样的地位？</h6><p>爱意味着承担自己不太满意的责任。喜欢就是自己不会去承担任何自己觉得不划算的责任。事业、爱、家庭、友情这样的排序。</p>
+<p>是我人生的四分之一，另外四分之三是亲情、友情、事业</p>
+<h6 id="22-轮流分享你觉得你的恋人应该具有的五项好品质？"><a href="#22-轮流分享你觉得你的恋人应该具有的五项好品质？" class="headerlink" title="22.轮流分享你觉得你的恋人应该具有的五项好品质？"></a>22.轮流分享你觉得你的恋人应该具有的五项好品质？</h6><p>性格好能沟通谈判、能挣钱，有独自生活的能力、照顾家庭愿意为家庭临时承担不属于自己的责任、有自己的独立见解和兴趣爱好，并且她的兴趣爱好受人认可、给人生活惊喜</p>
+<p>善良、热爱生活、有独特的思想、乐观、善解人意。</p>
+<h6 id="23-你的家庭亲密温暖吗？你觉得你的童年有比别人幸福点吗？"><a href="#23-你的家庭亲密温暖吗？你觉得你的童年有比别人幸福点吗？" class="headerlink" title="23.你的家庭亲密温暖吗？你觉得你的童年有比别人幸福点吗？"></a>23.你的家庭亲密温暖吗？你觉得你的童年有比别人幸福点吗？</h6><p>亲密温暖主要看合理的需求得不得到满足。在妈妈身边确实有亲密温暖，但有时觉得太多照顾没有个人空间，其它地方有温暖，有时没有，伯伯的话，感觉他还故意忽视我的感受，主要是保证基本的生存没有亲密温暖。哥哥的话，一个有一个没有。</p>
+<p>否</p>
+<h2 id="第三组问题"><a href="#第三组问题" class="headerlink" title="第三组问题"></a><strong>第三组问题</strong></h2><h6 id="24-你觉得你跟你的母亲的关系怎么样呢？"><a href="#24-你觉得你跟你的母亲的关系怎么样呢？" class="headerlink" title="24.你觉得你跟你的母亲的关系怎么样呢？"></a>24.你觉得你跟你的母亲的关系怎么样呢？</h6><p>确实对我挺好的，喜欢养生，顺便买了很多水果零食杂粮，照顾得好，但是有时觉得过多照顾没有个人空间。我喜欢玩游戏，她不喜欢我整天盯着电脑。</p>
+<p>很好</p>
+<h6 id="25-用“我们“做主语造三个肯定句，比如“我们都在这个房间里”。"><a href="#25-用“我们“做主语造三个肯定句，比如“我们都在这个房间里”。" class="headerlink" title="25.用“我们“做主语造三个肯定句，比如“我们都在这个房间里”。"></a>25.用“我们“做主语造三个肯定句，比如“我们都在这个房间里”。</h6><p>我们认识了**年了，我们互相写过书信，我们一起吃过饭逛过街。</p>
+<p>我们是一家人，我们一定能赢，我们这个项目得了第一名。</p>
+<h6 id="26-完成以下句子“我希望我有一个人能与ta分享…”"><a href="#26-完成以下句子“我希望我有一个人能与ta分享…”" class="headerlink" title="26.完成以下句子“我希望我有一个人能与ta分享…”"></a>26.完成以下句子“我希望我有一个人能与ta分享…”</h6><p>互联网+人工智能+区块链带来的好处，让世界信息差更少，将人类从繁重的劳动中解放出来，人们能快速获取到自己需要的信息。我找到了想要的许许多多资料，但是需要自己辨别，可以找很多的论坛，找到各个组织，增强个人自己的能力。让我看到了世界的无线可能。可以节省很多很多的钱。</p>
+<p>我的内心最深处的东西</p>
+<h6 id="27-如果你会跟你对面的人变成亲密好友，分享一下你觉得对方必需得知道的事情。"><a href="#27-如果你会跟你对面的人变成亲密好友，分享一下你觉得对方必需得知道的事情。" class="headerlink" title="27.如果你会跟你对面的人变成亲密好友，分享一下你觉得对方必需得知道的事情。"></a>27.如果你会跟你对面的人变成亲密好友，分享一下你觉得对方必需得知道的事情。</h6><p>我不喜欢混沌的东西，有些事情可以含蓄，但是意思要表达清楚，确保我能准确理解你的话。还有就是不要没有意义的频繁打扰我，也不要一点都不和我联系，就是有一个界限，不能无端的热情，也不能完全地冷漠，就是正常交流，没有压力地交流，应对压力时要一起应对压力共同承担风险，不要单独承担。在相处时提出的不愉快行为要互相改正，不要说了很多遍还是不改正，觉得对方要求太小气无理、神经质，就不去遵守。比如我说出门带钥匙不要我老是帮忙开门。</p>
+<p>我的禁忌</p>
+<h6 id="28-告诉你对面的人你喜欢ta什么：老实回答，说一些你通常不会告诉刚认识的人的答案。"><a href="#28-告诉你对面的人你喜欢ta什么：老实回答，说一些你通常不会告诉刚认识的人的答案。" class="headerlink" title="28.告诉你对面的人你喜欢ta什么：老实回答，说一些你通常不会告诉刚认识的人的答案。"></a>28.告诉你对面的人你喜欢ta什么：老实回答，说一些你通常不会告诉刚认识的人的答案。</h6><p>有着一股与众不同的气质，就是感觉她比一般人更有能力，导致她也很自信，并且她也不炫耀能力来做作。还有就是谈吐、穿着都有一定考究，比一般人花心思更多，并且已经美丽地很自然，让人觉得很舒服。</p>
+<p>喜欢他和我兴趣相投</p>
+<h6 id="29-与你对面的人分享人生中很尴尬的一刻。"><a href="#29-与你对面的人分享人生中很尴尬的一刻。" class="headerlink" title="29.与你对面的人分享人生中很尴尬的一刻。"></a>29.与你对面的人分享人生中很尴尬的一刻。</h6><p>我对女生一本正经地说，我想吃你豆腐，其实我想说是吃豆腐脑，不是豆腐。</p>
+<p>高中被老师叫家长，在同学面前被爸爸训哭了</p>
+<h6 id="30-你上一次在别人面前哭是什么时候？上一次自己哭是什么时候？"><a href="#30-你上一次在别人面前哭是什么时候？上一次自己哭是什么时候？" class="headerlink" title="30.你上一次在别人面前哭是什么时候？上一次自己哭是什么时候？"></a>30.你上一次在别人面前哭是什么时候？上一次自己哭是什么时候？</h6><p>记不清了，一般就是气不过，争论不赢，对面刻意曲解我的意思的时候。记不清，一般只是难过想不通的想睡觉，想哭也哭不出来，就是觉得可能哭出来好，但是又感觉本来就没有那么悲伤没有动力哭。</p>
+<p>在别人面前哭是在妈妈车祸的时候，自己哭也是</p>
+<h6 id="31-告诉你对面的人你已经喜欢上ta的什么？"><a href="#31-告诉你对面的人你已经喜欢上ta的什么？" class="headerlink" title="31.告诉你对面的人你已经喜欢上ta的什么？"></a>31.告诉你对面的人你已经喜欢上ta的什么？</h6><p>带来的惊喜，好看，接受新东西能力强，懂得倾听不打断别人倾诉，并能针对倾诉的问题给出一定不敷衍的反馈，建议或解释等。</p>
+<p>喜欢你的单纯善良</p>
+<h6 id="32-有什么人事物是太严重，不能随便开玩笑的？"><a href="#32-有什么人事物是太严重，不能随便开玩笑的？" class="headerlink" title="32.有什么人事物是太严重，不能随便开玩笑的？"></a>32.有什么人事物是太严重，不能随便开玩笑的？</h6><p>针对一个小缺点不放地侮辱他人，在严肃问题场合上刻意曲解他人意思、或者说谎。</p>
+<p>我的家人</p>
+<h6 id="33-如果你将在今晚死去，没有任何再与他人交流的机会，你最后悔没有把什么事情跟别人说？"><a href="#33-如果你将在今晚死去，没有任何再与他人交流的机会，你最后悔没有把什么事情跟别人说？" class="headerlink" title="33.如果你将在今晚死去，没有任何再与他人交流的机会，你最后悔没有把什么事情跟别人说？"></a>33.如果你将在今晚死去，没有任何再与他人交流的机会，你最后悔没有把什么事情跟别人说？</h6><p>再次问清楚我自己在她心里的成分与比重</p>
+<p>表白</p>
+<h6 id="34-你的家着火了，里面有你所拥有的一切事物、在救出你爱的人，你的宠物后，你还有时间最后再冲回去一-趟拯救最后一样任何东西，你会救出什么？为什么？"><a href="#34-你的家着火了，里面有你所拥有的一切事物、在救出你爱的人，你的宠物后，你还有时间最后再冲回去一-趟拯救最后一样任何东西，你会救出什么？为什么？" class="headerlink" title="34.你的家着火了，里面有你所拥有的一切事物、在救出你爱的人，你的宠物后，你还有时间最后再冲回去一 趟拯救最后一样任何东西，你会救出什么？为什么？"></a>34.你的家着火了，里面有你所拥有的一切事物、在救出你爱的人，你的宠物后，你还有时间最后再冲回去一 趟拯救最后一样任何东西，你会救出什么？为什么？</h6><p>书信。因为钱可以再挣，图片也可以再打印，证件也可以再办，但是书信却不再写了，那种记录着当时的思想与情绪的笔迹纸张，烧掉就不复存在，虽然还有网上备份图片。图片却不能还原书信的原滋原味。</p>
+<p>代表回忆的物品</p>
+<h6 id="35-你家庭中的所有人里，谁的死会让你最难受？为什么？"><a href="#35-你家庭中的所有人里，谁的死会让你最难受？为什么？" class="headerlink" title="35.你家庭中的所有人里，谁的死会让你最难受？为什么？"></a>35.你家庭中的所有人里，谁的死会让你最难受？为什么？</h6><p>妈妈，是最照顾我感受的人。</p>
+<p>我妈，她对我很好</p>
+<h6 id="36-分享一个你私人的问题，并想你对面的人询问ta会怎么处理、之后再请ta回答，对于你选这个问题，ta有什么看法？-最后互相凝视4分钟。"><a href="#36-分享一个你私人的问题，并想你对面的人询问ta会怎么处理、之后再请ta回答，对于你选这个问题，ta有什么看法？-最后互相凝视4分钟。" class="headerlink" title="36.分享一个你私人的问题，并想你对面的人询问ta会怎么处理、之后再请ta回答，对于你选这个问题，ta有什么看法？ 最后互相凝视4分钟。"></a>36.分享一个你私人的问题，并想你对面的人询问ta会怎么处理、之后再请ta回答，对于你选这个问题，ta有什么看法？ 最后互相凝视4分钟。</h6><p>宿舍本来是一人一周打扫卫生，但是有的人打扫很随便，就是感觉没有认真，虽然确实有些干净了，但是却不够干净，也不刷厕所，不擦洗漱台，我的话就是完完整整的把宿舍卫生都搞干净了，长期几次我觉得亏了，真的心里特别不平衡不舒服。问我是要求他们跟上我的洁净要求，还是把自己的标准降低到他们的水平，毕竟他们那么随便，感觉都是认真的人在打扫卫生，不认真的人在做做样子，真的心里特别不平衡不舒服。还是自己承担这份内心的不平衡。</p>
+<p>喜欢一个人但觉得自己不够优秀要不要趁早表白</p>
+<p>37.最后互相凝视4分钟。</p>
+<h2 id="36个问题背后的心理学原理也很经典——自我暴露理论。"><a href="#36个问题背后的心理学原理也很经典——自我暴露理论。" class="headerlink" title="36个问题背后的心理学原理也很经典——自我暴露理论。"></a><strong>36个问题背后的心理学原理也很经典——自我暴露理论。</strong></h2><p><strong>自我暴露的意思是一个人自发地、有意识地向另一个人暴露自己真实且重要的信息。</strong></p>
+<p><strong>安全感越高，自我暴露越多，反之也成立：自我暴露越自然，我们对对方产生更多安全感。</strong></p>
+<p>我们对推销员不信任，所以特别害怕自我暴露，朋友让我们信任，我们聊天的时候也会容易到”酒不醉人人自醉“的状态。</p>
+<p>自我暴露一般分为三个层级：</p>
+<h6 id="1-信息互通"><a href="#1-信息互通" class="headerlink" title="1.信息互通"></a><strong>1.信息互通</strong></h6><p>最浅一层的暴露，比如暴露自己的信息或者意图</p>
+<p>”我是一个心理咨询师“</p>
+<p>”我毕业于<a href="https://www.zhihu.com/search?q=%E5%93%88%E5%B0%94%E6%BB%A8%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:947284093%7D">哈尔滨工业大学</a>“</p>
+<h6 id="2-表达观点"><a href="#2-表达观点" class="headerlink" title="2.表达观点"></a><strong>2.表达观点</strong></h6><p>第二个层面时双方分享对一件事的倾向和观点，当两个人可以聊这个的时候，亲密度就上升了一个层级。</p>
+<p>”我觉得庆余年很好看“</p>
+<p>《奇葩说》越来越像一个脱口秀节目了“</p>
+<h6 id="3-表达感受"><a href="#3-表达感受" class="headerlink" title="3.表达感受"></a><strong>3.表达感受</strong></h6><p>感受比观点更接近一个人的内心。</p>
+<p>”我现在很难过，觉得很无助“</p>
+<p>在感受中，分享家人和情感的部分，最为难得。</p>
+<p>“我曾经想过要出家，不想结婚”</p>
+<p>“我跟爸爸的关系不好，他是一个过于严苛的人”。</p>
+<p>仔细观察这36个问题，有大量的引导表达观点和表达感受的问题，从而引导两个人更高效的自我暴露，达成亲密关系。</p>
+<p>参考文章</p>
+<p>链接：<a href="https://www.jianshu.com/p/a0338e445307">https://www.jianshu.com/p/a0338e445307</a></p>
+<p><a href="https://www.zhihu.com/question/362137344">https://www.zhihu.com/question/362137344</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/87531341">https://zhuanlan.zhihu.com/p/87531341</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/111466852">https://zhuanlan.zhihu.com/p/111466852</a></p>
+]]></content>
+      <tags>
+        <tag>yasashii</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>建立自己的阿里云图床</title>
+    <url>/2022/04/03/%E5%BB%BA%E7%AB%8B%E8%87%AA%E5%B7%B1%E7%9A%84%E9%98%BF%E9%87%8C%E4%BA%91%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<h1 id="图床-阿里云"><a href="#图床-阿里云" class="headerlink" title="图床 阿里云"></a>图床 阿里云</h1><h2 id="1-效果展示"><a href="#1-效果展示" class="headerlink" title="1.效果展示"></a>1.效果展示</h2><p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403083438357.png"></p>
+<p>直接拖进typora就会自动上传图片并生成云链接。</p>
+<h2 id="2-安装过程"><a href="#2-安装过程" class="headerlink" title="2.安装过程"></a>2.安装过程</h2><p>1.下载<a href="https://mp.weixin.qq.com/s?src=11&timestamp=1648946397&ver=3715&signature=YgYGFM058c2O6bgYju1S2HL7pbT82uWAZfJEeKSukOkh8QQizZPPBFNS-Uep0pVYMsPLrBlGpv2yNgYQEHBz2oh2C9DIEuYfix3SssN9tqElU42PMOuOMcGBR6Wth*hZ&new=1">typora</a>并安装。版本在0.9.86以上。</p>
+<p>手动删除文字，防链接失效。</p>
+<p><a href="https://wwm.蓝奏云lanzouq.com/iehyb02ivfxa">https://wwm.蓝奏云lanzouq.com/iehyb02ivfxa</a><br>密码:9o0b</p>
+<p>链接：https:&#x2F;&#x2F;百度网盘pan.baidu.com百度网盘&#x2F;s&#x2F;1Hqhabc70lGI51O98G5x9sA<br>提取码：7758 </p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403084759984.png"></p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085032499.png"></p>
+<h2 id="3-阿里云存储设置"><a href="#3-阿里云存储设置" class="headerlink" title="3.阿里云存储设置"></a>3.阿里云存储设置</h2><p>1.复制下面链接，访问并注册账号，并绑定实名身份</p>
+<p><a href="https://www.aliyun.com/minisite/goods?source=5176.11533457&amp;userCode=vnk7s0ek&amp;type=copy">https://www.aliyun.com/minisite/goods?source=5176.11533457&amp;userCode=vnk7s0ek&amp;type=copy</a></p>
+<p>2.点击控制台</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085557825.png"></p>
+<ol start="3">
+<li><p>选择对象存贮Oss，并开通服务。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085758392.png"></p>
+</li>
+</ol>
+<p>4.点击概览，然后点击创建bucket.</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403085844013.png"></p>
+<p>5.输入创建的信息。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/v2-4664c8ef7dc6bf1b1df8259e4a57bd23_720w.jpg"></p>
+<ol start="6">
+<li>最好先买个资源包。<strong>就4.98元</strong>。先买最低的半年，后面可以随时续费。</li>
+</ol>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403090249827.png"></p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403090316204.png"></p>
+<h2 id="4-配置预设文件"><a href="#4-配置预设文件" class="headerlink" title="4.配置预设文件"></a>4.配置预设文件</h2><p>1.新建txt文件，作为临时存储，放入以下代码。<strong>下面信息都是要通过阿里云账号获取的</strong>，首先我们来找<strong>accessKeyId</strong>和<strong>accessKeySecret</strong></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;picBed&quot;: &#123;</span><br><span class="line">    &quot;uploader&quot;: &quot;aliyun&quot;,</span><br><span class="line">    &quot;aliyun&quot;: &#123;</span><br><span class="line">    &quot;accessKeyId&quot;: &quot;&quot;,</span><br><span class="line">    &quot;accessKeySecret&quot;: &quot;&quot;,</span><br><span class="line">    &quot;bucket&quot;: &quot;&quot;, // 存储空间名</span><br><span class="line">    &quot;area&quot;: &quot;&quot;, // 存储区域代号</span><br><span class="line">    &quot;path&quot;: &quot;img/&quot;, // 自定义存储路径</span><br><span class="line">     &quot;customUrl&quot;: &quot;&quot;, // 自定义域名，注意要加 http://或者 https://</span><br><span class="line">     &quot;options&quot;: &quot;&quot; // 针对图片的一些后缀处理参数 PicGo 2.2.0+ PicGo-Core 1.4.0+</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;picgoPlugins&quot;: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>鼠标悬浮在右上角头像上，并选择AccssKey管理。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091012908.png"></p>
+<p>3.选择继续使用AccessKey，并点击创建accessKey，将新建的txt文本对应内容替换。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091138227.png"></p>
+</li>
+</ol>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091221238.png"></p>
+<p>把创建好的AccessKey保存下来，记住一定不要发给陌生人。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403093927352.png"></p>
+<ol start="4">
+<li><p>回到之前的oss对象存贮，点击之前创建的bucket，在点击bucket里的概览。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091348886.png"></p>
+</li>
+<li><p>根据下面的两张图，使用自己的创建的bucket信息填充之前新建的txt。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091451767.png"></p>
+</li>
+</ol>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091520777.png"></p>
+<p>6.回到typora，依次 文件 —-&gt; 偏好设置 —–&gt; 图像，到下面的页面，选择打开配置文件。<strong>将之前的txt文本的里面的信息，复制粘贴到配置里，并ctrl+s进行保存。</strong></p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403091717697.png"></p>
+<h2 id="5-检验成果"><a href="#5-检验成果" class="headerlink" title="5.检验成果"></a>5.检验成果</h2><p>1.我们来验证下图片上传功能，全部勾选信息，并点击验证图片上传选项。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403092430251.png"></p>
+<p>2.如果，你看到下面这样的页面，那么恭喜你，你成功了。<strong>congratulation！！！</strong></p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403092530351.png"></p>
+<h2 id="6-其它技巧"><a href="#6-其它技巧" class="headerlink" title="6.其它技巧"></a>6.其它技巧</h2><ol>
+<li><p>批量上传图片</p>
+<p>在自己创建的Bucket点击【文件管理】【上传文件】，把自己的图片上传上去就可以了。</p>
+</li>
+</ol>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403093442547.png"></p>
+<p>点击图片文件名或右侧的详情即可弹出具有图片链接地址的页面</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220403093530020.png"></p>
+<p><strong>参考信息</strong></p>
+<p>1.<a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648946397&amp;ver=3715&amp;signature=YgYGFM058c2O6bgYju1S2HL7pbT82uWAZfJEeKSukOkh8QQizZPPBFNS-Uep0pVYMsPLrBlGpv2yNgYQEHBz2oh2C9DIEuYfix3SssN9tqElU42PMOuOMcGBR6Wth*hZ&amp;new=1">https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648946397&amp;ver=3715&amp;signature=YgYGFM058c2O6bgYju1S2HL7pbT82uWAZfJEeKSukOkh8QQizZPPBFNS-Uep0pVYMsPLrBlGpv2yNgYQEHBz2oh2C9DIEuYfix3SssN9tqElU42PMOuOMcGBR6Wth*hZ&amp;new=1</a></p>
+<p>2.<a href="https://www.cnblogs.com/qian-chang/p/13669613.html">https://www.cnblogs.com/qian-chang/p/13669613.html</a></p>
+<p>3.<a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648939537&amp;ver=3715&amp;signature=cKOYsdY67Gfd-vYQlwWbABb8WzX7hBYAvEl5FaY55ETFRZdUXljB5Jqq8bEZ-DKS10vySd5LHwPA4kAJ-muUCVXlNF9aKQRyurL0OZ3xn8KgD04t27IWh01pptVp6b*m&amp;new=1">https://mp.weixin.qq.com/s?src=11&amp;timestamp=1648939537&amp;ver=3715&amp;signature=cKOYsdY67Gfd-vYQlwWbABb8WzX7hBYAvEl5FaY55ETFRZdUXljB5Jqq8bEZ-DKS10vySd5LHwPA4kAJ-muUCVXlNF9aKQRyurL0OZ3xn8KgD04t27IWh01pptVp6b*m&amp;new=1</a></p>
+]]></content>
+      <tags>
+        <tag>yasashii</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>提问的智慧</title>
     <url>/2022/05/10/%E6%8F%90%E9%97%AE%E7%9A%84%E6%99%BA%E6%85%A7/</url>
     <content><![CDATA[<p>提问的智慧<br> D.H.Grand[nOBODY&#x2F;Ginux]　2001</p>
@@ -2339,7 +2204,7 @@
 <p> 　我们在很大程度上属于志愿者，从繁忙的生活中抽出时间来解惑答疑，而且时常被提问淹没。所以我们无情的滤掉一些话题，特别是抛弃那些看起来象失败者的家伙，以便更高效的利用时间来回答胜利者的问题。</p>
 <p> 　如果你觉得我们过于傲慢的态度让你不爽，让你委屈，不妨设身处地想想。我们并没有要求你向我们屈服–事实上，我们中的大多数人最喜欢公平交易不过 了，只要你付出小小努力来满足最起码的要求，我们就会欢迎你加入到我们的文化中来。但让我们帮助那些不愿意帮助自己的人是没有 意义的。如果你不能接受这种“歧视”，我们建议你花点钱找家商业公司签个技术支持协议得了，别向黑客乞求帮助。</p>
 <p> 　如果你决定向我们求助，当然不希望被视为失败者，更不愿成为失败者中的一员。立刻得到有效答案的最好方法，就是象胜利者那样提问 —— 聪明、自信、有解决问题的思路，只是偶尔在特定的问题上需要获得一点帮助。</p>
-<p> 　（欢迎对本指南提出改进意见。任何建议请E-mail至<a href="mailto:&#101;&#x73;&#x72;&#64;&#x74;&#x68;&#121;&#x72;&#115;&#x75;&#x73;&#x2e;&#x63;&#111;&#109;">&#101;&#x73;&#x72;&#64;&#x74;&#x68;&#121;&#x72;&#115;&#x75;&#x73;&#x2e;&#x63;&#111;&#109;</a>，然而 请注意，本文并非网络礼节的通用指南，我通常会拒绝无助于在技术论坛得到有用答案的建议。） （当然，如果你写中文，最好还是寄<a href="mailto:&#68;&#72;&#71;&#x72;&#97;&#x6e;&#x64;&#x40;&#104;&#111;&#116;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#109;">&#68;&#72;&#71;&#x72;&#97;&#x6e;&#x64;&#x40;&#104;&#111;&#116;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#109;</a>;-）</p>
+<p> 　（欢迎对本指南提出改进意见。任何建议请E-mail至<a href="mailto:&#x65;&#115;&#x72;&#64;&#x74;&#104;&#x79;&#x72;&#115;&#117;&#115;&#x2e;&#x63;&#x6f;&#109;">&#x65;&#115;&#x72;&#64;&#x74;&#104;&#x79;&#x72;&#115;&#117;&#115;&#x2e;&#x63;&#x6f;&#109;</a>，然而 请注意，本文并非网络礼节的通用指南，我通常会拒绝无助于在技术论坛得到有用答案的建议。） （当然，如果你写中文，最好还是寄<a href="mailto:&#68;&#x48;&#71;&#114;&#x61;&#110;&#100;&#64;&#104;&#111;&#116;&#x6d;&#97;&#105;&#x6c;&#46;&#x63;&#111;&#109;">&#68;&#x48;&#71;&#114;&#x61;&#110;&#100;&#64;&#104;&#111;&#116;&#x6d;&#97;&#105;&#x6c;&#46;&#x63;&#111;&#109;</a>;-）</p>
 <p> &#x3D; 提问之前 &#x3D;</p>
 <p> 　在通过电邮、新闻组或者聊天室提出技术问题前，检查你有没有做到：</p>
 <p> \1. 通读手册，试着自己找答案。<br> \2. 在FAQ里找答案（一份维护得好的FAQ可以包罗万象:）。<br> \3. 在网上搜索（个人推荐google~~~）。<br> \4. 向你身边精于此道的朋友打听。</p>
@@ -2426,6 +2291,387 @@
 <p> 　对大众化的软件，就象Linux之类而言，每个开发者至少会有上万名用户。根本不可能由一个人来处理来自上万名用户的求助电话。要知道，即使你要为帮 助付费，同你必须购买同类软件相比，你所付出的也是微不足道的（通常封闭源代码软件的技术支持费用比开放源代码软件要高得多，且内容也不那么丰富）。</p>
 <p> Copyright (C) 2001 by Eric S. Raymond<br> 中文版 Copyleft 2001 by D.H.Grand(nOBODY&#x2F;Ginux)<br> 英文版：<a href="http://www.tuxedo.org/~esr/faqs/smart-questions.html">http://www.tuxedo.org/~esr/faqs/smart-questions.html</a><br> 本指南 英文版版权为 Eric Steven Raymond 所有，<br> 中文版版权由 D.H.Grand[nOBODY&#x2F;Ginux] 所有</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>网站导航</title>
+    <url>/2022/04/02/%E7%BD%91%E7%AB%99%E5%AF%BC%E8%88%AA/</url>
+    <content><![CDATA[<h2 id="常用网站"><a href="#常用网站" class="headerlink" title="常用网站"></a>常用网站</h2><ul>
+<li><a href="https://www.kaolamedia.com/">https://www.kaolamedia.com/</a>  新媒体人每天打开的第一个网站</li>
+<li><a href="https://www.ijiandao.com/">https://www.ijiandao.com/</a> 一个大而全的自媒体导航网站，偏网络技术性，含广告</li>
+</ul>
+<h2 id="风口项目-最赚钱的方向，方向可叠加"><a href="#风口项目-最赚钱的方向，方向可叠加" class="headerlink" title="风口项目(最赚钱的方向，方向可叠加)"></a>风口项目(最赚钱的方向，方向可叠加)</h2><ul>
+<li><p>人工智能方向，关键词有：混合现实、虚拟现实、游戏、社区、元宇宙、超域、区块链</p>
+</li>
+<li><p>在线教育方向，关键词有：知识付费、考研培训、java培训、英语培训、日语培训、泡妞培训、养生培训</p>
+</li>
+<li><p>自媒体方向，关键词有：个人ip、买人设、镜头表现力、短视频、B站、快手、引流变现、商业合作、恰饭内容</p>
+</li>
+<li><p>社区运营方向，关键词有：考公考研群、付费会员、混音群声音调教、入群会员费</p>
+</li>
+</ul>
+<h2 id="图书馆网站导航"><a href="#图书馆网站导航" class="headerlink" title="图书馆网站导航"></a>图书馆网站导航</h2><ul>
+<li><a href="http://www.sci-hub.ren/">http://www.sci-hub.ren/</a> 全球最大的科研下载网站。web of scient\百度学术 查doi号后查找</li>
+<li><a href="https://ebook2.lorefree.com/">https://ebook2.lorefree.com/</a> 书籍需要稻壳阅读器打开，方便阅读</li>
+<li><a href="https://zh.ng1lib.org/?signAll=1&amp;ts=2156">https://zh.ng1lib.org/?signAll=1&amp;ts=2156</a> 全球最大的数字图书馆</li>
+<li><a href="https://www.pdfdrive.com/">https://www.pdfdrive.com/</a> 全球最大的pdf网站，偏向英文</li>
+<li><a href="https://digilibraries.com/">https://digilibraries.com/</a> 纯英文书籍搜索网站，书籍图较多</li>
+<li><a href="http://www.ucdrs.net/admin/union/index.do">http://www.ucdrs.net/admin/union/index.do</a>  可以查到有什么书，仅试看，不下载全部</li>
+</ul>
+<h2 id="书籍格式转换相关工具"><a href="#书籍格式转换相关工具" class="headerlink" title="书籍格式转换相关工具"></a>书籍格式转换相关工具</h2><ul>
+<li><a href="https://www.toplinks.cc/s/">https://www.toplinks.cc/s/</a>  需要自己下载excel，查到后在百度网盘下载</li>
+<li><a href="https://convertio.co/zh/ebook-converter/">https://convertio.co/zh/ebook-converter/</a> 文献格式转换网站</li>
+<li><a href="https://www.alltoall.net/">https://www.alltoall.net/</a> 文献格式转换网站</li>
+<li><a href="https://pdf.yozocloud.cn/p/home#/Pdf2word">https://pdf.yozocloud.cn/p/home#/Pdf2word</a> 永中格式转换 pdf word ppt</li>
+</ul>
+<h2 id="论坛导航"><a href="#论坛导航" class="headerlink" title="论坛导航"></a>论坛导航</h2><ul>
+<li><a href="https://www.runoob.com/">https://www.runoob.com/</a> 学习java、python等教材级网站，有代码跑</li>
+<li><a href="https://stackoverflow.com/">https://stackoverflow.com/</a> 比全球较大的社区交流论坛</li>
+<li><a href="https://stackoverflow.com/questions/tagged/java%E8%A7%A3%E5%86%B3%E7%BB%9D%E5%A4%A7%E5%A4%9A%E6%95%B0java%E7%9A%84bug">https://stackoverflow.com/questions/tagged/java解决绝大多数java的bug</a></li>
+<li><a href="https://dl.21ic.com/">https://dl.21ic.com/</a> 21icdi电子论坛：严格管理，看起来不错。有很多免费的it行业电子书。</li>
+<li><a href="https://www.labfans.com/bbs/t85/">https://www.labfans.com/bbs/t85/</a> 一个matlab论坛，回首页可以看到各种语言开发论坛</li>
+<li><a href="http://ifeve.com/">http://ifeve.com/</a> 并发编程网</li>
+<li><a href="https://www.heywhale.com/home/user/profile/5ddb3f9d249294002d4e035f">https://www.heywhale.com/home/user/profile/5ddb3f9d249294002d4e035f</a> 一个对初学者友好的半付费网站</li>
+<li><a href="https://www.cnblogs.com/">https://www.cnblogs.com/</a> 博客园，老牌技术论坛</li>
+<li><a href="http://www.elecfans.com/">http://www.elecfans.com/</a> 国内老牌技术论坛</li>
+<li><a href="https://www.kylen314.com/">https://www.kylen314.com/</a> 一个个人网站</li>
+<li><a href="https://xydh.fun/gangshu">https://xydh.fun/gangshu</a> 个人导航</li>
+<li><a href="https://www.52pojie.cn/">https://www.52pojie.cn/</a>    吾爱破解论坛</li>
+<li><a href="https://github.com/trending/java?since=monthly">https://github.com/trending/java?since=monthly</a>     找到大部分的脚本</li>
+<li><a href="https://developer.ibm.com/languages/java">https://developer.ibm.com/languages/java</a>       高质量Java书籍 IBM</li>
+<li><a href="https://www.infoworld.com/category/java">https://www.infoworld.com/category/java</a>       大量的 Java 教程 </li>
+<li><a href="https://www.programcreek.com/simple-java">https://www.programcreek.com/simple-java</a>        简单的Java教学，类似菜鸟教程</li>
+<li><a href="https://leetcode.cn/problemset/all">https://leetcode.cn/problemset/all</a>       乐扣题库，中国最好学习计算机网站</li>
+<li><a href="https://www.cnblogs.com/cate/java">https://www.cnblogs.com/cate/java</a>     博客园看博客</li>
+<li><a href="https://juejin.cn/backend">https://juejin.cn/backend</a>       掘金，国内网站</li>
+</ul>
+<h2 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h2><ul>
+<li><a href="https://zhihu.zhaoyizhe.com/">https://zhihu.zhaoyizhe.com/</a> 知乎历史热榜</li>
+<li><a href="https://xxkol.cn/home">https://xxkol.cn/home</a> B站、快手历史榜单</li>
+<li><a href="https://www.wrd.cn/splitWords.shtml">https://www.wrd.cn/splitWords.shtml</a> 网易云微热点 文本数据挖掘</li>
+<li><a href="https://tophub.today/">https://tophub.today/</a> 每日热榜</li>
+<li><a href="https://www.desmos.com/calculator?lang=zh-CN">https://www.desmos.com/calculator?lang=zh-CN</a>  可视化数学公式</li>
+<li><a href="https://tw.noxinfluencer.com/youtube-channel-rank/top-100-all-all-youtuber-sorted-by-subs-weekly">https://tw.noxinfluencer.com/youtube-channel-rank/top-100-all-all-youtuber-sorted-by-subs-weekly</a> YouTube、国际抖音、推特的达人粉丝数分析</li>
+<li><a href="https://cn.noxinfluencer.com/trend/">https://cn.noxinfluencer.com/trend/</a> YouTube、国际抖音、推特的达人粉丝数分析（区别：需要手机号注册、分析全球信息更加详细）</li>
+</ul>
+<h2 id="素材网站"><a href="#素材网站" class="headerlink" title="素材网站"></a>素材网站</h2><ul>
+<li><a href="https://www.dbbqb.com/search/id/250108.html">https://www.dbbqb.com/search/id/250108.html</a> 搞笑图片</li>
+<li><a href="https://hao.uisdc.com/">https://hao.uisdc.com/</a> 一个国内最强素材导航</li>
+<li><a href="https://www.pixiv.net/">https://www.pixiv.net/</a> 最强原创二次元图片 二次元界称P站</li>
+<li><a href="https://www.888haoran.com/category/dzszy/mhxz">https://www.888haoran.com/category/dzszy/mhxz</a> 最强原创二次元图片收集</li>
+<li><a href="https://acg.zsyts.cn/">https://acg.zsyts.cn/</a> 最强原创二次元图片收集2 次元猫</li>
+<li><a href="https://www.huashi6.com/">https://www.huashi6.com/</a> 国内二次元图片 半付费</li>
+<li><a href="https://www.doyoudo.com/resources">https://www.doyoudo.com/resources</a> 免费商用图片 涉及各种自媒体创作知识</li>
+<li><a href="https://wall.alphacoders.com/popular.php?lang=Chinese">https://wall.alphacoders.com/popular.php?lang=Chinese</a> 壁纸网站</li>
+<li><a href="https://www.iconfont.cn/home/index?spm=a313x.7781069.1998910419.2">https://www.iconfont.cn/home/index?spm=a313x.7781069.1998910419.2</a> 阿里矢量图标</li>
+<li><a href="https://cc0.cn/">https://cc0.cn/</a> 收集可免费商用图片 现实图片</li>
+<li><a href="https://unsplash.com/">https://unsplash.com/</a>  收集可免费商用图片 现实图片</li>
+<li><a href="https://www.foodiesfeed.com/">https://www.foodiesfeed.com/</a> 食物图片</li>
+<li><a href="https://www.lofter.com/">https://www.lofter.com/</a> B站知乎之类的论坛</li>
+<li><a href="https://www.thiswaifudoesnotexist.net/">https://www.thiswaifudoesnotexist.net/</a> ai老婆生成器 对抗网络图片生成</li>
+<li><a href="https://if.caiyunai.com/#/">https://if.caiyunai.com/#/</a> ai自动续写 彩云小梦</li>
+<li><a href="https://www.remove.bg/zh/upload">https://www.remove.bg/zh/upload</a> ai抠图 分离人物和背景</li>
+</ul>
+<h3 id="音乐相关"><a href="#音乐相关" class="headerlink" title="音乐相关"></a>音乐相关</h3><ul>
+<li><a href="https://freepd.com/">https://freepd.com/</a> 声库</li>
+<li><a href="https://www.ear0.com/">https://www.ear0.com/</a> 声库2 耳聆网</li>
+<li><a href="https://www.tosound.com/">https://www.tosound.com/</a> 声库3 淘声网</li>
+<li><a href="https://wedistill.io/">https://wedistill.io/</a> 声库4</li>
+<li><a href="https://mixkit.co/">https://mixkit.co/</a> 免费的视频、音乐、声效等 资源库1</li>
+<li><a href="https://www.videvo.net/">https://www.videvo.net/</a> 免费的视频、音乐、声效等 资源库2</li>
+<li><a href="https://www.videezy.com/">https://www.videezy.com/</a> 免费的视频、音乐、声效等 资源库3 这个有科研视频素材</li>
+</ul>
+<h3 id="音乐制作工具"><a href="#音乐制作工具" class="headerlink" title="音乐制作工具"></a>音乐制作工具</h3><ul>
+<li><a href="http://vocakey.info/vocaloid5_library">http://vocakey.info/vocaloid5_library</a> vocaloid5声库</li>
+<li><a href="https://vocalremover.org/ch/">https://vocalremover.org/ch/</a> 人声伴奏分离</li>
+<li><a href="https://www.lalal.ai/">https://www.lalal.ai/</a> 人声伴奏分离</li>
+<li><a href="https://demo.unlock-music.dev/">https://demo.unlock-music.dev/</a> 酷狗酷我QQ音乐网易云格式转换mp3</li>
+</ul>
+<h2 id="电影网站"><a href="#电影网站" class="headerlink" title="电影网站"></a>电影网站</h2><ul>
+<li><a href="https://v.lxl8800.cn/index.php/vod/type/id/4/page/3.html">https://v.lxl8800.cn/index.php/vod/type/id/4/page/3.html</a></li>
+</ul>
+<h2 id="游戏破解"><a href="#游戏破解" class="headerlink" title="游戏破解"></a>游戏破解</h2><ul>
+<li><a href="https://byrut.org/">https://byrut.org/</a> 海盗湾</li>
+<li><a href="https://pc.qq.com/search.html#!keyword=360%E6%B5%8F%E8%A7%88%E5%99%A8">https://pc.qq.com/search.html#!keyword=360%E6%B5%8F%E8%A7%88%E5%99%A8</a> 腾讯软件下载中心</li>
+</ul>
+<h2 id="网站运营"><a href="#网站运营" class="headerlink" title="网站运营"></a>网站运营</h2><ul>
+<li><a href="http://www.yunyingxuetang.com/">http://www.yunyingxuetang.com/</a> 运营学堂</li>
+<li><a href="http://www.woshipm.com/">http://www.woshipm.com/</a> 人人都是产品经理</li>
+</ul>
+<h2 id="生理"><a href="#生理" class="headerlink" title="生理"></a>生理</h2><ul>
+<li><a href="https://www.brainfacts.org/">https://www.brainfacts.org/</a> 脑部事实</li>
+</ul>
+<h2 id="古代文学"><a href="#古代文学" class="headerlink" title="古代文学"></a>古代文学</h2><ul>
+<li><a href="https://sou-yun.cn/">https://sou-yun.cn/</a> 搜韵</li>
+<li><a href="https://ctext.org/book-of-changes/xi-ci-xia/zhs">https://ctext.org/book-of-changes/xi-ci-xia/zhs</a> 中国哲学书</li>
+<li><a href="https://www.cidianwang.com/kangxi/jiang/jiang1404.htm">https://www.cidianwang.com/kangxi/jiang/jiang1404.htm</a> 康熙字典、说文解字、古汉语字典等</li>
+<li><a href="https://ytenx.org/">https://ytenx.org/</a> 典韵网 研究古代官话发音变化</li>
+<li><a href="https://hanziyuan.net/">https://hanziyuan.net/</a> 字源网 研究汉字演变</li>
+<li><a href="https://www.zdic.net/ts/han/2018/04/433.html">https://www.zdic.net/ts/han/2018/04/433.html</a> 汉典网 研究汉字演变</li>
+<li><a href="https://taiwanebook.ncl.edu.tw/zh-tw">https://taiwanebook.ncl.edu.tw/zh-tw</a> 台湾华文电子书库</li>
+<li><a href="https://twblg.dict.edu.tw/holodict_new/">https://twblg.dict.edu.tw/holodict_new/</a> 台湾闽南语字典</li>
+<li><a href="https://www.moedict.tw/%E5%A3%B9">https://www.moedict.tw/%E5%A3%B9</a>      台湾多方言字典 萌典</li>
+<li><a href="http://laimn.cn/">http://laimn.cn/</a> 闽南语</li>
+</ul>
+<h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><ul>
+<li><a href="http://old.mindmanager.cn/muban/">http://old.mindmanager.cn/muban/</a> 国外</li>
+<li><a href="https://mm.edrawsoft.cn/community/show/1">https://mm.edrawsoft.cn/community/show/1</a> 国内</li>
+<li><a href="https://zhimap.com/gallery">https://zhimap.com/gallery</a> 知识导图</li>
+<li><a href="http://www.3acloud.com/swmb.htm">http://www.3acloud.com/swmb.htm</a> 企业级思维导图 需要下载安装后才可以看到 不支持网页</li>
+</ul>
+<h2 id="大学生"><a href="#大学生" class="headerlink" title="大学生"></a>大学生</h2><ul>
+<li><a href="https://chachong.xiaoyuanling.com/">https://chachong.xiaoyuanling.com/</a> 论文查重 校园令</li>
+<li><a href="http://www.dxzy163.com/">http://www.dxzy163.com/</a> 大学生资源网</li>
+<li><a href="http://www.sasac.gov.cn/n2588035/n2588325/n2588350/index.html">http://www.sasac.gov.cn/n2588035/n2588325/n2588350/index.html</a> 国家人事招聘</li>
+<li><a href="https://www.qgsydw.com/qgsydw/index.html">https://www.qgsydw.com/qgsydw/index.html</a> 全国事业单位招聘</li>
+<li><a href="https://www.zggqzp.com/">https://www.zggqzp.com/</a> 国企招聘 中介</li>
+<li><a href="https://www.iguopin.com/">https://www.iguopin.com/</a> 国企招聘 中介</li>
+</ul>
+<h2 id="国家相关"><a href="#国家相关" class="headerlink" title="国家相关"></a>国家相关</h2><ul>
+<li><a href="http://www.wenshu.com/">http://www.wenshu.com/</a> 一个导航 方便查询个人、企业是否有法律纠纷</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>yasashiix</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>英语四六级</title>
+    <url>/2022/04/05/%E8%8B%B1%E8%AF%AD%E5%9B%9B%E5%85%AD%E7%BA%A7/</url>
+    <content><![CDATA[<h1 id="英语四六级学习方法与资料"><a href="#英语四六级学习方法与资料" class="headerlink" title="英语四六级学习方法与资料"></a>英语四六级学习方法与资料</h1><h2 id="像熟悉家人一样熟悉单词"><a href="#像熟悉家人一样熟悉单词" class="headerlink" title="像熟悉家人一样熟悉单词"></a>像熟悉家人一样熟悉单词</h2><p>中学老师曾经说过：</p>
+<p><strong>教学的目的有两层，第一层是“再认”，就是给教你个东西，你到别的地方能把它再识别出来；而另一种更高要求是“再现”，就是这个东西学过了，你要能自己在需要的时候写出来。阅读就是考“眼熟”，所以只需要达到“再认”就可以了。</strong></p>
+<p>在汉语里也有类似的情况，很多生僻字，比如“尴尬”、“沟壑”、“迷惘”，很多人也是会认不会写，在考试里，丝毫不会影响阅读的做题。</p>
+<h2 id="听力：对照脚本进行跟读"><a href="#听力：对照脚本进行跟读" class="headerlink" title="听力：对照脚本进行跟读"></a>听力：<strong>对照脚本进行跟读</strong></h2><p>彻底体会那些连读、略读、<strong>停顿和语气、语调</strong>，对这些越熟悉，再在别的地方听到的时候，所需要的反应时间就越短，同时自己发出的语音也能更好地为词形和词音建立联系。</p>
+<p>一般来说，应该先循环听，再看脚本，但如果基础太差（听的时候感觉没有收获、没有兴趣继续听下去），也可以先看脚本，再听听力，但循环次数一定要达到<strong>脱离脚本后都识别</strong>出来的程度！</p>
+<p><a href="https://en-letter.xiao84.com/4402.html">26个字母发音</a>。<a href="https://en-letter.xiao84.com/">各字母单独发音</a>。注意g、j、z的区别。s、x的区别。</p>
+<h2 id="单词：建立自己的“核心”“高频”词汇库"><a href="#单词：建立自己的“核心”“高频”词汇库" class="headerlink" title="单词：建立自己的“核心”“高频”词汇库"></a>单词：建立自己的“<strong>核心”“高频”</strong>词汇库</h2><p>买分频的词汇书，用作初始词汇库。用作过渡。后面再做自己的词汇库</p>
+<p>做卷子的时候，不仅在试卷上标注单词的发音和语境意，也要在单词书上做记号，没查一次画一横，手动筛选出自己的<strong>核心”“高频”</strong>词汇库。<strong>是命题人考查你的词汇停留在高中还是大学的标尺！</strong></p>
+<h2 id="阅读"><a href="#阅读" class="headerlink" title="阅读"></a>阅读</h2><p><strong>选真题书一定要有全文翻译的，没有翻译的，不值得买</strong></p>
+<p>后面可以用谷歌翻译检验翻译水平</p>
+<h2 id="写作和翻译"><a href="#写作和翻译" class="headerlink" title="写作和翻译"></a>写作和翻译</h2><p>“回译法”，就是找来真题作文范文的【汉语翻译】，【从汉语翻译往英语“回译”】，然后去对照根据同样的汉语，<strong>自己译的英语和范文有什么差异</strong>，这个差异点，就是你可以译错的地方</p>
+<p>后面可以用谷歌翻译检验翻译水平</p>
+<h2 id="四六级资料"><a href="#四六级资料" class="headerlink" title="四六级资料"></a>四六级资料</h2><p>1989-2020<a href="https://www.aliyundrive.com/s/XgnySKU49jD">六级试卷与解析</a>  <a href="https://m.kekenet.com/cet6/ljtl/">听力</a>   2015-2021<a href="https://www.aliyundrive.com/s/iFBokMEsZ6a">四级试卷与解析</a> </p>
+<p>参考文献：<a href="https://www.zhihu.com/question/22085688/answer/22534419">https://www.zhihu.com/question/22085688/answer/22534419</a></p>
+<p>英语歌谣</p>
+<p><a href="https://www.bilibili.com/video/BV124411r7T2?share_source=copy_web">Coloursong</a></p>
+<p><a href="https://www.bilibili.com/video/BV1yU4y1a7cS?share_source=copy_web">Colors Song_颜色之歌</a></p>
+<p><a href="https://www.bilibili.com/video/BV1vE4118768?share_source=copy_web">五只小鸟3</a></p>
+]]></content>
+      <tags>
+        <tag>yasashii</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>打工人自己的网站</title>
+    <url>/2022/04/07/%E6%89%93%E5%B7%A5%E4%BA%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BD%91%E7%AB%99/</url>
+    <content><![CDATA[<p>打工人自己的网站</p>
+<h2 id="一、招聘网站"><a href="#一、招聘网站" class="headerlink" title="一、招聘网站"></a>一、招聘网站</h2><p>1.<a href="http://www.sasac.gov.cn/n2588035/n2588325/index.html"><strong>国务院国资委</strong></a>。进入网址，点击左侧菜单栏有个“人事”；招聘栏目里面很多国资委下属管辖单位的招聘信息，可以进去查看符合自己的岗位。国企央企的招聘岗位有限，并且提价材料有非常严格的时间限制，要频繁查看信息，从发布招聘信息到提交材料时间非常短，错过也就没有机会了。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220406211625036.png"></p>
+<p>2.<strong><a href="http://www.sasac.gov.cn/n4422011/n17627531/c17633273/content.html">地方国资委</a>。</strong></p>
+<p><strong>3、国资小新公众号</strong></p>
+<p><strong>国资小新</strong>公众号是国务院国资委运营的，绝对权威的国企招聘信息发布渠道，除了招聘信息还有很多国企央企的资讯分享。我今天看了一遍，比国资委网站的招聘信息汇总要全面一点，更新也比较及时。</p>
+<p><strong>4、央企国企招聘网</strong></p>
+<p><strong>央企国企招聘网</strong>是一家叫高霖海拓教育科技的公司运营的<strong>公众号</strong>，不属于国企官方发布渠道，他们会将部分国企、央企、军队、医院等事业单位招聘信息汇总发布，也是可以参考的渠道之一，当然信息不会特别全。多渠道结合来看比较好，多个渠道多个机会嘛。</p>
+<p><strong>5、高校人才招聘</strong></p>
+<p><strong>高校人才招聘</strong>也是第三方公司运营的<strong>公众号</strong>，里面主要是高校招聘老师、辅导员、西欧那个证人员事业编的信息，对高校事业编感兴趣的朋友可以看看，个人感觉里面信息还算全面。</p>
+<p>6.<a href="http://www.mohrss.gov.cn/SYrlzyhshbzb/fwyd/SYkaoshizhaopin/zyhgjjgsydwgkzp/">国家事业单位</a></p>
+<p>7.<a href="http://job.mohrss.gov.cn/">中共招聘网</a>。可以查到岗位需求，自己可以按地区、岗位内容、薪资快速检索，相当方便。</p>
+<p>8.各省人力资源和社会保障厅，一般发布各省事业单位招聘、公务员招考、公开选调等招聘信息。比如湖南省人力资源和社会保障厅 <a href="https://link.zhihu.com/?target=http://rst.hunan.gov.cn/">http://rst.hunan.gov.cn/</a></p>
+<p>9.公司招聘官网、公众号，如：中国建设银行招聘官网：<a href="https://link.zhihu.com/?target=http://job.ccb.com/ccbjob/cn/job/index.jsp">http://job.ccb.com/ccbjob/cn/j</a></p>
+<p>10.第三方求职网站</p>
+<p>应届生求职<a href="https://link.zhihu.com/?target=http://www.yingjiesheng.com/">http://www.yingjiesheng.com/</a></p>
+<p>智联招聘<a href="https://link.zhihu.com/?target=https://www.zhaopin.com/">https://www.zhaopin.com/</a></p>
+<p>前程无忧<a href="https://link.zhihu.com/?target=https://www.51job.com/">https://www.51job.com/</a></p>
+<p>中华英才网<a href="https://link.zhihu.com/?target=https://www.chinahr.com/home/cs/">https://www.chinahr.com/home/cs/</a></p>
+<p>各省人才网，如湖南人才网<a href="https://link.zhihu.com/?target=http://www.hnrcsc.com/">http://www.hnrcsc.com/</a></p>
+<p>实习僧、猎聘、领英、BOSS直聘、脉脉……</p>
+<p>11.中智招聘 - <a href="http://www.yinhangzhaopin.com/"><strong>国企</strong></a></p>
+<p>12.<a href="http://www.yinhangzhaopin.com/">银行招聘网</a></p>
+<p>13.<a href="http://www.cphr.com.cn/4880.html">国家电网人才招聘</a></p>
+<h2 id="二、打工人的权利。"><a href="#二、打工人的权利。" class="headerlink" title="二、打工人的权利。"></a>二、打工人的权利。</h2><p><a href="http://www.npc.gov.cn/npc/c30834/201901/ffad2d4ae4da4585a041abf66e74753c.shtml">《中华人民共和国劳动法》</a>。</p>
+<p>法律援助：<a href="https://hilawyers.club/questions/">法律案例分析知识库</a>。<a href="https://www.bilibili.com/video/BV1234y197hT?share_source=copy_web">网站用法B站教程。</a></p>
+<p><a href="http://www.gov.cn/zhengce/2020-12/27/content_5574550.htm">《劳动保障监察条例》</a>。</p>
+<p>1、投诉人身份证；</p>
+<p>2、劳动合同；</p>
+<p>3、用人单位向劳动者发放的“工作证”、“服务证”等能够证明身份的证件</p>
+<p>4、工资支付凭证或记录(职工工资发放花名册)、缴纳各项社会保险费的记录；</p>
+<p>5、劳动者填写的用人单位招工招聘“登记表”、“报名表”等招用记录；</p>
+<p>6、考勤记录；</p>
+<p>7、<a href="https://zhuanlan.zhihu.com/p/376896791">其他证明劳动关系的材料。</a></p>
+<p>劳动仲裁</p>
+<p>1.营业执照。天眼查。企业查。公司地址，法人名字。</p>
+<p>2.仲裁申请书。自己写或者网上下载再填。或者去仲裁所附近找人代写。写好后，去问仲裁所的法律咨询能不能用，需要改哪里，怎么改，</p>
+<p>3.证据清单。</p>
+<p>4.身份证复印件。</p>
+<p>流程</p>
+<p>1.支付宝或微信：欠薪线索反馈。</p>
+<p>2.劳动仲裁。按上面收集材料，然后咨询律师能不能用，</p>
+<p>3.起诉。聘用律师，将仲裁的材料一式两份提交到法院。然后一审二审。</p>
+<p>4.按律师建议做些要做的事。</p>
+<h2 id="三、一些故事"><a href="#三、一些故事" class="headerlink" title="三、一些故事"></a>三、一些故事</h2><p><a href="https://www.bilibili.com/video/BV1nZ4y1H7NV?p=1">故事案例1</a></p>
+<p><a href="https://www.bilibili.com/video/BV1o34y147Uo?share_source=copy_web">故事案例2</a></p>
+<h2 id="四、快乐工作"><a href="#四、快乐工作" class="headerlink" title="四、快乐工作"></a>四、快乐工作</h2><p>工作很少使人能够感到快乐，所以我们要制造快乐，反正干也得干，不干也得干，何不让它充满乐趣地干呢，不喜欢但必须干的事儿，我必然要想出办法把它变得不那么讨厌。</p>
+<p>1.从枯燥的工作中挖掘出新意，比如在日复一日重复的工作中，找出更便捷、更高效的方法，提高工作效率，节约时间，经常有新意，你会不觉枯燥也有了成就感。</p>
+<p>2.工作中干点儿私事儿，占便宜的感觉棒棒哒。手底下忙活着，但不影响我每天做提肛，叩齿，转眼球（中医的养生措施）…，手空下了就练习钢琴高抬指……，总之这些回家该干的事上班都干完了，岂不美哉？</p>
+<p>3.利用工作中学习提高，只要从我手上过的东西，即便与我业务无关，我也会扫一眼，了解更多知识，涨了见识，其实这也是在一点一滴地学习，日积月累的效果很可观。</p>
+<p>4.工作中学习做人做事的道理。窗口工作经常跟人打交道，为什么有些人说话你就想去帮他，有些人就想怼他，我经常通过他们的言行举止总结和思索，同时提高自己的说话技巧和沟通能力，同时在无数次的解答政策中。摸索如何能更加简明扼要，通俗易懂地与人表达和沟通。</p>
+<p>5 没有过多的精力去做义工、做慈善，所以把自己每一天的工作当做举手之劳，为他人带去温暖，尽我能尽我力，为社会贡献一份美好，活出自己的价值。</p>
+<p>6 老话说：庄稼一枝花，全靠粪当家。你懂的，工作是立身之本，它要供养我的吃喝玩乐，它是有功之臣；再想想，地球上还有多少人在忍受失业的痛苦和压力，我相比还是不错的。感恩之心要时习之。</p>
+<p>每天的工作，除了付出劳动，自己还有收益和提高，就会觉得快乐和满足。</p>
+<p>原文链接：<a href="https://www.zhihu.com/question/346676791/answer/875166310">https://www.zhihu.com/question/346676791/answer/875166310</a></p>
+<h2 id="五、老师如何看出学生聪明程度"><a href="#五、老师如何看出学生聪明程度" class="headerlink" title="五、老师如何看出学生聪明程度"></a>五、老师如何看出学生聪明程度</h2><p>工具&#x2F;原料：细心观察</p>
+<p>1.看出学生聪明，可以通过上课时观察学生的微表情，往往这类学生知识接受程度会比较快。</p>
+<p>2.看出学生聪明，最简单的方法是看学生的学习成绩。</p>
+<p>3.看出学生聪明，还可以通过提问，尤其是一些有深度的话题，往往聪明学生的见解会高出一个层次。</p>
+<p>4.看出学生聪明，可以通过私下交谈，会发现聪明的学生逻辑非常清晰，语言表达非常流畅，见解会很独到。</p>
+<p>5.看出学生聪明，还可以通过一些竞赛，往往有时候聪明的学生在某些竞赛方面表现会比较突出。</p>
+<p>6.总结：细心观察学生，不断总结规律，会较容易看出学生是否聪明。</p>
+<p>原文链接：<a href="https://jingyan.baidu.com/article/4b07be3c0dc80209b380f39f.html">https://jingyan.baidu.com/article/4b07be3c0dc80209b380f39f.html</a></p>
+<h2 id="六、怎么看出一个人很聪明"><a href="#六、怎么看出一个人很聪明" class="headerlink" title="六、怎么看出一个人很聪明"></a>六、怎么看出一个人很聪明</h2><p>有的人喜欢自作聪明，那不是真正的聪明，也不会让人觉得厉害。阅人无数之后，我发现有一个人很聪明，他的确是与众不同，带给我截然不同的美好体验和难忘的经历。我是怎么看出一个人很聪明的呢？</p>
+<p>1.经历的实践多，能发现对方价值，赞美对方优点。<strong>【懂得欣赏别人】</strong>遇见过很多人，为什么我偏偏就喜欢他？因为在交往的过程中，<strong>我发现他待人一向彬彬有礼，懂得如何欣赏别人，让别人充满信心，看到自己的优秀之处</strong>，觉得自己是聪明可爱的。</p>
+<p>如果一个人处处挑剔苛责你，让你感到自卑，你还有可能爱对方吗？</p>
+<p>2.没有居高临下的做法和态度。<strong>【帮人恰到好处】</strong></p>
+<p>当一个人在困境中，会有很多貌似关心你的人出现。有的人送钱，有的人送吃的，有的人打探隐私还四处传播，有的人热心为你介绍对象……</p>
+<p><strong>而那个最聪明的人，他从来不做那些“居高临下”帮助别人的事，</strong>因为这样对于别人的自尊是一种打击。<strong>庶人赠人以财，而君子赠人以言，他的一句话就可以温暖别人的心灵，让冰雪消融。</strong></p>
+<p>3.<strong>【爱你不动声色】</strong></p>
+<p>曾经有很多人约我出去玩，请吃饭，他们热情地表白，说着满嘴动听的甜言蜜语，送来很多令人眼花缭乱的礼物……但若干年后，那些曾经的海誓山盟都消失了，很多面孔早已模糊不清。</p>
+<p><strong>我唯一记得的，只是那个不动声色、默默为我奋斗的人，他让我懂得了什么是“君子之交淡如水”。原来最厉害的并不是呼天抢地、死去活来，而是爱到深处无言，这个聪明的人就是“深水无声”！</strong></p>
+<p>4.本身就很优雅，做事行云流水。<strong>【冰雪无语】</strong></p>
+<p>有的人在身边说爱你，他们每天都在说些什么呢？他们会说漂亮的情话，会忽悠别人，会抱怨自己可怜的境遇，会倾诉自己的烦恼，会说别人的坏话，会向你乱发泄……这些都不会让你幸福快乐。</p>
+<p>可当一个人在你身边出现时，<strong>即使他一直不说话，什么都不说，一个眼神一个笑容，也能让你感受到一种美好。若开口说话，他会让你感到如沐春风，你就会发现这个人真是冰雪聪慧。</strong></p>
+<p>5.能坚守自己的底线原则<strong>【他很有主见】</strong></p>
+<p>遇见过无数的人，他们会千篇一律地只夸我长得好看，然而更多的是挑剔和辱骂。可遇见他的时候，他从来不像别人那样用歧视和鄙夷的眼光看待我，从不跟别人一样，在你身上乱贴标签。</p>
+<p>他很喜欢看我写的字，喜欢跟我交流思想，总是默默地鼓舞着我的心灵……<strong>他是个很有主见的人，内心洋溢着大爱，懂得如何尊重和爱护女性，这让我觉得他是最聪明的。</strong></p>
+<p>原文链接：<a href="https://jingyan.baidu.com/article/9113f81b223d806a3314c76b.html">https://jingyan.baidu.com/article/9113f81b223d806a3314c76b.html</a></p>
+<h2 id="七、内驱力"><a href="#七、内驱力" class="headerlink" title="七、内驱力"></a>七、内驱力</h2><p><a href="https://www.bilibili.com/video/BV1uS4y1S7Fi?share_source=copy_web">自律视频</a></p>
+<h3 id="1-假大空的自律视频误导。"><a href="#1-假大空的自律视频误导。" class="headerlink" title="1.假大空的自律视频误导。"></a>1.假大空的自律视频误导。</h3><p> 特点：逻辑谬误的骗局</p>
+<p>1.1名人背书。有可能名人说的就是错的，很多东西都在不断变化，需要根据实际情况不断修订理论</p>
+<p>1.2科学理论。以偏概全，比如戒断多巴胺、追逐内啡肽，</p>
+<p>1.3自律是个伪命题，自律的本质是高级的欲望战胜了低级的欲望。我想取刘亦菲，高级的欲望，我就想健身了，就娶得到吗？想成为美国总统奥巴马？有高级的欲望战胜低级欲望就能实现吗</p>
+<p>1.4真正有用的是通过做对你有价值的事，一天天折磨自己，通过达到一个个小成就，才可能达到自己的最终欲望，甚至说达不到。这个过程不取决于你难不难受，自不自律。</p>
+<p>1.5伪鸡汤扮演更大的屠龙少年，讲了没有用，小朋友始终做不到自律。</p>
+<h3 id="2-自律失败的根源"><a href="#2-自律失败的根源" class="headerlink" title="2.自律失败的根源"></a>2.自律失败的根源</h3><p>2.1人本身就是懒惰，逃避困难，好逸恶劳，人老是热衷于自己的舒适，去贪玩好吃懒做，你稍微一不留神，你这玩意儿就要把你拖下水就是人每个人都是这样的</p>
+<p>2.2人类社会需要大量的人来做基础的苦差事，如果每个人都是成功者，这个社会就很难进步了，人们主要是为了满足生存不得不朝九晚五，如果他有好多钱，他也天天躺在家里打游戏对不对。</p>
+<p>2.3迎接人性弱点的心灵鸡汤再短视频平台向浪潮一样，一波波向你袭来，而低认知人群没有脑子照单全收。后果就是，真正想自律的人工作就变得更困难了，他真的认为自律就是就是戒断多巴胺、追逐内啡肽，是高级的欲望战胜了低级的欲望。不是那么简单，涉及的要素非常多。</p>
+<p>2.4有两种人，做事的和作秀的，做事的人容易骂骂咧咧，因为他在那个事里面遇到的困难真的太多了，不是非黑即白的理论就可以搞得定的。当班主任的人之前想着没有教不好的学生，当班主任之后一个人老了十岁。</p>
+<h3 id="3-常见鸡汤和真实体验的反差"><a href="#3-常见鸡汤和真实体验的反差" class="headerlink" title="3.常见鸡汤和真实体验的反差"></a>3.常见鸡汤和真实体验的反差</h3><p>3.1自律是一个伪命题，自律让你痛苦，你无法持续痛苦最后你会变得不自律， 真正的自律是追求<br>快乐、幸福，是向往更大的利益驱动自己。</p>
+<p>你的体验:你会发现你即使相信了这一套，你还是不自律，因为它的核心逻辑是错的，写心灵鸡汤的书的人自己可能并没有真正去长期海量的自律过。我培训的人里面有500、600个小朋友就是这样，听完还是不自律，因为核心逻辑就是错的，写书人没有经过把不自律的人培养成自律的人的过程，我培养过，所以我敢说。 </p>
+<p>不知道你们见过成功学没有，成功学先否定你过去一切的努力是无效低效的，然后说它这里有神仙大法、致富秘诀、唯一正确，结果你被天堂地狱洗脑法洗脑了，最后你会发现你看了它、学了它也没什么用，你还是不成功。否定对方的过去，再许诺重利是常见的哗众取宠和欺诈手段。</p>
+<p>任何人成功不成功有很多要素引起的，你没有办法做到自律也一样，自律和具体的某个人有关，自律是不是伪命题，相信后仍旧做不到自律，不针对最重要的事情，在哪里打擦边球，偷换概念，文字游戏，没有直接说，你这个具体的人就是个不能自律的人，他不能这样讲，否则不能把你哄得高兴，然后只能去骗。否定对方的过去，再许诺重利是常见的哗众取宠和欺诈手段。张仪打秦淮王，等你撤兵之后，再说你听错了，撤兵60里。这就是效果。往往是一个单一要素否定所有不好的。</p>
+<p>有些人说:宁老师你为什么明明懂骗人还要说实话，知世故不世故是善良的成熟。</p>
+<p>3.2自律是因为多巴胺，内啡肽，把自律简单解释为多巴胺，内啡肽是一种非常错误的理论。跟感冒是鼻病毒引起一样，没有直接点明直接原因是着凉，听完以后自己还是跟以前一样，该生病还是生病。</p>
+<p>3.3自律,通过意志行为去攻克痛苦的事情，痛苦和快乐不是恒定的，而是波动的。比如学自行车摔了很多跤，很痛苦练了两个小时，明天骑着自行车悠哉游哉街上走，你就不一定是痛苦的，还有就是你做数学题做的焦头烂额很难受对吧，但是十几天后，你同样的题行你做得很熟，接下来你去做的时候，同学说你好厉害，一下子做完那么多道题对吧，那你可能有一种成就感对吧。 痛苦和快乐不是恒定的，而是波动的。并不是你有了内啡肽、多巴胺这辈子就不痛苦了，</p>
+<p>3.4完成即完美。很多人一开始就追求完美，没有什么事情一开始就是做到完美的，但是我知道有很多这样的人，因为我培训过。很多人无法自律的原因是期望太高，总是希望做到完美，老是担心做不到完美，然后就不做了，其实事件是在不断调整的过程中做到完美的，如果一开始就老是盯着完美，你的行为动机就一直被伤害，要做的是先放下这种思维方式。</p>
+<p><strong>要先做完了，再调整再调整。</strong>比如我做视频，总担心很干很硬核，怎么怎么样，我怕没有人看我，我怕没有办法吸引到粉丝关注，如果我总是这种视角的话，我就没有办法录这个视频了，我的想法很简单，不好就不好，或者没人看就没人看，但是我一定是做到问心无愧了，我做的东西是实在的，至于别人怎么说或者别人看不看，我认为好就是最重要的，有了这种心态的话，你就不会纠结这种事情，没有什么事情一开始就是做到完美的，但是我知道有很多这样的人，因为我培训过。</p>
+<p>3.5自律就意味着痛苦会永远发生，你别太轻易被忽悠，不管你认为它是不是伪命题，这是人的大脑的学习机制决定的，<strong>人的大脑不擅长思考</strong>，思维就意味着难受和痛苦必然会存在，<strong>人学习和锻炼的过程是因为你需要他们，而不是你单纯的喜欢它。</strong><a href="https://www.bilibili.com/video/BV1rE411q74G?spm_id_from=333.337.search-card.all.click">小学没读完的普通农民就自制毒品。</a> <a href="https://www.bilibili.com/video/BV1tv411K79D?share_source=copy_web">绝命毒师</a></p>
+<h3 id="4-自律的本质还是一场交易-，不想付出代价就获得的人就是痴人说梦"><a href="#4-自律的本质还是一场交易-，不想付出代价就获得的人就是痴人说梦" class="headerlink" title="4.自律的本质还是一场交易 ，不想付出代价就获得的人就是痴人说梦"></a>4.自律的本质还是一场交易 ，不想付出代价就获得的人就是痴人说梦</h3><p>我们需要的很多事情，人必须做完自己必须做的，才能做自己喜欢做的。这不是恒定的，有可能你今天必须做，明天就有点喜欢，这就是真实情况。并不是你听了几句心灵鸡汤，你就能把你必须做的变成喜欢做的。</p>
+<p>杜兰特和乔丹曾经打篮球最好的人，你说他打篮球就是为了快乐，喜欢一个东西和成为职业永远是两个事情，杜兰特和乔丹都曾想过放弃篮球，杜兰特他妈一巴掌把杜兰特打回了篮球场，直接甩一巴掌过去，该怎么做怎么做，你都选择走到这里了，你还想放弃，（想起了我曾经的考研，真的看到书就头疼，啥也看不下去），职业和爱好是两回事，职业真的太苦了，太累了。</p>
+<p>也有可能是学习材料不对，材料不具有自然类别性。看改变心理学的40个实验之类别天然形成。</p>
+<p>如何做到真正的自律?</p>
+<p>我的家庭非常痛苦，我做到过自律，有一个前提，一个是我的家庭非常的痛苦，我说我自律不是因为快乐，而是因为痛苦，我不想回到地狱里面了，地狱里面太痛苦了，就每天活在一种胆战心惊的家庭环境中，就像一个流浪狗被虐待一样，我不想回去，所以我拼了老命出来，有很多人说是为了快乐，我真的是<strong>逃避痛苦</strong>，就是逃避痛苦，我不想回去了，有很多像我这样的人，做出一番事业就是这样的。原生家庭到什么程度，就是说每天都有人侮辱你，吼(hou3)你,踩死你，没用的东西滚出去，就是每天都是心惊胆战，就是随时都会有人拿刀子扎你心窝子那种。除了吼，还有暴力。所以只有挣到你的钱，买了你的房子搬出去，你才能脱离这样的控制、粗暴。</p>
+<p>真正的自律一定是有一种发自内心的，他有一种巨大的驱动力，去拥有什么。我的人生非常的不精彩。我曾经是那种能躺着不坐着，能打一局游戏不看书那种。当时我生了一场病，我对面那床是一个白血病，我看着他一天天死去的肚子上扎了个窟窿，我想我身体还好吧，天天怨天尤人干什么你，那个人的死对我来说启发太大了，如果我所这辈子我怨天尤人，那么我活着不过是行尸走肉罢了。从那天起，开始自律，长达五年坚持同一件事，也可以连续近2个月每天做的就是重复枯燥的事情。每天写5个句子，背5个句子，我想成为一个作者，后来我也曾为一个畅销书作者，我的书买了70、80万本。那么写书，拿20、30万稿费的人是很少的。大多数人就是拿一两万。我能做到畅销书作者都是十几倍的，因为5万就是畅销书。那么我是怎么做到的，我是非常清楚，不是我想成为畅销书作者，我搬出了更高级的欲望，我就能做到，实际上搬出来也做不到的。一定是由一个长期漫长煎熬的过程，跟邓亚萍一模一样的过程，而且最近两个月，每天是三百个俯卧撑，500个跳绳，一天没有断，我一天没有断。我是怎么做到的，我可以自律，也可以不自律，只要我决定了，只要我决定了，我就能做到，这个是有方法的，<br>奥运冠军邓亚萍和我的思考基本是吻合的而不是心灵鸡汤的书。邓亚萍每天醒来就是觉得，我也不想训练好难好累好想回避，但是我到了那个乒乓球台，我就是500个正手，用他们的话讲，就是xy和场景法。x训练项目和y这个场景捆绑了，就是早上起来看到乒乓球台，永远是不管我喜不喜欢高不高兴，就是逼自己习惯成自然。那个不舒服的永远存在，根本不可能消失，不要相信鸡汤。</p>
+<p><a href="https://www.aliyundrive.com/s/h3c4w2dZgeU">邓亚萍亲口讲述自己的学习方法</a></p>
+<p>退役的时候不认识26个字母，就是坐到办公桌前，就必须背20个单词，不备20单词，除非我死了，她是硬逼着自己，慢慢变成一种习惯。因为真正聪明的人，要获得越好的东西，就要付出越大的代价，不是以你喜不喜欢高不高兴的，用这套心法基本干什么都成。先进入清华大学外语系得到英语学士文凭，并于一年后获得学位。然后考入剑桥大学得到博士学位。</p>
+<p>除非自己不休息的话效率太差，否则就要背完。休息的时候只是暂时转移注意力，不是完全懈怠，就是只休息半小时这样，不能休息太久。或者先做其它事。</p>
+<p>我觉得王石才说出了自律的真正重点，需要自律的人往往能力是有欠缺的，而自律是一种<strong>自我补偿</strong>。<br><strong>一些能力特别强的学霸学神平时不自律一些影响也不大</strong>，我曾经连续5年写作只中断了四天，但是我没有非黑即白像网上的心灵鸡汤去看待自律，比如自律是你自我负面评价，然后你需要抵抗诱惑最后还是被自己的欲望翻盘，永远自律不了，你要接纳自己，然后一大堆的鸡汤加成功学扑面而来。<br>这件事的本质不是你接纳不接纳你自己，接纳你自己对于自不自律影响不大，不是接纳就变好，不接纳就变坏，事实是什么就是什么，这是客观。</p>
+<p><strong>自律是一种交换，你需要获得什么能力、什么东西，你需要付出正确的相应的代价</strong>，同时努力的过程中获得正反馈，<br>喜欢和讨厌并不是一成不变的，当你努力得足够多，即使你讨厌的也有可能成为你的强项。你仰仗的也会有快乐的。</p>
+<p>负面评价自己确实对自己有副作用的，但是承认现实是人进步的前提，不是说明明已经很不好了，也玻璃心讳疾忌医也很恐怖。<br>那些能力拉胯的人需要自律来进行能力补偿以此达到交换到自己想要的目标目的.<br>能让我们变得更优秀的事情是你需要的，需要的事情往往是痛苦的，教育很多时候是反人性的，是爬坡逆流而上，如果你没有像我一样培训过3000多个人，你不要轻易的去表达什么学习上瘾什么的，即使是有，大多数人都是忍受痛苦去做的。你都急死了，想要自律的人还是懒懒散散，不是看一个视频就做到自律，自律是一个海量的过程，不是一个结果，不是一句话的认知。<br>自律是更大的欲望战胜了小的欲望吗?我希望成为美国总统我就能成为吗?我有更大的欲望啊?<br>这种讲法是最傻的，因为它就像成功学，看上去美丽可爱，实际上实现不了。<br>真正的自律是需要漫长科学的刻意练习成为一种习惯的，还来自于价值观和信念和意识形态等等<br>要素，并不是简单的内啡肽和多巴胺。一个混混在父亲死后债台高筑，一夜时间变得极其自律，从倒数到第一名考上名校。他一夜之间认识到他没有靠山了，什么都得靠他自己了，我不但没有靠山，还要承担很多责任，所以说它的信念，意识形态都发生了很大的变化，你说有什么方法，人家家里破产了，债台高筑，一夜之间就自律了。那用看什么视频，所以说人是复杂的，不是单一要素。</p>
+<h2 id="5-科学的自律思维和方法"><a href="#5-科学的自律思维和方法" class="headerlink" title="5.科学的自律思维和方法"></a>5.科学的自律思维和方法</h2><p>想成为一个自律的人，必须先想办法骨子里变成一个“冷血无情”的人，就是不要用你的情绪、感受主导了你的行为，这样你就很难变得自律。</p>
+<p>我今天喜欢我就做，我不喜欢我就不做，你的行为动机和习惯都很弱小，你总是靠感情用事，是做不大自律的。要自律，而是用残酷无情的行为习惯去推进自己做某件事、某个目的，熟能生巧，你做到这件事越来越轻松，用习惯去推进你能力的形成，你就不那么痛苦了,但是只要你想变得优秀，痛苦就是永恒存在的。只能说痛并着快乐。</p>
+<p>当你的能力补偿到一定程度，能力强大到一定程度，你就会自然因为能力而获得好处和奖励。这时候自律的难度系数就会变低。就是抛物线一样的。每天做200个俯卧撑，17天的时候感觉手都要断掉了。</p>
+<p>科学的自律方法:<br>5.1设定的目标除非有不可抗力，否则必须完成，至死方休，冷血无情。曾经我做写作这件事情，周围的人看到我就是说，”你这个人吧，就是缺爱，需要别人关注你。所以你行为特殊“。后来我连续一年雷打不动做那件事，他就是说，“你这个人就像蜜獾死咬这个东西不松口，你这个人身上有个狠劲对吧”。除非地球塌了，地球灭亡了，否则冷酷无情达成他。</p>
+<p>养成不达目的不罢手、设定目的一定完成的人格类型之后，就是不完成事情比完成还要痛苦。世界上所有失败者，对目标完成不了习惯之后就会麻木，反正昨天没跑今天没跑也行，今天状态又不好对吧。感情用事，凭借自己舒服，凭借多巴胺内啡肽的人办事真的太幼稚了，太天真了。</p>
+<p>其实没有，单单频繁打扰你，叫你干这干那，不停打断你，内心就崩溃了。言语挑衅什么的，我可以完全不停，远离那个说话的人就行，但是那种叫你干这干那的，你逃脱不了的就根本不行。</p>
+<p>5.2完成再完善，不求必须当下完美。先把事情做完，不管做到好与不好，做50个俯卧撑，不一定要100%标准，至少先做完它，明白自己至少是做到了最低标准，给自己好感。行为模式正反馈。<br>5.3张弛有度。任务不能大而硬，造成自己完不成，或者即使完成了，最多只能坚持2、3天就放弃，给自己养成完不成任务的人格类型。他这辈子就只能当loser了。<br>5.4X、Y场景捆绑法。坐到桌子上，就要200单词完成。除非天塌了，除非你死了。身上有股狠劲的人对吧，是非常恐怖的。刚开始养成是非常难的。<br>5.5激励过程而不是结果。打乒乓球的时候，不要想着我是最棒的，我是世界第一。越是激励这个过程，往往激励得越多，行为就越懒散。为什么，因为这些东西是虚的。应该要激励这一拍该怎么打好，这一拍该怎么发球让他接不住。往往是激励过程，不是这个结果。激励当下这个过程，比如说，做完这一百个跳绳。或者是先跳50个再跳。激励的过程中，总能做到这件事情，那么就会有一个真正实的东西，它不是虚的。所以成功学就是天天激励这些虚的东西，说我是最好的，我要成为百万富翁，我要成为销售冠军，不成为销售冠军我就去裸奔对吧。他们激励的是一个结果，是一个虚假的快感。</p>
+<p>说的极端一些，一个人要自信，就是要有钱有势，有一些实实在在的东西在积累。很多实实在在做出做成的事。他就是自信。你天天激励他成为千万富翁，亿万富翁，这些是没有用的。骨子里的气球一戳就破。你不信看那些学了成功学的人，上了那种舞台，被那些导师一嘲讽起来，他内心是虚弱的。然后又开始进行自我洗脑。骨子里还觉得自己是loser。</p>
+<p>5.6 你            积极暗示，左手温暖右手。</p>
+<p>我对夸赞的理解:人不能太依赖外界的夸赞去实现自己的理想，因为外界的侮辱、打压、贬低、妒忌的恶言恶语往往比真心的夸赞要多得多，它们是常态，甚至往往恶言恶语更多的是真心话，如果你没有成绩、成就、权势，身边坏人真的特别多，如果你过分在意和依赖外界的夸奖去做对某件事，那么你的行为动机是很脆弱的，一个批评你都能不愉快半天，甚至一句你真菜、你是埋坟的能让你半天活在无尽黑暗和不断轮回播放这个痛点，反复让它鞭打你的心灵。让别人的嘴巴去主宰你的前程和理想。其次往往难听的事实比动人的谎言要多得多，如果因为客观事实难听，你就接受不了，你的行为动机就很脆弱，而三分钟热度是无法拥有稀缺能力的,没有稀缺能力的人，注定难以逆袭，贫穷的本质是资源和能力的稀缺，你会贴膜，他五分钟也学会了，穷人在内卷中努力奋斗，收获却很少，你必须做别人做不到的事情，有难度的事情，才有竞争力和富裕。你的人生是靠无数次攀爬、努力、奋斗，咬牙迎难而上，做成了无数的小事堆砌起来的，不是靠批评和赞美来实现的，所以赞美的这件事主要还是自己做，赞美只是锦上添花。”冷酷无情“就是把精力放在做事情上面，不是放到情感上面。因为我长达7年是在侮辱和辱骂中去实现自己的理想的，我听到最多就是，我恨不得踩死那，没有一件像样的事情，你是个垃圾，你是个废人，我曾经每天听这种都是家常便饭，而且是来自最亲的人所的。我做得最多的是左右温暖右手，如果你不能理解这个逻辑，总是把自己的行为动机寄托在外界的赞誉上，你很难实现需要百折不回才能实现的梦。</p>
+<p>能看到这里的都是聪明的人。</p>
+<h2 id="八、纪录片"><a href="#八、纪录片" class="headerlink" title="八、纪录片"></a>八、纪录片</h2><p><a href="https://www.bilibili.com/video/BV1nN411f7q3?share_source=copy_web">人生七年解说</a>   <a href="https://www.bilibili.com/video/BV1vV411s73R?share_source=copy_web">阶级越迁–尼古拉斯篇</a></p>
+<p><a href="https://www.bilibili.com/video/BV1gP4y1s7dV?share_source=copy_web">出路</a></p>
+<p><a href="https://www.bilibili.com/video/BV1jF41147my?share_source=copy_web">变形记–高占喜</a>  第一就是富爸爸是公务员，有钱有资源，高占喜就是镇高中的前10名，本来就是聪明人。如果一个聪明肯学的孩子受到他的金钱和信息资源资助的话，是真的可以变得和中产的。</p>
+<h2 id="九、文章"><a href="#九、文章" class="headerlink" title="九、文章"></a>九、文章</h2><p><a href="https://www.mtyyw.com/7013/">寒门再难出贵子</a></p>
+]]></content>
+      <tags>
+        <tag>yasashii</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>究极缝合怪式学习方法</title>
+    <url>/2022/04/29/%E7%A9%B6%E6%9E%81%E7%BC%9D%E5%90%88%E6%80%AA%E5%BC%8F%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="究极缝合怪式学习方法"><a href="#究极缝合怪式学习方法" class="headerlink" title="究极缝合怪式学习方法"></a>究极缝合怪式学习方法</h2><p>大家好，我是之路，今天给大家带来一个记忆方法，这个方法就是一个究极缝合怪，整合了思维导图，艾宾浩斯记忆法，费曼学习法，错题集，心态法等主流记忆方法。</p>
+<p>​        <img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220429195524132.png" alt="究极缝合怪式学习方法思路图">                       </p>
+<ul>
+<li><p>第一步是立人设，是定位理论，美国营销专家艾·里斯和杰克·特劳仑提出的，我看的实际应用是来自邓亚萍《心力》05小节“给自己设置一个角色定位，并不断向其靠拢”，比如说，我是能坚持每天背20单词的学生，我是情绪消化能力极强的职场人，这些符合你目前的状况，就会对自己人设充满信心，去背单词、职场做事时都得心应手。这里必不可少的人设就是：既要参考群体智慧，也要参考个人智慧，这样我们在学习中才能找到最适合自己的学习方法，而不是闭门造车，也不是人云亦云。</p>
+</li>
+<li><p>第二步是放宽心态，有两个放宽心态，第一个是来自邓亚萍《心力》28小节“答喜马拉雅听友提问”，这里主要是讲赛前自我沟通注意什么，我觉得这个自我沟通心态挺好用的，就是：1、接受不完美的自己，不需要每一件事都做到完美，不完美的事情很可能不是自己能控制的，比如公司项目失败了，不单单是自己的问题，领导和公司都有问题。2、不要盲目追求社会认可，认为自己打球时，不仅要赢，而且要赢得漂亮，但是当对手和你水平一样时，自己险胜其实就可以了，不需要赢得漂亮。3、摒弃“公平想象”，接受社会的不完美。不要有“只要我刻苦训练，自己一定能发挥出色”、“误判在比赛中是不能忍受的，是不公平的”、“应该……”、“按道理……”。就要打好自己这个球下个球，不要和裁判较劲。</p>
+<p>还有一个放宽心态就是放下过去的心理阴影，想着“学习虐我千百遍，我待学习如初恋”，有些人因为过去学习很长时间都没有收获丧失了信心，这是我们就要放下过去的阴影，重新像第一次学习那样对学习充满热枕。</p>
+</li>
+<li><p>第三步就是幸运物的心理暗示，来自邓亚萍《心力》03节“迷信习惯”，主要说邓亚萍在打乒乓球前按三下球板，这样回缓解自己焦虑，从而清空自己的比赛不利心态，重新振作。这个动作是平常就训练好的，就是平时打球心态紧张，放松心态的同时按三下球板，这样，打比赛时，按三下球拍也会缓解焦虑。这个应该是来自俄国，巴普洛夫的狗，摇铃铛就会流口水的狗。这里我的幸运物就是自己偶像的照片，看到就觉得自己心力很温暖，缓解了焦虑。</p>
+</li>
+<li><p>第三步就是列目标(要做)清单、列不要做的清单、列例外控制清单。来自邓亚萍的《心力》08执行意图、09例外控制、02失败清单、13注意力太集中才会效率低吗。列目标(要做)清单，来自纽约大学心理学教授Peter Gollwitzier。主要是说大脑在偷懒和坚持间决策时，总是偷懒战胜坚持，如果我们在纸上写明如果有决策，直接跳过决策，选择坚持，自发自动去完成预先设定的任务。列不要做的清单，把工作时不要分心，不要看手机，不要刷微博，不把这些小问题正儿八经写下来，自己好像永远不会遵守。列例外控制清单,有两个关键点，一个是来自心理学家Kelly McGonigal，用游戏的心态，列出可能回出现的状况，这让在出现意外时，自己不会心慌。比如，考题超出准备，犀利的考官，演讲汇报发生的意外准备。还有一点是，出现例外状况后，提前做好备案，来自纽约大学心理系教授Gaberele Oettingen，主要说，人生有惰性，遭遇阻力后，在临时思考解决方案时，很可能就会偷懒不干活了，做个备案就可以提升自己的效率。比如加班太累，自己不愿出门，那么备案就是在家仰卧起坐。背单词完全太困了背不下，就可以先休息半小时，等精神好了再背。注意，不要睡过头了，休息半小时后就要强制执行了。</p>
+</li>
+<li><p>第四步就是找自己最好状态，有两个理论，第一个理论来源是匈牙利心理学者mihaly Csikszwentmihalyi就是在重大任务开始前，先做一下对自己有难度需要挑战的目标，如果做好了自己就会变得很有自信，没做好也没什么损失就稳扎稳打、按部就班做事情。比如自己打扑克的时候，就会觉得自己手气特别好，还有就是自己投球的时候觉得自己都能够投一个中一个，这就是找自己最好状态。</p>
+<p>第二个理论就是心理治疗专家梅钦鲍姆Donald Meichenbaum的“认知行为矫正法”，用来改善负面情绪心理治疗的理论，不单单是我们的认知指导我们的行为，行为也可以反过来塑造我们的认知，刻意做一件和某个人设相符合的事情，自己就会相信自己是这样的人设，就会用人设的特点对待其它事情。比如考前把文具盒整理周全、铅笔削好、签字笔准备两只，就会提醒自己是一个谨慎细腻的人，考试就不担心、不害怕自己犯错。面试前梳妆打扮成自信成熟的女性形象，也会让自己昂首挺胸。答辩前摔书包，体现自己的霸道气息，认为自己是一个霸道的人，就会从容应对老师的提问。</p>
+</li>
+<li><p>第五步就是场景绑定，是《心力》08执行意图的实践，每到X场景，就要做Y事，还是巴普洛夫的狗，比如，坐到书桌前，就不能玩手机，就要先背20单词，到了训练场地，就要练习正手击球500个，一到公司就和三个客户交谈，起床就要听音频。这样训练下来，养成了习惯，每天在做这些事就不会觉得消耗意志力，就不会觉得难受。</p>
+</li>
+<li><p>第六步就是时间绑定，每到12点，自己就睡觉，每到6点，自己就起床。每到7点，自己球出门，这样，培养自己的生物钟，自己就会自动完成，不觉辛苦。这个设计生物钟理论和巴普洛夫的狗的理论。</p>
+</li>
+<li><p>第七步就是费曼学习法，就是以教代学，自我解释的方法，想象你是一个教师，站在讲台前教台下的学生学习，台下的坐着的学生是7、8岁的没有任何专业知识的学生，或者坐着对该专业一窍不通的另一个你，你就想着怎么解释才能让小学生和另一个你能完全听得懂。设想哪一个是可能他们难以理解的地方，就要找标准答案，然后做比喻，举例子让他们听得懂。</p>
+</li>
+<li><p>第九步就是脑区暗示。来自《心力》25意象训练法2。理论来源是，专业健身教练和业余健身爱好者区别，就是“让注意力集中在某肌肉群上，去感受它的发力”，比如专业健身教练在杠铃深蹲动作时，提醒自己“臀部收力”、而不是像业余健身爱好者提醒自己“通过发力，使自己离开地面”，一个是调用内部注意力，注意力集中在特定肌肉上，一个是调用外部注意力，注意力集中在整个身体上。人的脑区有视觉、听觉、触觉、嗅觉、味觉。每次我们用到什么知识就刻意去感受这个脑区，或许就可以像锻炼肌肉群一样提升自己的某个脑区能力。</p>
+<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220429195833822.png" alt="脑区示意图"></p>
+</li>
+<li><p>第十步就是建立亲密感避免仰视，就是在对待自己的目标时，不要觉得太难或者太简单，就像对待朋友一样，亲切交流，正常平常心对待。 </p>
+</li>
+<li><p>第11步就是，建立评价标准，就是完成这个目标要完成的可以量化、判优劣的标准。比如练字时，就要选古代流传的字帖，经过历史检验公认优秀的字帖，自己写得不像的话，就可以判断自己练字练的不好。还有就是实践法，就是如果自己想了解过山车、恋爱、水果、零食的味道，就可以亲自去体验一把，不用看别人的描述。还有就是一手资料法。就是看实验的初始数据，不要看他们精心挑选的数据，用精心挑选的数据来凑出自己的结论。不如BBC的报道，不是说没有这个情况，是这个情况少，得不出这个结论，或者情况被恶意剪辑，表达得意思完全相反。还有及时综述法。就像我这样，把所有资料按照学习流程列一遍，或者就是其它综述资料，像达尔文那样，讲动物分门别类的排列好。我们学习的时候就很方便找到我们想要的动物。化学也如此。</p>
+</li>
+<li><p>第12步是刻意练习和精准练习。这是有两个侧重点，一个是社会上常见问题，就是重点，我们学习知识就要先掌握重点，再学普通的。比如学好中文1000字，就可以应付日常生活，不用学习中文所有1万多字。单词也是，掌握4000单词就可以高考了。这就是挑重点好处。一个是自己常见问题，每次自己总是在这类问题上犯错，但是别人不一定容易犯错，这就是自己的重点。比如某个单词，自己老是记不住，自己就可以单独刻意去记忆。这个和费曼学习法的相似之处就是记住自己不懂得地方。</p>
+</li>
+<li><p>第13步，是分配和恢复意志力和重新聚焦意志力。分配和恢复意志力主要是根据之前挑好得重点，再次分类，按轻重缓急继续分类，已经懂得重要知识点先跳过，把有思路解决得问题跳出来先解决、把完全没有思路解决问题先放过，后面再花最好的精力解决。重新聚焦意志力，《心力》13注意力太集中才会效率低？主要是讲了由于注意力太集中反而做不好事情，需要重聚焦注意力，比如开车、下楼梯、移动满水杯，注意力太集中反而这也做不好那也做不到，开车时常常操作错误，下楼梯容易踩空，水杯的水洒出来。我们就要重新聚焦注意力，去做一件更加集中注意力的事来打散目前的注意力状态，比如跑步、练字、打游戏等。之后重新去做原来的事。</p>
+</li>
+<li><p>第14步就是微习惯和文字、图像逻辑排序。微习惯理论来自美国作家史蒂芬·盖斯《微习惯Mini habits》。微习惯是非常微小的积极行为，小到不会失败，这不会给你造成任何心理负担，并且具有超强欺骗性，让你养成自己极具优势的习惯。就是把一个复杂麻烦的任务目标，分解成一个个微小的、做起来自己一定不会失败的小步骤。日本马拉松选手山本田一，打破非洲运动员的垄断，获得马拉松冠军，把比赛沿路比较醒目的标记记下来，第一个是博物馆、第二个是银行、第三个是别具一格的房子，自己比赛时就去征服这一个个目标，（结合个人跑步经验：分段冲刺），每完成一个目标就获得巨大心理能量，不断征服一个个目标时，完成整个赛程。还有就是分解法，像物理公式一样，拆分成基本单位，推导综合单位，比如加速度，a&#x3D;s&#x2F;t^2。像化学式子一样，通过一些简单的化学式，得到综合合成的化学式。像跳舞一样，将复杂的动作分解成一个个定格的动作，自己一定能做到的动作，后面才连贯起来。像练字一样，将一笔一划练习好，后面才考虑字的空间排布，左小右大等。</p>
+</li>
+<li><p>文字逻辑排序、图像逻辑排序来源于思维导图、记忆宫殿，就是讲知识点按照固有逻辑的联系排序，两个有知识点的关系为上下位关系和并列关系、时间顺序、空间顺序关系等。有些作者在编书的时候，知识点的罗列符合它自己的记忆习惯，不符合我们的记忆习惯，我们刻意根据我们的习惯进行重新分类总结。具体参考B站。</p>
+</li>
+<li><p>第15步，缩减法、歌谣法、故事法、举例子。缩减法、歌谣法、故事法就是我们压缩记忆的方法了。缩减法比如二十四节气歌。歌谣法比如老师教书的各种口诀(歌谣)，奇变偶不变，符号看象限。故事法比如写小说，将一些时间集中起来，变成有趣的故事记忆。举例子属于扩展记忆的方法，定性举例：营养词语比较抽象，例子有:香蕉、米饭、苹果、鱼肉。定量举例：一个多大的盒子可以装下10732个网球。很少人给出低于100英尺的。答案是4立方英尺。我们只要记住一个具体例子，用具体例子代表抽象例子，这样抽象例子就很容易被记住。</p>
+</li>
+<li><p>第16步，手到(记录)心到(思考)口到(总结)。运动法。意象练习2。集中注意力思考逻辑关系，思考手、眼、脑的配合。和脑区暗示是一样的，调用内部注意力。</p>
+</li>
+<li><p>第17步，成果目标对比复盘法。比如练字的第一笔对齐不是让字尽可能对齐，看看自己练字的成果和目标还有多大差距。这个主要是自己阶段训练完成后才去检验自己和目标的差距的，训练中要全身心投入这个训练动作，不要老想着和最后目标差距，专注完成这个小目标就行。做法是回顾目标、评估结果、精准描述整个失败事件(如连续两次，科目三没过)、列出失败原因(路线不熟、车况不好、考官太严格导致紧张、起步技术不够好)、确定那些自己可以控制的因素(内控因素：路线不熟、起步技术不够好)、试图控制外控因素(我和考官沟通不够主动、没有及时管理自己的情绪、没有事先确认车况)、分析行为原因(将刚才的关键抉择重新演练一遍)、总结规律(提醒自己下次如何不再犯错)。</p>
+</li>
+<li><p>第18步，过电影复盘法*2。效率是提升两倍，就是自己有一定训练量后，把物理训练时间改为脑海里想象的训练。就是越好专注地模拟所有小细节，模拟越细致越有效果。视觉、听觉、触觉、嗅觉、味觉。比如切柠檬并吃下。感受比赛的场地摩擦力、观众欢呼声、风吹过的声音，汗水流过脸颊，对手的凝重表情。回想老师的讲课，说话声音、黑板写字声音、老师的神情、专属敲黑板动作、学霸自信且骄傲的回答声。也可以单纯回想习武的每个动作，恋人说的每一句话。一字不差地背下来。</p>
+</li>
+<li><p>第19步，建立自己地核心问题库，就是和费曼学习法的自我解释、刚才复盘时没有回想起的内容，训练时出现的失误及其解决方法，统统写下来便于复习，最终记到脑海里，让这些问题不成为自己的难题，而是成为自己成长的见证，成为自己专业知识的护城河。</p>
+</li>
+<li><p>第20步，就是间隔复习，也是艾宾浩斯记忆法，将整理好的知识、记住的知识进行定期复习，就能让自己的短期记忆变成长期记忆。</p>
+</li>
+<li><p>第21步，就是能力泛化、直觉化。《心理》18目的性颤抖：像赢家一样依赖直觉。赢家不思考，赢家靠直觉。这就是说自己把东西记得像熟悉家人那样后，自己很多东西都是自然而然形成的。比如数学家，黑客程序员，英语试卷的语感，救火的消防员。很多问题都是靠直觉来思考的，先把这个旧方案可以解决问题，直接使用旧方案，遇到实际问题不行再换方案，不会像初期那样进行分析，进行深思熟虑。具体做法是多做习题，确定自己在遇到问题时能调用出这个知识点。做试卷时，像赢家一样依赖直觉，避免思考过多，越改越错。</p>
+</li>
+<li><p>能力泛化、直觉化的学习模式还有就是找模式方法，下图所示。</p>
+</li>
+</ul>
+<p> <img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220429200039761.png" alt="直觉性阅读"></p>
+<h2 id="心态算法"><a href="#心态算法" class="headerlink" title="心态算法"></a>心态算法</h2><h5 id="1-自己犯错时。使用成长型思维安慰自己。"><a href="#1-自己犯错时。使用成长型思维安慰自己。" class="headerlink" title="1.自己犯错时。使用成长型思维安慰自己。"></a>1.自己犯错时。使用成长型思维安慰自己。</h5><p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220429200127623.png" alt="成长型思维"></p>
+<h5 id="2-自己不理智地过度紧张时。比如考试时，演讲时，答辩时。"><a href="#2-自己不理智地过度紧张时。比如考试时，演讲时，答辩时。" class="headerlink" title="2.自己不理智地过度紧张时。比如考试时，演讲时，答辩时。"></a>2.自己不理智地过度紧张时。比如考试时，演讲时，答辩时。</h5><h6 id="短期做法："><a href="#短期做法：" class="headerlink" title="短期做法："></a>短期做法：</h6><p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220429200310312.png" alt="3种短期缓解焦虑做法"></p>
+<p>(1)用幸运物、幸运仪式说服自己，相信自己是幸运的。让自己在关键时刻正常发挥，不掉链子</p>
+<p>比如：费尔巴哈的狗、斯金纳的缓解焦虑的迷信鸽。练田英章的字</p>
+<p>(2)自我激励：打好这一分球比胜利更重要，跟训练时一样打就好，正常发挥就行。但是说自己最棒、自己一定行，会让自己自我怀疑，反而更紧张。</p>
+<p>(3)找到让自己有自信的人设，刻意做这个和人设相符合的事，让你真实的相信自己，唤醒霸气的自己，摔书包。唤醒耐心细致的自己，考前削好铅笔，准备两只签字笔等。</p>
+<p>矛盾意象法</p>
+<p>喜欢慢系统</p>
+<h6 id="长期做法："><a href="#长期做法：" class="headerlink" title="长期做法："></a>长期做法：</h6><p> <img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220429200219950.png" alt="应对变化的办法是主动出击"></p>
+<h5 id="3-对抗没动力执行的拖延症。"><a href="#3-对抗没动力执行的拖延症。" class="headerlink" title="3.对抗没动力执行的拖延症。"></a>3.对抗没动力执行的拖延症。</h5><p>(1)由于思考引起的没动力拖延。仅仅因为简单的选择思考想偷懒时，列出执行意图，提前预案，跳过休息和执行判断，直接执行预先设定的任务。如果是对复杂、麻烦的任务或目标完全不知从何开始时，把大目标化解成一个个做起来自己不会失败的小目标来执行。</p>
+<p>(2)由于假疲劳引起的没动力拖延。承认自己心理感受的存在，告诉自己这个只是假警报，我还有体力执行。</p>
+<p>(3)由于真疲劳引起的没动力拖延。先休息10分钟、半小时，10分钟、半小时后的警报当作假疲劳强制执行任务。</p>
+<p>(4)由于没有正反馈引起的没动力拖延。</p>
+<p>1)如果是那些细致末节不太重要的练习占据太多时间。就进行刻意练习、精准练习，让自己快速做出可视化成果。</p>
+<p>2)如果因为自己没有专注，就设定特定一个场景时间段，这个时空下，自己不理会任何打扰，让自己做出成果。</p>
+<p>3)如果是自己太专注引起大炮打蚊子、开车战战兢兢，明明感觉很简单，就是不能完成，就暂时离开这个任务，做更难得任务或者跑步打散原来得思维定势，一段时间后重新聚焦合适的专注力让自己完成任务。</p>
+]]></content>
+      <tags>
+        <tag>yasashii</tag>
+      </tags>
   </entry>
   <entry>
     <title>爱情表白字句</title>
@@ -2795,254 +3041,8 @@
       </tags>
   </entry>
   <entry>
-    <title>究极缝合怪式学习方法</title>
-    <url>/2022/04/29/%E7%A9%B6%E6%9E%81%E7%BC%9D%E5%90%88%E6%80%AA%E5%BC%8F%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h2 id="究极缝合怪式学习方法"><a href="#究极缝合怪式学习方法" class="headerlink" title="究极缝合怪式学习方法"></a>究极缝合怪式学习方法</h2><p>大家好，我是之路，今天给大家带来一个记忆方法，这个方法就是一个究极缝合怪，整合了思维导图，艾宾浩斯记忆法，费曼学习法，错题集，心态法等主流记忆方法。</p>
-<p>​        <img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220429195524132.png" alt="究极缝合怪式学习方法思路图">                       </p>
-<ul>
-<li><p>第一步是立人设，是定位理论，美国营销专家艾·里斯和杰克·特劳仑提出的，我看的实际应用是来自邓亚萍《心力》05小节“给自己设置一个角色定位，并不断向其靠拢”，比如说，我是能坚持每天背20单词的学生，我是情绪消化能力极强的职场人，这些符合你目前的状况，就会对自己人设充满信心，去背单词、职场做事时都得心应手。这里必不可少的人设就是：既要参考群体智慧，也要参考个人智慧，这样我们在学习中才能找到最适合自己的学习方法，而不是闭门造车，也不是人云亦云。</p>
-</li>
-<li><p>第二步是放宽心态，有两个放宽心态，第一个是来自邓亚萍《心力》28小节“答喜马拉雅听友提问”，这里主要是讲赛前自我沟通注意什么，我觉得这个自我沟通心态挺好用的，就是：1、接受不完美的自己，不需要每一件事都做到完美，不完美的事情很可能不是自己能控制的，比如公司项目失败了，不单单是自己的问题，领导和公司都有问题。2、不要盲目追求社会认可，认为自己打球时，不仅要赢，而且要赢得漂亮，但是当对手和你水平一样时，自己险胜其实就可以了，不需要赢得漂亮。3、摒弃“公平想象”，接受社会的不完美。不要有“只要我刻苦训练，自己一定能发挥出色”、“误判在比赛中是不能忍受的，是不公平的”、“应该……”、“按道理……”。就要打好自己这个球下个球，不要和裁判较劲。</p>
-<p>还有一个放宽心态就是放下过去的心理阴影，想着“学习虐我千百遍，我待学习如初恋”，有些人因为过去学习很长时间都没有收获丧失了信心，这是我们就要放下过去的阴影，重新像第一次学习那样对学习充满热枕。</p>
-</li>
-<li><p>第三步就是幸运物的心理暗示，来自邓亚萍《心力》03节“迷信习惯”，主要说邓亚萍在打乒乓球前按三下球板，这样回缓解自己焦虑，从而清空自己的比赛不利心态，重新振作。这个动作是平常就训练好的，就是平时打球心态紧张，放松心态的同时按三下球板，这样，打比赛时，按三下球拍也会缓解焦虑。这个应该是来自俄国，巴普洛夫的狗，摇铃铛就会流口水的狗。这里我的幸运物就是自己偶像的照片，看到就觉得自己心力很温暖，缓解了焦虑。</p>
-</li>
-<li><p>第三步就是列目标(要做)清单、列不要做的清单、列例外控制清单。来自邓亚萍的《心力》08执行意图、09例外控制、02失败清单、13注意力太集中才会效率低吗。列目标(要做)清单，来自纽约大学心理学教授Peter Gollwitzier。主要是说大脑在偷懒和坚持间决策时，总是偷懒战胜坚持，如果我们在纸上写明如果有决策，直接跳过决策，选择坚持，自发自动去完成预先设定的任务。列不要做的清单，把工作时不要分心，不要看手机，不要刷微博，不把这些小问题正儿八经写下来，自己好像永远不会遵守。列例外控制清单,有两个关键点，一个是来自心理学家Kelly McGonigal，用游戏的心态，列出可能回出现的状况，这让在出现意外时，自己不会心慌。比如，考题超出准备，犀利的考官，演讲汇报发生的意外准备。还有一点是，出现例外状况后，提前做好备案，来自纽约大学心理系教授Gaberele Oettingen，主要说，人生有惰性，遭遇阻力后，在临时思考解决方案时，很可能就会偷懒不干活了，做个备案就可以提升自己的效率。比如加班太累，自己不愿出门，那么备案就是在家仰卧起坐。背单词完全太困了背不下，就可以先休息半小时，等精神好了再背。注意，不要睡过头了，休息半小时后就要强制执行了。</p>
-</li>
-<li><p>第四步就是找自己最好状态，有两个理论，第一个理论来源是匈牙利心理学者mihaly Csikszwentmihalyi就是在重大任务开始前，先做一下对自己有难度需要挑战的目标，如果做好了自己就会变得很有自信，没做好也没什么损失就稳扎稳打、按部就班做事情。比如自己打扑克的时候，就会觉得自己手气特别好，还有就是自己投球的时候觉得自己都能够投一个中一个，这就是找自己最好状态。</p>
-<p>第二个理论就是心理治疗专家梅钦鲍姆Donald Meichenbaum的“认知行为矫正法”，用来改善负面情绪心理治疗的理论，不单单是我们的认知指导我们的行为，行为也可以反过来塑造我们的认知，刻意做一件和某个人设相符合的事情，自己就会相信自己是这样的人设，就会用人设的特点对待其它事情。比如考前把文具盒整理周全、铅笔削好、签字笔准备两只，就会提醒自己是一个谨慎细腻的人，考试就不担心、不害怕自己犯错。面试前梳妆打扮成自信成熟的女性形象，也会让自己昂首挺胸。答辩前摔书包，体现自己的霸道气息，认为自己是一个霸道的人，就会从容应对老师的提问。</p>
-</li>
-<li><p>第五步就是场景绑定，是《心力》08执行意图的实践，每到X场景，就要做Y事，还是巴普洛夫的狗，比如，坐到书桌前，就不能玩手机，就要先背20单词，到了训练场地，就要练习正手击球500个，一到公司就和三个客户交谈，起床就要听音频。这样训练下来，养成了习惯，每天在做这些事就不会觉得消耗意志力，就不会觉得难受。</p>
-</li>
-<li><p>第六步就是时间绑定，每到12点，自己就睡觉，每到6点，自己就起床。每到7点，自己球出门，这样，培养自己的生物钟，自己就会自动完成，不觉辛苦。这个设计生物钟理论和巴普洛夫的狗的理论。</p>
-</li>
-<li><p>第七步就是费曼学习法，就是以教代学，自我解释的方法，想象你是一个教师，站在讲台前教台下的学生学习，台下的坐着的学生是7、8岁的没有任何专业知识的学生，或者坐着对该专业一窍不通的另一个你，你就想着怎么解释才能让小学生和另一个你能完全听得懂。设想哪一个是可能他们难以理解的地方，就要找标准答案，然后做比喻，举例子让他们听得懂。</p>
-</li>
-<li><p>第九步就是脑区暗示。来自《心力》25意象训练法2。理论来源是，专业健身教练和业余健身爱好者区别，就是“让注意力集中在某肌肉群上，去感受它的发力”，比如专业健身教练在杠铃深蹲动作时，提醒自己“臀部收力”、而不是像业余健身爱好者提醒自己“通过发力，使自己离开地面”，一个是调用内部注意力，注意力集中在特定肌肉上，一个是调用外部注意力，注意力集中在整个身体上。人的脑区有视觉、听觉、触觉、嗅觉、味觉。每次我们用到什么知识就刻意去感受这个脑区，或许就可以像锻炼肌肉群一样提升自己的某个脑区能力。</p>
-<p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220429195833822.png" alt="脑区示意图"></p>
-</li>
-<li><p>第十步就是建立亲密感避免仰视，就是在对待自己的目标时，不要觉得太难或者太简单，就像对待朋友一样，亲切交流，正常平常心对待。 </p>
-</li>
-<li><p>第11步就是，建立评价标准，就是完成这个目标要完成的可以量化、判优劣的标准。比如练字时，就要选古代流传的字帖，经过历史检验公认优秀的字帖，自己写得不像的话，就可以判断自己练字练的不好。还有就是实践法，就是如果自己想了解过山车、恋爱、水果、零食的味道，就可以亲自去体验一把，不用看别人的描述。还有就是一手资料法。就是看实验的初始数据，不要看他们精心挑选的数据，用精心挑选的数据来凑出自己的结论。不如BBC的报道，不是说没有这个情况，是这个情况少，得不出这个结论，或者情况被恶意剪辑，表达得意思完全相反。还有及时综述法。就像我这样，把所有资料按照学习流程列一遍，或者就是其它综述资料，像达尔文那样，讲动物分门别类的排列好。我们学习的时候就很方便找到我们想要的动物。化学也如此。</p>
-</li>
-<li><p>第12步是刻意练习和精准练习。这是有两个侧重点，一个是社会上常见问题，就是重点，我们学习知识就要先掌握重点，再学普通的。比如学好中文1000字，就可以应付日常生活，不用学习中文所有1万多字。单词也是，掌握4000单词就可以高考了。这就是挑重点好处。一个是自己常见问题，每次自己总是在这类问题上犯错，但是别人不一定容易犯错，这就是自己的重点。比如某个单词，自己老是记不住，自己就可以单独刻意去记忆。这个和费曼学习法的相似之处就是记住自己不懂得地方。</p>
-</li>
-<li><p>第13步，是分配和恢复意志力和重新聚焦意志力。分配和恢复意志力主要是根据之前挑好得重点，再次分类，按轻重缓急继续分类，已经懂得重要知识点先跳过，把有思路解决得问题跳出来先解决、把完全没有思路解决问题先放过，后面再花最好的精力解决。重新聚焦意志力，《心力》13注意力太集中才会效率低？主要是讲了由于注意力太集中反而做不好事情，需要重聚焦注意力，比如开车、下楼梯、移动满水杯，注意力太集中反而这也做不好那也做不到，开车时常常操作错误，下楼梯容易踩空，水杯的水洒出来。我们就要重新聚焦注意力，去做一件更加集中注意力的事来打散目前的注意力状态，比如跑步、练字、打游戏等。之后重新去做原来的事。</p>
-</li>
-<li><p>第14步就是微习惯和文字、图像逻辑排序。微习惯理论来自美国作家史蒂芬·盖斯《微习惯Mini habits》。微习惯是非常微小的积极行为，小到不会失败，这不会给你造成任何心理负担，并且具有超强欺骗性，让你养成自己极具优势的习惯。就是把一个复杂麻烦的任务目标，分解成一个个微小的、做起来自己一定不会失败的小步骤。日本马拉松选手山本田一，打破非洲运动员的垄断，获得马拉松冠军，把比赛沿路比较醒目的标记记下来，第一个是博物馆、第二个是银行、第三个是别具一格的房子，自己比赛时就去征服这一个个目标，（结合个人跑步经验：分段冲刺），每完成一个目标就获得巨大心理能量，不断征服一个个目标时，完成整个赛程。还有就是分解法，像物理公式一样，拆分成基本单位，推导综合单位，比如加速度，a&#x3D;s&#x2F;t^2。像化学式子一样，通过一些简单的化学式，得到综合合成的化学式。像跳舞一样，将复杂的动作分解成一个个定格的动作，自己一定能做到的动作，后面才连贯起来。像练字一样，将一笔一划练习好，后面才考虑字的空间排布，左小右大等。</p>
-</li>
-<li><p>文字逻辑排序、图像逻辑排序来源于思维导图、记忆宫殿，就是讲知识点按照固有逻辑的联系排序，两个有知识点的关系为上下位关系和并列关系、时间顺序、空间顺序关系等。有些作者在编书的时候，知识点的罗列符合它自己的记忆习惯，不符合我们的记忆习惯，我们刻意根据我们的习惯进行重新分类总结。具体参考B站。</p>
-</li>
-<li><p>第15步，缩减法、歌谣法、故事法、举例子。缩减法、歌谣法、故事法就是我们压缩记忆的方法了。缩减法比如二十四节气歌。歌谣法比如老师教书的各种口诀(歌谣)，奇变偶不变，符号看象限。故事法比如写小说，将一些时间集中起来，变成有趣的故事记忆。举例子属于扩展记忆的方法，定性举例：营养词语比较抽象，例子有:香蕉、米饭、苹果、鱼肉。定量举例：一个多大的盒子可以装下10732个网球。很少人给出低于100英尺的。答案是4立方英尺。我们只要记住一个具体例子，用具体例子代表抽象例子，这样抽象例子就很容易被记住。</p>
-</li>
-<li><p>第16步，手到(记录)心到(思考)口到(总结)。运动法。意象练习2。集中注意力思考逻辑关系，思考手、眼、脑的配合。和脑区暗示是一样的，调用内部注意力。</p>
-</li>
-<li><p>第17步，成果目标对比复盘法。比如练字的第一笔对齐不是让字尽可能对齐，看看自己练字的成果和目标还有多大差距。这个主要是自己阶段训练完成后才去检验自己和目标的差距的，训练中要全身心投入这个训练动作，不要老想着和最后目标差距，专注完成这个小目标就行。做法是回顾目标、评估结果、精准描述整个失败事件(如连续两次，科目三没过)、列出失败原因(路线不熟、车况不好、考官太严格导致紧张、起步技术不够好)、确定那些自己可以控制的因素(内控因素：路线不熟、起步技术不够好)、试图控制外控因素(我和考官沟通不够主动、没有及时管理自己的情绪、没有事先确认车况)、分析行为原因(将刚才的关键抉择重新演练一遍)、总结规律(提醒自己下次如何不再犯错)。</p>
-</li>
-<li><p>第18步，过电影复盘法*2。效率是提升两倍，就是自己有一定训练量后，把物理训练时间改为脑海里想象的训练。就是越好专注地模拟所有小细节，模拟越细致越有效果。视觉、听觉、触觉、嗅觉、味觉。比如切柠檬并吃下。感受比赛的场地摩擦力、观众欢呼声、风吹过的声音，汗水流过脸颊，对手的凝重表情。回想老师的讲课，说话声音、黑板写字声音、老师的神情、专属敲黑板动作、学霸自信且骄傲的回答声。也可以单纯回想习武的每个动作，恋人说的每一句话。一字不差地背下来。</p>
-</li>
-<li><p>第19步，建立自己地核心问题库，就是和费曼学习法的自我解释、刚才复盘时没有回想起的内容，训练时出现的失误及其解决方法，统统写下来便于复习，最终记到脑海里，让这些问题不成为自己的难题，而是成为自己成长的见证，成为自己专业知识的护城河。</p>
-</li>
-<li><p>第20步，就是间隔复习，也是艾宾浩斯记忆法，将整理好的知识、记住的知识进行定期复习，就能让自己的短期记忆变成长期记忆。</p>
-</li>
-<li><p>第21步，就是能力泛化、直觉化。《心理》18目的性颤抖：像赢家一样依赖直觉。赢家不思考，赢家靠直觉。这就是说自己把东西记得像熟悉家人那样后，自己很多东西都是自然而然形成的。比如数学家，黑客程序员，英语试卷的语感，救火的消防员。很多问题都是靠直觉来思考的，先把这个旧方案可以解决问题，直接使用旧方案，遇到实际问题不行再换方案，不会像初期那样进行分析，进行深思熟虑。具体做法是多做习题，确定自己在遇到问题时能调用出这个知识点。做试卷时，像赢家一样依赖直觉，避免思考过多，越改越错。</p>
-</li>
-<li><p>能力泛化、直觉化的学习模式还有就是找模式方法，下图所示。</p>
-</li>
-</ul>
-<p> <img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220429200039761.png" alt="直觉性阅读"></p>
-<h2 id="心态算法"><a href="#心态算法" class="headerlink" title="心态算法"></a>心态算法</h2><h5 id="1-自己犯错时。使用成长型思维安慰自己。"><a href="#1-自己犯错时。使用成长型思维安慰自己。" class="headerlink" title="1.自己犯错时。使用成长型思维安慰自己。"></a>1.自己犯错时。使用成长型思维安慰自己。</h5><p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220429200127623.png" alt="成长型思维"></p>
-<h5 id="2-自己不理智地过度紧张时。比如考试时，演讲时，答辩时。"><a href="#2-自己不理智地过度紧张时。比如考试时，演讲时，答辩时。" class="headerlink" title="2.自己不理智地过度紧张时。比如考试时，演讲时，答辩时。"></a>2.自己不理智地过度紧张时。比如考试时，演讲时，答辩时。</h5><h6 id="短期做法："><a href="#短期做法：" class="headerlink" title="短期做法："></a>短期做法：</h6><p><img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220429200310312.png" alt="3种短期缓解焦虑做法"></p>
-<p>(1)用幸运物、幸运仪式说服自己，相信自己是幸运的。让自己在关键时刻正常发挥，不掉链子</p>
-<p>比如：费尔巴哈的狗、斯金纳的缓解焦虑的迷信鸽。练田英章的字</p>
-<p>(2)自我激励：打好这一分球比胜利更重要，跟训练时一样打就好，正常发挥就行。但是说自己最棒、自己一定行，会让自己自我怀疑，反而更紧张。</p>
-<p>(3)找到让自己有自信的人设，刻意做这个和人设相符合的事，让你真实的相信自己，唤醒霸气的自己，摔书包。唤醒耐心细致的自己，考前削好铅笔，准备两只签字笔等。</p>
-<p>矛盾意象法</p>
-<p>喜欢慢系统</p>
-<h6 id="长期做法："><a href="#长期做法：" class="headerlink" title="长期做法："></a>长期做法：</h6><p> <img src="http://tuchuang7758.oss-cn-beijing.aliyuncs.com/img/image-20220429200219950.png" alt="应对变化的办法是主动出击"></p>
-<h5 id="3-对抗没动力执行的拖延症。"><a href="#3-对抗没动力执行的拖延症。" class="headerlink" title="3.对抗没动力执行的拖延症。"></a>3.对抗没动力执行的拖延症。</h5><p>(1)由于思考引起的没动力拖延。仅仅因为简单的选择思考想偷懒时，列出执行意图，提前预案，跳过休息和执行判断，直接执行预先设定的任务。如果是对复杂、麻烦的任务或目标完全不知从何开始时，把大目标化解成一个个做起来自己不会失败的小目标来执行。</p>
-<p>(2)由于假疲劳引起的没动力拖延。承认自己心理感受的存在，告诉自己这个只是假警报，我还有体力执行。</p>
-<p>(3)由于真疲劳引起的没动力拖延。先休息10分钟、半小时，10分钟、半小时后的警报当作假疲劳强制执行任务。</p>
-<p>(4)由于没有正反馈引起的没动力拖延。</p>
-<p>1)如果是那些细致末节不太重要的练习占据太多时间。就进行刻意练习、精准练习，让自己快速做出可视化成果。</p>
-<p>2)如果因为自己没有专注，就设定特定一个场景时间段，这个时空下，自己不理会任何打扰，让自己做出成果。</p>
-<p>3)如果是自己太专注引起大炮打蚊子、开车战战兢兢，明明感觉很简单，就是不能完成，就暂时离开这个任务，做更难得任务或者跑步打散原来得思维定势，一段时间后重新聚焦合适的专注力让自己完成任务。</p>
-]]></content>
-      <tags>
-        <tag>yasashii</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>高数复习</title>
     <url>/2022/04/07/%E9%AB%98%E6%95%B0%E5%A4%8D%E4%B9%A0/</url>
     <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>英语四六级</title>
-    <url>/2022/04/05/%E8%8B%B1%E8%AF%AD%E5%9B%9B%E5%85%AD%E7%BA%A7/</url>
-    <content><![CDATA[<h1 id="英语四六级学习方法与资料"><a href="#英语四六级学习方法与资料" class="headerlink" title="英语四六级学习方法与资料"></a>英语四六级学习方法与资料</h1><h2 id="像熟悉家人一样熟悉单词"><a href="#像熟悉家人一样熟悉单词" class="headerlink" title="像熟悉家人一样熟悉单词"></a>像熟悉家人一样熟悉单词</h2><p>中学老师曾经说过：</p>
-<p><strong>教学的目的有两层，第一层是“再认”，就是给教你个东西，你到别的地方能把它再识别出来；而另一种更高要求是“再现”，就是这个东西学过了，你要能自己在需要的时候写出来。阅读就是考“眼熟”，所以只需要达到“再认”就可以了。</strong></p>
-<p>在汉语里也有类似的情况，很多生僻字，比如“尴尬”、“沟壑”、“迷惘”，很多人也是会认不会写，在考试里，丝毫不会影响阅读的做题。</p>
-<h2 id="听力：对照脚本进行跟读"><a href="#听力：对照脚本进行跟读" class="headerlink" title="听力：对照脚本进行跟读"></a>听力：<strong>对照脚本进行跟读</strong></h2><p>彻底体会那些连读、略读、<strong>停顿和语气、语调</strong>，对这些越熟悉，再在别的地方听到的时候，所需要的反应时间就越短，同时自己发出的语音也能更好地为词形和词音建立联系。</p>
-<p>一般来说，应该先循环听，再看脚本，但如果基础太差（听的时候感觉没有收获、没有兴趣继续听下去），也可以先看脚本，再听听力，但循环次数一定要达到<strong>脱离脚本后都识别</strong>出来的程度！</p>
-<p><a href="https://en-letter.xiao84.com/4402.html">26个字母发音</a>。<a href="https://en-letter.xiao84.com/">各字母单独发音</a>。注意g、j、z的区别。s、x的区别。</p>
-<h2 id="单词：建立自己的“核心”“高频”词汇库"><a href="#单词：建立自己的“核心”“高频”词汇库" class="headerlink" title="单词：建立自己的“核心”“高频”词汇库"></a>单词：建立自己的“<strong>核心”“高频”</strong>词汇库</h2><p>买分频的词汇书，用作初始词汇库。用作过渡。后面再做自己的词汇库</p>
-<p>做卷子的时候，不仅在试卷上标注单词的发音和语境意，也要在单词书上做记号，没查一次画一横，手动筛选出自己的<strong>核心”“高频”</strong>词汇库。<strong>是命题人考查你的词汇停留在高中还是大学的标尺！</strong></p>
-<h2 id="阅读"><a href="#阅读" class="headerlink" title="阅读"></a>阅读</h2><p><strong>选真题书一定要有全文翻译的，没有翻译的，不值得买</strong></p>
-<p>后面可以用谷歌翻译检验翻译水平</p>
-<h2 id="写作和翻译"><a href="#写作和翻译" class="headerlink" title="写作和翻译"></a>写作和翻译</h2><p>“回译法”，就是找来真题作文范文的【汉语翻译】，【从汉语翻译往英语“回译”】，然后去对照根据同样的汉语，<strong>自己译的英语和范文有什么差异</strong>，这个差异点，就是你可以译错的地方</p>
-<p>后面可以用谷歌翻译检验翻译水平</p>
-<h2 id="四六级资料"><a href="#四六级资料" class="headerlink" title="四六级资料"></a>四六级资料</h2><p>1989-2020<a href="https://www.aliyundrive.com/s/XgnySKU49jD">六级试卷与解析</a>  <a href="https://m.kekenet.com/cet6/ljtl/">听力</a>   2015-2021<a href="https://www.aliyundrive.com/s/iFBokMEsZ6a">四级试卷与解析</a> </p>
-<p>参考文献：<a href="https://www.zhihu.com/question/22085688/answer/22534419">https://www.zhihu.com/question/22085688/answer/22534419</a></p>
-<p>英语歌谣</p>
-<p><a href="https://www.bilibili.com/video/BV124411r7T2?share_source=copy_web">Coloursong</a></p>
-<p><a href="https://www.bilibili.com/video/BV1yU4y1a7cS?share_source=copy_web">Colors Song_颜色之歌</a></p>
-<p><a href="https://www.bilibili.com/video/BV1vE4118768?share_source=copy_web">五只小鸟3</a></p>
-]]></content>
-      <tags>
-        <tag>yasashii</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>网站导航</title>
-    <url>/2022/04/02/%E7%BD%91%E7%AB%99%E5%AF%BC%E8%88%AA/</url>
-    <content><![CDATA[<h2 id="常用网站"><a href="#常用网站" class="headerlink" title="常用网站"></a>常用网站</h2><ul>
-<li><a href="https://www.kaolamedia.com/">https://www.kaolamedia.com/</a>  新媒体人每天打开的第一个网站</li>
-<li><a href="https://www.ijiandao.com/">https://www.ijiandao.com/</a> 一个大而全的自媒体导航网站，偏网络技术性，含广告</li>
-</ul>
-<h2 id="风口项目-最赚钱的方向，方向可叠加"><a href="#风口项目-最赚钱的方向，方向可叠加" class="headerlink" title="风口项目(最赚钱的方向，方向可叠加)"></a>风口项目(最赚钱的方向，方向可叠加)</h2><ul>
-<li><p>人工智能方向，关键词有：混合现实、虚拟现实、游戏、社区、元宇宙、超域、区块链</p>
-</li>
-<li><p>在线教育方向，关键词有：知识付费、考研培训、java培训、英语培训、日语培训、泡妞培训、养生培训</p>
-</li>
-<li><p>自媒体方向，关键词有：个人ip、买人设、镜头表现力、短视频、B站、快手、引流变现、商业合作、恰饭内容</p>
-</li>
-<li><p>社区运营方向，关键词有：考公考研群、付费会员、混音群声音调教、入群会员费</p>
-</li>
-</ul>
-<h2 id="图书馆网站导航"><a href="#图书馆网站导航" class="headerlink" title="图书馆网站导航"></a>图书馆网站导航</h2><ul>
-<li><a href="http://www.sci-hub.ren/">http://www.sci-hub.ren/</a> 全球最大的科研下载网站。web of scient\百度学术 查doi号后查找</li>
-<li><a href="https://ebook2.lorefree.com/">https://ebook2.lorefree.com/</a> 书籍需要稻壳阅读器打开，方便阅读</li>
-<li><a href="https://zh.ng1lib.org/?signAll=1&amp;ts=2156">https://zh.ng1lib.org/?signAll=1&amp;ts=2156</a> 全球最大的数字图书馆</li>
-<li><a href="https://www.pdfdrive.com/">https://www.pdfdrive.com/</a> 全球最大的pdf网站，偏向英文</li>
-<li><a href="https://digilibraries.com/">https://digilibraries.com/</a> 纯英文书籍搜索网站，书籍图较多</li>
-<li><a href="http://www.ucdrs.net/admin/union/index.do">http://www.ucdrs.net/admin/union/index.do</a>  可以查到有什么书，仅试看，不下载全部</li>
-</ul>
-<h2 id="书籍格式转换相关工具"><a href="#书籍格式转换相关工具" class="headerlink" title="书籍格式转换相关工具"></a>书籍格式转换相关工具</h2><ul>
-<li><a href="https://www.toplinks.cc/s/">https://www.toplinks.cc/s/</a>  需要自己下载excel，查到后在百度网盘下载</li>
-<li><a href="https://convertio.co/zh/ebook-converter/">https://convertio.co/zh/ebook-converter/</a> 文献格式转换网站</li>
-<li><a href="https://www.alltoall.net/">https://www.alltoall.net/</a> 文献格式转换网站</li>
-<li><a href="https://pdf.yozocloud.cn/p/home#/Pdf2word">https://pdf.yozocloud.cn/p/home#/Pdf2word</a> 永中格式转换 pdf word ppt</li>
-</ul>
-<h2 id="论坛导航"><a href="#论坛导航" class="headerlink" title="论坛导航"></a>论坛导航</h2><ul>
-<li><a href="https://www.runoob.com/">https://www.runoob.com/</a> 学习java、python等教材级网站，有代码跑</li>
-<li><a href="https://stackoverflow.com/">https://stackoverflow.com/</a> 比全球较大的社区交流论坛</li>
-<li><a href="https://stackoverflow.com/questions/tagged/java%E8%A7%A3%E5%86%B3%E7%BB%9D%E5%A4%A7%E5%A4%9A%E6%95%B0java%E7%9A%84bug">https://stackoverflow.com/questions/tagged/java解决绝大多数java的bug</a></li>
-<li><a href="https://dl.21ic.com/">https://dl.21ic.com/</a> 21icdi电子论坛：严格管理，看起来不错。有很多免费的it行业电子书。</li>
-<li><a href="https://www.labfans.com/bbs/t85/">https://www.labfans.com/bbs/t85/</a> 一个matlab论坛，回首页可以看到各种语言开发论坛</li>
-<li><a href="http://ifeve.com/">http://ifeve.com/</a> 并发编程网</li>
-<li><a href="https://www.heywhale.com/home/user/profile/5ddb3f9d249294002d4e035f">https://www.heywhale.com/home/user/profile/5ddb3f9d249294002d4e035f</a> 一个对初学者友好的半付费网站</li>
-<li><a href="https://www.cnblogs.com/">https://www.cnblogs.com/</a> 博客园，老牌技术论坛</li>
-<li><a href="http://www.elecfans.com/">http://www.elecfans.com/</a> 国内老牌技术论坛</li>
-<li><a href="https://www.kylen314.com/">https://www.kylen314.com/</a> 一个个人网站</li>
-<li><a href="https://xydh.fun/gangshu">https://xydh.fun/gangshu</a> 个人导航</li>
-<li><a href="https://www.52pojie.cn/">https://www.52pojie.cn/</a> 吾爱破解论坛</li>
-<li><a href="https://github.com/trending/java?since=monthly%E6%89%BE%E5%88%B0%E5%A4%A7%E9%83%A8%E5%88%86%E7%9A%84%E8%84%9A%E6%9C%AC">https://github.com/trending/java?since=monthly找到大部分的脚本</a></li>
-<li><a href="https://developer.ibm.com/languages/java/%E9%AB%98%E8%B4%A8%E9%87%8FJava%E4%B9%A6%E7%B1%8D">https://developer.ibm.com/languages/java/高质量Java书籍</a> IBM</li>
-<li><a href="https://www.infoworld.com/category/java/%E5%A4%A7%E9%87%8F%E7%9A%84">https://www.infoworld.com/category/java/大量的</a> Java 教程 </li>
-<li><a href="https://www.programcreek.com/simple-java/%E7%AE%80%E5%8D%95%E7%9A%84Java%E6%95%99%E5%AD%A6%EF%BC%8C%E7%B1%BB%E4%BC%BC%E8%8F%9C%E9%B8%9F%E6%95%99%E7%A8%8B">https://www.programcreek.com/simple-java/简单的Java教学，类似菜鸟教程</a></li>
-<li><a href="https://leetcode.cn/problemset/all/%E4%B9%90%E6%89%A3%E9%A2%98%E5%BA%93%EF%BC%8C%E4%B8%AD%E5%9B%BD%E6%9C%80%E5%A5%BD%E5%AD%A6%E4%B9%A0%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%AB%99">https://leetcode.cn/problemset/all/乐扣题库，中国最好学习计算机网站</a></li>
-<li><a href="https://www.cnblogs.com/cate/java/%E5%8D%9A%E5%AE%A2%E5%9B%AD%E7%9C%8B%E5%8D%9A%E5%AE%A2">https://www.cnblogs.com/cate/java/博客园看博客</a></li>
-<li><a href="https://juejin.cn/backend%E6%8E%98%E9%87%91%EF%BC%8C%E5%9B%BD%E5%86%85%E7%BD%91%E7%AB%99">https://juejin.cn/backend掘金，国内网站</a></li>
-</ul>
-<h2 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h2><ul>
-<li><a href="https://zhihu.zhaoyizhe.com/">https://zhihu.zhaoyizhe.com/</a> 知乎历史热榜</li>
-<li><a href="https://xxkol.cn/home">https://xxkol.cn/home</a> B站、快手历史榜单</li>
-<li><a href="https://www.wrd.cn/splitWords.shtml">https://www.wrd.cn/splitWords.shtml</a> 网易云微热点 文本数据挖掘</li>
-<li><a href="https://tophub.today/">https://tophub.today/</a> 每日热榜</li>
-<li><a href="https://www.desmos.com/calculator?lang=zh-CN">https://www.desmos.com/calculator?lang=zh-CN</a>  可视化数学公式</li>
-<li><a href="https://tw.noxinfluencer.com/youtube-channel-rank/top-100-all-all-youtuber-sorted-by-subs-weekly">https://tw.noxinfluencer.com/youtube-channel-rank/top-100-all-all-youtuber-sorted-by-subs-weekly</a> YouTube、国际抖音、推特的达人粉丝数分析</li>
-<li><a href="https://cn.noxinfluencer.com/trend/">https://cn.noxinfluencer.com/trend/</a> YouTube、国际抖音、推特的达人粉丝数分析（区别：需要手机号注册、分析全球信息更加详细）</li>
-</ul>
-<h2 id="素材网站"><a href="#素材网站" class="headerlink" title="素材网站"></a>素材网站</h2><ul>
-<li><a href="https://www.dbbqb.com/search/id/250108.html">https://www.dbbqb.com/search/id/250108.html</a> 搞笑图片</li>
-<li><a href="https://hao.uisdc.com/">https://hao.uisdc.com/</a> 一个国内最强素材导航</li>
-<li><a href="https://www.pixiv.net/">https://www.pixiv.net/</a> 最强原创二次元图片 二次元界称P站</li>
-<li><a href="https://www.888haoran.com/category/dzszy/mhxz">https://www.888haoran.com/category/dzszy/mhxz</a> 最强原创二次元图片收集</li>
-<li><a href="https://acg.zsyts.cn/">https://acg.zsyts.cn/</a> 最强原创二次元图片收集2 次元猫</li>
-<li><a href="https://www.huashi6.com/">https://www.huashi6.com/</a> 国内二次元图片 半付费</li>
-<li><a href="https://www.doyoudo.com/resources">https://www.doyoudo.com/resources</a> 免费商用图片 涉及各种自媒体创作知识</li>
-<li><a href="https://wall.alphacoders.com/popular.php?lang=Chinese">https://wall.alphacoders.com/popular.php?lang=Chinese</a> 壁纸网站</li>
-<li><a href="https://www.iconfont.cn/home/index?spm=a313x.7781069.1998910419.2">https://www.iconfont.cn/home/index?spm=a313x.7781069.1998910419.2</a> 阿里矢量图标</li>
-<li><a href="https://cc0.cn/">https://cc0.cn/</a> 收集可免费商用图片 现实图片</li>
-<li><a href="https://unsplash.com/">https://unsplash.com/</a>  收集可免费商用图片 现实图片</li>
-<li><a href="https://www.foodiesfeed.com/">https://www.foodiesfeed.com/</a> 食物图片</li>
-<li><a href="https://www.lofter.com/">https://www.lofter.com/</a> B站知乎之类的论坛</li>
-<li><a href="https://www.thiswaifudoesnotexist.net/">https://www.thiswaifudoesnotexist.net/</a> ai老婆生成器 对抗网络图片生成</li>
-<li><a href="https://if.caiyunai.com/#/">https://if.caiyunai.com/#/</a> ai自动续写 彩云小梦</li>
-<li><a href="https://www.remove.bg/zh/upload">https://www.remove.bg/zh/upload</a> ai抠图 分离人物和背景</li>
-</ul>
-<h3 id="音乐相关"><a href="#音乐相关" class="headerlink" title="音乐相关"></a>音乐相关</h3><ul>
-<li><a href="https://freepd.com/">https://freepd.com/</a> 声库</li>
-<li><a href="https://www.ear0.com/">https://www.ear0.com/</a> 声库2 耳聆网</li>
-<li><a href="https://www.tosound.com/">https://www.tosound.com/</a> 声库3 淘声网</li>
-<li><a href="https://wedistill.io/">https://wedistill.io/</a> 声库4</li>
-<li><a href="https://mixkit.co/">https://mixkit.co/</a> 免费的视频、音乐、声效等 资源库1</li>
-<li><a href="https://www.videvo.net/">https://www.videvo.net/</a> 免费的视频、音乐、声效等 资源库2</li>
-<li><a href="https://www.videezy.com/">https://www.videezy.com/</a> 免费的视频、音乐、声效等 资源库3 这个有科研视频素材</li>
-</ul>
-<h3 id="音乐制作工具"><a href="#音乐制作工具" class="headerlink" title="音乐制作工具"></a>音乐制作工具</h3><ul>
-<li><a href="http://vocakey.info/vocaloid5_library">http://vocakey.info/vocaloid5_library</a> vocaloid5声库</li>
-<li><a href="https://vocalremover.org/ch/">https://vocalremover.org/ch/</a> 人声伴奏分离</li>
-<li><a href="https://www.lalal.ai/">https://www.lalal.ai/</a> 人声伴奏分离</li>
-<li><a href="https://demo.unlock-music.dev/">https://demo.unlock-music.dev/</a> 酷狗酷我QQ音乐网易云格式转换mp3</li>
-</ul>
-<h2 id="电影网站"><a href="#电影网站" class="headerlink" title="电影网站"></a>电影网站</h2><ul>
-<li><a href="https://v.lxl8800.cn/index.php/vod/type/id/4/page/3.html">https://v.lxl8800.cn/index.php/vod/type/id/4/page/3.html</a></li>
-</ul>
-<h2 id="游戏破解"><a href="#游戏破解" class="headerlink" title="游戏破解"></a>游戏破解</h2><ul>
-<li><a href="https://byrut.org/">https://byrut.org/</a> 海盗湾</li>
-<li><a href="https://pc.qq.com/search.html#!keyword=360%E6%B5%8F%E8%A7%88%E5%99%A8">https://pc.qq.com/search.html#!keyword=360%E6%B5%8F%E8%A7%88%E5%99%A8</a> 腾讯软件下载中心</li>
-</ul>
-<h2 id="网站运营"><a href="#网站运营" class="headerlink" title="网站运营"></a>网站运营</h2><ul>
-<li><a href="http://www.yunyingxuetang.com/">http://www.yunyingxuetang.com/</a> 运营学堂</li>
-<li><a href="http://www.woshipm.com/">http://www.woshipm.com/</a> 人人都是产品经理</li>
-</ul>
-<h2 id="生理"><a href="#生理" class="headerlink" title="生理"></a>生理</h2><ul>
-<li><a href="https://www.brainfacts.org/">https://www.brainfacts.org/</a> 脑部事实</li>
-</ul>
-<h2 id="古代文学"><a href="#古代文学" class="headerlink" title="古代文学"></a>古代文学</h2><ul>
-<li><a href="https://sou-yun.cn/">https://sou-yun.cn/</a> 搜韵</li>
-<li><a href="https://ctext.org/book-of-changes/xi-ci-xia/zhs">https://ctext.org/book-of-changes/xi-ci-xia/zhs</a> 中国哲学书</li>
-<li><a href="https://www.cidianwang.com/kangxi/jiang/jiang1404.htm">https://www.cidianwang.com/kangxi/jiang/jiang1404.htm</a> 康熙字典、说文解字、古汉语字典等</li>
-<li><a href="https://ytenx.org/">https://ytenx.org/</a> 典韵网 研究古代官话发音变化</li>
-<li><a href="https://hanziyuan.net/">https://hanziyuan.net/</a> 字源网 研究汉字演变</li>
-<li><a href="https://www.zdic.net/ts/han/2018/04/433.html">https://www.zdic.net/ts/han/2018/04/433.html</a> 汉典网 研究汉字演变</li>
-<li><a href="https://taiwanebook.ncl.edu.tw/zh-tw">https://taiwanebook.ncl.edu.tw/zh-tw</a> 台湾华文电子书库</li>
-<li><a href="https://twblg.dict.edu.tw/holodict_new/">https://twblg.dict.edu.tw/holodict_new/</a> 台湾闽南语字典</li>
-<li><a href="https://www.moedict.tw/%E5%A3%B9">https://www.moedict.tw/%E5%A3%B9</a>      台湾多方言字典 萌典</li>
-<li><a href="http://laimn.cn/">http://laimn.cn/</a> 闽南语</li>
-</ul>
-<h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><ul>
-<li><a href="http://old.mindmanager.cn/muban/">http://old.mindmanager.cn/muban/</a> 国外</li>
-<li><a href="https://mm.edrawsoft.cn/community/show/1">https://mm.edrawsoft.cn/community/show/1</a> 国内</li>
-<li><a href="https://zhimap.com/gallery">https://zhimap.com/gallery</a> 知识导图</li>
-<li><a href="http://www.3acloud.com/swmb.htm">http://www.3acloud.com/swmb.htm</a> 企业级思维导图 需要下载安装后才可以看到 不支持网页</li>
-</ul>
-<h2 id="大学生"><a href="#大学生" class="headerlink" title="大学生"></a>大学生</h2><ul>
-<li><a href="https://chachong.xiaoyuanling.com/">https://chachong.xiaoyuanling.com/</a> 论文查重 校园令</li>
-<li><a href="http://www.dxzy163.com/">http://www.dxzy163.com/</a> 大学生资源网</li>
-<li><a href="http://www.sasac.gov.cn/n2588035/n2588325/n2588350/index.html">http://www.sasac.gov.cn/n2588035/n2588325/n2588350/index.html</a> 国家人事招聘</li>
-<li><a href="https://www.qgsydw.com/qgsydw/index.html">https://www.qgsydw.com/qgsydw/index.html</a> 全国事业单位招聘</li>
-<li><a href="https://www.zggqzp.com/">https://www.zggqzp.com/</a> 国企招聘 中介</li>
-<li><a href="https://www.iguopin.com/">https://www.iguopin.com/</a> 国企招聘 中介</li>
-</ul>
-<h2 id="国家相关"><a href="#国家相关" class="headerlink" title="国家相关"></a>国家相关</h2><ul>
-<li><a href="http://www.wenshu.com/">http://www.wenshu.com/</a> 一个导航 方便查询个人、企业是否有法律纠纷</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>yasashiix</tag>
-      </tags>
   </entry>
 </search>
